@@ -1,0 +1,26 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./typings",
+    "inlineSourceMap": false,
+    "lib": ["es6", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "./lib",
+    "removeComments": true,
+    "sourceMap": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "target": "es2017",
+    "typeRoots": ["./node_modules/@types", "./typings"],
+    "watch": true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*-spec.ts"
+  ]
+}
