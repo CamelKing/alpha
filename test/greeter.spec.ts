@@ -1,6 +1,6 @@
 import * as mocha from 'mocha';
 
-import { Greeter } from '../src/greeter';
+import { Greeter } from '../src/alpha';
 import { expect } from 'chai';
 import { should } from 'chai';
 

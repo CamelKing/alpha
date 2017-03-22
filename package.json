@@ -1,6 +1,6 @@
 {
   "name": "alpha",
-  "version": "0.0.10",
+  "version": "0.0.1",
   "description": "alpha",
   "directories": {
     "test": "test"
@@ -14,16 +14,16 @@
   "files": [
     "lib"
   ],
-  "main": "lib/index.js",
-  "typings": "typings/index.d.ts",
+  "main": "lib/alpha.js",
+  "typings": "typings/alpha.d.ts",
   "scripts": {
     "clean": "rimraf lib",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
-    "build": "npm run clean && npm run lint && echo Using TypeScript && tsc --version && tsc --pretty",
-    "test": "PORT=8000 nodemon --ext ts --watch ./  --exec 'nyc --reporter=text --reporter=html mocha -r ts-node/register  ./test/**/*-spec.ts  --recursive  --reporter spec  --slow 0' --delay 1",
-    "testmon": "PORT=8000 nodemon --ext ts --watch ./  --exec 'mocha -r ts-node/register  ./test/**/*-spec.ts  --recursive  --reporter spec  --slow 0' --delay 1",
-    "testonly": "mocha --compilers ts:ts-node/register --recursive 'test/**/*-spec.ts' --reporter spec --slow 0",
-    "coverage": "nyc --reporter=text --reporter=html mocha --compilers ts:ts-node/register  --recursive 'test/**/*-spec.ts'",
+    "build": "echo Using TypeScript && tsc --version && tsc --pretty",
+    "test": "PORT=8000 nodemon --ext ts --watch ./  --exec 'nyc --reporter=text --reporter=html mocha -r ts-node/register  ./test/**/*.spec.ts  --recursive  --reporter spec  --slow 0' --delay 1",
+    "testmon": "PORT=8000 nodemon --ext ts --watch ./  --exec 'mocha -r ts-node/register  ./test/**/*.spec.ts  --recursive  --reporter spec  --slow 0' --delay 1",
+    "testonce": "mocha --compilers ts:ts-node/register --recursive 'test/**/*.spec.ts' --reporter spec --slow 0",
+    "coverage": "nyc --reporter=text --reporter=html mocha --compilers ts:ts-node/register  --recursive 'test/**/*.spec.ts'",
     "watch": "npm run build -- --watch",
     "watch:test": "npm run test -- --watch",
     "build:test": "npm run build && npm run test"
