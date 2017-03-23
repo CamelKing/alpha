@@ -1,6 +1,8 @@
 import { expect, should } from 'chai';
 import { isTheSame, randomInteger, randomText } from '../src/alpha';
 
+import { toObject } from '../src/toobject';
+
 should();
 
 
@@ -243,7 +245,14 @@ describe('isTheSame() should compare...', () => {
     isTheSame(input1, input2).should.be.false;
   });
 
-  it('Error object vs man made object.', () => {
+  it('Error object vs toObject().', () => {
+    input1 = new Error('THIS IS ERROR');
+    input2 = toObject(input1);
+    isTheSame(input1, input1).should.be.true;
+    isTheSame(input1, input2).should.be.true;
+  });
+
+  it('Error object vs Object.assign().', () => {
     input1 = new Error('THIS IS ERROR');
     Object.assign(input2, input1);
     isTheSame(input1, input1).should.be.true;

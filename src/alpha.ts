@@ -6,6 +6,7 @@ export * from './chunk';
 
 // @category String
 export * from './randomtext';
+export * from './prints';
 
 // @category Math
 export * from './randominteger';
@@ -14,3 +15,5 @@ export * from './randominteger';
 export * from './isthesame';
 export * from './thetypeof';
 export * from './toobject';
+export * from './objectify';
+export * from './stringify';

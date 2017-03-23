@@ -6,3 +6,4 @@ coverage/
 .editorconfig
 .jsbeautifyrc
 npm-debug.log
+output.txt

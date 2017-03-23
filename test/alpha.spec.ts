@@ -34,8 +34,10 @@ testControl['stringMods'] = [
 
 testControl['objectMods'] = [
   'isTheSame',
+  'objectify',
+  'stringify',
   'theTypeOf',
-  'toObject'
+  'toObject',
 ];
 
 testControl['mathMods'] = [

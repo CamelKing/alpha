@@ -36,11 +36,18 @@ export function toObject(anyVar: any): object {
 
     case 'error':
       plainObj = new Error(anyVar.message);
-      Object.assign(plainObj, anyVar);
+      // for error object, must use this method to copy out
+      // all the non-enumerable properties, rather than object.assign()
+      // which does not copy non enumerable properties
+      Object.getOwnPropertyNames(anyVar).forEach((key: string) => {
+        plainObj[key] = anyVar[key];
+      });
       break;
 
     case 'object':
-      Object.assign(plainObj, anyVar);
+      Object.getOwnPropertyNames(anyVar).forEach((key: string) => {
+        plainObj[key] = anyVar[key];
+      });
       break;
 
     case 'array':
@@ -64,4 +71,4 @@ export function toObject(anyVar: any): object {
 
   return plainObj;
 
-}
+};
