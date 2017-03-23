@@ -1,8 +1,11 @@
 /**
  * Split an array into chunks of smaller arrays,
  * as specified by the passed in size parameter.
- * 
+ *
  * Note: adapted from the chunk() module from lodash.
+ *
+ * * @since 0.0.1
+ * @category array
  *
  * @export
  * @param {any[]} input

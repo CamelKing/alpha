@@ -1,5 +1,3 @@
-import * as timers from 'timers';
-
 import { StopWatch, Timer, casio } from '../src/alpha';
 import { expect, should } from 'chai';
 
