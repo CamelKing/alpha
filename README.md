@@ -11,10 +11,12 @@ This project makes use of the followings tools:
 2) `tsc` for transpiling Typescript code to Javascript code.
 3) `tslint` for linting.
 4) `mocha` and `chai` testing framework, with `ts-node` as the run time compiler.
-5) `nyc` as the coverage tool.
+5) `nyc` as the coverage reporting tool.
 6) `NodeJS` for the run time.
 7) `npm` for package, dependency and task management.
 8) `Mac OSX Sierra` for the development OS.
+9) `Github` for the repository.
+10) `Coveralls` for the coverage report history. 
 
 The design and coding philoshophy behind all modules (as much as possible):
 1) functional in nature

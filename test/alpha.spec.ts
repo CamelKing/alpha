@@ -53,6 +53,7 @@ testControl['stringMods'] = [
   'capitalise',
   'prints',
   'randomText',
+  'trim',
 ];
 
 testControl['timeInstances'] = [
