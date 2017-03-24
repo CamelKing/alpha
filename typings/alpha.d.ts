@@ -4,6 +4,7 @@ export * from './makepromise';
 export * from './chunk';
 export * from './flatten';
 export * from './enumkeys';
+export * from './capitalise';
 export * from './randomtext';
 export * from './prints';
 export * from './randominteger';

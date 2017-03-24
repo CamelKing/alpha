@@ -1,5 +1,7 @@
 /**
  * Take an input and produce a Promise out of that.
+ * 
+ * Check out makeAwait() if you are using this for Async Await ...
  *
  * @since 0.0.1
  * @category async

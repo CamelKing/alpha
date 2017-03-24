@@ -13,6 +13,7 @@ export * from './flatten';
 export * from './enumkeys';
 
 // @category String
+export * from './capitalise';
 export * from './randomtext';
 export * from './prints';
 

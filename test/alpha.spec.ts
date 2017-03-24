@@ -36,6 +36,9 @@ testControl['collectionMods'] = [
 
 testControl['mathMods'] = [
   'randomInteger',
+  'round',
+  'roundUp',
+  'roundDown',
 ];
 
 testControl['objectMods'] = [
@@ -47,6 +50,8 @@ testControl['objectMods'] = [
 ];
 
 testControl['stringMods'] = [
+  'capitalise',
+  'prints',
   'randomText',
 ];
 
