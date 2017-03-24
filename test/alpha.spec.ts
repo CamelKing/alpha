@@ -54,6 +54,8 @@ testControl['stringMods'] = [
   'prints',
   'randomText',
   'trim',
+  'trimLeft',
+  'trimRight',
 ];
 
 testControl['timeInstances'] = [

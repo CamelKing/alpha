@@ -8,6 +8,8 @@ export * from './capitalise';
 export * from './prints';
 export * from './randomtext';
 export * from './trim';
+export * from './trimleft';
+export * from './trimright';
 export * from './randominteger';
 export * from './round';
 export * from './isthesame';

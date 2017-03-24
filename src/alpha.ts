@@ -17,6 +17,8 @@ export * from './capitalise';
 export * from './prints';
 export * from './randomtext';
 export * from './trim';
+export * from './trimleft';
+export * from './trimright';
 
 // @category Math
 export * from './randominteger';
