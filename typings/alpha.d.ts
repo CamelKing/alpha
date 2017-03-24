@@ -1,4 +1,5 @@
 export * from './timer';
+export * from './makeawait';
 export * from './makepromise';
 export * from './chunk';
 export * from './flatten';

@@ -2,6 +2,7 @@
 export * from './timer';
 
 // @category Async
+export * from './makeawait';
 export * from './makepromise';
 
 // @category Array

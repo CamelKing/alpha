@@ -21,6 +21,7 @@ const types: string[] = ['Mods', 'Instances'];
 const testControl: object = {};
 
 testControl['asyncMods'] = [
+  'makeAwait',
   'makePromise',
 ];
 
