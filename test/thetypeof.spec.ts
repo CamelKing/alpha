@@ -6,123 +6,127 @@ import { isTheSame, randomInteger, randomText, theTypeOf, toObject } from '../sr
 should();
 use(chaiAsPromised);
 
-describe('toObject() should convert...', () => {
+describe('theTypeOf()\n', () => {
 
-  let input: any;
-  let output: object;
+  describe('should print...', () => {
 
-  it('a string into an object.', () => {
-    input = randomText(1000);
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output[theTypeOf(input)].should.equal(input);
-  });
+    let input: any;
+    let str: string;
 
-  it('an empty string into an object.', () => {
-    input = '';
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output[theTypeOf(input)].should.equal(input);
-  });
+    it('"string" for string variable.', () => {
+      input = 'hello world';
+      str = theTypeOf(input);
+      str.should.equal('string');
+    });
 
-  it('a random number into an object.', () => {
-    input = randomInteger(1000, 2000);
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output[theTypeOf(input)].should.equal(input);
-  });
+    it('"string" for empty string.', () => {
+      input = '';
+      str = theTypeOf(input);
+      str.should.equal('string');
+    });
 
-  it('a random -ve number into an object.', () => {
-    input = randomInteger(-1000, -2000);
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output[theTypeOf(input)].should.equal(input);
-  });
+    it('"undefined" for undefined variable.', () => {
+      input = undefined;
+      str = theTypeOf(input);
+      str.should.equal('undefined');
+    });
 
-  it('a number 0 into an object.', () => {
-    input = 0;
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output[theTypeOf(input)].should.equal(input);
-  });
+    it('"null" for null vaiable.', () => {
+      input = null;
+      str = theTypeOf(input);
+      str.should.equal('null');
+    });
 
-  it('a TRUE boolean into an object.', () => {
-    input = true;
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output[theTypeOf(input)].should.equal(input);
-  });
+    it('"number" for number variable.', () => {
+      input = 123456;
+      str = theTypeOf(input);
+      str.should.equal('number');
+    });
 
-  it('a FALSE boolean into an object.', () => {
-    input = false;
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output[theTypeOf(input)].should.equal(input);
-  });
+    it('"number" for -ve number variable.', () => {
+      input = -123456;
+      str = theTypeOf(input);
+      str.should.equal('number');
+    });
 
-  it('a date into an object.', () => {
-    input = new Date();
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output[theTypeOf(input)].getTime().should.equal(input.getTime());
-  });
+    it('"number" for -ve floating point number variable.', () => {
+      input = -123.456;
+      str = theTypeOf(input);
+      str.should.equal('number');
+    });
 
-  it('a Symbol into an object.', () => {
-    input = Symbol();
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    const res: boolean = (output['symbol'] === input);
-    // tslint:disable-next-line:no-unused-expression
-    res.should.be.true;
-  });
+    it('"boolean" for TRUE boolean variable.', () => {
+      input = true;
+      str = theTypeOf(input);
+      str.should.equal('boolean');
+    });
 
-  it('an empty Array into an object.', () => {
-    input = [];
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    isTheSame(output[theTypeOf(input)], input).should.be.true;
-  });
+    it('"boolean" for FALSE boolean variable.', () => {
+      input = false;
+      str = theTypeOf(input);
+      str.should.equal('boolean');
+    });
 
-  it('an Array into an object.', () => {
-    input = [123, ['hello', true]];
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    isTheSame(output[theTypeOf(input)], input).should.be.true;
-  });
+    it('"array" for array variable.', () => {
+      input = [123, 'hello', true];
+      str = theTypeOf(input);
+      str.should.equal('array');
+    });
 
-  it('an empty object into an object.', () => {
-    input = {};
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output.should.deep.equal(input);
-  });
+    it('"array" for nested array variable.', () => {
+      input = [123, ['hello', [true]]];
+      str = theTypeOf(input);
+      str.should.equal('array');
+    });
 
-  it('an nested object into an object.', () => {
-    input = { a: 1, b: 2, c: { d: 'a', e: 'b', f: 'c' } };
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output.should.deep.equal(input);
-  });
+    it('"object" for empty object variable.', () => {
+      input = {};
+      str = theTypeOf(input);
+      str.should.equal('object');
+    });
 
-  it('an Error object into an object.', () => {
-    input = new Error('TEST');
-    output = toObject(input);
-    theTypeOf(output).should.equal('error');
-    output.should.deep.equal(input);
-  });
+    it('"object" for normal object variable.', () => {
+      input = { a: 1, b: 2, c: 3, d: 4, e: 5 };
+      str = theTypeOf(input);
+      str.should.equal('object');
+    });
 
-  it('a function into an object.', () => {
-    input = () => ('hello world');
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output['input'].should.equal(input);
-  });
+    it('"object" for normal object variable.', () => {
+      input = { a: 1, a2: { b: 2, c: 3, d: 4 }, e: 5 };
+      str = theTypeOf(input);
+      str.should.equal('object');
+    });
 
-  it('a promise into an object.', () => {
-    input = Promise.resolve('hello');
-    output = toObject(input);
-    theTypeOf(output).should.equal('object');
-    output[theTypeOf(input)].should.eventually.equal('hello');
+    it('"date" for a date object variable.', () => {
+      input = new Date();
+      str = theTypeOf(input);
+      str.should.equal('date');
+    });
+
+    it('"error" for an error object.', () => {
+      input = new Error();
+      str = theTypeOf(input);
+      str.should.equal('error');
+    });
+
+    it('"symbol" for an error object.', () => {
+      input = Symbol();
+      str = theTypeOf(input);
+      str.should.equal('symbol');
+    });
+
+    it('"function" for a variable storing function.', () => {
+      input = () => 'abc';
+      str = theTypeOf(input);
+      str.should.equal('function');
+    });
+
+    it('"promise" for a variable Promise object.', () => {
+      input = Promise.resolve(5);
+      str = theTypeOf(input);
+      str.should.equal('promise');
+    });
+
   });
 
 });

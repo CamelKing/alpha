@@ -3,7 +3,7 @@
  *
  * @since 0.0.1
  * @category Object
- * 
+ *
  * @export
  * @param {*} obj - object/primitives/any to indentify the type of
  * @returns {string}

@@ -12,27 +12,29 @@ import { theTypeOf } from './alpha';
 
 export function prints(...args: any[]): string {
 
-  args.forEach((arg: any, i: number) => {
+  const input: any[] = args.slice(0);
 
-    switch (theTypeOf(arg)) {
+  input.forEach((item: any, i: number) => {
+
+    switch (theTypeOf(item)) {
 
       case 'object':
 
         let sep: string = '';
-        args[i] = '{ ';
-        Object.keys(arg).forEach((key: any) => {
-          args[i] += sep + prints(key) + ': ' + prints(arg[key]);
+        input[i] = '{ ';
+        Object.keys(item).forEach((key: any) => {
+          input[i] += sep + prints(key) + ': ' + prints(item[key]);
           sep = ', ';
         });
-        args[i] += ' }';
+        input[i] += ' }';
         break;
 
       case 'function':
-        args[i] = prints(arg());
+        input[i] = prints(item());
         break;
 
       case 'date':
-        args[i] = arg.toLocaleString();
+        input[i] = item.toLocaleString();
         break;
 
       default:
@@ -41,5 +43,5 @@ export function prints(...args: any[]): string {
 
   });
 
-  return `${util.format.apply(null, args)}`;
+  return `${util.format.apply(null, input)}`;
 }

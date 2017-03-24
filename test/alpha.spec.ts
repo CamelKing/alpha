@@ -1,35 +1,40 @@
-
-import _a = require('../src/alpha');
-
+import * as _a from '../src/alpha';
 import * as chai from 'chai';
 
 const expect: any = chai.expect;
 
 
 const categories: string[] = [
-  'time',
+  'async',
   'array',
-  'string',
-  'math',
+  'collections',
   'function',
-  'promise',
+  'math',
   'object',
+  'promise',
+  'string',
+  'time',
 ];
 
 const types: string[] = ['Mods', 'Instances'];
 
 const testControl: object = {};
 
-testControl['timeInstances'] = [
-  'casio',
+testControl['asyncMods'] = [
+  'makePromise',
 ];
 
 testControl['arrayMods'] = [
   'chunk',
+  'flatten',
 ];
 
-testControl['stringMods'] = [
-  'randomText',
+testControl['collectionMods'] = [
+  'enumKeys',
+];
+
+testControl['mathMods'] = [
+  'randomInteger',
 ];
 
 testControl['objectMods'] = [
@@ -40,9 +45,14 @@ testControl['objectMods'] = [
   'toObject',
 ];
 
-testControl['mathMods'] = [
-  'randomInteger',
+testControl['stringMods'] = [
+  'randomText',
 ];
+
+testControl['timeInstances'] = [
+  'casio',
+];
+
 
 describe('alpha.ts should act as a barrel which...', () => {
 

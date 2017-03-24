@@ -5,7 +5,7 @@ should();
 
 describe('chunk()', () => {
 
-  describe('Default parameters handling', () => {
+  describe('Default parameters handling\n', () => {
 
     const input = [1, 2, 3];
     let output: any[] = [];

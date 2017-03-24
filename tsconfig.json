@@ -4,7 +4,7 @@
     "declaration": true,
     "declarationDir": "./typings",
     "inlineSourceMap": false,
-    "lib": ["es6", "dom"],
+    "lib": ["es2017", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -14,13 +14,13 @@
     "suppressImplicitAnyIndexErrors": true,
     "target": "es2017",
     "typeRoots": ["./node_modules/@types", "./typings"],
-    "watch": true
+    "watch": false
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
-    // "node_modules",
-    "**/*-spec.ts"
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }
