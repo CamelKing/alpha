@@ -19,6 +19,7 @@ export * from './string/randomtext';
 export * from './string/trim';
 export * from './string/trimleft';
 export * from './string/trimright';
+export * from './string/truncate';
 
 // @category Number
 export * from './number/randominteger';

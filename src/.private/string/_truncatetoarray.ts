@@ -1,32 +1,4 @@
 /**
- * Truncate a long strings into shorter one, optinally pad it
- * with trailing characters such as '...'
- *
- * truncateToArray() is the private function that do all the
- * works, returning an array with first item as truncated text,
- * and second item as padding text.
- *
- * truncate() is the exported function to be called by consumer.
- *
- * Note: default padding is '...' and '…'.
- *
- * @export
- * @param {string} input
- * @param {number} [len=0]
- * @param {string} [pad='...']
- * @returns {string}
- */
-
-export function truncate(input: string,
-  len: number = 0,
-  pad: string = '...'): string {
-
-  return _truncateToArray(input, len, pad).join('');
-
-}
-
-
-/**
  * Truncate a string down to a certain length, with option to include
  * padding characters at the end, such as '...' indicating more/rest/etc.
  *
@@ -37,6 +9,9 @@ export function truncate(input: string,
  * Take note that length of [0] and [1] combines shuold be the length requested
  * to the function.
  *
+ * @since 0.0.1
+ * @category String
+ *
  * @param {string} input
  * @param {number} [len=0]
  * @param {string} [pad='...']
@@ -45,7 +20,7 @@ export function truncate(input: string,
 
 export const halfWordLen: number = 3;
 
-function _truncateToArray(input: string, len: number,
+export function _truncateToArray(input: string, len: number,
   pad: string = '...'): string[] {
 
   // short length or empty string, return empty array
@@ -78,6 +53,6 @@ function _truncateToArray(input: string, len: number,
   if (len <= padLen) { return ['', pad.substr(0, len)]; }
 
   // normal circumstances, return [0] a truncated line, [1] padding text
-  return [input.substr(0, len - padLen), (pad || '')];
+  return [input.substr(0, len - padLen), pad];
 
 }

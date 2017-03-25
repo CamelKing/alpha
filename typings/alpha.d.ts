@@ -10,6 +10,7 @@ export * from './string/randomtext';
 export * from './string/trim';
 export * from './string/trimleft';
 export * from './string/trimright';
+export * from './string/truncate';
 export * from './number/randominteger';
 export * from './number/round';
 export * from './number/roundup';

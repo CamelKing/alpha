@@ -36,6 +36,7 @@ testControl['objectMods'] = [
 ];
 
 testControl['stringMods'] = [
+  '_truncateToArray',
 ];
 
 testControl['timeInstances'] = [
