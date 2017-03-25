@@ -1,4 +1,4 @@
-import * as _a from '../src/alpha';
+import * as alpha from '../src/alpha';
 import * as chai from 'chai';
 
 const expect: any = chai.expect;
@@ -7,11 +7,9 @@ const expect: any = chai.expect;
 const categories: string[] = [
   'async',
   'array',
-  'collections',
-  'function',
-  'math',
+  'collection',
+  'number',
   'object',
-  'promise',
   'string',
   'time',
 ];
@@ -34,7 +32,7 @@ testControl['collectionMods'] = [
   'enumKeys',
 ];
 
-testControl['mathMods'] = [
+testControl['numberMods'] = [
   'randomInteger',
   'round',
   'roundUp',
@@ -75,12 +73,12 @@ describe('alpha.ts should act as a barrel which...', () => {
 
         testControl[testSubject].forEach((sub: string) => {
 
-          const testCondition: string = (typeof (_a[sub]) !== 'function') ?
+          const testCondition: string = (typeof (alpha[sub]) !== 'function') ?
             'provides instance of ' + sub + ' object.' :
             'provides ' + sub + '() module.';
 
           it(testCondition, () => {
-            (_a[sub]).should.not.equal(undefined);
+            (alpha[sub]).should.not.equal(undefined);
           });
 
         });

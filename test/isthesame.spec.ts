@@ -1,7 +1,5 @@
 import { expect, should } from 'chai';
-import { isTheSame, randomInteger, randomText } from '../src/alpha';
-
-import { toObject } from '../src/toobject';
+import { isTheSame, randomInteger, randomText, toObject } from '../src/alpha';
 
 should();
 
