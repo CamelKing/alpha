@@ -12,6 +12,8 @@ export * from './trimleft';
 export * from './trimright';
 export * from './randominteger';
 export * from './round';
+export * from './roundup';
+export * from './rounddown';
 export * from './isthesame';
 export * from './thetypeof';
 export * from './toobject';

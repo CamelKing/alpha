@@ -23,6 +23,8 @@ export * from './trimright';
 // @category Math
 export * from './randominteger';
 export * from './round';
+export * from './roundup';
+export * from './rounddown';
 
 // @category object
 export * from './isthesame';
