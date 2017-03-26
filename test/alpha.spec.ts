@@ -1,8 +1,8 @@
 import * as alpha from '../src/alpha';
-import * as chai from 'chai';
 
-const expect: any = chai.expect;
+import { expect, should } from 'chai';
 
+should();
 
 const categories: string[] = [
   'async',
@@ -49,8 +49,14 @@ testControl['objectMods'] = [
 
 testControl['stringMods'] = [
   'capitalise',
+  'centerAlign',
+  'leftAlign',
+  'pad',
+  'padLeft',
+  'padRight',
   'prints',
   'randomText',
+  'rightAlign',
   'trim',
   'trimLeft',
   'trimRight',
