@@ -38,6 +38,7 @@ export * from './string/padright';
 export * from './string/prints';
 export * from './string/randomtext';
 export * from './string/rightalign';
+export * from './string/tofixwidth';
 export * from './string/toparagraph';
 export * from './string/trim';
 export * from './string/trimleft';

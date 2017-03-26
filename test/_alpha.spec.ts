@@ -43,7 +43,6 @@ testControl['stringMods'] = [
 testControl['timeInstances'] = [
 ];
 
-
 describe('_alpha.ts should act as a barrel which...', () => {
 
   types.forEach((type: string) => {
