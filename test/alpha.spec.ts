@@ -7,6 +7,7 @@ should();
 const categories: string[] = [
   'async',
   'array',
+  'files',
   'collection',
   'number',
   'object',
@@ -26,6 +27,10 @@ testControl['asyncMods'] = [
 testControl['arrayMods'] = [
   'chunk',
   'flatten',
+];
+
+testControl['filesMods'] = [
+  'ls',
 ];
 
 testControl['collectionMods'] = [

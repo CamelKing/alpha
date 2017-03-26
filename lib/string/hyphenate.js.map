@@ -1,1 +1,1 @@
-{"version":3,"file":"hyphenate.js","sourceRoot":"","sources":["../../src/string/hyphenate.ts"],"names":[],"mappings":";;AAcA,6CAAqD;AAErD,mBAA0B,KAAa,EACrC,GAAW,EACX,MAAe;IAEf,MAAM,CAAC,0BAAiB,CAAC,KAAK,EAAE,GAAG,EAAE,MAAM,CAAC,CAAC,IAAI,CAAC,EAAE,CAAC,CAAC;AAExD,CAAC;AAND,8BAMC"}
+{"version":3,"file":"hyphenate.js","sourceRoot":"","sources":["../../src/string/hyphenate.ts"],"names":[],"mappings":";;AAcA,sCAA8C;AAE9C,mBAA0B,KAAa,EACrC,GAAW,EACX,MAAe;IAEf,MAAM,CAAC,0BAAiB,CAAC,KAAK,EAAE,GAAG,EAAE,MAAM,CAAC,CAAC,IAAI,CAAC,EAAE,CAAC,CAAC;AAExD,CAAC;AAND,8BAMC"}
