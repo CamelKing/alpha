@@ -58,6 +58,7 @@ testControl['stringMods'] = [
   'prints',
   'randomText',
   'rightAlign',
+  'toParagraph',
   'trim',
   'trimLeft',
   'trimRight',
