@@ -1,11 +1,3 @@
-export declare class StopWatch {
-    private readonly _name;
-    constructor();
-    start(name?: string): Timer;
-    stop(name?: string): Timer;
-    delete(name?: string): void;
-    readonly name: string;
-}
 export declare class Timer {
     private _name;
     private _start;
@@ -18,4 +10,3 @@ export declare class Timer {
     readonly ms: number;
     readonly name: string;
 }
-export declare const casio: StopWatch;

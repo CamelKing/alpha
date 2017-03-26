@@ -15,6 +15,7 @@
 
 // @category time
 export * from './time/timer';
+export * from './time/casio';
 
 // @category Async
 export * from './async/makeawait';

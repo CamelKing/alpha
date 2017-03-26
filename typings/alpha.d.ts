@@ -1,4 +1,5 @@
 export * from './time/timer';
+export * from './time/casio';
 export * from './async/makeawait';
 export * from './async/makepromise';
 export * from './array/chunk';

@@ -1,4 +1,4 @@
-import { StopWatch, Timer, casio } from '../../src/alpha';
+import { Casio, Timer, casio } from '../../src/alpha';
 import { expect, should } from 'chai';
 
 should();
@@ -9,7 +9,7 @@ describe('casio object\n', () => {
 
     it('should be a single instance object', () => {
 
-      const rolex: StopWatch = new StopWatch();
+      const rolex: Casio = new Casio();
       rolex.name.should.equal('casio');
 
     });
@@ -34,7 +34,7 @@ describe('casio object\n', () => {
       expect(t0.ms).to.equal(undefined);
     });
 
-    it('should be able to start a timer using casio StopWatch.', () => {
+    it('should be able to start a timer using casio casio.', () => {
       t1.should.not.equal(null);
       t1.name.should.equal(tName);
     });
@@ -65,7 +65,7 @@ describe('casio object\n', () => {
 
   });
 
-  describe('StopWatch operation with default timer name', () => {
+  describe('casio operation with default timer name', () => {
 
     let t1: Timer;
 
@@ -98,7 +98,7 @@ describe('casio object\n', () => {
 
   });
 
-  describe('StopWatch operation with named timer.', () => {
+  describe('casio operation with named timer.', () => {
 
     const tName1: string = 'timerA';
 
@@ -121,7 +121,7 @@ describe('casio object\n', () => {
 
   });
 
-  describe('StopWatch operation with multiple timers.', () => {
+  describe('casio operation with multiple timers.', () => {
 
     const tName1: string = 'timerA';
     const tName2: string = 'timerB';
