@@ -18,7 +18,7 @@
  * @returns {string[]}
  */
 
-export const halfWordLen: number = 3;
+export const HalfWordLen: number = 3;
 
 export function _truncateToArray(input: string, len: number,
   pad: string = '...'): string[] {
@@ -38,12 +38,12 @@ export function _truncateToArray(input: string, len: number,
   // is a short ( <= 1.5 average word length/ 9 characters )
   // '…' however will not be expanded to '...'.
   if (pad === '...') {
-    pad = len > halfWordLen * 3 ? '...' : '…';
+    pad = len > HalfWordLen * 3 ? '...' : '…';
   }
 
   // size of padding should be limited to half word length/3 chars
   const padLen: number
-    = pad.length > halfWordLen ? halfWordLen : pad.length;
+    = pad.length > HalfWordLen ? HalfWordLen : pad.length;
 
   // make a copy of shortened pad text
   pad = pad.substr(0, padLen);

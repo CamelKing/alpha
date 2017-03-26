@@ -8,7 +8,7 @@ describe('chunk()', () => {
 
   describe('Default parameters handling\n', () => {
 
-    const input = [1, 2, 3];
+    const input: any[] = [1, 2, 3];
     let output: any[] = [];
 
     it('should return [] if pass in a null array.', () => {

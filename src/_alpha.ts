@@ -12,3 +12,4 @@ export * from './.private/number/_decimaladjust';
 
 // @category String
 export * from './.private/string/_truncatetoarray';
+export * from './.private/string/_hyphenatetoarray';

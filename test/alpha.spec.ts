@@ -50,6 +50,7 @@ testControl['objectMods'] = [
 testControl['stringMods'] = [
   'capitalise',
   'centerAlign',
+  'hyphenate',
   'leftAlign',
   'pad',
   'padLeft',

@@ -6,6 +6,7 @@ export * from './array/flatten';
 export * from './collection/enumkeys';
 export * from './string/capitalise';
 export * from './string/centeralign';
+export * from './string/hyphenate';
 export * from './string/leftalign';
 export * from './string/pad';
 export * from './string/padleft';
