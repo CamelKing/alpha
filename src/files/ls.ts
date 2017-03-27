@@ -1,3 +1,6 @@
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
 /**
  * List all files under the directory, recursively.
  *
@@ -17,41 +20,51 @@
  * @returns {string[]}
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
 
 export type FnLSFilter = { (filename: string): string };
 
-export function ls(dir: string, filter?: FnLSFilter): string[] {
+export function ls(dir?: string, filter?: FnLSFilter): string[] {
 
   let fileList: string[] = [];
-  fs.readdirSync(dir).forEach((file: string) => {
 
-    if (fs.statSync(path.join(dir, file)).isDirectory()) {
+  if (!dir) return fileList;
 
-      // recursive ls for sub directories within
-      fileList = fileList.concat(ls(path.join(dir, file)));
+  if (dir[0] === '~') {
+    dir = path.join(os.homedir(), dir.slice(1));
+  }
 
-    } else if (filter) {
+  if (fs.existsSync(dir)) {
 
-      // apply filter if any,
-      // it is expected to return the file name to add,
-      // '' indicate skip this file
-      const newFile:string = filter(file);
-      if (newFile) {
-        fileList = fileList.concat(newFile);
+    fs.readdirSync(dir).forEach((file: string) => {
+
+      // use lstatSync() just in case of symlink on osx and unix
+      if (fs.lstatSync(path.join(dir, file)).isDirectory()) {
+
+        // recursive ls for sub directories within
+        fileList = fileList.concat(ls(path.join(dir, file)));
+
+      } else if (filter) {
+
+        // apply filter if any,
+        // it is expected to return the file name to add,
+        // '' indicate skip this file
+        const newFile: string = filter(file);
+        if (newFile) {
+          fileList = fileList.concat(newFile);
+        }
+
+      } else {
+
+        // just add file to the list.
+        // this will always be full path. If relative path
+        // is desired, pls use filter.
+        fileList = fileList.concat(path.join(dir, file));
+
       }
 
-    } else {
+    });
 
-      // just add file to the list.
-      // this will always be full path. If relative path
-      // is desired, pls use filter.
-      fileList = fileList.concat(path.join(dir, file));
-
-    }
-
-  });
+  }
 
   return fileList;
 
