@@ -1,1 +1,1 @@
-declare function _clone(source: any[] | object, descriptors?: PropertyDescriptorMap): any[] | object;
+export declare function clone(source: object): object;
