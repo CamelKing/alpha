@@ -10,12 +10,9 @@
  * @returns {number}
  */
 
-import { _decimalAdjust } from '../../_alpha';
-import { theTypeOf } from '../../alpha';
-
-// private functions and declarations
-// used by _roundxx() public functions above
-export type RoundOperand = 'round' | 'ceil' | 'floor';
+import { RoundOperand } from '../../_constants';
+import { _decimalAdjust } from './_decimaladjust';
+import { theTypeOf } from '../../object/thetypeof';
 
 export function _round(value: any,
   exp?: number,

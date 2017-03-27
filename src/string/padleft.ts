@@ -19,7 +19,8 @@ import { FnAlign, rightAlign } from '../alpha';
 export const padLeft: FnAlign = rightAlign;
 */
 
-import { Align, rightAlign } from '../alpha';
+import { Align } from '../constants';
+import { rightAlign } from './rightalign';
 
 export function padLeft(input: string, len: number, padTxt?: string): string {
   return rightAlign(input, len, padTxt);

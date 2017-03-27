@@ -10,7 +10,7 @@
  * @returns {object}
  */
 
-import { theTypeOf } from '../alpha';
+import { theTypeOf } from './thetypeof';
 
 export function toObject(anyVar: any): object {
 

@@ -18,7 +18,7 @@
  * @returns {string[]}
  */
 
-export const HalfWordLen: number = 3;
+import { HalfWordLen } from '../../_alpha';
 
 export function _truncateToArray(input: string, len: number,
   pad: string = '...'): string[] {

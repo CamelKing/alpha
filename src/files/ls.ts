@@ -24,7 +24,10 @@ import * as fs from 'fs';
 import * as os from 'os';
 import * as path from 'path';
 
-export type FnLSFilter = { (filename: string): string };
+import { FnLSFilter } from '../constants';
+
+// export type FnLSFilter = { (filename: string): string };
+
 
 export function ls(dir?: string, filter?: FnLSFilter): string[] {
 

@@ -26,6 +26,7 @@ testControl['asyncMods'] = [
 
 testControl['arrayMods'] = [
   'chunk',
+  'compact',
   'flatten',
 ];
 

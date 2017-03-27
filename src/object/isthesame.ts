@@ -16,7 +16,7 @@
  * @returns {boolean}
  */
 
-import { theTypeOf } from '../alpha';
+import { theTypeOf } from './thetypeof';
 
 // tslint:disable-next-line:cyclomatic-complexity
 export function isTheSame(a: any, b: any): boolean {

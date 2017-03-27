@@ -8,9 +8,10 @@
  * @returns {string[]}
  */
 
-import { leftAlign, trim, trimLeft } from '../alpha';
-
-import { _hyphenateToArray } from '../_alpha';
+import { _hyphenateToArray } from '../.private/string/_hyphenatetoarray';
+import { leftAlign } from './leftalign';
+import { trim } from './trim';
+import { trimLeft } from './trimleft';
 
 export function toParagraph(input: string,
   colsize: number): string[] {

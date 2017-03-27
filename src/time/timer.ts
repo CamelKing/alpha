@@ -11,7 +11,7 @@
  * @class Timer
  */
 
-import { randomText } from '../alpha';
+import { randomText } from '../string/randomtext';
 
 type HRTime = [number, number];
 

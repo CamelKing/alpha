@@ -30,10 +30,12 @@ describe('chunk()', () => {
       output.should.have.lengthOf(0);
     });
 
-    it('should return array as is if pass in a =1 split size.', () => {
-      output = chunk(input, 1);
-      output.should.deep.equal(input);
-      output.should.have.lengthOf(3);
+    it('should break array into chunks of [1] if pass in a =1 split size.', () => {
+      output = chunk(input);
+      output.should.have.lengthOf(input.length);
+      output.forEach((item: any) => {
+        Array.isArray(item).should.be.true;
+      });
     });
 
     it('should return array as is if pass in a =0 split size.', () => {

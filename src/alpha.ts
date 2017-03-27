@@ -18,6 +18,7 @@
  *
  */
 
+export * from './constants';
 
 // @category Async
 export * from './async/makeawait';
@@ -25,6 +26,7 @@ export * from './async/makepromise';
 
 // @category Array
 export * from './array/chunk';
+export * from './array/compact';
 export * from './array/flatten';
 
 // @category Files

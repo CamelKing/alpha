@@ -13,7 +13,7 @@
  * @returns {string}
  */
 
-import { theTypeOf } from '../alpha';
+import { theTypeOf } from './thetypeof';
 
 export function stringify(input: any): string {
 

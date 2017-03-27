@@ -16,9 +16,7 @@
  * @returns {string[]}
  */
 
-import { HalfWordLen } from '../../_alpha';
-
-export const Hyphen: string = '-';
+import { HalfWordLen, Hyphen } from '../../_alpha';
 
 export function _hyphenateToArray(input: string,
   len: number,

@@ -13,27 +13,19 @@
  * @returns {any[]}
  */
 
-export function chunk(array: any[], size: number): any[] {
+export function chunk(array: any[], size: number = 1): any[] {
 
-  size = Math.max(size, 0);
-  // use a holder variable (input) pointing to array,
-  // or make a new [] so we wont affect any change on
-  // array (which is passed by reference)
-  const input: any[] = array && array.slice(0) ? array : [];
+  const input: any[] = array ? array : [];
   const { length } = input;
+  if (length <= 0) return [];
+  if (size <= 0) return array.slice(0);
 
-  if (!length) return [];
-  if (size <= 1) return input;
-
+  size = Math.max(size, 1);
   const output: any[] = new Array(Math.ceil(length / size));
-
   let outIndex: number = 0;
   let inIndex: number = 0;
-
   while (inIndex < length) {
     output[outIndex++] = input.slice(inIndex, inIndex += size);
   }
-
   return output;
-
 }

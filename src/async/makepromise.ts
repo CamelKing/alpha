@@ -28,10 +28,12 @@
  *
  */
 
-import { theTypeOf } from '../alpha';
+import { FnReject, FnResolve } from '../constants';
 
-export type FnResolve = (value?: {} | PromiseLike<{}>) => void;
-export type FnReject = (error?: any) => void;
+import { theTypeOf } from '../object/thetypeof';
+
+// export type FnResolve = (value?: {} | PromiseLike<{}>) => void;
+// export type FnReject = (error?: any) => void;
 
 export function makePromise(fnSync: any): Promise<any> {
 

@@ -12,11 +12,9 @@
  * @returns {string}
  */
 
-export const Space: string = ' ';
+import { Align, Space } from '../constants';
 
-import { round } from '../alpha';
-
-export enum Align { left, center, right };
+import { round } from '../number/round';
 
 export function pad(input: string,
   len: number,

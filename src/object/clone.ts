@@ -37,6 +37,12 @@ export function clone(source: object): object {
   return target;
 }
 
+// TODO: May move these private functions into their own file.
+// but currently there is too much dependency on the known and 
+// copied array, it does not make sense at all.
+// TODO: refactor so there is no dependency on the passed in 
+// array pairs for handling cyclical reference.
+
 /**
  * private function to copy property key from source to target
  * deep down. There is no worry of recursive or cyclical references

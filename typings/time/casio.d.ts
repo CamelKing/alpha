@@ -1,4 +1,4 @@
-import { Timer } from '../alpha';
+import { Timer } from './timer';
 export declare class Casio {
     private readonly _name;
     constructor();

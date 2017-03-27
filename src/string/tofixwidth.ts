@@ -10,7 +10,10 @@
  * @returns {string}
  */
 
-import { Align, Space, pad, truncate } from '../alpha';
+import { Align, Space } from '../constants';
+
+import { pad } from './pad';
+import { truncate } from './truncate';
 
 export function toFixWidth(input: string, len: number, align?: Align): string {
 

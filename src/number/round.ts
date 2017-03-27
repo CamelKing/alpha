@@ -1,5 +1,5 @@
-import { _round } from '../_alpha';
-import { theTypeOf } from '../alpha';
+import { _round } from '../.private/number/_round';
+import { theTypeOf } from '../object/thetypeof';
 
 /**
  * rounding up number, rounding precision determined by [exp]

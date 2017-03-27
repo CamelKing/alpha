@@ -12,7 +12,7 @@
  * @returns {string}
  */
 
-import { _hyphenateToArray } from '../_alpha';
+import { _hyphenateToArray } from '../.private/string/_hyphenatetoarray';
 
 export function hyphenate(input: string,
   len: number,

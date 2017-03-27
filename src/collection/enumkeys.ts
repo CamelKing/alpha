@@ -11,6 +11,7 @@
  * @param {*} en
  * @returns {string[]}
  */
+
 export function enumKeys(en: any): string[] {
   return Object.keys(en).
     filter((key: string) => !isNaN(Number(en[key])));

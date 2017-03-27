@@ -24,11 +24,10 @@
  * @class StopWatch
  */
 
-import { Timer } from '../alpha';
+import { Timer } from './timer';
 
 const swName: string = 'casio';
 const tName: string = 'g-shock';
-
 
 export class Casio {
 

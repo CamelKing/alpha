@@ -10,7 +10,7 @@
  * @returns {number}
  */
 
-import { RoundOperand } from '../../_alpha';
+import { RoundOperand } from '../../_constants';
 
 export function _decimalAdjust(value: number,
   exp?: number,

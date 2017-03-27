@@ -32,12 +32,13 @@
  * @export
  * @param {*} fnPassedIn
  * @returns {FnPromiseFactory}
- * 
+ *
  */
 
-import { makePromise } from '../alpha';
+import { FnPromiseFactory } from '../constants';
+import { makePromise } from './makepromise';
 
-export type FnPromiseFactory = () => Promise<any>;
+// export type FnPromiseFactory = () => Promise<any>;
 
 export function makeAwait(fnPassedIn: any): FnPromiseFactory {
   return (() => makePromise(fnPassedIn));
