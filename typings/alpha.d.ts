@@ -13,6 +13,7 @@ export * from './object/thetypeof';
 export * from './object/toobject';
 export * from './object/objectify';
 export * from './object/stringify';
+export * from './object/xcopy';
 export * from './string/capitalise';
 export * from './string/centeralign';
 export * from './string/hyphenate';

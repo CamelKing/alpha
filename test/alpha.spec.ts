@@ -45,6 +45,7 @@ testControl['numberMods'] = [
 ];
 
 testControl['objectMods'] = [
+  'clone',
   'isTheSame',
   'objectify',
   'stringify',
@@ -72,6 +73,9 @@ testControl['stringMods'] = [
 
 testControl['timeInstances'] = [
   'casio',
+];
+
+testControl['objectInstances'] = [
 ];
 
 

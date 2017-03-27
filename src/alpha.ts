@@ -45,6 +45,7 @@ export * from './object/thetypeof';
 export * from './object/toobject';
 export * from './object/objectify';
 export * from './object/stringify';
+export * from './object/clone';
 
 // @category String
 export * from './string/capitalise';
@@ -67,56 +68,3 @@ export * from './string/truncate';
 // @category time
 export * from './time/timer';
 export * from './time/casio';
-
-
-/*
-import * as fs from 'fs';
-import * as path from 'path';
-
-type FnFilter = { (filename: string): boolean };
-
-const requireList: string[] = finalise(ls(__dirname), isValidModules);
-Object.defineProperty(exports, '__esModule', { value: true });
-requireList.forEach((req: string) => {
- extract(require(req));
-});
-
-function ls(dir: string): string[] {
-  let fileList: string[] = [];
-  fs.readdirSync(dir).forEach((file: string) => {
-    fileList = fs.statSync(path.join(dir, file)).isDirectory()
-      ? fileList.concat(ls(path.join(dir, file)))
-      : fileList.concat(path.join(dir, file));
-  });
-  return fileList;
-}
-
-function finalise(fileList: string[], filter?: FnFilter): string[] {
-  const finalList: string[] = [];
-  let next: number = 0;
-  fileList.forEach((file: string) => {
-    if (filter(file)) {
-      finalList[next++] = '.' + file.substr(__dirname.length, file.length - __dirname.length - 3);
-    }
-  });
-  return finalList;
-}
-
-function extract(moduleFile: any): void {
-  for (const property in moduleFile) {
-    if (!exports.hasOwnProperty(property)) {
-      exports[property] = moduleFile[property];
-    }
-  }
-}
-
-function isValidModules(file: string): boolean {
-  return (   path.extname(file) === '.js'
-          && path.basename(file)[0] !== '_'
-          && path.basename(file) !== 'alpha' );
-}
-
-console.log(exports);
-
-*/
-

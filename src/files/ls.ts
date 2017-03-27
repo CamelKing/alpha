@@ -1,6 +1,3 @@
-import * as fs from 'fs';
-import * as os from 'os';
-import * as path from 'path';
 /**
  * List all files under the directory, recursively.
  *
@@ -10,6 +7,9 @@ import * as path from 'path';
  * - perform checking, as well as transformation of file name
  * - return the file names to be stored. '' indicate skip.
  *
+ * NOTE: This is a synchronous function. It can block the main nodeJs thread.
+ * 
+ * TODO: work on a asynchronous version of this function.
  *
  * @since 0.0.1
  * @category Files
@@ -20,6 +20,9 @@ import * as path from 'path';
  * @returns {string[]}
  */
 
+import * as fs from 'fs';
+import * as os from 'os';
+import * as path from 'path';
 
 export type FnLSFilter = { (filename: string): string };
 
