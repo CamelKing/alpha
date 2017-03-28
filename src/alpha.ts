@@ -2,12 +2,12 @@
  * This is the barrel which holds the 'export' for all of
  * alpha utility functions. (excluding the private one which
  * is in _alpha.ts)
- * 
+ *
  * The importing and re-exporting of the modules is automated.
  * All .js files under the lib directory, and it's subdirectory,
  * and not staring with '_' (indicating private, and will be handled
  * by _alpha.ts.) will be imported and reexported.
- * 
+ *
  * Usage:
  *
  * if installed thru npm.
@@ -21,52 +21,52 @@
 export * from './constants';
 
 // @category Async
-export * from './async/makeawait';
-export * from './async/makepromise';
+export * from './public/makeawait';
+export * from './public/makepromise';
 
 // @category Array
-export * from './array/chunk';
-export * from './array/compact';
-export * from './array/flatten';
+export * from './public/chunk';
+export * from './public/compact';
+export * from './public/flatten';
 
 // @category Files
-export * from './files/ls';
+export * from './public/ls';
 
 // @category Collection
-export * from './collection/enumkeys';
+export * from './public/enumkeys';
 
 // @category Number
-export * from './number/randominteger';
-export * from './number/round';
-export * from './number/roundup';
-export * from './number/rounddown';
+export * from './public/randominteger';
+export * from './public/round';
+export * from './public/roundup';
+export * from './public/rounddown';
 
 // @category object
-export * from './object/isthesame';
-export * from './object/thetypeof';
-export * from './object/toobject';
-export * from './object/objectify';
-export * from './object/stringify';
-export * from './object/clone';
+export * from './public/isthesame';
+export * from './public/thetypeof';
+export * from './public/toobject';
+export * from './public/objectify';
+export * from './public/stringify';
+export * from './public/clone';
 
 // @category String
-export * from './string/capitalise';
-export * from './string/centeralign';
-export * from './string/hyphenate';
-export * from './string/leftalign';
-export * from './string/pad';
-export * from './string/padleft';
-export * from './string/padright';
-export * from './string/prints';
-export * from './string/randomtext';
-export * from './string/rightalign';
-export * from './string/tofixwidth';
-export * from './string/toparagraph';
-export * from './string/trim';
-export * from './string/trimleft';
-export * from './string/trimright';
-export * from './string/truncate';
+export * from './public/capitalise';
+export * from './public/centeralign';
+export * from './public/hyphenate';
+export * from './public/leftalign';
+export * from './public/pad';
+export * from './public/padleft';
+export * from './public/padright';
+export * from './public/prints';
+export * from './public/randomtext';
+export * from './public/rightalign';
+export * from './public/tofixwidth';
+export * from './public/toparagraph';
+export * from './public/trim';
+export * from './public/trimleft';
+export * from './public/trimright';
+export * from './public/truncate';
 
 // @category time
-export * from './time/timer';
-export * from './time/casio';
+export * from './public/timer';
+export * from './public/stopwatch';

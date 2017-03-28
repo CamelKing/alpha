@@ -6,13 +6,13 @@
  *
  */
 
-// @constants 
+// @constants
 export * from './_constants';
 
 // @category Math
-export * from './.private/number/_round';
-export * from './.private/number/_decimaladjust';
+export * from './private/_round';
+export * from './private/_decimaladjust';
 
 // @category String
-export * from './.private/string/_truncatetoarray';
-export * from './.private/string/_hyphenatetoarray';
+export * from './private/_truncatetoarray';
+export * from './private/_hyphenatetoarray';

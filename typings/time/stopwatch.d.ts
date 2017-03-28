@@ -1,5 +1,5 @@
-import { Timer } from '../../src/alpha';
-export declare class Casio {
+import { Timer } from './timer';
+export declare class Stopwatch {
     private readonly _name;
     constructor();
     start(name?: string): Timer;
@@ -7,4 +7,4 @@ export declare class Casio {
     delete(name?: string): void;
     readonly name: string;
 }
-export declare const casio: Casio;
+export declare const stopwatch: Stopwatch;

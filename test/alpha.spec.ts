@@ -73,7 +73,7 @@ testControl['stringMods'] = [
 ];
 
 testControl['timeInstances'] = [
-  'casio',
+  'stopwatch',
 ];
 
 testControl['objectInstances'] = [
