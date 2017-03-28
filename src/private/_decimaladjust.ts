@@ -5,8 +5,8 @@
  * @category Number
  *
  * @param {number} value
- * @param {number} [exp=0]
- * @param {RoundOperand} ops
+ * @param {number} [exp]
+ * @param {RoundOperand} [ops]
  * @returns {number}
  */
 

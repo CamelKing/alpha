@@ -9,7 +9,6 @@
  *
  * @since 0.0.1
  * @category String
- * @ZeroDependency
  *
  * @export
  * @param {string} input - original string to capitalised.

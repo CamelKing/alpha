@@ -1,7 +1,6 @@
 /**
  * return an object out of any variables passed in.
  *
- *
  * @since 0.0.1
  * @category Object
  *
@@ -10,7 +9,7 @@
  * @returns {object}
  */
 
-import { theTypeOf } from './thetypeof';
+import { theTypeOf } from './theTypeOf';
 
 export function toObject(anyVar: any): object {
 

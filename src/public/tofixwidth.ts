@@ -3,10 +3,13 @@
  * If it is too long, it will be truncated, and padded with '…' if necessary.
  * If it is too short, it will be padded with space, left or right optional.
  *
+ * @since 0.0.1
+ * @category String
+ *
  * @export
  * @param {string} input
  * @param {number} len
- * @param {boolean} [align] use Align.left, Align.right, or Align.center
+ * @param {Align} [align] use Align.left, Align.right, or Align.center
  * @returns {string}
  */
 

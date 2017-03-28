@@ -5,14 +5,18 @@
  *
  * NOTE: Default hyphen character is '-'
  *
+ *
+ * @since 0.0.1
+ * @category String
+ *
  * @export
  * @param {string} input
- * @param {number} [len=0]
- * @param {string} [hyphen='-']
+ * @param {number} len
+ * @param {string} [hyphen]
  * @returns {string}
  */
 
-import { _hyphenateToArray } from '../private/_hyphenatetoarray';
+import { _hyphenateToArray } from '../private/_hyphenateToArray';
 
 export function hyphenate(input: string,
   len: number,

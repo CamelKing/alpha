@@ -30,7 +30,7 @@
 
 import { FnReject, FnResolve } from '../constants';
 
-import { theTypeOf } from './thetypeof';
+import { theTypeOf } from './theTypeOf';
 
 // export type FnResolve = (value?: {} | PromiseLike<{}>) => void;
 // export type FnReject = (error?: any) => void;

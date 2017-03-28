@@ -5,7 +5,7 @@
  * Note: adapted from the chunk() module from lodash.
  *
  * @since 0.0.1
- * @category array
+ * @category Array
  *
  * @export
  * @param {any[]} input - array to compact

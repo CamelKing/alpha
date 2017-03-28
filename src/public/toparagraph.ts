@@ -2,16 +2,19 @@
  * Convert a long string into a paragraph in the form of
  * an array, one item per line.
  *
+ * @since 0.0.1
+ * @category String
+ *
  * @export
  * @param {string} input
  * @param {number} colsize
  * @returns {string[]}
  */
 
-import { _hyphenateToArray } from '../private/_hyphenatetoarray';
-import { leftAlign } from './leftalign';
+import { _hyphenateToArray } from '../private/_hyphenateToArray';
+import { leftAlign } from './leftAlign';
 import { trim } from './trim';
-import { trimLeft } from './trimleft';
+import { trimLeft } from './trimLeft';
 
 export function toParagraph(input: string,
   colsize: number): string[] {

@@ -20,7 +20,7 @@
  * @returns {string}
  */
 
-import { _truncateToArray } from '../private/_truncatetoarray';
+import { _truncateToArray } from '../private/_truncateToArray';
 
 export function truncate(input: string,
   len: number,

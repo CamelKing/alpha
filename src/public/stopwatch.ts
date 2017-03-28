@@ -20,6 +20,10 @@
  *
  * once timer is stopped, it can be recycled by calling .start() again.
  *
+ *
+ * @since 0.0.1
+ * @category Time
+ *
  * @export
  * @class StopWatch
  */

@@ -7,8 +7,8 @@
  * @export
  * @param {string} input
  * @param {number} len = if < input.length then return same input
- * @param {string} [padChar=' ']  = only first char would be used
- * @param {boolean} [left=false]
+ * @param {string} [padChar]  = only first char would be used
+ * @param {Align} [align]
  * @returns {string}
  */
 

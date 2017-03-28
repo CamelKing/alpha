@@ -11,8 +11,8 @@
  */
 
 import { RoundOperand } from '../_constants';
-import { _decimalAdjust } from './_decimaladjust';
-import { theTypeOf } from '../public/thetypeof';
+import { _decimalAdjust } from './_decimalAdjust';
+import { theTypeOf } from '../public/theTypeOf';
 
 export function _round(value: any,
   exp?: number,

@@ -7,7 +7,7 @@
  * @export
  * @param {string} input
  * @param {number} len
- * @param {string} padTxt
+ * @param {string} [padTxt]
  * @returns {string}
  */
 
@@ -20,7 +20,7 @@ export const padLeft: FnAlign = rightAlign;
 */
 
 import { Align } from '../constants';
-import { rightAlign } from './rightalign';
+import { rightAlign } from './rightAlign';
 
 export function padLeft(input: string, len: number, padTxt?: string): string {
   return rightAlign(input, len, padTxt);

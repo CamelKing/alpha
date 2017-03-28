@@ -55,16 +55,21 @@ testControl['objectMods'] = [
 ];
 
 testControl['stringMods'] = [
+  'camelCase',
   'capitalise',
   'centerAlign',
+  'cobolCase',
   'hyphenate',
+  'kebabCase',
   'leftAlign',
   'pad',
   'padLeft',
   'padRight',
+  'pascalCase',
   'prints',
   'randomText',
   'rightAlign',
+  'snakeCase',
   'toFixWidth',
   'toParagraph',
   'trim',

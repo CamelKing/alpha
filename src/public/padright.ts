@@ -7,7 +7,7 @@
  * @export
  * @param {string} input
  * @param {number} len
- * @param {string} padTxt
+ * @param {string} [padTxt]
  * @returns {string}
  */
 
@@ -22,9 +22,6 @@ export const padRight: FnAlign = leftAlign;
 */
 
 import { Align, leftAlign } from '../alpha';
-
-export type FnAlign = (s: string, l: number, p?: string, a?: Align) => string;
-
 
 export function padRight(input: string, len: number, padTxt?: string): string {
   return leftAlign(input, len, padTxt);

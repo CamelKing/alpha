@@ -27,7 +27,7 @@
  *
  *
  * @since 0.0.1
- * @category async
+ * @category Async
  *
  * @export
  * @param {*} fnPassedIn
@@ -36,7 +36,7 @@
  */
 
 import { FnPromiseFactory } from '../constants';
-import { makePromise } from './makepromise';
+import { makePromise } from './makePromise';
 
 // export type FnPromiseFactory = () => Promise<any>;
 

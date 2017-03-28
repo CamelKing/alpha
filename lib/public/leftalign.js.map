@@ -1,1 +1,1 @@
-{"version":3,"file":"leftalign.js","sourceRoot":"","sources":["../../src/public/leftalign.ts"],"names":[],"mappings":";;AAaA,4CAAqC;AACrC,+BAA4B;AAE5B,mBAA0B,KAAa,EAAE,GAAW,EAAE,MAAe;IAEnE,MAAM,CAAC,SAAG,CAAC,KAAK,EAAE,GAAG,EAAE,MAAM,EAAE,iBAAK,CAAC,IAAI,CAAC,CAAC;AAE7C,CAAC;AAJD,8BAIC"}
+{"version":3,"file":"leftAlign.js","sourceRoot":"","sources":["../../src/public/leftAlign.ts"],"names":[],"mappings":";;AAaA,4CAAqC;AACrC,+BAA4B;AAE5B,mBAA0B,KAAa,EAAE,GAAW,EAAE,MAAe;IAEnE,MAAM,CAAC,SAAG,CAAC,KAAK,EAAE,GAAG,EAAE,MAAM,EAAE,iBAAK,CAAC,IAAI,CAAC,CAAC;AAE7C,CAAC;AAJD,8BAIC"}

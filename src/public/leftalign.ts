@@ -7,7 +7,7 @@
  * @export
  * @param {string} input
  * @param {number} len
- * @param {string} padTxt
+ * @param {string} [padTxt]
  * @returns {string}
  */
 

@@ -18,7 +18,7 @@
   "typings": "typings/alpha.d.ts",
   "scripts": {
     "test": "PORT=8000 nodemon --ext ts --watch ./  --exec 'npm run mocha:min' --delay 1",
-    "clean": "rimraf lib",
+    "clean": "rimraf lib && rimraf coverage && rimraf .nyc_output && rimraf typings",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "build": "echo Using TypeScript && tsc --version && tsc --pretty",
     "watch:build": "npm run build -- --watch",

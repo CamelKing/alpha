@@ -15,7 +15,7 @@
  * @category Files
  *
  * @export
- * @param {string} dir
+ * @param {string} [dir]
  * @param {FnLSFilter} [filter]
  * @returns {string[]}
  */

@@ -10,9 +10,10 @@
 export * from './_constants';
 
 // @category Math
+export * from './private/_decimalAdjust';
 export * from './private/_round';
-export * from './private/_decimaladjust';
 
 // @category String
-export * from './private/_truncatetoarray';
-export * from './private/_hyphenatetoarray';
+export * from './private/_makeCase';
+export * from './private/_hyphenateToArray';
+export * from './private/_truncateToArray';

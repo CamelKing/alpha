@@ -1,8 +1,18 @@
-import { reWordBreak } from '../constants';
+/**
+ * convert string to snake case.
+ *
+ * 'This is a test' => 'this_is_a_test'
+ *
+ * @since 0.0.1
+ * @category String
+ *
+ * @export
+ * @param {string} input
+ * @returns {string}
+ */
+
+import { _makeCase } from '../private/_makeCase';
 
 export function snakeCase(input: string): string {
-  if (!input) return '';
-  const output: string = input.toLowerCase().split(reWordBreak)
-    .filter((word: any) => !!word).join('_');
-  return output;
+  return _makeCase(input, 'snake_case');
 }

@@ -8,7 +8,7 @@
  *
  *
  * @since 0.0.1
- * @category object
+ * @category Object
  *
  * @export
  * @param {*} a
@@ -16,7 +16,7 @@
  * @returns {boolean}
  */
 
-import { theTypeOf } from './thetypeof';
+import { theTypeOf } from './theTypeOf';
 
 // tslint:disable-next-line:cyclomatic-complexity
 export function isTheSame(a: any, b: any): boolean {

@@ -28,16 +28,17 @@ testControl['collectionMods'] = [
 ];
 
 testControl['numberMods'] = [
-  '_round',
   '_decimalAdjust',
+  '_round',
 ];
 
 testControl['objectMods'] = [
 ];
 
 testControl['stringMods'] = [
-  '_truncateToArray',
   '_hyphenateToArray',
+  '_makeCase',
+  '_truncateToArray',
 ];
 
 testControl['timeInstances'] = [

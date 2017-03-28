@@ -1,5 +1,5 @@
 import { _round } from '../private/_round';
-import { theTypeOf } from './thetypeof';
+import { theTypeOf } from './theTypeOf';
 
 /**
  * rounding up number, rounding precision determined by [exp]
@@ -12,7 +12,7 @@ import { theTypeOf } from './thetypeof';
  *
  * @export
  * @param {number} value
- * @param {number} [exp=0]
+ * @param {number} [exp]
  * @returns {number}
  */
 export function round(value: any, exp?: number): number {

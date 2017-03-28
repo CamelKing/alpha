@@ -6,7 +6,7 @@
  *           error.
  *
  * @since 0.0.1
- * @category array
+ * @category Array
  *
  * @export
  * @param {any[]} nArr

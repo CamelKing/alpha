@@ -10,9 +10,13 @@
  * [0] - the truncated string
  * [1] = the hyphen, if applicable.
  *
+ *
+ * @since 0.0.1
+ * @category String
+ *
  * @param {string} input
- * @param {number} [len=0]
- * @param {string} [hyphen='-']
+ * @param {number} len
+ * @param {string} [hyphen]
  * @returns {string[]}
  */
 

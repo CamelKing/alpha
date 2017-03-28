@@ -21,8 +21,8 @@
 export * from './constants';
 
 // @category Async
-export * from './public/makeawait';
-export * from './public/makepromise';
+export * from './public/makeAwait';
+export * from './public/makePromise';
 
 // @category Array
 export * from './public/chunk';
@@ -33,18 +33,18 @@ export * from './public/flatten';
 export * from './public/ls';
 
 // @category Collection
-export * from './public/enumkeys';
+export * from './public/enumKeys';
 
 // @category Number
-export * from './public/randominteger';
+export * from './public/randomInteger';
 export * from './public/round';
-export * from './public/roundup';
-export * from './public/rounddown';
+export * from './public/roundUp';
+export * from './public/roundDown';
 
 // @category object
-export * from './public/isthesame';
-export * from './public/thetypeof';
-export * from './public/toobject';
+export * from './public/isTheSame';
+export * from './public/theTypeOf';
+export * from './public/toObject';
 export * from './public/objectify';
 export * from './public/stringify';
 export * from './public/clone';
@@ -52,22 +52,25 @@ export * from './public/clone';
 // @category String
 export * from './public/camelCase';
 export * from './public/capitalise';
-export * from './public/centeralign';
+export * from './public/centerAlign';
+export * from './public/cobolCase';
 export * from './public/hyphenate';
 export * from './public/kebabCase';
-export * from './public/leftalign';
+export * from './public/leftAlign';
 export * from './public/pad';
-export * from './public/padleft';
-export * from './public/padright';
+export * from './public/padLeft';
+export * from './public/padRight';
+export * from './public/pascalCase';
 export * from './public/prints';
-export * from './public/randomtext';
-export * from './public/rightalign';
+export * from './public/randomText';
+export * from './public/rightAlign';
 export * from './public/snakeCase';
-export * from './public/tofixwidth';
-export * from './public/toparagraph';
+export * from './public/upperSnakeCase';
+export * from './public/toFixWidth';
+export * from './public/toParagraph';
 export * from './public/trim';
-export * from './public/trimleft';
-export * from './public/trimright';
+export * from './public/trimLeft';
+export * from './public/trimRight';
 export * from './public/truncate';
 
 // @category time

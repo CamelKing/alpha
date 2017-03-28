@@ -10,15 +10,22 @@ describe('randomText()\n', () => {
 
     let str: string;
 
-    it('by default a string with 5 characters random text.', () => {
+    it('by default a string between 5-20 characters random text.', () => {
       str = randomText();
-      str.length.should.equal(5);
+      str.length.should.gte(5);
+      str.length.should.lte(20);
     });
 
-    it('a string with up to 10 characters random text.', () => {
+    it('a string between 5-20 characters random text when pass in 0.', () => {
       str = randomText(0);
-      str.length.should.equal(0);
-      str.should.equal('');
+      str.length.should.gte(5);
+      str.length.should.lte(20);
+    });
+
+    it('a string between 5-20 characters random text when pass in -ve.', () => {
+      str = randomText(-100);
+      str.length.should.gte(5);
+      str.length.should.lte(20);
     });
 
     it('a string with up to 10 characters random text.', () => {
