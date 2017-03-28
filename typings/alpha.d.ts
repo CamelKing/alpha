@@ -28,6 +28,7 @@ export * from './public/padright';
 export * from './public/prints';
 export * from './public/randomtext';
 export * from './public/rightalign';
+export * from './public/snakeCase';
 export * from './public/tofixwidth';
 export * from './public/toparagraph';
 export * from './public/trim';
