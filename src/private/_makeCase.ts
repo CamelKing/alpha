@@ -18,7 +18,7 @@
  */
 
 import { capitalise } from '../public/capitalise';
-import { reWordBreak } from '../constants';
+import { reAllWordBreaks } from '../constants';
 
 export function _makeCase(input: string, mode: string): string {
 
@@ -82,7 +82,7 @@ export function _makeCase(input: string, mode: string): string {
 
   }
 
-  const output: string = input.split(reWordBreak)
+  const output: string = input.split(reAllWordBreaks)
     .filter((word: any) => !!word)
     .map((word: string) => mixCase ? capitalise(word) : word[baseCase]())
     .join(connecting);

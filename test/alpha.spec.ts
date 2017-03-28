@@ -62,6 +62,7 @@ testControl['stringMods'] = [
   'hyphenate',
   'kebabCase',
   'leftAlign',
+  'lowerFirst',
   'pad',
   'padLeft',
   'padRight',

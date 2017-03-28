@@ -11,4 +11,5 @@ export declare const Space: string;
 export declare type FnPromiseFactory = () => Promise<any>;
 export declare type FnResolve = (value?: {} | PromiseLike<{}>) => void;
 export declare type FnReject = (error?: any) => void;
-export declare const reWordBreak: RegExp;
+export declare const reFirstWord: RegExp;
+export declare const reAllWordBreaks: RegExp;

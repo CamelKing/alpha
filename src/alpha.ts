@@ -57,6 +57,7 @@ export * from './public/cobolCase';
 export * from './public/hyphenate';
 export * from './public/kebabCase';
 export * from './public/leftAlign';
+export * from './public/lowerFirst';
 export * from './public/pad';
 export * from './public/padLeft';
 export * from './public/padRight';
