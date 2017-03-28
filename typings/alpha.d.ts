@@ -20,6 +20,7 @@ export * from './public/camelCase';
 export * from './public/capitalise';
 export * from './public/centeralign';
 export * from './public/hyphenate';
+export * from './public/kebabCase';
 export * from './public/leftalign';
 export * from './public/pad';
 export * from './public/padleft';
