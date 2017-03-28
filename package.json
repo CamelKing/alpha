@@ -17,7 +17,8 @@
   "main": "lib/alpha.js",
   "typings": "typings/alpha.d.ts",
   "scripts": {
-    "test": "PORT=8000 nodemon --ext ts --watch ./  --exec 'npm run mocha:min' --delay 1",
+    "test": "nyc mocha",
+    "xtest": "PORT=8000 nodemon --ext ts --watch ./  --exec 'npm run mocha:min' --delay 1",
     "clean": "rimraf lib && rimraf coverage && rimraf .nyc_output && rimraf typings",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "build": "echo Using TypeScript && tsc --version && tsc --pretty",
@@ -45,6 +46,7 @@
     "mocha": "^3.0.0",
     "nyc": "^10.0.0",
     "rimraf": "^2.0.0",
+    "source-map-support": "^0.4.14",
     "ts-node": "^2.1.2",
     "tslint": "^4.0.0",
     "typescript": "^2.0.0"
@@ -53,6 +55,7 @@
     "node": ">=4.0.0"
   },
   "nyc": {
+    "check-coverage": true,
     "lines": 99,
     "statements": 99,
     "functions": 99,
@@ -61,14 +64,7 @@
       "src/**/*.ts"
     ],
     "exclude": [
-      "lib",
-      "node_modules",
-      "typings",
-      "coverage",
-      "test",
-      ".sandbox",
-      ".nyc_output",
-      "coverage"
+      "**/*.d.ts"
     ],
     "extension": [
       ".ts"
