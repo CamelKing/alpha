@@ -12,7 +12,8 @@
     ""
   ],
   "files": [
-    "lib"
+    "lib/**/*.js",
+    "!lib/**/*.map"
   ],
   "main": "lib/alpha.js",
   "typings": "typings/alpha.d.ts",
