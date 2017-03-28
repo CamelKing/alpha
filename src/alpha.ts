@@ -50,6 +50,7 @@ export * from './public/stringify';
 export * from './public/clone';
 
 // @category String
+export * from './public/camelCase';
 export * from './public/capitalise';
 export * from './public/centeralign';
 export * from './public/hyphenate';

@@ -1,15 +1,23 @@
 /**
- * Return a new string with first character capitalised.
+ * Return a new string with first character capitalised 
+ * and the rest in lower case.
+ *
+ * 'A QUICK BROWN FOX' => 'A quick brown fox'
+ * '1 QUICK BROWN FOX' => '1 quick brown fox'
+ * '# QUICK BROWN FOX' => '# quick brown fox'
+ * '' => ''
  *
  * @since 0.0.1
  * @category String
+ * @ZeroDependency
  *
  * @export
- * @param {string} origin - original string to capitalised.
+ * @param {string} input - original string to capitalised.
  * @returns {string}
  */
 
-export function capitalise(origin: string): string {
-  if (!origin) return origin;
-  return origin[0].toUpperCase() + origin.slice(1);
+export function capitalise(input: string): string {
+  if (!input) return '';
+  return input[0].toUpperCase()
+    + (input.length > 1 ? input.slice(1).toLowerCase() : '');
 }

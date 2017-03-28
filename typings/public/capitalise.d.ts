@@ -1,1 +1,1 @@
-export declare function capitalise(origin: string): string;
+export declare function capitalise(input: string): string;

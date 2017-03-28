@@ -16,6 +16,7 @@ export * from './public/toobject';
 export * from './public/objectify';
 export * from './public/stringify';
 export * from './public/clone';
+export * from './public/camelCase';
 export * from './public/capitalise';
 export * from './public/centeralign';
 export * from './public/hyphenate';

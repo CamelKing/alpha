@@ -18,7 +18,7 @@ describe('capitalise()\n', () => {
     it('have no problem if first char is capitalised.', () => {
       const str1: string = 'A QUICK BROWN FOX';
       const str2: string = capitalise(str1);
-      str2.should.equal('A QUICK BROWN FOX');
+      str2.should.equal('A quick brown fox');
     });
 
     it('have no problem if first char is numerical.', () => {
@@ -42,13 +42,13 @@ describe('capitalise()\n', () => {
     it('have null with null string.', () => {
       const str1: string = null;
       const str2: string = capitalise(str1);
-      ('' + str2).should.equal('null');
+      ('' + str2).should.equal('');
     });
 
     it('return undefined with undefined.', () => {
       const str1: string = undefined;
       const str2: string = capitalise(str1);
-      ('' + str2).should.equal('undefined');
+      ('' + str2).should.equal('');
     });
 
   });
