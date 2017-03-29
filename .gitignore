@@ -1,10 +1,7 @@
 node_modules/
-coverage/
 .nyc_output/
-.vscode/
+coverage/
+lib/
 .sandbox/
-.editorconfig
-.jsbeautifyrc
 npm-debug.log
 output.txt
-lib
