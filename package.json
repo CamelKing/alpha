@@ -56,13 +56,14 @@
     "functions": 99,
     "branches": 95,
     "include": [
-      "src/**/*.ts"
+      "lib/**/*.js"
     ],
     "exclude": [
+      "lib/test/**/*.spec.*",
       "**/*.d.ts"
     ],
     "extension": [
-      ".ts"
+      ".js"
     ],
     "require": [
       "ts-node/register"

@@ -75,14 +75,14 @@ describe('ls()', () => {
     it('make use of filter to alter the output.', () => {
 
       const dirName: string = path.join(__dirname, '.');
-      const extname: string = '.ts';
+      const extname: string = '.js';
 
       list1 = ls(dirName, (file: string) => {
 
-        if (   file[0] !== '_'
-            && file[0] !== '.'
-            && path.extname(file) === extname) {
-            return file.slice(0);
+        if (file[0] !== '_'
+          && file[0] !== '.'
+          && path.extname(file) === extname) {
+          return file.slice(0);
         }
 
         return '';
