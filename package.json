@@ -19,8 +19,8 @@
   "main": "lib/alpha.js",
   "typings": "typings/alpha.d.ts",
   "scripts": {
-    "coverage": "nyc mocha",
-    "test": "mocha --watch",
+    "coverage": "nyc mocha --opts mocha.opts",
+    "test": "mocha --opts mocha.opts --watch",
     "clean": "rimraf lib/ coverage/ .nyc_output/ typings/",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "build": "tsc --version && tsc --pretty",
@@ -54,7 +54,7 @@
     "lines": 99,
     "statements": 99,
     "functions": 99,
-    "branches": 99,
+    "branches": 95,
     "include": [
       "src/**/*.ts"
     ],

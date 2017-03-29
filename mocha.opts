@@ -1,0 +1,8 @@
+--compilers ts-node/register
+--require source-map-support/register
+--full-trace
+--bail
+--recursive
+--reporter dot
+--slow 10
+test/**/*.spec.ts 
