@@ -7,3 +7,4 @@ coverage/
 .jsbeautifyrc
 npm-debug.log
 output.txt
+lib

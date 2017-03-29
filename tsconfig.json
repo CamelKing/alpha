@@ -3,7 +3,6 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./typings",
-    "inlineSourceMap": false,
     "lib": ["es2017", "dom"],
     "module": "commonjs",
     "moduleResolution": "node",
