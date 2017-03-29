@@ -1,0 +1,7 @@
+
+--full-trace
+--bail
+--recursive
+--reporter spec
+--slow 10
+lib/test/**/*.spec.js 

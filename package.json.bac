@@ -6,10 +6,7 @@
     "test": "test"
   },
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/CamelKing/alpha"
-  },
+  "repository": "",
   "author": "Camel King",
   "keywords": [
     ""
@@ -22,9 +19,8 @@
   "main": "lib/alpha.js",
   "typings": "typings/alpha.d.ts",
   "scripts": {
-    "cover": "nyc mocha --opts mocha.opts",
+    "coverage": "nyc mocha --opts mocha.opts",
     "test": "mocha --opts mocha.opts --watch",
-    "mocha": "mocha --opts mocha.opts",
     "clean": "rimraf lib/ coverage/ .nyc_output/ typings/",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "build": "tsc --version && tsc --pretty",
@@ -52,5 +48,31 @@
   },
   "engines": {
     "node": ">=4.0.0"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 95,
+    "include": [
+      "lib/**/*.js"
+    ],
+    "exclude": [
+      "lib/test/**/*.spec.*",
+      "**/*.d.ts"
+    ],
+    "extension": [
+      ".js"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "report-dir": "./coverage",
+    "all": true
   }
 }

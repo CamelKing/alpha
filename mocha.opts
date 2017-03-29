@@ -2,6 +2,7 @@
 --full-trace
 --bail
 --recursive
---reporter spec
+--reporter dot
 --slow 10
-lib/test/**/*.spec.js 
+--compilers ts-node/register
+test/**/*.spec.* 
