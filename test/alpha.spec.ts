@@ -76,6 +76,7 @@ testControl['stringMods'] = [
   'trim',
   'trimLeft',
   'trimRight',
+  'upperFirst',
 ];
 
 testControl['timeInstances'] = [

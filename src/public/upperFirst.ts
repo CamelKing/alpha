@@ -1,6 +1,6 @@
 
 /**
- * return a copy of the string with the first character converted to lowercase
+ * return a copy of the string with the first character converted to uppercase
  * where applicable.
  *
  * Note: this function will skip all white spaces, punctuations
@@ -14,6 +14,6 @@
 
 import { _firstCase } from '../private/_firstCase';
 
-export function lowerFirst(input: string): string {
-  return _firstCase(input, 'toLowerCase');
+export function upperFirst(input: string): string {
+  return _firstCase(input, 'toUpperCase');
 }

@@ -14,6 +14,7 @@ export * from './private/_decimalAdjust';
 export * from './private/_round';
 
 // @category String
+export * from './private/_firstCase';
 export * from './private/_makeCase';
 export * from './private/_hyphenateToArray';
 export * from './private/_truncateToArray';

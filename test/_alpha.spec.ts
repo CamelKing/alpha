@@ -36,6 +36,7 @@ testControl['objectMods'] = [
 ];
 
 testControl['stringMods'] = [
+  '_firstCase',
   '_hyphenateToArray',
   '_makeCase',
   '_truncateToArray',
