@@ -1,5 +1,5 @@
 import { FnAny, _testSuites } from './_testSuites';
-import { difference, differenceBy, differenceWith, isTheSame } from '../src/alpha';
+import { difference, differenceBy, differenceWith, isTheSame, round, roundDown, roundUp } from '../src/alpha';
 import { expect, should } from 'chai';
 
 import { FnCompare } from '../src/_alpha';
@@ -15,7 +15,7 @@ const answers: object = {};
 const funcs: FnAny[] = [
   difference,
   differenceWith,
-  // differenceBy,
+  differenceBy,
 ];
 
 tests['difference'] = [
@@ -40,6 +40,13 @@ tests['differenceWith'] = [
   'use a X2 comparator on numbers array.',
   'use a small number comparator on numbers array.',
 ];
+
+tests['differenceBy'] = [
+  'round before compare.',
+  'round down before compare.',
+  'round up before compare.',
+];
+
 
 const d1: Date = new Date();
 const d2: Date = new Date(d1.getTime() + 1000);
@@ -71,6 +78,12 @@ inputs['differenceWith'] = [
   [[1, 100, 1000], [1, 5, 50], fnSmall],
 ];
 
+inputs['differenceBy'] = [
+  [[1.4, 2.5, 3.6], [1, 2, 4], round],
+  [[1.4, 2.5, 3.6], [1, 2, 4], roundDown],
+  [[1.4, 2.5, 3.6], [1, 2, 4], roundUp],
+];
+
 answers['difference'] = [
   [],
   [],
@@ -92,6 +105,12 @@ answers['differenceWith'] = [
   ['a'],
   [100],
   [1, 100],
+];
+
+answers['differenceBy'] = [
+  [2.5],
+  [3.6],
+  [2.5],
 ];
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);
