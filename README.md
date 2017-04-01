@@ -9,26 +9,27 @@ The code will be taking advanatge of the strong type checking in Typescript (hen
 > Here is a quick example of how this utility library can be used in other modules. The [TypeScript Module Resolution Logic](https://www.typescriptlang.org/docs/handbook/module-resolution.html) makes it quite easy. The file `src/alpha.ts` is a [barrel](https://basarat.gitbooks.io/typescript/content/docs/tips/barrel.html) that re-exports all the exports from every modules/files containing the utility codes in Typescript under these project. The _package.json_ file contains `main` attribute that points to the generated `lib/alpha.js` file and `typings` attribute that points to the generated `lib/alpha.d.ts` file.
 
 This project makes use of the followings tools:
-1) `Visual Studio Code` as the editor and IDE (sort of)
-2) `tsc` for transpiling Typescript code to Javascript code.
-3) `tslint` for linting.
-4) `mocha` and `chai` testing framework, with `ts-node` as the run time compiler.
-5) `nyc` as the coverage reporting tool.
-6) `NodeJS` for the run time.
-7) `npm` for package, dependency and task management.
-8) `Mac OSX Sierra` for the development OS.
-9) `Github` for the repository.
-10) `Coveralls` for the coverage report history. 
+1) `tsc` for transpiling Typescript code to Javascript code.
+2) `tslint` for linting.
+3) `mocha` and `chai` testing framework, with `ts-node` as the run time compiler.
+4) `nyc` as the coverage reporting tool.
+5) `NodeJS` for the run time.
+6) `npm` for package, dependency and task management.
+7) `Github` for the repository.
+8) `Coveralls` for the coverage report history. 
+9) `Visual Studio Code` as the editor and IDE (sort of)
+10) `Mac OSX Sierra` for the development OS.
 
 The design and coding philoshophy behind all modules (as much as possible):
 1) functional in nature
-  - no chang of passed in variables
+  - no change of passed in variables
   - no change of states
   - objective is merely to return the correct computed result
 2) Readability comes before Performance 
   - as this is meant to be a 'self learning' exercise for myself, and whoever using these
   - most codes are to be self explanatory, in the event I fell they are not, I will include comments (could be too long for some)
 3) Having said that, I will still look into optimising the code (for NodeJS and V8's execution ) as much as possible (without sacrificing readability, or with extra comments explaining).
+4) Do not reproduce any code that is implemented in ES6/ES7. Minor performance improvement is not worth the impending changes once need to carry out when support comes in widely in the next 12 months.
 
 To Do:
 4) Class/Object Oriented
@@ -39,7 +40,7 @@ To Do:
     - encapsulation hopefully hide complexity and avoid potential error
   - class would also act as a mean to group utilities together by category
 
-Now assuming at some in time I have published this module to _npm_ with the name `alpha`, anyone interested can installed it in the module in which needed -
+Now assuming at some point in future I would have published this module to _npm_ with the name `alpha`, anyone interested can download/, installed and make good use of it -
 
 - Example: To use the `Greeter` class in a TypeScript module -
 
@@ -60,4 +61,5 @@ greeter.greet();
 ```
 
 This date: March 24, 2017
+Last revision: April 2, 2017
 Author: Camel King
