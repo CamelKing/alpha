@@ -12,6 +12,7 @@ const categories: string[] = [
   'object',
   'string',
   'time',
+  'function',
 ];
 
 const types: string[] = ['Mods', 'Instances'];
@@ -22,6 +23,7 @@ testControl['asyncMods'] = [
 ];
 
 testControl['arrayMods'] = [
+  '_diff',
 ];
 
 testControl['collectionMods'] = [
@@ -40,6 +42,10 @@ testControl['stringMods'] = [
   '_hyphenateToArray',
   '_makeCase',
   '_truncateToArray',
+];
+
+testControl['functionMods'] = [
+  '_identity',
 ];
 
 testControl['timeInstances'] = [

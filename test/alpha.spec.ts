@@ -13,6 +13,7 @@ const categories: string[] = [
   'object',
   'string',
   'time',
+  'function',
 ];
 
 const types: string[] = ['Mods', 'Instances'];

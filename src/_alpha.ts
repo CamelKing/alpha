@@ -18,3 +18,9 @@ export * from './private/_firstCase';
 export * from './private/_makeCase';
 export * from './private/_hyphenateToArray';
 export * from './private/_truncateToArray';
+
+// @category array
+export * from './private/_diff';
+
+// @category function
+export * from './private/_identity';

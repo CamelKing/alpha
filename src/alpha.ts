@@ -28,6 +28,9 @@ export * from './public/makePromise';
 export * from './public/chunk';
 export * from './public/compact';
 export * from './public/flatten';
+export * from './public/difference';
+export * from './public/differenceBy';
+export * from './public/differenceWith';
 
 // @category Files
 export * from './public/ls';
