@@ -4,6 +4,12 @@
  * @since 0.0.1
  * @category Number
  *
+ * Note: the implementation for tie breaker (0.5) is different from
+ *       standard javascript (which is round up to the larger number),
+ *       here the rounding is done as 'away from zero'.
+ *        123.5 =>  124 (same as JS)
+ *       -123.5 => -124 (JS = -123)
+ *
  * @param {number} value
  * @param {number} [exp]
  * @param {RoundOperand} [ops]
@@ -27,10 +33,10 @@ export function _decimalAdjust(value: number,
     return NaN;
   }
 
-  // If the exp is zero just return simple rounding by Math library
-  if (exp === 0) {
-    return Math[ops](value);
-  }
+  // // If the exp is zero just return simple rounding by Math library
+  // if (exp === 0) {
+  //   return Math[ops](value);
+  // }
 
   // negative flag
   const negative: number = (value < 0 ? -1 : 1);
@@ -50,7 +56,6 @@ export function _decimalAdjust(value: number,
 
   // adjust exponent by the precision required, so the Math.round() can
   // easily perform rounding at the right decimal precision.
-
   exponent -= exp;
 
   // reconstruct number  with precision adjusted scientific form

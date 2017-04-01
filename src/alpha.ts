@@ -73,6 +73,7 @@ export * from './public/trim';
 export * from './public/trimLeft';
 export * from './public/trimRight';
 export * from './public/truncate';
+export * from './public/toWords';
 export * from './public/upperFirst';
 
 // @category time

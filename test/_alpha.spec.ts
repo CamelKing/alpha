@@ -47,27 +47,32 @@ testControl['timeInstances'] = [
 
 describe('_alpha.ts should act as a barrel which...', () => {
 
+
   types.forEach((type: string) => {
 
     categories.forEach((cat: string) => {
 
-      const testSubject: string = cat + type;
+      describe('category: ' + cat, () => {
 
-      if (testControl.hasOwnProperty(testSubject)) {
+        const testSubject: string = cat + type;
 
-        testControl[testSubject].forEach((sub: string) => {
+        if (testControl.hasOwnProperty(testSubject)) {
 
-          const testCondition: string = (typeof (_alpha[sub]) !== 'function') ?
-            'provides instance of ' + sub + ' object.' :
-            'provides ' + sub + '() module.';
+          testControl[testSubject].forEach((sub: string) => {
 
-          it(testCondition, () => {
-            (_alpha[sub]).should.not.equal(undefined);
+            const testCondition: string = (typeof (_alpha[sub]) !== 'function') ?
+              'instance of ' + sub + ' object' :
+              'function ' + sub + '()';
+
+            it(testCondition, () => {
+              (_alpha[sub]).should.not.equal(undefined);
+            });
+
           });
 
-        });
+        }
 
-      }
+      });
 
     });
 

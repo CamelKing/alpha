@@ -11,5 +11,5 @@
  */
 
 export function trimLeft(input: string): string {
-  return input.replace(/^[\s]+/, '');
+  return input ? input.replace(/^[\s]+/, '') : '';
 }

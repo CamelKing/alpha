@@ -19,6 +19,8 @@ import { trimLeft } from './trimLeft';
 export function toParagraph(input: string,
   colsize: number): string[] {
 
+  if (!input) return [];
+
   const firstPass: string[] = input.split('\n');
   const finalPass: string[] = [];
 

@@ -3,7 +3,7 @@ import { expect, should } from 'chai';
 
 should();
 
-describe('casio object\n', () => {
+describe('stopwatch Object\n', () => {
 
   describe('Object instantiation', () => {
 

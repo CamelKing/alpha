@@ -5,13 +5,13 @@ should();
 
 describe('stringify() and objectify()\n', () => {
 
-  describe('should produce...', () => {
+  describe('should...', () => {
 
     let input: any;
     let str: string;
     let reverse: any;
 
-    it('a string wrapped in quotes from a string input,', () => {
+    it('produce a string wrapped in quotes from a string input,', () => {
       input = 'This is to be stringified?';
       str = stringify(input);
       theTypeOf(str).should.equal('string');
@@ -25,7 +25,7 @@ describe('stringify() and objectify()\n', () => {
     });
 
 
-    it('a string from a positive number input,', () => {
+    it('produce a string from a positive number input,', () => {
       input = randomInteger(10, 1000);
       str = stringify(input);
       theTypeOf(str).should.equal('string');
@@ -38,7 +38,7 @@ describe('stringify() and objectify()\n', () => {
     });
 
 
-    it('a string from a negative number input,', () => {
+    it('produce a string from a negative number input,', () => {
       input = randomInteger(-10, -1000);
       str = stringify(input);
       theTypeOf(str).should.equal('string');
@@ -50,7 +50,7 @@ describe('stringify() and objectify()\n', () => {
       reverse.should.equal(input);
     });
 
-    it('a string from a TRUE boolean input,', () => {
+    it('produce a string from a TRUE boolean input,', () => {
       input = true;
       str = stringify(input);
       theTypeOf(str).should.equal('string');
@@ -62,7 +62,7 @@ describe('stringify() and objectify()\n', () => {
       reverse.should.equal(input);
     });
 
-    it('a string from a FALSE boolean input,', () => {
+    it('produce a string from a FALSE boolean input,', () => {
       input = false;
       str = stringify(input);
       theTypeOf(str).should.equal('string');
@@ -74,7 +74,7 @@ describe('stringify() and objectify()\n', () => {
       reverse.should.equal(input);
     });
 
-    it('a string from an nested array input,', () => {
+    it('produce a string from an nested array input,', () => {
       input = ['string', [12345, [true]]];
       str = stringify(input);
       theTypeOf(str).should.equal('string');
@@ -88,7 +88,7 @@ describe('stringify() and objectify()\n', () => {
       isTheSame(reverse, input).should.be.true;
     });
 
-    it('a string from Error object,', () => {
+    it('produce a string from Error object,', () => {
       input = new Error('TESTING ERROR');
       str = stringify(input);
       str.indexOf('stack').should.be.gte(0);
@@ -103,7 +103,7 @@ describe('stringify() and objectify()\n', () => {
     });
 
 
-    it('a string from an object,', () => {
+    it('produce a string from an object,', () => {
       input = { a: 'TESTING ERROR' };
       str = stringify(input);
       str.indexOf('"a"').should.be.gte(0);
@@ -116,32 +116,32 @@ describe('stringify() and objectify()\n', () => {
       isTheSame(reverse, input).should.be.true;
     });
 
-    it('a string from a function object. (no reversal)', () => {
+    it('produce a string from a function object. (no reversal)', () => {
       const rnd: string = randomText(randomInteger(1, 100));
       input = () => rnd;
       str = stringify(input);
       str.should.be.equal('"' + rnd + '"');
     });
 
-    it('nothing from a Symbol. (no reversal)', () => {
+    it('produce nothing from a Symbol. (no reversal)', () => {
       input = Symbol('stringify');
       str = stringify(input);
       str.should.be.equal('');
     });
 
-    it('nothing from "undefined". (no reversal)', () => {
+    it('produce nothing from "undefined". (no reversal)', () => {
       input = undefined;
       str = stringify(input);
       str.should.be.equal('');
     });
 
-    it('nothing from "null". (no reversal)', () => {
+    it('produce nothing from "null". (no reversal)', () => {
       input = null;
       str = stringify(input);
       str.should.be.equal('');
     });
 
-    it('nothing from Promise. (no reversal)', () => {
+    it('produce nothing from Promise. (no reversal)', () => {
       input = Promise.resolve(5);
       str = stringify(input);
       str.should.be.equal('');

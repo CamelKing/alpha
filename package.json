@@ -24,7 +24,7 @@
   "scripts": {
     "clean": "rimraf lib/ coverage/ .nyc_output/ typings/",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
-    "build": "npm run build -- --watch",
+    "build": "npm run tsc -- --watch",
     "test": "mocha --opts mocha.opts --watch",
     "cover": "nyc mocha --opts mocha.opts",
     "mocha": "mocha --opts mocha.opts",
