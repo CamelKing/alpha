@@ -32,12 +32,6 @@ export function isTheSame(a: any, b: any): boolean {
 
   switch (ta) {
 
-    case 'number':
-      if ((a === +0 || a === -0) && (b === -0 || b === +0)) {
-        same = true;
-      } else same = (a === b);
-      break;
-
     case 'array':
 
       const lenA: number = a.length;
@@ -86,6 +80,7 @@ export function isTheSame(a: any, b: any): boolean {
     case 'symbol':
     case 'string':
     case 'boolean':
+    case 'number':
       same = (a === b);
       break;
 

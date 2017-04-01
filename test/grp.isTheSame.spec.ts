@@ -70,6 +70,10 @@ tests['isTheSame'] = [
   'Identify the same Undefined vs Undefined.',
   'Identify the same Null vs Null.',
   'Identify the same Error object vs toObject().',
+  'Identify the same +0 vs +0.',
+  'Identify the same +0 vs -0.',
+  'Identify the same -0 vs -0.',
+  'Identify the same -0 vs +0.',
 ];
 
 const text1: string = randomText(50);
@@ -136,6 +140,10 @@ inputs['isTheSame'] = [
   [undefined, undefined],
   [null, null],
   [err1, toObject(err1)],
+  [+0, +0],
+  [+0, -0],
+  [-0, -0],
+  [-0, +0],
 ];
 
 answers['isTheSame'] = [
@@ -144,7 +152,8 @@ answers['isTheSame'] = [
   false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false,
   true, true, true, true, true, true, true, true, true, true,
-  true, true, true, true, true, true, true, true, true,
+  true, true, true, true, true, true, true, true, true, true,
+  true, true, true
 ];
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);
