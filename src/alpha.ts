@@ -27,10 +27,12 @@ export * from './public/makePromise';
 // @category Array
 export * from './public/chunk';
 export * from './public/compact';
-export * from './public/flatten';
 export * from './public/difference';
 export * from './public/differenceBy';
 export * from './public/differenceWith';
+export * from './public/drop';
+export * from './public/dropRight';
+export * from './public/flatten';
 
 // @category Files
 export * from './public/ls';

@@ -28,6 +28,11 @@ testControl['asyncMods'] = [
 testControl['arrayMods'] = [
   'chunk',
   'compact',
+  'difference',
+  'differenceBy',
+  'differenceWith',
+  'drop',
+  'dropRight',
   'flatten',
 ];
 
