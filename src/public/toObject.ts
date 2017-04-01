@@ -53,8 +53,11 @@ export function toObject(anyVar: any): object {
       break;
 
     case 'number':
-      /* istanbul ignore else */
-      if (!isNaN(anyVar)) { plainObj[type] = anyVar; }
+      plainObj[type] = anyVar;
+      break;
+
+    case 'nan':
+      plainObj['number'] = anyVar;
       break;
 
     // case 'date':

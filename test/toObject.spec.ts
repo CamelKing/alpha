@@ -91,7 +91,7 @@ describe('toObject()\n', () => {
       input = NaN;
       output = toObject(input);
       theTypeOf(output).should.equal('object');
-      output.should.deep.equal({});
+      output.should.deep.equal({ number: NaN });
     });
 
     it('convert a Symbol into an object.', () => {

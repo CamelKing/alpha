@@ -32,7 +32,6 @@ tests['isTheSame'] = [
   'Identify the different Symbol vs Symbol.',
   'Identify the different Undefined vs Null.',
   'Identify the different Null vs Undefined.',
-  'Identify the different NaN vs NaN.',
   'Identify the different functions - return number vs string.',
   'Identify the different functions - return number vs number.',
   'Identify the different functions - return string vs string.',
@@ -56,6 +55,7 @@ tests['isTheSame'] = [
   'Identify the same strings.',
   'Identify the same +ve numbers.',
   'Identify the same -ve numbers.',
+  'Identify the different NaN vs NaN.',
   'Identify the same boolean True.',
   'Identify the same boolean False.',
   'Identify the same date objects.',
@@ -98,7 +98,6 @@ inputs['isTheSame'] = [
   [Symbol(), Symbol()],
   [undefined, null],
   [null, undefined],
-  [NaN, NaN],
   [() => (4 + 5), () => ('4' + '5')],
   [() => (4 + 5), () => (4 + 5 + 1)],
   [() => ('4' + '5' + '7'), () => ('4' + '5' + '6')],
@@ -122,6 +121,7 @@ inputs['isTheSame'] = [
   [text1, text1],
   [1234, 1234],
   [-1234, -1234],
+  [NaN, NaN],
   [true, true],
   [false, false],
   [date1, date1],
@@ -142,9 +142,9 @@ answers['isTheSame'] = [
   false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false,
   false, false, false, false, false, false, false, false, false, false,
-  false, false, false, false, false, false,
+  false, false, false, false, false,
   true, true, true, true, true, true, true, true, true, true,
-  true, true, true, true, true, true, true, true,
+  true, true, true, true, true, true, true, true, true,
 ];
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);
