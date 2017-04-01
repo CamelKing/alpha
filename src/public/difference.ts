@@ -12,7 +12,5 @@
 import { _diff } from '../private/_diff';
 
 export function difference(input: any[], exclude: any[]): any[] {
-  if (!input || input.length === 0) return [];
-  if (!exclude || exclude.length === 0) return input;
   return _diff(input, exclude);
 }

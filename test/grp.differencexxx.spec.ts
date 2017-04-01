@@ -1,7 +1,8 @@
 import { FnAny, _testSuites } from './_testSuites';
+import { difference, differenceBy, differenceWith, isTheSame } from '../src/alpha';
 import { expect, should } from 'chai';
 
-import { difference } from '../src/alpha';
+import { FnCompare } from '../src/_alpha';
 
 should();
 
@@ -13,8 +14,8 @@ const answers: object = {};
 
 const funcs: FnAny[] = [
   difference,
-  // roundUp,
-  // roundDown,
+  differenceWith,
+  // differenceBy,
 ];
 
 tests['difference'] = [
@@ -32,6 +33,12 @@ tests['difference'] = [
   'extract difference with nested objects.',
   'extract no difference with same date objects.',
   'extract difference with date objects.',
+];
+
+tests['differenceWith'] = [
+  'use a strong filter comparator on strings array.',
+  'use a X2 comparator on numbers array.',
+  'use a small number comparator on numbers array.',
 ];
 
 const d1: Date = new Date();
@@ -54,6 +61,16 @@ inputs['difference'] = [
   [[d1], [d1]],
 ];
 
+const fnFilter: FnCompare = (a: any, b: any) => (!isTheSame(a, b));
+const fnX2: FnCompare = (a: any, b: any) => (a < b * 2);
+const fnSmall: FnCompare = (a: any, b: any) => (a > 100);
+
+inputs['differenceWith'] = [
+  [['a', 'b', 'c'], ['a'], fnFilter],
+  [[1, 10, 100], [1, 5, 50], fnX2],
+  [[1, 100, 1000], [1, 5, 50], fnSmall],
+];
+
 answers['difference'] = [
   [],
   [],
@@ -69,6 +86,12 @@ answers['difference'] = [
   [{ a: 1, b: { c: 1 } }],
   [d1],
   [],
+];
+
+answers['differenceWith'] = [
+  ['a'],
+  [100],
+  [1, 100],
 ];
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);

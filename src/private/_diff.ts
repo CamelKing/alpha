@@ -31,6 +31,9 @@ export function _diff(input: any[],
   iteratee?: FnIteratee,
   comparator?: FnCompare): any[] {
 
+  if (!input || input.length === 0) return [];
+  if (!exclude || exclude.length === 0) return input;
+
   const output: any[] = [];
   const length: number = exclude.length;
   iteratee = iteratee || _identity;
