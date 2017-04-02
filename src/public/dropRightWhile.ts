@@ -1,5 +1,6 @@
 /**
  * drop array elements on the right and return a new copy of the array
+ * while the condition / predicate is met.
  *
  * @export
  * @param {any[]} array
@@ -10,9 +11,10 @@
 import { Drop } from '../_constants';
 import { _drop } from '../private/_drop';
 
-export function dropRight(array: any[], count: number = 1): any[] {
+export function dropRightWhile(array: any[],
+  predicate: any,
+  maxDrop?: number): any[] {
 
-  if (count === null || count === undefined) count = 1;
-  return _drop(array, null, count, Drop.fromRight);
+  return _drop(array, predicate, maxDrop, Drop.fromRight);
 
 }

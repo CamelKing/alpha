@@ -21,6 +21,7 @@ export * from './private/_truncateToArray';
 
 // @category array
 export * from './private/_diff';
+export * from './private/_drop';
 
 // @category function
 export * from './private/_identity';

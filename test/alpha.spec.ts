@@ -33,6 +33,8 @@ testControl['arrayMods'] = [
   'differenceWith',
   'drop',
   'dropRight',
+  'dropRightWhile',
+  'dropWhile',
   'flatten',
 ];
 

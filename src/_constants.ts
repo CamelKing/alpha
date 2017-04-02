@@ -6,3 +6,6 @@ export type CaseOperand = 'toLowerCase' | 'toUpperCase';
 // @String
 export const Hyphen: string = '-';
 export const HalfWordLen: number = 3;
+
+// @array
+export enum Drop { fromLeft = 1, fromRight = -1 }

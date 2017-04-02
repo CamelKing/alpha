@@ -32,6 +32,8 @@ export * from './public/differenceBy';
 export * from './public/differenceWith';
 export * from './public/drop';
 export * from './public/dropRight';
+export * from './public/dropRightWhile';
+export * from './public/dropWhile';
 export * from './public/flatten';
 
 // @category Files
