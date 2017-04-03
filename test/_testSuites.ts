@@ -3,6 +3,7 @@ import * as path from 'path';
 import { expect, should } from 'chai';
 
 import { isNull } from 'util';
+import { isTheSame } from "../src/alpha";
 
 should();
 
@@ -116,7 +117,9 @@ function testFunction(func: FnAny,
 
       const answer: any = answers[index];
 
-      if (Number.isNaN(answer)) {
+      if (answer === null || answer === undefined) {
+        isTheSame(func.apply(this, inputs[index]), answer).should.be.true;
+      } else if (Number.isNaN(answer)) {
         func.apply(this, inputs[index]).should.be.Nan;
       } else {
         func.apply(this, inputs[index]).should.deep.equal(answers[index]);

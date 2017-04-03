@@ -3,6 +3,6 @@
 --bail
 --recursive
 --reporter dot
---slow 10
+--slow 1
 --compilers ts-node/register
 test/**/*.spec.* 
