@@ -39,7 +39,7 @@ answers['flatten'] = [
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 ];
 
-_testSuites(funcs, tests, inputs, answers, suiteText, __filename);
+_testSuites(funcs, tests, inputs, answers, suiteText, __filename, true);
 
 
 

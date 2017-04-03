@@ -23,18 +23,21 @@ export function flatten(array: any[]): any[] {
   // Feb 16: changed from a recursive to loop to avoid heap
   //         stack error when facing large nested array
 
-  let found: number;
+  let found: number = 0;
 
-  do {
+  let more: boolean = true;
+
+  while (more) {
 
     const len: number = output.length;
 
-    found = -1;
+    more = false;
 
-    for (let i: number = 0; (i < len) && (found === -1); i++) {
-      if (Array.isArray(output[i])) { found = i; }
+    for (let i: number = found; (i < len) && !more; i++) {
+      if (Array.isArray(output[i])) { more = true; found = i; }
     }
-    if (found !== -1) {
+
+    if (more) {
       // must always call in pairs to work.
       // line 1: remove one level of nesting at the
       //         place we found a nested array, store the resulting
@@ -45,7 +48,7 @@ export function flatten(array: any[]): any[] {
       output = [].concat.apply([], output);
     }
 
-  } while (found !== -1);
+  }
 
   return (output);
 
