@@ -49,6 +49,7 @@ testControl['collectionMods'] = [
 ];
 
 testControl['numberMods'] = [
+  'isNumeric',
   'randomInteger',
   'round',
   'roundUp',
@@ -57,6 +58,7 @@ testControl['numberMods'] = [
 
 testControl['objectMods'] = [
   'clone',
+  'fromPairs',
   'isTheSame',
   'objectify',
   'stringify',

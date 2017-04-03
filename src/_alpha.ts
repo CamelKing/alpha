@@ -23,5 +23,5 @@ export * from './private/_truncateToArray';
 export * from './private/_diff';
 export * from './private/_drop';
 
-// @category function
+// @category Object
 export * from './private/_identity';

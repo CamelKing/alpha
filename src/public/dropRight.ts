@@ -1,6 +1,9 @@
 /**
  * drop array elements on the right and return a new copy of the array
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} array
  * @param {number} [count=1]

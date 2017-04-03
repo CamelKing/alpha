@@ -12,6 +12,9 @@
  * before comparison takes place. bt default using _identity function
  * which does not alter the value at all.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} input
  * @param {any[]} exclude

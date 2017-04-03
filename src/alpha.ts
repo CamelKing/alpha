@@ -46,18 +46,20 @@ export * from './public/ls';
 export * from './public/enumKeys';
 
 // @category Number
+export * from './public/isNumeric';
 export * from './public/randomInteger';
 export * from './public/round';
 export * from './public/roundUp';
 export * from './public/roundDown';
 
 // @category object
+export * from './public/clone';
+export * from './public/fromPairs';
 export * from './public/isTheSame';
-export * from './public/theTypeOf';
-export * from './public/toObject';
 export * from './public/objectify';
 export * from './public/stringify';
-export * from './public/clone';
+export * from './public/theTypeOf';
+export * from './public/toObject';
 
 // @category String
 export * from './public/camelCase';

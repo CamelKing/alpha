@@ -7,6 +7,9 @@
  *       and non printable character when deciding which is
  *       first character
  *
+ * @since 0.0.1
+ * @category String
+ *
  * @export
  * @param {string} input
  * @returns {string}

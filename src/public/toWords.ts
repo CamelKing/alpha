@@ -3,6 +3,9 @@
  * All blank spaces, punctuations, and non printable characters
  * would be considered word break characters and totally ignored.
  *
+ * @since 0.0.1
+ * @category String
+ *
  * @export
  * @param {string} input
  * @returns {string[]}

@@ -17,6 +17,9 @@ import { theTypeOf } from '../public/theTypeOf';
  * 
  * This function will return result in a new copy of array.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} input
  * @param {*} predicate

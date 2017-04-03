@@ -6,6 +6,9 @@
  * pass in the iteratee to transform the array elements 
  * before the comparison is done.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @param {any[]} input
  * @param {any[]} exclude
  * @param {FnCompare} comparator

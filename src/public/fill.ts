@@ -4,6 +4,9 @@
  *
  * Note: this behaviour is consistent with array.slice() method.
  *
+ * @since 0.0.1
+ * @category Array
+ * 
  * @export
  * @param {any[]} input
  * @param {*} value

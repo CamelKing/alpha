@@ -7,6 +7,9 @@
  * .ms = elapsed time in milleseconds
  * .name = name of the timer
  *
+ * @since 0.0.1
+ * @category Time
+ * 
  * @export
  * @class Timer
  */

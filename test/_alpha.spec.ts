@@ -36,6 +36,7 @@ testControl['numberMods'] = [
 ];
 
 testControl['objectMods'] = [
+  '_identity',
 ];
 
 testControl['stringMods'] = [
@@ -46,7 +47,6 @@ testControl['stringMods'] = [
 ];
 
 testControl['functionMods'] = [
-  '_identity',
 ];
 
 testControl['timeInstances'] = [

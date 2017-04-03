@@ -9,6 +9,9 @@
  * Take note that the comparison will be done against the entire
  * of exclude array.
  *
+ * @since 0.0.1
+ * @category Array
+ * 
  * @param {any[]} input
  * @param {any[]} exclude
  * @param {FnCompare} comparator
