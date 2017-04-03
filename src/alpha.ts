@@ -36,6 +36,8 @@ export * from './public/dropRightWhile';
 export * from './public/dropWhile';
 export * from './public/fill';
 export * from './public/flatten';
+export * from './public/flattenDeep';
+export * from './public/flattenDepth';
 
 // @category Files
 export * from './public/ls';

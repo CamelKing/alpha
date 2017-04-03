@@ -1,6 +1,6 @@
 /**
  * wrapper function for flattenDepth.
- * Will remove one level of nesting from a nested array.
+ * flatten deeply nested array into a single dimension array
  *
  * @since 0.0.1
  * @category Array
@@ -12,6 +12,6 @@
 
 import { flattenDepth } from './flattenDepth';
 
-export function flatten(array: any[]): any[] {
-  return flattenDepth(array, 1);
+export function flattenDeep(array: any[]): any[] {
+  return flattenDepth(array, Infinity);
 }

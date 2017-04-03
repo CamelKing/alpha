@@ -36,6 +36,8 @@ testControl['arrayMods'] = [
   'dropRightWhile',
   'dropWhile',
   'flatten',
+  'flattenDeep',
+  'flattenDepth',
 ];
 
 testControl['filesMods'] = [
