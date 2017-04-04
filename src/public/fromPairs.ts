@@ -15,13 +15,13 @@
  * @returns {object}
  */
 
+import { Pair, Pairs } from '../constants';
+
+import { clone } from "./clone";
 import { isNumeric } from './isNumeric';
 import { theTypeOf } from './theTypeOf';
 
-export type Pair = [string, any];
-export type Pairs = Pair[];
-
-export function fromPairs(pairs: Pair[]): object {
+export function fromPairs(pairs: Pairs): object {
 
   const output: object = {};
 
@@ -59,7 +59,7 @@ export function fromPairs(pairs: Pair[]): object {
 
         case 'object':
         case 'error':
-          output[key] = Object.assign({}, value);
+          output[key] = clone(value);
           break;
 
         case 'nan':

@@ -1,7 +1,6 @@
 import { FnAny, _testSuites } from './_testSuites';
 import { expect, should } from 'chai';
-
-import { fromPairs } from '../src/alpha';
+import { fromPairs, toPairs } from '../src/alpha';
 
 should();
 
@@ -13,6 +12,7 @@ const answers: object = {};
 
 const funcs: FnAny[] = [
   fromPairs,
+  toPairs,
 ];
 
 tests['fromPairs'] = [
@@ -50,12 +50,33 @@ tests['fromPairs'] = [
   'return object with with 3 key:value pairs.',
 ];
 
-const s1: Symbol = Symbol();
-const o1: object = { a: 1, b: 'hello' };
+tests['toPairs'] = [
+  'return [] if null object.',
+  'return [] if undefined object.',
+  'return [] if empty object.',
+  'return [] if date object.',
+  'return [] if string.',
+  'return [] if number.',
+  'return [] if boolean.',
+  'return [] if array.',
+  'return [] if function.',
+  'return [] if promise.',
+  'extract simple pair from single property object.',
+  'extract simple pair from double properties object.',
+  'extract simple error object.',
+  'extract a nested object.',
+  'extract a nested object with an error object within.',
+];
+
 const e1: Error = Error('From Paris');
 const a1: any[] = [1, 'hello', true];
 const a2: any[] = [1, a1, 'hello'];
 const d1: Date = new Date();
+const s1: Symbol = Symbol();
+const o1: object = { a: 1, b: 'hello' };
+const o2: object = { c: true };
+const o3: object = { d: 45.67, e: { f: true, h: 'world' } };
+const o4: object = { d: 45.67, e: { f: e1 } };
 
 inputs['fromPairs'] = [
   [[]],
@@ -92,6 +113,24 @@ inputs['fromPairs'] = [
   [[['key1', 1], ['key2', true], ['key3', 'hello']]],
 ];
 
+inputs['toPairs'] = [
+  [null],
+  [undefined],
+  [{}],
+  [d1],
+  ['hello'],
+  [123],
+  [true],
+  [['a', '123']],
+  [() => ['a', '123']],
+  [Promise.resolve(['b', '456'])],
+  [o2],
+  [o1],
+  [e1],
+  [o3],
+  [o4],
+];
+
 answers['fromPairs'] = [
   {},
   {},
@@ -125,6 +164,24 @@ answers['fromPairs'] = [
   { key: [1, true, null, 'hello world'] },
   { key: [1, true, undefined, 'hello world'] },
   { key1: 1, key2: true, key3: 'hello' },
+];
+
+answers['toPairs'] = [
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [],
+  [['c', true]],
+  [['a', 1], ['b', 'hello']],
+  [['stack', e1.stack], ['message', 'From Paris']],
+  [['d', 45.67], ['e', [['f', true], ['h', 'world']]]],
+  [['d', 45.67], ['e', [['f', [['stack', e1.stack], ['message', 'From Paris']]]]]],
 ];
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);

@@ -13,6 +13,11 @@ export type FnPromiseFactory = () => Promise<any>;
 export type FnResolve = (value?: {} | PromiseLike<{}>) => void;
 export type FnReject = (error?: any) => void;
 
+// @Object
+export type Pair = [string, any];
+export type Pairs = Pair[];
+
+
 // --- special purpose
 
 

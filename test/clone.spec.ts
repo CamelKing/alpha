@@ -1,6 +1,5 @@
+import { clone, isTheSame, stopwatch } from '../src/alpha';
 import { expect, should } from 'chai';
-
-import { clone } from '../src/alpha';
 
 should();
 
@@ -49,6 +48,27 @@ describe('clone()\n', () => {
       const jsonStr: string = JSON.stringify(objCopy);
       const expStr: string = '[1,{"array":[2,\"hello\"]}]';
       jsonStr.should.be.equal(expStr);
+    });
+
+    it('cloning Error object', () => {
+      // tslint:disable-next-line:no-magic-numbers
+      const errTest: Error = new Error('THIS IS LONDON');
+      const objCopy: Error = clone(errTest) as Error;
+      isTheSame(errTest, objCopy).should.be.true;
+    });
+
+    it('cloning non object will not work', () => {
+      // tslint:disable-next-line:no-magic-numbers
+      const test: any = 123;
+      const objCopy: any = clone(test);
+      isTheSame(test, objCopy).should.be.true;
+    });
+
+    it('cloning a class object', () => {
+      // tslint:disable-next-line:no-magic-numbers
+      const test: any = stopwatch;
+      const objCopy: any = clone(test);
+      isTheSame(test, objCopy).should.be.true;
     });
 
 

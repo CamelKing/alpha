@@ -64,6 +64,7 @@ testControl['objectMods'] = [
   'stringify',
   'theTypeOf',
   'toObject',
+  'toPairs',
 ];
 
 testControl['stringMods'] = [

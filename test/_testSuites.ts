@@ -122,7 +122,8 @@ function testFunction(func: FnAny,
       } else if (Number.isNaN(answer)) {
         func.apply(this, inputs[index]).should.be.Nan;
       } else {
-        func.apply(this, inputs[index]).should.deep.equal(answers[index]);
+        // func.apply(this, inputs[index]).should.deep.equal(answers[index]);
+        isTheSame(func.apply(this, inputs[index]), answers[index]).should.be.true;
       }
 
     });

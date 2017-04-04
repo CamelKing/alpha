@@ -53,6 +53,8 @@ export function isTheSame(a: any, b: any): boolean {
 
       const keyA: string[] = Object.getOwnPropertyNames(a);
       const keyB: string[] = Object.getOwnPropertyNames(b);
+
+
       const lenKeyA: number = keyA.length;
       if (lenKeyA !== keyB.length) {
         return false;

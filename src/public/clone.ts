@@ -20,13 +20,34 @@
  *
  */
 
+import { theTypeOf } from './theTypeOf';
+
 const _value: string = 'value';
 const _proto: string = '__proto__';
 
-export function clone(source: object): object {
+export function clone(source: any[] | object | Error): any[] | object | Error {
 
-  const target: object = Array.isArray(source) ?
-    [] : Object.create(Object.getPrototypeOf(source));
+  let target: any[] | object | Error;
+
+  switch (theTypeOf(source)) {
+
+    case 'array':
+      target = [];
+      break;
+
+    case 'object':
+      target = Object.create(Object.getPrototypeOf(source));
+      break;
+
+    case 'error':
+      target = new Error((source as Error).message);
+      break;
+
+    // any other data type just return as is
+    default:
+      return source;
+
+  }
 
   // setup control parameters
   const known: any[] = [source];

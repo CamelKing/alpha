@@ -55,6 +55,7 @@ export * from './public/roundDown';
 // @category object
 export * from './public/clone';
 export * from './public/fromPairs';
+export * from './public/toPairs';
 export * from './public/isTheSame';
 export * from './public/objectify';
 export * from './public/stringify';
