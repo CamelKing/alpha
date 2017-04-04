@@ -25,6 +25,9 @@ testControl['asyncMods'] = [
 testControl['arrayMods'] = [
   '_diff',
   '_drop',
+  '_intersection',
+  '_makeComparator',
+  '_removeRedundants',
 ];
 
 testControl['collectionMods'] = [

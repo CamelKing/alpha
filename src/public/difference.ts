@@ -8,7 +8,6 @@
  *
  * @param {any[]} input
  * @param {any[]} exclude
- * @param {FnCompare} comparator
  * @returns {any[]}
  */
 

@@ -1,10 +1,10 @@
-import { Drop } from '../_constants';
+import { _Direction } from '../_constants';
 import { isTheSame } from '../public/isTheSame';
 import { theTypeOf } from '../public/theTypeOf';
 
 /**
  * internal function to perform dropping of elements from an array, base on
- * 
+ *
  * 1) a predicate which will be used as a checking condition to see if we
  *    shall continue dropping. Take note this predicate is not used against
  *    entire array, just at the start, and stop once condition no longer met.
@@ -14,7 +14,7 @@ import { theTypeOf } from '../public/theTypeOf';
  *    also when predicate is absence, this become the number of items to drop
  *
  * 3) direction of drop, either from left or right.
- * 
+ *
  * This function will return result in a new copy of array.
  *
  * @since 0.0.1
@@ -24,7 +24,7 @@ import { theTypeOf } from '../public/theTypeOf';
  * @param {any[]} input
  * @param {*} predicate
  * @param {number} [maxDrop]
- * @param {Drop} [direction]
+ * @param {_Direction} [direction]
  * @returns {any[]}
  */
 
@@ -33,7 +33,7 @@ import { theTypeOf } from '../public/theTypeOf';
 export function _drop(input: any[],
   predicate: any,
   maxDrop?: number,
-  direction?: Drop): any[] {
+  direction?: _Direction): any[] {
 
   // blank array, return
   if (!input) return [];
@@ -46,12 +46,12 @@ export function _drop(input: any[],
   if (maxDrop <= 0) return input;
 
   // setup direction
-  direction = direction || Drop.fromLeft;
+  direction = direction || _Direction.fromLeft;
 
   // if no predicate, just perform normal dropping
   // this is as far as drop() and dropRight() goes
   if (predicate === null || predicate === undefined) {
-    if (direction === Drop.fromLeft) return input.slice(maxDrop);
+    if (direction === _Direction.fromLeft) return input.slice(maxDrop);
     return input.slice(0, len - maxDrop);
   }
 
@@ -71,7 +71,7 @@ export function _drop(input: any[],
     // base on direction, current drop count, calculate
     // which item in the array we are working on
     const item: any = input[(dropCount * direction)
-      + (direction === Drop.fromLeft ? 0 : (len - 1))];
+      + (direction === _Direction.fromLeft ? 0 : (len - 1))];
 
     switch (type) {
 
@@ -127,7 +127,7 @@ export function _drop(input: any[],
   }
 
   // base on direction of dropping, return either left or rigth slice of array
-  if (direction === Drop.fromLeft) return input.slice(dropCount);
+  if (direction === _Direction.fromLeft) return input.slice(dropCount);
   return input.slice(0, len - dropCount);
 
 }

@@ -11,15 +11,16 @@
  *
  * @since 0.0.1
  * @category Array
- * 
+ *
  * @param {any[]} input
  * @param {any[]} exclude
  * @param {FnCompare} comparator
  * @returns {any[]}
  */
 
-import { FnCompare, _diff } from '../private/_diff';
+import { FnComparator } from '../constants';
+import { _diff } from '../private/_diff';
 
-export function differenceWith(input: any[], exclude: any[], comparator: FnCompare): any[] {
+export function differenceWith(input: any[], exclude: any[], comparator: FnComparator): any[] {
   return _diff(input, exclude, null, comparator);
 }

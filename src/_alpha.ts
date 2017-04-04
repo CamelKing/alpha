@@ -22,6 +22,9 @@ export * from './private/_truncateToArray';
 // @category array
 export * from './private/_diff';
 export * from './private/_drop';
+export * from './private/_intersection';
+export * from './private/_makeComparator';
+export * from './private/_removeRedundants';
 
 // @category Object
 export * from './private/_identity';

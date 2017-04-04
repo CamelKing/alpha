@@ -17,13 +17,13 @@ export type FnReject = (error?: any) => void;
 export type Pair = [string, any];
 export type Pairs = Pair[];
 
+// @Array
+export type FnComparator = (a: any, b: any) => boolean;
+export type FnPredicate = (v: any) => any;
+export type FnFind = (element: any, index: number, array: any[]) => boolean;
+
 
 // --- special purpose
-
-
-
-
-
 
 // @RegExp
 

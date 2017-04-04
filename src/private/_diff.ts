@@ -18,35 +18,34 @@
  * @export
  * @param {any[]} input
  * @param {any[]} exclude
- * @param {FnIteratee} [iteratee]
- * @param {FnCompare} [comparator]
+ * @param {FnPredicate} [predicate]
+ * @param {FnComparator} [compare]
  * @returns {any[]}
  */
+
+import { FnComparator, FnPredicate } from '../constants';
 
 import { _identity } from './_identity';
 import { isTheSame } from '../public/isTheSame';
 
-export type FnCompare = (a: any, b: any) => boolean;
-export type FnIteratee = (v: any) => any;
-
 export function _diff(input: any[],
   exclude: any[],
-  iteratee?: FnIteratee,
-  comparator?: FnCompare): any[] {
+  predicate?: FnPredicate,
+  compare?: FnComparator): any[] {
 
   if (!input || input.length === 0) return [];
   if (!exclude || exclude.length === 0) return input;
 
   const output: any[] = [];
   const length: number = exclude.length;
-  iteratee = iteratee || _identity;
-  comparator = comparator || isTheSame;
+  predicate = predicate || _identity;
+  compare = compare || isTheSame;
 
   input.forEach((inspect: any) => {
 
     let found: boolean = false;
     for (let i: number = 0; i < length && !found; i++) {
-      found = comparator(iteratee(inspect), iteratee(exclude[i]));
+      found = compare(predicate(inspect), predicate(exclude[i]));
     }
     if (!found) output.push(inspect);
 

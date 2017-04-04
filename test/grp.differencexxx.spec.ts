@@ -2,7 +2,7 @@ import { FnAny, _testSuites } from './_testSuites';
 import { difference, differenceBy, differenceWith, isTheSame, round, roundDown, roundUp } from '../src/alpha';
 import { expect, should } from 'chai';
 
-import { FnCompare } from '../src/_alpha';
+import { FnComparator } from '../src/alpha';
 
 should();
 
@@ -68,9 +68,9 @@ inputs['difference'] = [
   [[d1], [d1]],
 ];
 
-const fnFilter: FnCompare = (a: any, b: any) => (!isTheSame(a, b));
-const fnX2: FnCompare = (a: any, b: any) => (a < b * 2);
-const fnSmall: FnCompare = (a: any, b: any) => (a > 100);
+const fnFilter: FnComparator = (a: any, b: any) => (!isTheSame(a, b));
+const fnX2: FnComparator = (a: any, b: any) => (a < b * 2);
+const fnSmall: FnComparator = (a: any, b: any) => (a > 100);
 
 inputs['differenceWith'] = [
   [['a', 'b', 'c'], ['a'], fnFilter],

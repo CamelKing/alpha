@@ -38,6 +38,9 @@ export * from './public/fill';
 export * from './public/flatten';
 export * from './public/flattenDeep';
 export * from './public/flattenDepth';
+export * from './public/intersection';
+export * from './public/intersectionBy';
+export * from './public/intersectionWith';
 
 // @category Files
 export * from './public/ls';

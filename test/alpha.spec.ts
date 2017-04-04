@@ -38,6 +38,9 @@ testControl['arrayMods'] = [
   'flatten',
   'flattenDeep',
   'flattenDepth',
+  'intersection',
+  'intersectionBy',
+  'intersectionWith',
 ];
 
 testControl['filesMods'] = [

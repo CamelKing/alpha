@@ -8,4 +8,4 @@ export const Hyphen: string = '-';
 export const HalfWordLen: number = 3;
 
 // @array
-export enum Drop { fromLeft = 1, fromRight = -1 }
+export enum _Direction { fromLeft = 1, fromRight = -1 }

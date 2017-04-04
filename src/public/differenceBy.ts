@@ -3,7 +3,7 @@
  * examine input, what ever not in excldude will be returned
  * in a new array.
  *
- * pass in the iteratee to transform the array elements 
+ * pass in the iteratee to transform the array elements
  * before the comparison is done.
  *
  * @since 0.0.1
@@ -11,12 +11,13 @@
  *
  * @param {any[]} input
  * @param {any[]} exclude
- * @param {FnCompare} comparator
+ * @param {FnPredicate} predicate
  * @returns {any[]}
  */
 
-import { FnIteratee, _diff } from '../private/_diff';
+import { FnPredicate } from '../constants';
+import { _diff } from '../private/_diff';
 
-export function differenceBy(input: any[], exclude: any[], iteratee: FnIteratee): any[] {
-  return _diff(input, exclude, iteratee);
+export function differenceBy(input: any[], exclude: any[], predicate: FnPredicate): any[] {
+  return _diff(input, exclude, predicate);
 }
