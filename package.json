@@ -47,8 +47,8 @@
     "rimraf": "^2.0.0",
     "source-map-support": "^0.4.14",
     "ts-node": "^2.1.2",
-    "tslint": "^4.0.0",
-    "typescript": "^2.0.0"
+    "tslint": "^4.5.1",
+    "typescript": "^2.2.2"
   },
   "engines": {
     "node": ">=4.0.0"
