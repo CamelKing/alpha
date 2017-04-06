@@ -26,8 +26,12 @@ testControl['asyncMods'] = [
 ];
 
 testControl['arrayMods'] = [
+  'ascOrder',
+  'ascOrderBy',
   'chunk',
   'compact',
+  'descOrder',
+  'descOrderBy',
   'difference',
   'differenceBy',
   'differenceWith',
@@ -41,6 +45,8 @@ testControl['arrayMods'] = [
   'intersection',
   'intersectionBy',
   'intersectionWith',
+  'sortedIndex',
+  'sortedIndexBy',
 ];
 
 testControl['filesMods'] = [

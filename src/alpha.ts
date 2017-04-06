@@ -25,8 +25,12 @@ export * from './public/makeAwait';
 export * from './public/makePromise';
 
 // @category Array
+export * from './public/ascOrder';
+export * from './public/ascOrderBy';
 export * from './public/chunk';
 export * from './public/compact';
+export * from './public/descOrder';
+export * from './public/descOrderBy';
 export * from './public/difference';
 export * from './public/differenceBy';
 export * from './public/differenceWith';
@@ -41,6 +45,8 @@ export * from './public/flattenDepth';
 export * from './public/intersection';
 export * from './public/intersectionBy';
 export * from './public/intersectionWith';
+export * from './public/sortedIndex';
+export * from './public/sortedIndexBy';
 
 // @category Files
 export * from './public/ls';

@@ -28,8 +28,8 @@
 
 import { FnPredicate, FnSortComparator, SortOrder } from '../constants';
 
-import { _ascOrder } from './_ascOrder';
 import { _identity } from './_identity';
+import { _orderBy } from './_orderBy';
 
 const _NotFound: number = -1;
 
@@ -40,7 +40,10 @@ export function _binarySearchIndex(array: any[],
   compare?: FnSortComparator): number {
 
   if (!array) return _NotFound;
-  compare = compare || _ascOrder;
+  // default is ascending order.
+  // to make this descending order:
+  // compare = (a,b) => _orderBy(b,a)
+  compare = compare || _orderBy;
   predicate = predicate || _identity;
   const len: number = array.length;
   let start: number = 0;
@@ -49,13 +52,13 @@ export function _binarySearchIndex(array: any[],
 
   while (start <= end) {
     index = (start + end) / 2 | 0;
-    switch (compare(predicate(target), predicate(array[index]))) {
+    switch (compare(target, predicate(array[index]))) {
       case SortOrder.lower: end = index - 1; break;
       case SortOrder.higher: start = index + 1; break;
       case SortOrder.same:
         do {
           index += highestIndex ? 1 : -1;
-        } while (index >= 0 && index < len && compare(predicate(target), predicate(array[index])) === SortOrder.same);
+        } while (index >= 0 && index < len && compare(target, predicate(array[index])) === SortOrder.same);
         return index -= highestIndex ? 1 : -1;
     }
   }

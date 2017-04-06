@@ -23,14 +23,13 @@ testControl['asyncMods'] = [
 ];
 
 testControl['arrayMods'] = [
-  '_ascOrder',
   '_binarySearch',
   '_binarySearchIndex',
-  '_descOrder',
   '_diff',
   '_drop',
   '_intersection',
   '_makeComparator',
+  '_orderBy',
   '_removeRedundants',
 ];
 
@@ -59,7 +58,7 @@ testControl['functionMods'] = [
 testControl['timeInstances'] = [
 ];
 
-describe('_alpha.ts should act as a barrel which...', () => {
+describe('_alpha.ts should act as a barrel which...\n', () => {
 
 
   types.forEach((type: string) => {

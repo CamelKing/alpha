@@ -8,6 +8,7 @@
       "src/**/*.ts"
     ],
     "exclude": [
+      "src/experiment/**/*.ts",
       "**/*.d.ts"
     ],
     "extension": [

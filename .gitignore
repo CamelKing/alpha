@@ -4,5 +4,6 @@ coverage/
 lib/
 typings/
 .sandbox/
+src/experiment/
 npm-debug.log
 output.txt

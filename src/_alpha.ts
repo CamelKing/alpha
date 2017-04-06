@@ -20,10 +20,9 @@ export * from './private/_hyphenateToArray';
 export * from './private/_truncateToArray';
 
 // @category array
-export * from './private/_ascOrder';
+export * from './private/_orderBy';
 export * from './private/_binarySearch';
 export * from './private/_binarySearchIndex';
-export * from './private/_descOrder';
 export * from './private/_diff';
 export * from './private/_drop';
 export * from './private/_intersection';
