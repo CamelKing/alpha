@@ -1,6 +1,6 @@
 import { BinarySearchOption, FnPredicate } from '../src/constants';
 import { FnAny, _testSuites } from './_testSuites';
-import { ascOrder, ascOrderBy, sortedIndex, sortedIndexBy, sortedIndexOf, sortedLastIndexOf } from '../src/alpha';
+import { ascOrder, ascOrderBy, sortedIndex, sortedIndexBy, sortedIndexOf, sortedLastIndexBy, sortedLastIndexOf } from '../src/alpha';
 import { expect, should } from 'chai';
 
 should();
@@ -16,6 +16,7 @@ const funcs: FnAny[] = [
   sortedIndexBy,
   sortedIndex,
   sortedLastIndexOf,
+  sortedLastIndexBy,
 ];
 
 const a: number[] = [2, 3, 5, 7, 9, 2, 5, 6, 8, 9, 9, 9, 9, 10];
@@ -103,6 +104,15 @@ tests['sortedLastIndexOf'] = [
   'string[] return -1 if not found.',
 ];
 
+tests['sortedLastIndexBy'] = [
+  'return -1 for empty array.',
+  'return -1 for null array.',
+  'object[] return index of unqiue item matched.',
+  'object[] return last index of non unqiue item matched.',
+  'object[] using string compare for [number:string] match.',
+  'object[] return -1 if searching with incompatible data type.',
+  'object[] return -1 if not found.',
+];
 
 inputs['sortedIndexOf'] = [
   [[], 1],
@@ -163,6 +173,20 @@ inputs['sortedLastIndexOf'] = [
   [b, 9],
   [b, true],
   [b, '08 hello'],
+];
+
+// console.log(c);
+// console.log(sortedLastIndexBy(c, 40, fn));
+
+inputs['sortedLastIndexBy'] = [
+  [[], 1],
+  [null, 1],
+  [c, 40, fn],
+  [c, 78, fn],
+  [c, '78', fn],
+  [c, 'hello', fn],
+  [c, 79, fn],
+
 ];
 
 
@@ -226,6 +250,16 @@ answers['sortedLastIndexOf'] = [
   -1,
 ];
 
+answers['sortedLastIndexBy'] = [
+  -1,
+  -1,
+  7,
+  10,
+  10,
+  -1,
+  -1,
+];
+
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);
-// _testSuites(funcs, tests, inputs, answers, suiteText, __filename, [false, false, false, true]);
+// _testSuites(funcs, tests, inputs, answers, suiteText, __filename, [false, false, false, false, true]);
