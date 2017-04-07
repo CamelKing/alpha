@@ -48,6 +48,9 @@ export * from './public/intersectionWith';
 export * from './public/sortedIndex';
 export * from './public/sortedIndexBy';
 export * from './public/sortedIndexOf';
+export * from './public/sortedLastIndex';
+export * from './public/sortedLastIndexBy';
+export * from './public/sortedLastIndexOf';
 
 // @category Files
 export * from './public/ls';

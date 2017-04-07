@@ -92,14 +92,14 @@ export function _binarySearchArray(array: any[],
         // calculate the index to return
         index -= option.highestIndex ? 1 : -1;
 
-        // if insert mode, return found index + 1
-        return option.insert ? index + 1 : index;
+        // return found index regardless of insert or normal mode
+        return index;
     }
 
   }
 
-  // if insert mode, return the last start position + 1
-  if (option.insert) return start + 1;
+  // if insert mode, return the last start position
+  if (option.insert) return start;
   return NotFound;
 
 }

@@ -1,10 +1,7 @@
+import { BinarySearchOption, FnPredicate } from '../src/constants';
 import { FnAny, _testSuites } from './_testSuites';
-import { ascOrder, sortedIndexOf } from '../src/alpha';
+import { ascOrder, ascOrderBy, sortedIndex, sortedIndexBy, sortedIndexOf } from '../src/alpha';
 import { expect, should } from 'chai';
-
-import { FnPredicate } from '../src/constants';
-import { ascOrderBy } from '../src/public/ascOrderBy';
-import { sortedIndexBy } from '../src/public/sortedIndexBy';
 
 should();
 
@@ -17,9 +14,10 @@ const answers: object = {};
 const funcs: FnAny[] = [
   sortedIndexOf,
   sortedIndexBy,
+  sortedIndex,
 ];
 
-const a: number[] = [1, 3, 5, 7, 9, 2, 4, 6, 8, 9, 9, 9, 9, 10];
+const a: number[] = [2, 3, 5, 7, 9, 2, 5, 6, 8, 9, 9, 9, 9, 10];
 a.sort(ascOrder);
 
 const b: string[] = ['01', '03', '05', '07', '09', '02', '04', '06', '08', '09', '09', '09', '09', '10'];
@@ -62,11 +60,31 @@ tests['sortedIndexOf'] = [
 tests['sortedIndexBy'] = [
   'return -1 for empty array.',
   'return -1 for null array.',
-  'object[] return index of first item matched',
+  'object[] return index of first item matched.',
   'object[] return -1 if not found.',
   'object[] using string compare for [number:string] match.',
   'object[] return -1 if searching with incompatible data type.',
   'object[] only return the lowest index for the matched items.',
+];
+
+tests['sortedIndex'] = [
+  'return 0 for empty array.',
+  'return -1 for null array.',
+  'number[] return 0 if smaller than all elements.',
+  'number[] return proper position for found in mid of array.',
+  'number[] return proper position for not found in mid of array.',
+  'number[] return proper position for found at end of array.',
+  'number[] return proper position for not found at end of array.',
+  'string[] return 0 if smaller than all elements.',
+  'string[] return proper position for found in mid of array.',
+  'string[] return proper position for not found in mid of array.',
+  'string[] return proper position for found at end of array.',
+  'string[] return proper position for not found at end of array.',
+  'object[] return 0 if smaller than all elements.',
+  'object[] return proper position for found in mid of array.',
+  'object[] return proper position for not found in mid of array.',
+  'object[] return proper position for found at end of array.',
+  'object[] return proper position for not found at end of array.',
 ];
 
 inputs['sortedIndexOf'] = [
@@ -94,6 +112,26 @@ inputs['sortedIndexBy'] = [
   [c, 78, fn],
 ];
 
+inputs['sortedIndex'] = [
+  [[], 100],
+  [null, 100],
+  [a, 1],
+  [a, 3],
+  [a, 4],
+  [a, 10],
+  [a, 11],
+  [b, '00'],
+  [b, '03'],
+  [b, '04abc'],
+  [b, '10'],
+  [b, '11'],
+  [c, 5, fn],
+  [c, 40, fn],
+  [c, 41, fn],
+  [c, 90, fn],
+  [c, 91, fn],
+];
+
 answers['sortedIndexOf'] = [
   -1,
   -1,
@@ -117,6 +155,26 @@ answers['sortedIndexBy'] = [
   7,
   -1,
   8,
+];
+
+answers['sortedIndex'] = [
+  0,
+  -1,
+  0,
+  2,
+  3,
+  13,
+  14,
+  0,
+  2,
+  4,
+  13,
+  14,
+  0,
+  7,
+  8,
+  11,
+  12,
 ];
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);

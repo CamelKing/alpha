@@ -16,11 +16,12 @@
  * @returns {number}
  */
 
+import { FnPredicate } from '../constants';
 import { _binarySearchIndex } from '../private/_binarySearchIndex';
 
-export function sortedIndex(array: any[],
-  target: any): number {
+export function sortedIndex(array: any[], target: any,
+  predicate?: FnPredicate): number {
 
-  return _binarySearchIndex(array, target);
+  return _binarySearchIndex(array, target, { predicate });
 
 }
