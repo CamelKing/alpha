@@ -1,6 +1,6 @@
 import { BinarySearchOption, FnPredicate } from '../src/constants';
 import { FnAny, _testSuites } from './_testSuites';
-import { ascOrder, ascOrderBy, sortedIndex, sortedIndexBy, sortedIndexOf } from '../src/alpha';
+import { ascOrder, ascOrderBy, sortedIndex, sortedIndexBy, sortedIndexOf, sortedLastIndexOf } from '../src/alpha';
 import { expect, should } from 'chai';
 
 should();
@@ -15,6 +15,7 @@ const funcs: FnAny[] = [
   sortedIndexOf,
   sortedIndexBy,
   sortedIndex,
+  sortedLastIndexOf,
 ];
 
 const a: number[] = [2, 3, 5, 7, 9, 2, 5, 6, 8, 9, 9, 9, 9, 10];
@@ -87,6 +88,22 @@ tests['sortedIndex'] = [
   'object[] return proper position for not found at end of array.',
 ];
 
+tests['sortedLastIndexOf'] = [
+  'return -1 for empty array.',
+  'return -1 for null array.',
+  'number[] return index of unique item matched.',
+  'number[] return last index of non-unique item matched.',
+  'number[] using string compare for [number:string] match.',
+  'number[] return -1 if searching with incompatible data type.',
+  'number[] return -1 if not found.',
+  'string[] return index of unique item matched.',
+  'string[] return last index of non-unique item matched.',
+  'string[] using string compare for [number:string] match.',
+  'string[] return -1 if searching with incompatible data type.',
+  'string[] return -1 if not found.',
+];
+
+
 inputs['sortedIndexOf'] = [
   [[], 1],
   [null, 1],
@@ -131,6 +148,23 @@ inputs['sortedIndex'] = [
   [c, 90, fn],
   [c, 91, fn],
 ];
+
+
+inputs['sortedLastIndexOf'] = [
+  [[], 1],
+  [null, 1],
+  [a, 8],
+  [a, 9],
+  [a, '9'],
+  [a, 'hello'],
+  [a, 999],
+  [b, '08'],
+  [b, '09'],
+  [b, 9],
+  [b, true],
+  [b, '08 hello'],
+];
+
 
 answers['sortedIndexOf'] = [
   -1,
@@ -177,4 +211,21 @@ answers['sortedIndex'] = [
   12,
 ];
 
+answers['sortedLastIndexOf'] = [
+  -1,
+  -1,
+  7,
+  12,
+  12,
+  -1,
+  -1,
+  7,
+  12,
+  12,
+  -1,
+  -1,
+];
+
+
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);
+// _testSuites(funcs, tests, inputs, answers, suiteText, __filename, [false, false, false, true]);
