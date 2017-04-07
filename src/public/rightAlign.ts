@@ -11,7 +11,8 @@
  * @returns {string}
  */
 
-import { Align, pad } from '../alpha';
+import { Align } from '../constants';
+import { pad } from './pad';
 
 export function rightAlign(input: string,
   len: number,

@@ -18,13 +18,13 @@
  * @returns {number}
  */
 
-import { _binarySearchIndex } from '../private/_binarySearchIndex';
+import { _binarySearchIndexBy } from '../private/_binarySearchIndexBy';
 
 export function sortedIndex(array: any[],
   target: any): number {
 
   if (!array) return -1;
 
-  return _binarySearchIndex(array, target);
+  return _binarySearchIndexBy(array, target);
 
 }

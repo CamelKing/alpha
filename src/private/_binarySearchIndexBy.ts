@@ -33,7 +33,7 @@ import { _orderBy } from './_orderBy';
 
 const _NotFound: number = -1;
 
-export function _binarySearchIndex(array: any[],
+export function _binarySearchIndexBy(array: any[],
   target: any,
   highestIndex: boolean = false,
   predicate?: FnPredicate,

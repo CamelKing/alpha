@@ -37,16 +37,16 @@
 
 import { FnPredicate, FnSortComparator } from '../constants';
 
-import { _binarySearchIndex } from './_binarySearchIndex';
+import { _binarySearchIndexBy } from './_binarySearchIndexBy';
 
-export function _binarySearch(array: any[],
+export function _binarySearchBy(array: any[],
   target: any,
   highestIndex: boolean = false,
   predicate?: FnPredicate,
   compare?: FnSortComparator): any {
 
   const index: number
-    = _binarySearchIndex(array, target, highestIndex, predicate, compare);
+    = _binarySearchIndexBy(array, target, highestIndex, predicate, compare);
 
   if (index >= 0) return array[index];
   return undefined;

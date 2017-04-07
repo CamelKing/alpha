@@ -11,7 +11,6 @@
  * @returns {string}
  */
 
-
 /*
 TODO: for some reason this code won't work.
 As of now, this is a duplicate code from leftAlign().
@@ -21,7 +20,8 @@ export type FnAlign = (s: string, l: number, p?: string, a?: Align) => string;
 export const padRight: FnAlign = leftAlign;
 */
 
-import { Align, leftAlign } from '../alpha';
+import { Align } from '../constants';
+import { leftAlign } from './leftAlign';
 
 export function padRight(input: string, len: number, padTxt?: string): string {
   return leftAlign(input, len, padTxt);

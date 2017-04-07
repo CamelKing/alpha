@@ -19,7 +19,7 @@
  */
 
 import { FnPredicate } from '../constants';
-import { _binarySearchIndex } from '../private/_binarySearchIndex';
+import { _binarySearchIndexBy } from '../private/_binarySearchIndexBy';
 
 export function sortedIndexBy(array: any[],
   target: any,
@@ -27,6 +27,6 @@ export function sortedIndexBy(array: any[],
 
   if (!array) return -1;
 
-  return _binarySearchIndex(array, target, false, predicate);
+  return _binarySearchIndexBy(array, target, false, predicate);
 
 }
