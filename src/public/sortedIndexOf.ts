@@ -20,7 +20,7 @@
 
 import { _binarySearchIndexBy } from '../private/_binarySearchIndexBy';
 
-export function sortedIndex(array: any[],
+export function sortedIndexOf(array: any[],
   target: any): number {
 
   if (!array) return -1;

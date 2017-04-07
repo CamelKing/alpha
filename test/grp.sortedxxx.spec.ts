@@ -1,5 +1,5 @@
 import { FnAny, _testSuites } from './_testSuites';
-import { ascOrder, sortedIndex } from '../src/alpha';
+import { ascOrder, sortedIndexOf } from '../src/alpha';
 import { expect, should } from 'chai';
 
 import { FnPredicate } from '../src/constants';
@@ -15,7 +15,7 @@ const inputs: object = {};
 const answers: object = {};
 
 const funcs: FnAny[] = [
-  sortedIndex,
+  sortedIndexOf,
   sortedIndexBy,
 ];
 
@@ -44,7 +44,7 @@ const fn: FnPredicate = (o: object) => o['age'];
 
 c.sort(ascOrderBy(fn));
 
-tests['sortedIndex'] = [
+tests['sortedIndexOf'] = [
   'return -1 for empty array.',
   'return -1 for null array.',
   'number[] return index of first item matched.',
@@ -69,7 +69,7 @@ tests['sortedIndexBy'] = [
   'object[] only return the lowest index for the matched items.',
 ];
 
-inputs['sortedIndex'] = [
+inputs['sortedIndexOf'] = [
   [[], 1],
   [null, 1],
   [a, 8],
@@ -94,7 +94,7 @@ inputs['sortedIndexBy'] = [
   [c, 78, fn],
 ];
 
-answers['sortedIndex'] = [
+answers['sortedIndexOf'] = [
   -1,
   -1,
   7,
