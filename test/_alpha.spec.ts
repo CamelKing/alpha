@@ -24,7 +24,8 @@ testControl['asyncMods'] = [
 
 testControl['arrayMods'] = [
   '_binarySearchArray',
-  '_binarySearchBy',
+  '_binarySearchValue',
+  '_binarySearchIndex',
   '_binarySearchIndexBy',
   '_diff',
   '_drop',

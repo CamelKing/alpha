@@ -22,7 +22,8 @@ export * from './private/_truncateToArray';
 // @category array
 export * from './private/_orderBy';
 export * from './private/_binarySearchArray';
-export * from './private/_binarySearchBy';
+export * from './private/_binarySearchValue';
+export * from './private/_binarySearchIndex';
 export * from './private/_binarySearchIndexBy';
 export * from './private/_diff';
 export * from './private/_drop';

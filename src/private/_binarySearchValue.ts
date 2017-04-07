@@ -28,7 +28,7 @@
 import { BinarySearchOption } from '../constants';
 import { _binarySearchArray } from './_binarySearchArray';
 
-export function _binarySearchBy(array: any[], target: any,
+export function _binarySearchValue(array: any[], target: any,
   option?: BinarySearchOption): any {
 
   const index: number
