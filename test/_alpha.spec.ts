@@ -23,6 +23,7 @@ testControl['asyncMods'] = [
 ];
 
 testControl['arrayMods'] = [
+  '_binarySearchArray',
   '_binarySearchBy',
   '_binarySearchIndexBy',
   '_diff',

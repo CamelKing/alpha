@@ -1,13 +1,12 @@
 /**
  * Perform a binary search on a sorted array and return the
- * zero based index of the found item.
+ * zero based index of the found item, or -1 if not found.
  *
  * A predicate function can be passed in to transform the array element
  * before performing comparision. This is useful for array of non
  * primitives element, such as objects.
  *
  * Note: ASSUME array is sorted in ascending order [1,2,3]
- * Note: If item not found, return -1
  *
  * @since 0.0.1
  * @category Array
@@ -25,8 +24,6 @@ export function sortedIndexBy(array: any[],
   target: any,
   predicate?: FnPredicate): number {
 
-  if (!array) return -1;
-
-  return _binarySearchIndexBy(array, target, false, predicate);
+  return _binarySearchIndexBy(array, target, { predicate });
 
 }

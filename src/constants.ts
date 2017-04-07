@@ -18,6 +18,7 @@ export type Pair = [string, any];
 export type Pairs = Pair[];
 
 // @Array
+export const NotFound: number = -1;
 export type FnComparator = (a: any, b: any) => boolean;
 export type FnSortComparator = (a: any, b: any) => SortOrder;
 export type FnPredicate = (v: any) => any;

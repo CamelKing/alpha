@@ -45,6 +45,7 @@ export * from './public/flattenDepth';
 export * from './public/intersection';
 export * from './public/intersectionBy';
 export * from './public/intersectionWith';
+export * from './public/sortedIndex';
 export * from './public/sortedIndexBy';
 export * from './public/sortedIndexOf';
 

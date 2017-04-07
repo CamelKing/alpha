@@ -1,6 +1,6 @@
 /**
- * Private function perform a binary search on an array, returning the
- * index of the target, or -1 if not found.
+ * Private function perform a binary search on an array to determine
+ * where to insert the target and maintain the sorting order.
  *
  * ASSUMPTION: Array is sorted in either asc or desc order.
  *
@@ -22,14 +22,11 @@
 import { BinarySearchOption } from '../constants';
 import { _binarySearchArray } from './_binarySearchArray';
 
-export function _binarySearchIndexBy(array: any[], target: any,
+export function _binarySearchIndex(array: any[], target: any,
   option?: BinarySearchOption): number {
 
-  // setup the option parameter, set insert mode off as this function
-  // is for searching the index of target
   option = option || {};
-  option.insert = false;
+  option.insert = true;
 
   return _binarySearchArray(array, target, option);
-
 }

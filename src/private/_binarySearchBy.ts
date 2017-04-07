@@ -2,7 +2,7 @@
  * Private function perform a binary search on an array, returning the
  * array element found, or undefined if not found.
  *
- * This is implemented using the _binarySearchIndex() function to
+ * This is implemented using the _binarySearchArray() function to
  * locate the element.
  *
  * This is useful if the Array containing non primitives data, such
@@ -10,18 +10,10 @@
  * certain keys of the object, and the end result returned will be
  * the entire object intead.
  *
- *
  * ASSUMPTION: Array is sorted in either asc or desc order.
  *
- * option to return the highest index, default to lowest index
- * (when more than one item with the same value as target)
- *
- * Predicate can be used to parse the array elements, e.g. extract a certain
- * field in an object for comparison purpose (since object can't be compare)
- *
- * Comparator can be passed in to handle how comparison is done. Most common
- * would be either ascending order comparison (_ascOrder()) or descending
- * order comparison (_descOrder()). Default is ascending order.
+ * Read the options section in the _binarySearchArray() to
+ * understand what kind of options can be set.
  *
  * @since 0.0.1
  * @category Array
@@ -29,26 +21,19 @@
  * @export
  * @param {any[]} array
  * @param {*} target
- * @param {boolean} [highestIndex=false]
- * @param {FnPredicate} [predicate]
- * @param {FnSortComparator} [compare]
+ * @param {BinarySearchOption} [option]
  * @returns {number}
  */
 
-import { FnPredicate, FnSortComparator } from '../constants';
+import { BinarySearchOption } from '../constants';
+import { _binarySearchArray } from './_binarySearchArray';
 
-import { _binarySearchIndexBy } from './_binarySearchIndexBy';
-
-export function _binarySearchBy(array: any[],
-  target: any,
-  highestIndex: boolean = false,
-  predicate?: FnPredicate,
-  compare?: FnSortComparator): any {
+export function _binarySearchBy(array: any[], target: any,
+  option?: BinarySearchOption): any {
 
   const index: number
-    = _binarySearchIndexBy(array, target, highestIndex, predicate, compare);
+    = _binarySearchArray(array, target, option);
 
-  if (index >= 0) return array[index];
-  return undefined;
+  return index >= 0 ? array[index] : undefined;
 
 }
