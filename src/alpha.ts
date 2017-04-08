@@ -51,6 +51,8 @@ export * from './public/sortedIndexOf';
 export * from './public/sortedLastIndex';
 export * from './public/sortedLastIndexBy';
 export * from './public/sortedLastIndexOf';
+export * from './public/sortedUniq';
+export * from './public/sortedUniqBy';
 export * from './public/uniq';
 export * from './public/uniqBy';
 

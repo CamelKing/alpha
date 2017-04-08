@@ -22,7 +22,13 @@ export function uniqBy(input: any[], predicate?: FnPredicate): any[] {
 
   if (Array.isArray(input)) {
 
+    let prev: any = null;
+
     input.forEach((item: any) => {
+
+      // if same as previous item, just skip it.
+      if (item === prev) return;
+      prev = item;
 
       let j: number;
 
