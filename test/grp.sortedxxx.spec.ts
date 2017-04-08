@@ -1,6 +1,6 @@
 import { BinarySearchOption, FnPredicate } from '../src/constants';
 import { FnAny, _testSuites } from './_testSuites';
-import { ascOrder, ascOrderBy, sortedIndex, sortedIndexBy, sortedIndexOf, sortedLastIndexBy, sortedLastIndexOf } from '../src/alpha';
+import { ascOrder, ascOrderBy, sortedIndex, sortedIndexBy, sortedIndexOf, sortedLastIndex, sortedLastIndexBy, sortedLastIndexOf } from '../src/alpha';
 import { expect, should } from 'chai';
 
 should();
@@ -17,6 +17,7 @@ const funcs: FnAny[] = [
   sortedIndex,
   sortedLastIndexOf,
   sortedLastIndexBy,
+  sortedLastIndex,
 ];
 
 const a: number[] = [2, 3, 5, 7, 9, 2, 5, 6, 8, 9, 9, 9, 9, 10];
@@ -114,6 +115,28 @@ tests['sortedLastIndexBy'] = [
   'object[] return -1 if not found.',
 ];
 
+tests['sortedLastIndex'] = [
+  'return 0 for empty array.',
+  'return -1 for null array.',
+  'number[] return 0 if smaller than all elements.',
+  'number[] return proper position for unique found in mid of array.',
+  'number[] return proper position for not found in mid of array.',
+  'number[] return proper position for non unique found in mid of array.',
+  'number[] return proper position for non unqiue found at end of array.',
+  'number[] return proper position for not found at end of array.',
+  'string[] return 0 if smaller than all elements.',
+  'string[] return proper position for unique found in mid of array.',
+  'string[] return proper position for not found in mid of array.',
+  'string[] return proper position for not unqiue found at end of array.',
+  'string[] return proper position for not found at end of array.',
+  'object[] return 0 if smaller than all elements.',
+  'object[] return proper position for unique found in mid of array.',
+  'object[] return proper position for not found in mid of array.',
+  'object[] return proper position for non unqiue found at end of array.',
+  'object[] return proper position for not found at end of array.',
+];
+
+
 inputs['sortedIndexOf'] = [
   [[], 1],
   [null, 1],
@@ -175,9 +198,6 @@ inputs['sortedLastIndexOf'] = [
   [b, '08 hello'],
 ];
 
-// console.log(c);
-// console.log(sortedLastIndexBy(c, 40, fn));
-
 inputs['sortedLastIndexBy'] = [
   [[], 1],
   [null, 1],
@@ -189,6 +209,38 @@ inputs['sortedLastIndexBy'] = [
 
 ];
 
+
+const d: number[] = a.concat(11, 11, 11);
+d.sort(ascOrder);
+
+const e: string[] = b.concat('11', '11', '11');
+e.sort(ascOrder);
+
+const f: Array<object> = c.concat([{ age: 90, name: 'dog' }, { age: 90, name: 'dog' }, { age: 90, name: 'dog' }]);
+
+console.log(f);
+console.log(sortedLastIndex(f, 90, fn));
+
+inputs['sortedLastIndex'] = [
+  [[], 100],
+  [null, 100],
+  [d, 1],
+  [d, 3],
+  [d, 4],
+  [d, 9],
+  [d, 11],
+  [d, 12],
+  [e, '00'],
+  [e, '03'],
+  [e, '04abc'],
+  [e, '11'],
+  [e, '12'],
+  [f, 5, fn],
+  [f, 40, fn],
+  [f, 41, fn],
+  [f, 90, fn],
+  [f, 91, fn],
+];
 
 answers['sortedIndexOf'] = [
   -1,
@@ -260,6 +312,27 @@ answers['sortedLastIndexBy'] = [
   -1,
 ];
 
+answers['sortedLastIndex'] = [
+  0,
+  -1,
+  0,
+  2,
+  3,
+  12,
+  16,
+  17,
+  0,
+  2,
+  4,
+  16,
+  17,
+  0,
+  7,
+  8,
+  14,
+  15,
+];
 
+
+// _testSuites(funcs, tests, inputs, answers, suiteText, __filename);
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);
-// _testSuites(funcs, tests, inputs, answers, suiteText, __filename, [false, false, false, false, true]);
