@@ -218,9 +218,6 @@ e.sort(ascOrder);
 
 const f: Array<object> = c.concat([{ age: 90, name: 'dog' }, { age: 90, name: 'dog' }, { age: 90, name: 'dog' }]);
 
-console.log(f);
-console.log(sortedLastIndex(f, 90, fn));
-
 inputs['sortedLastIndex'] = [
   [[], 100],
   [null, 100],

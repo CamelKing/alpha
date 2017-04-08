@@ -48,6 +48,8 @@ testControl['arrayMods'] = [
   'sortedIndex',
   'sortedIndexBy',
   'sortedIndexOf',
+  'uniq',
+  'uniqBy',
 ];
 
 testControl['filesMods'] = [

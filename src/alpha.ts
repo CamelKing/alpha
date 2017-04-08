@@ -51,6 +51,8 @@ export * from './public/sortedIndexOf';
 export * from './public/sortedLastIndex';
 export * from './public/sortedLastIndexBy';
 export * from './public/sortedLastIndexOf';
+export * from './public/uniq';
+export * from './public/uniqBy';
 
 // @category Files
 export * from './public/ls';
