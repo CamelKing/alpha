@@ -8,8 +8,8 @@
  * @returns {any[]}
  */
 
-import { _item } from '../private/_item';
+import { nth } from './nth';
 
 export function head(input: any[]): any {
-  return _item(input, false);
+  return nth(input, 0);
 }

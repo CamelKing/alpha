@@ -8,8 +8,8 @@
  * @returns {any[]}
  */
 
-import { _item } from '../private/_item';
+import { nth } from './nth';
 
 export function tail(input: any[]): any {
-  return _item(input, true);
+  return nth(input, -1);
 }

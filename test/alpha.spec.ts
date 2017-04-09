@@ -47,6 +47,7 @@ testControl['arrayMods'] = [
   'intersection',
   'intersectionBy',
   'intersectionWith',
+  'nth',
   'sortedIndex',
   'sortedIndexBy',
   'sortedIndexOf',

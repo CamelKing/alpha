@@ -30,7 +30,6 @@ testControl['arrayMods'] = [
   '_diff',
   '_drop',
   '_intersection',
-  '_item',
   '_makeComparator',
   '_orderBy',
   '_removeRedundants',

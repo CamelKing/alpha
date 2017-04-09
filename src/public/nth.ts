@@ -1,5 +1,5 @@
 /**
- * Return the first or last element of the array.
+ * Return the nth element of the array.
  *
  * If this is not an array, or an empty array, return undefined instead.
  *
@@ -12,11 +12,14 @@
 import { clone } from '../public/clone';
 import { theTypeOf } from '../public/theTypeOf';
 
-export function _item(input: any[], last: boolean = false): any {
+export function nth(input: any[], index: number = 0): any {
 
   if (!Array.isArray(input)) return undefined;
-  if (input.length === 0) return undefined;
-  const item: any = input[last ? input.length - 1 : 0];
+  // const len:number = input.length;
+  // if (len === 0 ) return undefined;
+  // const absIndex: number = Math.abs(index);
+  // if (Number.isNaN(absIndex) || absIndex >= length) return undefined;
+  const item: any = input[index < 0 ? input.length + index : index];
 
   switch (theTypeOf(item)) {
 

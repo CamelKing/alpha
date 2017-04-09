@@ -28,7 +28,6 @@ export * from './private/_binarySearchIndexBy';
 export * from './private/_diff';
 export * from './private/_drop';
 export * from './private/_intersection';
-export * from './private/_item';
 export * from './private/_makeComparator';
 export * from './private/_removeRedundants';
 
