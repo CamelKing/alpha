@@ -52,6 +52,7 @@ testControl['arrayMods'] = [
   'sortedIndexOf',
   'sortedUniq',
   'sortedUniqBy',
+  'tail',
   'uniq',
   'uniqBy',
 ];

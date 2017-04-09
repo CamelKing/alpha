@@ -55,6 +55,7 @@ export * from './public/sortedLastIndexBy';
 export * from './public/sortedLastIndexOf';
 export * from './public/sortedUniq';
 export * from './public/sortedUniqBy';
+export * from './public/tail';
 export * from './public/uniq';
 export * from './public/uniqBy';
 
