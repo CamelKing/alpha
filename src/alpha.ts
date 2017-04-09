@@ -43,6 +43,7 @@ export * from './public/flatten';
 export * from './public/flattenDeep';
 export * from './public/flattenDepth';
 export * from './public/head';
+export * from './public/initial';
 export * from './public/intersection';
 export * from './public/intersectionBy';
 export * from './public/intersectionWith';
