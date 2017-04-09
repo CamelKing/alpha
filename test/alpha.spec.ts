@@ -42,6 +42,7 @@ testControl['arrayMods'] = [
   'flatten',
   'flattenDeep',
   'flattenDepth',
+  'head',
   'intersection',
   'intersectionBy',
   'intersectionWith',
