@@ -3,6 +3,9 @@
  *
  * Implemented as wrapper for _pullAll;
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} input
  * @param {any[]} values

@@ -6,6 +6,9 @@
  * Option to pass in predicate - apply at items before comparison
  * and comparator - control how comparison is done.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} input
  * @param {any[]} values

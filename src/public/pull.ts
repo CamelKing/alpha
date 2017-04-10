@@ -1,6 +1,9 @@
 /**
  * Pull items from the array. Array is changed in the process.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} input
  * @param {...any[]} args
