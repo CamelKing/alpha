@@ -73,6 +73,7 @@ export * from './public/unionWith';
 export * from './public/uniq';
 export * from './public/uniqBy';
 export * from './public/uniqWith';
+export * from './public/without';
 
 // @category Files
 export * from './public/ls';
