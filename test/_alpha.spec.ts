@@ -32,6 +32,7 @@ testControl['arrayMods'] = [
   '_intersection',
   '_makeComparator',
   '_orderBy',
+  '_pullAll',
   '_removeRedundants',
 ];
 
