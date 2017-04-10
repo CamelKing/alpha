@@ -63,6 +63,10 @@ export * from './public/sortedLastIndexOf';
 export * from './public/sortedUniq';
 export * from './public/sortedUniqBy';
 export * from './public/tail';
+export * from './public/take';
+export * from './public/takeRight';
+export * from './public/takeRightWhile';
+export * from './public/takeWhile';
 export * from './public/uniq';
 export * from './public/uniqBy';
 

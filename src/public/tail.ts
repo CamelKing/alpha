@@ -3,6 +3,9 @@
  *
  * If this is not an array, or an empty array, return undefined instead.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} input
  * @returns {any[]}

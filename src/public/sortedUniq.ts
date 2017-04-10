@@ -6,7 +6,10 @@
  * [1,1,2,2,3,4] => [1,2,3,4]
  *
  * Implemented as wrapper for uniqBy() with the predicate.
- * 
+ *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} input
  * @param {FnPredicate} [predicate]

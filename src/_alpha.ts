@@ -31,6 +31,7 @@ export * from './private/_intersection';
 export * from './private/_pullAll';
 export * from './private/_makeComparator';
 export * from './private/_removeRedundants';
+export * from './private/_take';
 
 // @category Object
 export * from './private/_identity';

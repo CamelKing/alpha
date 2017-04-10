@@ -60,6 +60,10 @@ testControl['arrayMods'] = [
   'sortedUniq',
   'sortedUniqBy',
   'tail',
+  'take',
+  'takeRight',
+  'takeRightWhile',
+  'takeWhile',
   'uniq',
   'uniqBy',
 ];
