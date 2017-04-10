@@ -21,24 +21,22 @@ export function sortedUniqBy(input: any[], predicate?: FnPredicate): any[] {
 
   const output: any[] = [];
 
-  if (Array.isArray(input)) {
+  if (!Array.isArray(input)) return input;
 
-    let prev: any = null;
+  let prev: any = null;
 
-    input.forEach((item: any) => {
+  input.forEach((item: any) => {
 
-      // since this is a sorted array, we can just skip all
-      // redundant items after the first one, and there is no
-      // need to check if it exists in output array before
-      // pushing
-      const value: any = predicate ? predicate(item) : item;
-      if (value === prev) return;
-      prev = value;
-      output.push(item);
+    // since this is a sorted array, we can just skip all
+    // redundant items after the first one, and there is no
+    // need to check if it exists in output array before
+    // pushing
+    const value: any = predicate ? predicate(item) : item;
+    if (value === prev) return;
+    prev = value;
+    output.push(item);
 
-    });
-
-  }
+  });
 
   return output;
 

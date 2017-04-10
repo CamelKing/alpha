@@ -22,11 +22,34 @@ const funcs: FnAny[] = [
 const a: number[] = [1, 3, 5, 7, 9, 2, 4, 6, 8, 1, 2, 3, 6, 7, 8, 4];
 const b: string[] = ['hello', 'world', 'hello', 'quick', 'brown', 'quick'];
 const c: any[] = a.concat(b as any[]);
+const fn: FnPredicate = (o: object) => +o['age'];
+const d: Array<object> = [
+  { age: 20, name: 'Quick' },
+  { age: 99, name: 'Brown' },
+  { age: 40, name: 'Fox' },
+  { age: 80, name: 'Jumps' },
+  { age: 60, name: 'Over' },
+  { age: 60, name: 'A' },
+  { age: 80, name: 'Lazy' },
+  { age: 40, name: 'Dog' },
+  { age: 99, name: 'The' },
+  { age: 20, name: '.' },
+];
+// d.sort(ascOrderBy(fn));
+// use '99' as array.sort() is an unstable sort, can result in
+// undesirable re-ordering of elements.
+const e: Array<object> = d.concat([{ age: '99', name: 'BUG' }]);
+// e.sort(ascOrderBy(fn));
+const sa: number[] = a.slice(0).sort();
+const sb: string[] = b.slice(0).sort();
+const sc: any[] = c.slice(0).sort();
+const sd: Array<object> = d.slice(0).sort(ascOrderBy(fn));
+const se: Array<object> = e.slice(0).sort(ascOrderBy(fn));
 
 tests['uniq'] = [
   'return [] for empty array',
-  'return [] for null array',
-  'return [] for undefined array',
+  'return null for null array',
+  'return undefined for undefined array',
   'number[]: return as is for single element array',
   'number[]: produce new array with unique members of input.',
   'number[]: word well with sorted array.',
@@ -37,8 +60,8 @@ tests['uniq'] = [
 
 tests['uniqBy'] = [
   'return [] for empty array',
-  'return [] for null array',
-  'return [] for undefined array',
+  'return null for null array',
+  'return undefined for undefined array',
   'object []: return as is for single element array',
   'object []: produce new array with unique members of input.',
   'object []: produce new array with unique members of mixed type input.',
@@ -46,8 +69,8 @@ tests['uniqBy'] = [
 
 tests['sortedUniq'] = [
   'return [] for empty array',
-  'return [] for null array',
-  'return [] for undefined array',
+  'return null for null array',
+  'return undefined for undefined array',
   'number[]: return as is for single element array',
   'number[]: produce new array with unique members of input.',
   'string[]: return as is for single element array',
@@ -57,13 +80,12 @@ tests['sortedUniq'] = [
 
 tests['sortedUniqBy'] = [
   'return [] for empty array',
-  'return [] for null array',
-  'return [] for undefined array',
+  'return null for null array',
+  'return undefined for undefined array',
   'object []: return as is for single element array',
   'object []: produce new array with unique members of input.',
   'object []: produce new array with unique members of mixed type input.',
 ];
-
 
 inputs['uniq'] = [
   [[]],
@@ -77,28 +99,6 @@ inputs['uniq'] = [
   [c],
 ];
 
-const fn: FnPredicate = (o: object) => +o['age'];
-
-const d: Array<object> = [
-  { age: 20, name: 'Quick' },
-  { age: 99, name: 'Brown' },
-  { age: 40, name: 'Fox' },
-  { age: 80, name: 'Jumps' },
-  { age: 60, name: 'Over' },
-  { age: 60, name: 'A' },
-  { age: 80, name: 'Lazy' },
-  { age: 40, name: 'Dog' },
-  { age: 99, name: 'The' },
-  { age: 20, name: '.' },
-];
-
-// d.sort(ascOrderBy(fn));
-
-// use '99' as array.sort() is an unstable sort, can result in
-// undesirable re-ordering of elements.
-const e: Array<object> = d.concat([{ age: '99', name: 'BUG' }]);
-// e.sort(ascOrderBy(fn));
-
 inputs['uniqBy'] = [
   [[], fn],
   [null, fn],
@@ -107,10 +107,6 @@ inputs['uniqBy'] = [
   [d, fn],
   [e, fn],
 ];
-
-const sa: number[] = a.slice(0).sort();
-const sb: string[] = b.slice(0).sort();
-const sc: any[] = c.slice(0).sort();
 
 inputs['sortedUniq'] = [
   [[]],
@@ -123,9 +119,6 @@ inputs['sortedUniq'] = [
   [sc],
 ];
 
-const sd: Array<object> = d.slice(0).sort(ascOrderBy(fn));
-const se: Array<object> = e.slice(0).sort(ascOrderBy(fn));
-
 inputs['sortedUniqBy'] = [
   [[], fn],
   [null, fn],
@@ -137,8 +130,8 @@ inputs['sortedUniqBy'] = [
 
 answers['uniq'] = [
   [],
-  [],
-  [],
+  null,
+  undefined,
   [1],
   [1, 3, 5, 7, 9, 2, 4, 6, 8],
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -149,8 +142,8 @@ answers['uniq'] = [
 
 answers['uniqBy'] = [
   [],
-  [],
-  [],
+  null,
+  undefined,
   [{ age: 20, name: 'Quick' }],
   [
     { age: 20, name: 'Quick' },
@@ -170,8 +163,8 @@ answers['uniqBy'] = [
 
 answers['sortedUniq'] = [
   [],
-  [],
-  [],
+  null,
+  undefined,
   [1],
   [1, 2, 3, 4, 5, 6, 7, 8, 9],
   ['hello'],
@@ -183,8 +176,8 @@ answers['sortedUniq'] = [
 // array.sort() being an unstable sort.
 answers['sortedUniqBy'] = [
   [],
-  [],
-  [],
+  null,
+  undefined,
   [{ age: 20, name: 'Quick' }],
   [
     { age: 20, name: 'Quick' },

@@ -25,6 +25,8 @@ import { isTheSame } from '../public/isTheSame';
 
 export function _removeRedundants(input: any[], predicate: FnPredicate = null, compare: FnComparator = isTheSame): any[] {
 
+  if (!Array.isArray(input)) return input;
+
   // remove redundant elements before returning
   return input.filter((item: any, index: number, self: any[]) =>
     index === self.findIndex(_makeComparator(item, predicate, compare)));

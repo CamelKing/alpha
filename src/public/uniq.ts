@@ -13,8 +13,8 @@
  * @returns {any[]}
  */
 
-import { uniqBy } from './uniqBy';
+import { _removeRedundants } from '../private/_removeRedundants';
 
 export function uniq(input: any[]): any[] {
-  return uniqBy(input);
+  return _removeRedundants(input);
 }
