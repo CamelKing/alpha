@@ -35,6 +35,7 @@ testControl['arrayMods'] = [
   '_pullAll',
   '_removeRedundants',
   '_take',
+  '_union',
 ];
 
 testControl['collectionMods'] = [

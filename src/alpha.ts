@@ -67,6 +67,7 @@ export * from './public/take';
 export * from './public/takeRight';
 export * from './public/takeRightWhile';
 export * from './public/takeWhile';
+export * from './public/union';
 export * from './public/uniq';
 export * from './public/uniqBy';
 

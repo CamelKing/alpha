@@ -32,6 +32,7 @@ export * from './private/_pullAll';
 export * from './private/_makeComparator';
 export * from './private/_removeRedundants';
 export * from './private/_take';
+export * from './private/_union';
 
 // @category Object
 export * from './private/_identity';
