@@ -69,6 +69,7 @@ testControl['arrayMods'] = [
   'unionWith',
   'uniq',
   'uniqBy',
+  'uniqWith',
 ];
 
 testControl['filesMods'] = [

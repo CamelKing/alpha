@@ -1,8 +1,7 @@
 import { FnAny, _testSuites } from './_testSuites';
-import { ascOrderBy, sortedUniq, sortedUniqBy, uniq, uniqBy } from '../src/alpha';
+import { FnComparator, FnPredicate } from '../src/constants';
+import { ascOrderBy, isTheSame, sortedUniq, sortedUniqBy, uniq, uniqBy, uniqWith } from '../src/alpha';
 import { expect, should } from 'chai';
-
-import { FnPredicate } from '../src/constants';
 
 should();
 
@@ -15,6 +14,7 @@ const answers: object = {};
 const funcs: FnAny[] = [
   uniq,
   uniqBy,
+  uniqWith,
   sortedUniq,
   sortedUniqBy,
 ];
@@ -23,6 +23,7 @@ const a: number[] = [1, 3, 5, 7, 9, 2, 4, 6, 8, 1, 2, 3, 6, 7, 8, 4];
 const b: string[] = ['hello', 'world', 'hello', 'quick', 'brown', 'quick'];
 const c: any[] = a.concat(b as any[]);
 const fn: FnPredicate = (o: object) => +o['age'];
+const fnCompare: FnComparator = isTheSame;
 const d: Array<object> = [
   { age: 20, name: 'Quick' },
   { age: 99, name: 'Brown' },
@@ -59,6 +60,15 @@ tests['uniq'] = [
 ];
 
 tests['uniqBy'] = [
+  'return [] for empty array',
+  'return null for null array',
+  'return undefined for undefined array',
+  'object []: return as is for single element array',
+  'object []: produce new array with unique members of input.',
+  'object []: produce new array with unique members of mixed type input.',
+];
+
+tests['uniqWith'] = [
   'return [] for empty array',
   'return null for null array',
   'return undefined for undefined array',
@@ -106,6 +116,15 @@ inputs['uniqBy'] = [
   [[{ age: 20, name: 'Quick' }], fn],
   [d, fn],
   [e, fn],
+];
+
+inputs['uniqWith'] = [
+  [[], fnCompare],
+  [null, fnCompare],
+  [undefined, fnCompare],
+  [[{ age: 20, name: 'Quick' }], fnCompare],
+  [d, fnCompare],
+  [e, fnCompare],
 ];
 
 inputs['sortedUniq'] = [
@@ -161,6 +180,15 @@ answers['uniqBy'] = [
   ],
 ];
 
+answers['uniqWith'] = [
+  [],
+  null,
+  undefined,
+  [{ age: 20, name: 'Quick' }],
+  d,
+  e,
+];
+
 answers['sortedUniq'] = [
   [],
   null,
@@ -195,4 +223,4 @@ answers['sortedUniqBy'] = [
   ],
 ];
 
-_testSuites(funcs, tests, inputs, answers, suiteText, __filename);
+_testSuites(funcs, tests, inputs, answers, suiteText, __filename, [false, false, true]);
