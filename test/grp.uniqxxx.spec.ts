@@ -223,4 +223,4 @@ answers['sortedUniqBy'] = [
   ],
 ];
 
-_testSuites(funcs, tests, inputs, answers, suiteText, __filename, [false, false, true]);
+_testSuites(funcs, tests, inputs, answers, suiteText, __filename);
