@@ -16,6 +16,27 @@ const funcs: FnAny[] = [
   intersectionWith,
 ];
 
+const a1: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const a2: number[] = [11, 2, 31, 4, 15, 6, 17, 8, 19, 10];
+const a3: number[] = [1, 22, 3, 4, 5, 6, 7, 28, 9, 10];
+const a4: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 310];
+const a5: number[] = [2, 2, 4, 4, 6, 6, 8, 8, 10, 10];
+
+const s1: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+const s2: string[] = ['11', '2', '31', '4', '15', '6', '17', '8', '19', '10'];
+const s3: string[] = ['1', '22', '3', '4', '5', '6', '7', '28', '9', '10'];
+const s4: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '310'];
+
+const o1: object = { a: 1, b: 2, c: 3 };
+const o2: object = { a: '1', b: 2, c: 3 };
+const o3: object = { a: '1', b: 2, c: 3 };
+
+const fnToString: FnPredicate = (x: any) => '' + x;
+const fnToNumber: FnPredicate = (x: any) => +x;
+
+const fnCompare: FnComparator = (a: any, b: any) => a > b;
+
+
 tests['intersection'] = [
   'return [] if zero paramter.',
   'return [] if any paramter is empty array.',
@@ -45,7 +66,7 @@ tests['intersectionBy'] = [
   'Omit predicate at end = intersection()',
   'make use of toString predicate to compute intersection.',
   'make use of toNumber predicate to compute intersection.',
-  'reversing the order of params does not matter.',
+  'reversing the order of params does matter.',
 
 ];
 
@@ -61,21 +82,6 @@ tests['intersectionWith'] = [
   'reversing the order of params could matter.',
 
 ];
-
-const a1: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const a2: number[] = [11, 2, 31, 4, 15, 6, 17, 8, 19, 10];
-const a3: number[] = [1, 22, 3, 4, 5, 6, 7, 28, 9, 10];
-const a4: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 310];
-const a5: number[] = [2, 2, 4, 4, 6, 6, 8, 8, 10, 10];
-
-const s1: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-const s2: string[] = ['11', '2', '31', '4', '15', '6', '17', '8', '19', '10'];
-const s3: string[] = ['1', '22', '3', '4', '5', '6', '7', '28', '9', '10'];
-const s4: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '310'];
-
-const o1: object = { a: 1, b: 2, c: 3 };
-const o2: object = { a: '1', b: 2, c: 3 };
-const o3: object = { a: '1', b: 2, c: 3 };
 
 inputs['intersection'] = [
   [],
@@ -96,9 +102,6 @@ inputs['intersection'] = [
   [a5, a1],
 ];
 
-const fnToString: FnPredicate = (x: any) => '' + x;
-const fnToNumber: FnPredicate = (x: any) => +x;
-
 inputs['intersectionBy'] = [
   [],
   [a1, a2, []],
@@ -106,12 +109,10 @@ inputs['intersectionBy'] = [
   [1, [2]],
   [1, 2],
   [a1, a2, a3, a4],
-  [a1, s1, fnToString],
+  [s1, a1, fnToString],
   [a1, s1, fnToNumber],
   [s1, a1, fnToNumber],
 ];
-
-const fnCompare: FnComparator = (a: any, b: any) => a > b;
 
 inputs['intersectionWith'] = [
   [],
@@ -153,7 +154,7 @@ answers['intersectionBy'] = [
   [4, 6],
   s1,
   a1,
-  a1,
+  s1,
 ];
 
 answers['intersectionWith'] = [

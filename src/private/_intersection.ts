@@ -35,12 +35,8 @@ export function _intersection(arrA: any[], arrB: any[], predicate: FnPredicate =
 
   if (Array.isArray(arrA) && Array.isArray(arrB)) {
 
-    let intersect: any[] = arrA.filter((item: any) =>
+    const intersect: any[] = arrA.filter((item: any) =>
       (arrB.findIndex(_makeComparator(item, predicate, compare)) >= 0));
-
-    if (predicate) {
-      intersect = intersect.map((value: any) => predicate(value));
-    }
 
     return _removeRedundants(intersect);
 
