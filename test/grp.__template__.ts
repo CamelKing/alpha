@@ -24,4 +24,4 @@ inputs['pad'] = [
 answers['pad'] = [
 ];
 
-_testSuites(funcs, tests, inputs, answers, suiteText, __filename);
+_testSuites(funcs, tests, inputs, answers, suiteText, __filename, true);

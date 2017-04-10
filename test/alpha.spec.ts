@@ -53,6 +53,7 @@ testControl['arrayMods'] = [
   'pullAll',
   'pullAllBy',
   'pullAllWith',
+  'remove',
   'sortedIndex',
   'sortedIndexBy',
   'sortedIndexOf',

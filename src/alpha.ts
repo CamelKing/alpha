@@ -53,6 +53,7 @@ export * from './public/pull';
 export * from './public/pullAll';
 export * from './public/pullAllBy';
 export * from './public/pullAllWith';
+export * from './public/remove';
 export * from './public/sortedIndex';
 export * from './public/sortedIndexBy';
 export * from './public/sortedIndexOf';
