@@ -48,6 +48,7 @@ export * from './public/intersection';
 export * from './public/intersectionBy';
 export * from './public/intersectionWith';
 export * from './public/nth';
+export * from './public/pluck';
 export * from './public/pull';
 export * from './public/pullAll';
 export * from './public/pullAllBy';

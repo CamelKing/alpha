@@ -48,6 +48,7 @@ testControl['arrayMods'] = [
   'intersectionBy',
   'intersectionWith',
   'nth',
+  'pluck',
   'pull',
   'pullAll',
   'pullAllBy',

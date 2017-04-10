@@ -1,3 +1,7 @@
+import { FnComparator, FnPredicate } from '../constants';
+
+import { isTheSame } from '../public/isTheSame';
+import { pluck } from '../public/pluck';
 /**
  * Private function to perform pulling of items from an array.
  *
@@ -14,9 +18,7 @@
  * @returns {any[]}
  */
 
-import { FnComparator, FnPredicate } from '../constants';
 
-import { isTheSame } from '../public/isTheSame';
 
 export function _pullAll(input: any[], values: any[],
   predicate?: FnPredicate, compare?: FnComparator): any[] {
@@ -41,14 +43,17 @@ export function _pullAll(input: any[], values: any[],
       // if we find an item in the input array that is same
       // as one of the items to be removed
       if (compare(a, b)) {
-        // loop to shift array one space to the left
-        // from where we find the item, effectively
-        // remove that item from the array
-        for (let j: number = index; j < len - 1; j++) {
-          input[j] = input[j + 1];
-        }
-        // adjust the input array length
-        len = (--input.length);
+
+        len = pluck(input, index).length;
+
+        // // loop to shift array one space to the left
+        // // from where we find the item, effectively
+        // // remove that item from the array
+        // for (let j: number = index; j < len - 1; j++) {
+        //   input[j] = input[j + 1];
+        // }
+        // // adjust the input array length
+        // len = (--input.length);
 
       } else {
 
