@@ -4,6 +4,9 @@
  * implemented using a loop that call private function _union()
  * to union-ize two arrays at a time.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {...any[]} arrays
  * @returns {any[]}
