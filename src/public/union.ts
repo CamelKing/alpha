@@ -9,19 +9,20 @@
  * @returns {any[]}
  */
 
+import { _removeRedundants } from '../private/_removeRedundants';
 import { _union } from '../private/_union';
 
 export function union(...arrays: any[]): any[] {
 
-  const len: number = arrays.length;
+  const { length } = arrays;
 
   // minimum must pass in two arrays
-  if (len < 1) return [];
-  if (len === 1) return arrays[0].slice(0);
+  if (length < 1) return [];
+  if (length === 1) return _removeRedundants(arrays[0].slice(0));
 
   // use the first array as reference
   let uni: any[] = arrays[0];
-  for (let i: number = 1; i < len && uni.length !== 0; i++) {
+  for (let i: number = 1; i < length && uni.length !== 0; i++) {
     // repeatedly unionize two arrays at a time ...
     uni = _union(uni, arrays[i]);
   }

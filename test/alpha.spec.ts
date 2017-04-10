@@ -65,6 +65,8 @@ testControl['arrayMods'] = [
   'takeRightWhile',
   'takeWhile',
   'union',
+  'unionBy',
+  'unionWith',
   'uniq',
   'uniqBy',
 ];

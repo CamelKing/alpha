@@ -57,7 +57,6 @@ tests['intersection'] = [
 ];
 
 tests['intersectionBy'] = [
-
   'return [] if zero paramter.',
   'return [] if any paramter is empty array.',
   'return [] if only 1 paramter.',
@@ -67,11 +66,9 @@ tests['intersectionBy'] = [
   'make use of toString predicate to compute intersection.',
   'make use of toNumber predicate to compute intersection.',
   'reversing the order of params does matter.',
-
 ];
 
 tests['intersectionWith'] = [
-
   'return [] if zero paramter.',
   'return [] if any paramter is empty array.',
   'return [] if only 1 paramter.',
@@ -80,7 +77,6 @@ tests['intersectionWith'] = [
   'Omit comparator at end = intersection()',
   'make use of comparator to computer intersection.',
   'reversing the order of params could matter.',
-
 ];
 
 inputs['intersection'] = [
@@ -123,7 +119,6 @@ inputs['intersectionWith'] = [
   [a1, a2, a3, a4],
   [a2, a1, fnCompare],
   [a1, a2, fnCompare],
-
 ];
 
 answers['intersection'] = [
