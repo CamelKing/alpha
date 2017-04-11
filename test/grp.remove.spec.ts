@@ -1,7 +1,8 @@
-import { FnAny, _testSuites } from './_testSuites';
 import { expect, should } from 'chai';
 
 import { FnAcidTest } from '../src/constants';
+import { FnAny } from '../src/constants';
+import { _testSuites } from './_testSuites';
 import { remove } from '../src/alpha';
 
 should();

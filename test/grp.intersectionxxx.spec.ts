@@ -1,6 +1,8 @@
-import { FnAny, _testSuites } from './_testSuites';
 import { FnComparator, FnPredicate, intersection, intersectionBy, intersectionWith } from '../src/alpha';
 import { expect, should } from 'chai';
+
+import { FnAny } from '../src/constants';
+import { _testSuites } from './_testSuites';
 
 should();
 

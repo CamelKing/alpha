@@ -71,6 +71,8 @@ testControl['arrayMods'] = [
   'uniqBy',
   'uniqWith',
   'without',
+  'zip',
+  'zipWith',
 ];
 
 testControl['filesMods'] = [

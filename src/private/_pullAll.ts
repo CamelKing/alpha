@@ -32,7 +32,7 @@ export function _pullAll(input: any[], values: any[],
 
     // count how many items in the input array
     // to be checked against
-    let len: number = input.last;
+    let len: number = input.length;
 
     // for loop to loop thru the input array
     let index: number = 0;

@@ -1,8 +1,9 @@
-import { FnAny, _testSuites } from './_testSuites';
 import { difference, differenceBy, differenceWith, isTheSame, round, roundDown, roundUp } from '../src/alpha';
 import { expect, should } from 'chai';
 
+import { FnAny } from '../src/constants';
 import { FnComparator } from '../src/alpha';
+import { _testSuites } from './_testSuites';
 
 should();
 

@@ -1,7 +1,9 @@
-import { FnAny, _testSuites } from './_testSuites';
 import { FnComparator, FnPredicate } from '../src/constants';
 import { ascOrderBy, isTheSame, sortedUniq, sortedUniqBy, uniq, uniqBy, uniqWith } from '../src/alpha';
 import { expect, should } from 'chai';
+
+import { FnAny } from '../src/constants';
+import { _testSuites } from './_testSuites';
 
 should();
 

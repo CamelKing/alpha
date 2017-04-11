@@ -1,6 +1,8 @@
-import { FnAny, _testSuites } from './_testSuites';
 import { expect, should } from 'chai';
 import { trim, trimLeft, trimRight } from '../src/alpha';
+
+import { FnAny } from '../src/constants';
+import { _testSuites } from './_testSuites';
 
 should();
 

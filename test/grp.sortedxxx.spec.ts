@@ -1,7 +1,9 @@
 import { BinarySearchOption, FnPredicate } from '../src/constants';
-import { FnAny, _testSuites } from './_testSuites';
 import { ascOrder, ascOrderBy, sortedIndex, sortedIndexBy, sortedIndexOf, sortedLastIndex, sortedLastIndexBy, sortedLastIndexOf } from '../src/alpha';
 import { expect, should } from 'chai';
+
+import { FnAny } from '../src/constants';
+import { _testSuites } from './_testSuites';
 
 should();
 

@@ -1,5 +1,6 @@
 import { FnAny } from '../constants';
 import { _getTrailingFunction } from '../private/_getTrailingFunction';
+import { _removeNonArray } from '../private/_removeNonArray';
 
 /**
  * Zip a series of array by calling an iterator function to process
@@ -23,9 +24,13 @@ import { _getTrailingFunction } from '../private/_getTrailingFunction';
 
 export function zipWith(...arrays: any[]): any[] {
 
-  // check and extract if an iterator function is being 
+  // check and extract if an iterator function is being
   // passed in as the final argument
   const func: FnAny = _getTrailingFunction(arrays);
+
+  arrays = _removeNonArray(arrays);
+
+  if (arrays.length === 0) return [];
 
   // the outer map basically take the first array and transform
   // it into an nested array, where every element of this new array

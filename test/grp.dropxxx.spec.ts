@@ -1,7 +1,8 @@
-import { FnAny, _testSuites } from './_testSuites';
 import { drop, dropRight, dropRightWhile, dropWhile } from '../src/alpha';
 import { expect, should } from 'chai';
 
+import { FnAny } from '../src/constants';
+import { _testSuites } from './_testSuites';
 import { isTheSame } from '../src/public/isTheSame';
 
 should();

@@ -1,6 +1,8 @@
 import { Align, centerAlign, leftAlign, pad, padLeft, padRight, rightAlign, toFixWidth } from '../src/alpha';
-import { FnAny, _testSuites } from './_testSuites';
 import { expect, should } from 'chai';
+
+import { FnAny } from '../src/constants';
+import { _testSuites } from './_testSuites';
 
 should();
 

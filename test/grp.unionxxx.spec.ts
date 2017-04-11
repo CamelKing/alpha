@@ -1,8 +1,9 @@
-import { FnAny, _testSuites } from './_testSuites';
 import { FnComparator, FnPredicate } from '../src/constants';
 import { expect, should } from 'chai';
 import { union, unionBy, unionWith } from '../src/alpha';
 
+import { FnAny } from '../src/constants';
+import { _testSuites } from './_testSuites';
 import { isTheSame } from '../src/public/isTheSame';
 
 should();
