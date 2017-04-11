@@ -17,6 +17,7 @@
  */
 
 import { FnPredicate } from '../constants';
+import { _getTrailingFunction } from '../private/_getTrailingFunction';
 import { _removeRedundants } from '../private/_removeRedundants';
 import { _union } from '../private/_union';
 import { theTypeOf } from './theTypeOf';
@@ -24,16 +25,9 @@ import { theTypeOf } from './theTypeOf';
 export function unionBy(...args: any[]): any[] {
 
   // extract the last argument as predicate function (if applicable)
+  const predicate: FnPredicate = _getTrailingFunction(args);
 
-  let predicate: FnPredicate = null;
-
-  let { length } = args;
-
-  if (theTypeOf(args[length - 1]) === 'function') {
-    predicate = args[length - 1];
-    args.pop();
-    length--;
-  }
+  const { length } = args;
 
   // minimum must pass in two arrays
   if (length < 1) return [];

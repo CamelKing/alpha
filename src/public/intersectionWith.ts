@@ -13,28 +13,23 @@
  */
 
 import { FnComparator } from '../constants';
+import { _getTrailingFunction } from '../private/_getTrailingFunction';
 import { _intersection } from '../private/_intersection';
 import { theTypeOf } from './theTypeOf';
 
 export function intersectionWith(...args: any[]): any[] {
 
   // extract the last argument as comparator function (if applicable)
+  const compare: FnComparator = _getTrailingFunction(args);
 
-  let len: number = args.length;
-
-  let compare: FnComparator = null;
-
-  if (theTypeOf(args[len - 1]) === 'function') {
-    compare = args[len - 1];
-    args.pop();
-  }
+  const { length } = args;
 
   // minimum must pass in two arrays to computer intersection
-  if ((len = args.length) <= 1) return [];
+  if (length <= 1) return [];
 
   // use the first array as reference
   let intersect: any[] = args[0];
-  for (let i: number = 1; i < len && intersect !== null; i++) {
+  for (let i: number = 1; i < length && intersect !== null; i++) {
     // find out what's the intersection between the currently
     // calculated intersection and the next array
     intersect = _intersection(intersect, args[i], null, compare);

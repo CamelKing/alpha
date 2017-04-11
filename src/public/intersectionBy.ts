@@ -13,28 +13,23 @@
  */
 
 import { FnPredicate } from '../constants';
+import { _getTrailingFunction } from '../private/_getTrailingFunction';
 import { _intersection } from '../private/_intersection';
 import { theTypeOf } from './theTypeOf';
 
 export function intersectionBy(...args: any[]): any[] {
 
   // extract the last argument as predicate function (if applicable)
+  const predicate: FnPredicate = _getTrailingFunction(args);
 
-  let len: number = args.length;
-
-  let predicate: FnPredicate = null;
-
-  if (theTypeOf(args[len - 1]) === 'function') {
-    predicate = args[len - 1];
-    args.pop();
-  }
+  const { length } = args;
 
   // minimum must pass in two arrays to computer intersection
-  if ((len = args.length) <= 1) return [];
+  if (length <= 1) return [];
 
   // use the first array as reference
   let intersect: any[] = args[0];
-  for (let i: number = 1; i < len; i++) {
+  for (let i: number = 1; i < length; i++) {
     // find out what's the intersection between the currently
     // calculated intersection and the next array
     intersect = _intersection(intersect, args[i], predicate);
