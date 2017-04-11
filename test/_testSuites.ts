@@ -2,13 +2,11 @@ import * as path from 'path';
 
 import { expect, should } from 'chai';
 
+import { FnAny } from '../src/constants';
 import { isNull } from 'util';
-import { isTheSame } from "../src/alpha";
+import { isTheSame } from '../src/alpha';
 
 should();
-
-// export type FnCase = (input: string) => string;
-export type FnAny = (...args: any[]) => any;
 
 
 /**

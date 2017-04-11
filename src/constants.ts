@@ -26,6 +26,9 @@ export type FnPredicate = (v: any) => any;
 export type FnFind = (element: any, index: number, array: any[]) => boolean;
 export enum SortOrder { lower = -1, same = 0, higher = 1 };
 
+// @Functions
+export type FnAny = (...args: any[]) => any;
+
 
 
 // --- special purpose

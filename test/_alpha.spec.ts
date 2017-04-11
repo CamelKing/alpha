@@ -58,6 +58,7 @@ testControl['stringMods'] = [
 ];
 
 testControl['functionMods'] = [
+  '_getTrailingFunction',
 ];
 
 testControl['timeInstances'] = [
