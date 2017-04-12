@@ -1,5 +1,5 @@
 import { expect, should } from 'chai';
-import { unzip, unzipWith, zip, zipWith } from '../src/alpha';
+import { unzip, unzipWith, zip, zipObject, zipWith } from '../src/alpha';
 
 import { FnAny } from '../src/constants';
 import { _testSuites } from './_testSuites';
@@ -17,6 +17,7 @@ const funcs: FnAny[] = [
   zipWith,
   unzip,
   unzipWith,
+  zipObject,
 ];
 
 const a: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -28,7 +29,6 @@ const ab: any[] = [[1, 'a'], [2, 'b'], [3, 'c'], [4, 'd'], [5, 'e'], [6, 'f'], [
 const abc: any[] = [[1, 'a', true], [2, 'b', false], [3, 'c', true], [4, 'd', false], [5, 'e', true], [6, 'f', false], [7, 'g', true], [8, 'h', false], [9, 'i', true]];
 
 const abcd: any[] = [[1, 'a', true, 'h'], [2, 'b', false, 'e'], [3, 'c', true, 'l'], [4, 'd', false, 'l'], [5, 'e', true, 'o'], [6, 'f', false, undefined], [7, 'g', true, undefined], [8, 'h', false, undefined], [9, 'i', true, undefined]];
-
 
 const n1: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const n10: number[] = [10, 20, 30, 40, 50, 60, 70, 80, 90];
@@ -81,6 +81,17 @@ tests['unzipWith'] = [
   'convert [1,2,3] into a nested array [[1],[2],[3]] (with iterator).',
 ];
 
+tests['zipObject'] = [
+  'return {} if first param is not array.',
+  'return {} if second param is not array.',
+  'return {} if first param is an empty array.',
+  'assign undefined for missing values for key.',
+  'disregard extra values, limit objects properties to keys.',
+  'disregard null keys.',
+  'disregard undefined keys.',
+  'disregard empty \'\' keys.',
+];
+
 inputs['zip'] = [
   [],
   [null, undefined, 123, 'Hello World', true, Symbol()],
@@ -121,6 +132,17 @@ inputs['unzipWith'] = [
   ['hello', n1, null, n10, undefined, n100, 123, fn1],
 ];
 
+inputs['zipObject'] = [
+  [123, []],
+  [[], 123],
+  [[], [1, 2, 3]],
+  [['first', 'second', 'third'], [true, false]],
+  [['first', 'second'], ['true', 'false', 'maybe']],
+  [[null, 'second'], ['true', 'false']],
+  [[undefined, 'second'], ['true', 'false']],
+  [['', 'second'], ['true', 'false']],
+];
+
 answers['zip'] = [
   [],
   [],
@@ -158,5 +180,15 @@ answers['unzipWith'] = [
   n1a,
 ];
 
+answers['zipObject'] = [
+  {},
+  {},
+  {},
+  { first: true, second: false, third: undefined },
+  { first: 'true', second: 'false' },
+  { second: 'false' },
+  { second: 'false' },
+  { second: 'false' },
+];
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);

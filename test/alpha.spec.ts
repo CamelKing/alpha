@@ -72,6 +72,7 @@ testControl['arrayMods'] = [
   'uniqWith',
   'without',
   'zip',
+  'zipObject',
   'zipWith',
   'unzip',
   'unzipWith',

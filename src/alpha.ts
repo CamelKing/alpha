@@ -75,6 +75,7 @@ export * from './public/uniqBy';
 export * from './public/uniqWith';
 export * from './public/without';
 export * from './public/zip';
+export * from './public/zipObject';
 export * from './public/zipWith';
 export * from './public/unzip';
 export * from './public/unzipWith';
