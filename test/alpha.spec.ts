@@ -73,6 +73,8 @@ testControl['arrayMods'] = [
   'without',
   'zip',
   'zipWith',
+  'unzip',
+  'unzipWith',
 ];
 
 testControl['filesMods'] = [

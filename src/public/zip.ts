@@ -6,6 +6,9 @@ import { zipWith } from './zipWith';
  * implemented as a wrapper over the zipWith() function without the
  * iterator function.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {...any[]} arrays
  * @returns {any[]}

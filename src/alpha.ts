@@ -76,6 +76,8 @@ export * from './public/uniqWith';
 export * from './public/without';
 export * from './public/zip';
 export * from './public/zipWith';
+export * from './public/unzip';
+export * from './public/unzipWith';
 
 // @category Files
 export * from './public/ls';

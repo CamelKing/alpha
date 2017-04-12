@@ -17,6 +17,9 @@ import { _removeNonArray } from '../private/_removeNonArray';
  * Note: Zip function basically treat the passed in arrays as a 2D array,
  * and perform a tranpose on it.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {...any[]} arrays
  * @returns {any[]}
