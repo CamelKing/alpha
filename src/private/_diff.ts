@@ -15,42 +15,30 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {any[]} input
  * @param {any[]} exclude
- * @param {FnPredicate} [predicate]
+ * @param {FnIteratee} [iteratee]
  * @param {FnComparator} [compare]
  * @returns {any[]}
  */
 
-import { FnComparator, FnIteratee } from '../constants';
+import { FnComparator, FnFinder, FnIteratee } from '../constants';
 
-import { _makeComparator } from './_makeComparator';
+import { _makeFinder } from './_makeFinder';
 import { isTheSame } from '../public/isTheSame';
 
-export function _diff(input: any[],
-  exclude: any[],
-  iteratee?: FnIteratee,
-  compare?: FnComparator): any[] {
+export function _diff(input: any[], exclude: any[],
+  iteratee?: FnIteratee, compare?: FnComparator): any[] {
 
   if (!input || input.length === 0) return [];
   if (!exclude || exclude.length === 0) return input;
 
   compare = compare || isTheSame;
-  const check: FnComparator = _makeComparator(iteratee, compare);
-  const output: any[] = [];
-  const { length } = exclude;
 
-  input.forEach((item: any) => {
-
-    let found: boolean = false;
-    for (let i: number = 0; i < length && !found; i++) {
-      found = check(item, exclude[i]);
-    }
-    if (!found) output.push(item);
-
-  });
-
-  return output;
+  return input.filter((item: any) =>
+    !exclude.find(_makeFinder(item, iteratee, compare)));
 
 }
