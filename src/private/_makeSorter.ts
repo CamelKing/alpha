@@ -35,7 +35,7 @@ export function _makeSorter(iteratee?: AnyIteratee, sorter?: FnSorter): FnSorter
   // construct combo as an indicator of what is to be included 
   // in the output function.
   const combo: number = (theTypeOf(sorter) === 'function' ? 10 : 0)
-    + (anyIteratee.indexOf(theTypeOf(iteratee)) >= 0 ? 1 : 0);
+    + (anyIteratee.includes(theTypeOf(iteratee)) ? 1 : 0);
 
   // construct iteratee function
   // this could have been put into the switch case block,

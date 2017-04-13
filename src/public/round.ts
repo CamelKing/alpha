@@ -7,14 +7,16 @@
  * @since 0.0.1
  * @category Number
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {number} value
- * @param {number} [exp]
+ * @param {number} [precision]
  * @returns {number}
  */
 
 import { _round } from '../private/_round';
 
-export function round(value: any, exp?: number): number {
-  return _round(value, exp);
+export function round(value: any, precision?: number): number {
+  return _round(value, precision);
 }

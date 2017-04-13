@@ -10,7 +10,6 @@
 export * from './constants';
 
 // @category Math
-export * from './private/_decimalAdjust';
 export * from './private/_round';
 
 // @category String
@@ -22,7 +21,6 @@ export * from './private/_truncateToArray';
 // @category array
 export * from './private/_orderBy';
 export * from './private/_searchArray';
-export * from './private/_binarySearchValue';
 export * from './private/_diff';
 export * from './private/_drop';
 export * from './private/_intersection';

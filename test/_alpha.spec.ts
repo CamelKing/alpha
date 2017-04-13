@@ -24,7 +24,6 @@ testControl['asyncMods'] = [
 
 testControl['arrayMods'] = [
   '_searchArray',
-  '_binarySearchValue',
   '_diff',
   '_drop',
   '_intersection',
@@ -40,7 +39,6 @@ testControl['collectionMods'] = [
 ];
 
 testControl['numberMods'] = [
-  '_decimalAdjust',
   '_round',
 ];
 
