@@ -1,26 +1,26 @@
 /**
  * compute and return the intersection (common members) of
  * all arrays being passed in, in an array. Every element
- * will be transformed by a predicate before the comparison.
+ * will be transformed by a iteratee before the comparison.
  *
  * @since 0.0.1
  * @category Array
  *
  * @export
  * @param {...any[]} arrays
- * @param {FnPredicate} predicate // to be passed in as the last of args
+ * @param {FnIteratee} iteratee // to be passed in as the last of args
  * @returns {any[]}
  */
 
-import { FnPredicate } from '../constants';
+import { FnIteratee } from '../constants';
 import { _getTrailingFunction } from '../private/_getTrailingFunction';
 import { _intersection } from '../private/_intersection';
 import { theTypeOf } from './theTypeOf';
 
 export function intersectionBy(...args: any[]): any[] {
 
-  // extract the last argument as predicate function (if applicable)
-  const predicate: FnPredicate = _getTrailingFunction(args);
+  // extract the last argument as iteratee function (if applicable)
+  const iteratee: FnIteratee = _getTrailingFunction(args);
 
   const { length } = args;
 
@@ -32,7 +32,7 @@ export function intersectionBy(...args: any[]): any[] {
   for (let i: number = 1; i < length; i++) {
     // find out what's the intersection between the currently
     // calculated intersection and the next array
-    intersect = _intersection(intersect, args[i], predicate);
+    intersect = _intersection(intersect, args[i], iteratee);
   }
 
   return intersect;

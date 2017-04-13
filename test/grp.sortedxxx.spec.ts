@@ -1,4 +1,4 @@
-import { FnPredicate, SearchOption } from '../src/constants';
+import { FnIteratee, SearchOption } from '../src/constants';
 import { ascOrder, ascOrderBy, sortedIndexBy, sortedIndexOf, sortedInsertAt, sortedLastIndexBy, sortedLastIndexOf, sortedLastInsertAt } from '../src/alpha';
 import { expect, should } from 'chai';
 
@@ -43,7 +43,7 @@ const c: Array<object> = [
   { age: 12, name: 'funny' },
 ];
 
-const fn: FnPredicate = (o: object) => o['age'];
+const fn: FnIteratee = (o: object) => o['age'];
 c.sort(ascOrderBy(fn));
 
 const d: number[] = a.concat(11, 11, 11);

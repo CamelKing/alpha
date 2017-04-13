@@ -1,4 +1,4 @@
-import { FnComparator, FnPredicate } from '../src/constants';
+import { FnComparator, FnIteratee } from '../src/constants';
 import { expect, should } from 'chai';
 import { union, unionBy, unionWith } from '../src/alpha';
 
@@ -35,8 +35,8 @@ const o1: object = { a: 1, b: 2, c: 3 };
 const o2: object = { a: '1', b: 2, c: 3 };
 const o3: object = { a: '1', b: 2, c: 3 };
 
-const fnToString: FnPredicate = (x: any) => '' + x;
-const fnToNumber: FnPredicate = (x: any) => +x;
+const fnToString: FnIteratee = (x: any) => '' + x;
+const fnToNumber: FnIteratee = (x: any) => +x;
 const fnCompare: FnComparator = (a: any, b: any) => a === b;
 
 tests['union'] = [
@@ -64,9 +64,9 @@ tests['unionBy'] = [
   'return the only array if only 1 paramter.',
   'union by ignoring any non array parameters.',
   'return [] if all the parameters is not array.',
-  'Omit predicate at end = union()',
-  'make use of toString predicate to compute union.',
-  'make use of toNumber predicate to compute union.',
+  'Omit iteratee at end = union()',
+  'make use of toString iteratee to compute union.',
+  'make use of toNumber iteratee to compute union.',
   'reversing the order of params does matter.',
 ];
 

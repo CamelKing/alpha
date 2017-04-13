@@ -17,7 +17,6 @@
 
 import { FnComparator, FnFinder, FnIteratee } from '../constants';
 
-import { _identity } from './_identity';
 import { theTypeOf } from '../public/theTypeOf';
 
 export function _makeFinder(value: any,

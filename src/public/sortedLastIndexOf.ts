@@ -6,7 +6,7 @@
  *
  * This function is only suitable for array of the same type of
  * primitive elements. Any other format, best to use
- * sortedLastIndexBy() where you can specify a predicate function.
+ * sortedLastIndexBy() where you can specify a iteratee function.
  *
  * @since 0.0.1
  * @category Array

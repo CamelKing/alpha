@@ -1,6 +1,6 @@
 /**
  * drop array elements on the right and return a new copy of the array
- * while the condition / predicate is met.
+ * while the condition / iteratee is met.
  *
  * @since 0.0.1
  * @category Array
@@ -15,9 +15,9 @@ import { Direction } from '../constants';
 import { _drop } from '../private/_drop';
 
 export function dropRightWhile(array: any[],
-  predicate: any,
+  iteratee: any,
   maxDrop?: number): any[] {
 
-  return _drop(array, predicate, maxDrop, Direction.fromRight);
+  return _drop(array, iteratee, maxDrop, Direction.fromRight);
 
 }

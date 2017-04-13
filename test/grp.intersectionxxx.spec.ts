@@ -1,4 +1,4 @@
-import { FnComparator, FnPredicate, intersection, intersectionBy, intersectionWith } from '../src/alpha';
+import { FnComparator, FnIteratee, intersection, intersectionBy, intersectionWith } from '../src/alpha';
 import { expect, should } from 'chai';
 
 import { FnAny } from '../src/constants';
@@ -33,8 +33,8 @@ const o1: object = { a: 1, b: 2, c: 3 };
 const o2: object = { a: '1', b: 2, c: 3 };
 const o3: object = { a: '1', b: 2, c: 3 };
 
-const fnToString: FnPredicate = (x: any) => '' + x;
-const fnToNumber: FnPredicate = (x: any) => +x;
+const fnToString: FnIteratee = (x: any) => '' + x;
+const fnToNumber: FnIteratee = (x: any) => +x;
 
 const fnCompare: FnComparator = (a: any, b: any) => a > b;
 
@@ -64,9 +64,9 @@ tests['intersectionBy'] = [
   'return [] if only 1 paramter.',
   'return [] if one of the parameters is not array.',
   'return [] if both of the (2) parameters is not array.',
-  'Omit predicate at end = intersection()',
-  'make use of toString predicate to compute intersection.',
-  'make use of toNumber predicate to compute intersection.',
+  'Omit iteratee at end = intersection()',
+  'make use of toString iteratee to compute intersection.',
+  'make use of toNumber iteratee to compute intersection.',
   'reversing the order of params does matter.',
 ];
 

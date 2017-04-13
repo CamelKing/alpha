@@ -12,7 +12,7 @@
  * @export
  * @param {any[]} input
  * @param {any[]} values
- * @param {FnPredicate} [predicate]
+ * @param {FnIteratee} [iteratee]
  * @returns {any[]}
  */
 

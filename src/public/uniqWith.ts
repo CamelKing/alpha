@@ -10,7 +10,7 @@
  *
  * @export
  * @param {any[]} input
- * @param {FnPredicate} [predicate]
+ * @param {FnIteratee} [iteratee]
  * @returns {any[]}
  */
 

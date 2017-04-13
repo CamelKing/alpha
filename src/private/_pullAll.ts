@@ -3,7 +3,7 @@
  *
  * Array will be altered.
  *
- * Option to pass in predicate - apply at items before comparison
+ * Option to pass in iteratee - apply at items before comparison
  * and comparator - control how comparison is done.
  *
  * @since 0.0.1
@@ -12,18 +12,18 @@
  * @export
  * @param {any[]} input
  * @param {any[]} values
- * @param {FnPredicate} [predicate]
+ * @param {FnIteratee} [iteratee]
  * @param {FnComparator} [compare]
  * @returns {any[]}
  */
 
-import { FnComparator, FnPredicate } from '../constants';
+import { FnComparator, FnIteratee } from '../constants';
 
 import { isTheSame } from '../public/isTheSame';
 import { pluck } from '../public/pluck';
 
 export function _pullAll(input: any[], values: any[],
-  predicate?: FnPredicate, compare?: FnComparator): any[] {
+  iteratee?: FnIteratee, compare?: FnComparator): any[] {
 
   compare = compare || isTheSame;
 
@@ -39,8 +39,8 @@ export function _pullAll(input: any[], values: any[],
 
     while (index < len) {
 
-      const a: any = predicate ? predicate(input[index]) : input[index];
-      const b: any = predicate ? predicate(item) : item;
+      const a: any = iteratee ? iteratee(input[index]) : input[index];
+      const b: any = iteratee ? iteratee(item) : item;
 
       // if we find an item in the input array that is same
       // as one of the items to be removed

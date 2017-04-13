@@ -1,7 +1,7 @@
 /**
  * private function used for sort/search comparison in ascending order.
  *
- * A predicate can be passed in to transform the items to be compared,
+ * A iteratee can be passed in to transform the items to be compared,
  * this is useful for scenario such as sorting/searching thru array of
  * objects.
  *
@@ -21,19 +21,19 @@
  * @export
  * @param {*} a
  * @param {*} b
- * @param {FnPredicate} [predicate]
+ * @param {FnIteratee} [iteratee]
  * @returns {SortOrder}
  */
 
-import { FnPredicate, SortOrder } from '../constants';
+import { FnIteratee, SortOrder } from '../constants';
 
 import { padLeft } from '../public/padLeft';
 
 export function _orderBy(a: any, b: any,
-  predicate?: FnPredicate): SortOrder {
+  iteratee?: FnIteratee): SortOrder {
 
-  let c: any = predicate ? predicate(a) : a;
-  let d: any = predicate ? predicate(b) : b;
+  let c: any = iteratee ? iteratee(a) : a;
+  let d: any = iteratee ? iteratee(b) : b;
   if (typeof c !== typeof d) {
     c = '' + c;
     d = '' + d;

@@ -1,17 +1,13 @@
-import { Direction } from '../constants';
-import { isTheSame } from '../public/isTheSame';
-import { theTypeOf } from '../public/theTypeOf';
-
 /**
  * internal function to perform dropping of elements from an array, base on
  *
- * 1) a predicate which will be used as a checking condition to see if we
- *    shall continue dropping. Take note this predicate is not used against
+ * 1) a iteratee which will be used as a checking condition to see if we
+ *    shall continue dropping. Take note this iteratee is not used against
  *    entire array, just at the start, and stop once condition no longer met.
  *    For entire array, one can use filter instead.
  *
  * 2) a max drop count indictating the maximum number of items to drop, and
- *    also when predicate is absence, this become the number of items to drop
+ *    also when iteratee is absence, this become the number of items to drop
  *
  * 3) direction of drop, either from left or right.
  *
@@ -22,12 +18,16 @@ import { theTypeOf } from '../public/theTypeOf';
  *
  * @export
  * @param {any[]} input
- * @param {*} predicate
+ * @param {*} iteratee
  * @param {number} [maxDrop]
  * @param {_Direction} [direction]
  * @returns {any[]}
  */
 
+import { Direction, FnIteratee } from '../constants';
+
+import { isTheSame } from '../public/isTheSame';
+import { theTypeOf } from '../public/theTypeOf';
 
 // tslint:disable-next-line:cyclomatic-complexity
 export function _drop(input: any[],
@@ -39,23 +39,25 @@ export function _drop(input: any[],
   if (!input) return [];
 
   // get hold of size of input array
-  const len: number = input.length;
+  const { length } = input;
 
   // calculate what should be max drop
-  if (maxDrop === null || maxDrop === undefined || maxDrop > len) maxDrop = len;
+  if (maxDrop == null || maxDrop > length) maxDrop = length;
   if (maxDrop <= 0) return input;
 
-  // setup direction
+  // setup direction, default from the left
   direction = direction || Direction.fromLeft;
 
-  // if no predicate, just perform normal dropping
+  // if no iteratee, just perform normal dropping
+  // note: can't use if(!predicate) becauase predicate can be 
+  // a boolean value.
   // this is as far as drop() and dropRight() goes
-  if (predicate === null || predicate === undefined) {
+  if (predicate == null) {
     if (direction === Direction.fromLeft) return input.slice(maxDrop);
-    return input.slice(0, len - maxDrop);
+    return input.slice(0, length - maxDrop);
   }
 
-  // get the type of predicate
+  // get the type of iteratee
   const type: string = theTypeOf(predicate);
 
   // initialise drop count
@@ -65,17 +67,17 @@ export function _drop(input: any[],
   // or max drop count reached
   let stop: boolean = false;
 
-  // loop that perform checking on predicate condition
-  while (!stop && dropCount < len && dropCount < maxDrop) {
+  // loop that perform checking on iteratee condition
+  while (!stop && dropCount < length && dropCount < maxDrop) {
 
     // base on direction, current drop count, calculate
     // which item in the array we are working on
     const item: any = input[(dropCount * direction)
-      + (direction === Direction.fromLeft ? 0 : (len - 1))];
+      + (direction === Direction.fromLeft ? 0 : (length - 1))];
 
     switch (type) {
 
-      // predicate with a function, run it and stop on when it returns false
+      // iteratee with a function, run it and stop on when it returns false
       case 'function':
         stop = !predicate.call(null, item);
         break;
@@ -115,7 +117,7 @@ export function _drop(input: any[],
         stop = !isTheSame(item, predicate);
         break;
 
-      // any other predicate format would not perform any drop at all
+      // any other iteratee format would not perform any drop at all
       default:
         stop = true;
         break;
@@ -128,6 +130,13 @@ export function _drop(input: any[],
 
   // base on direction of dropping, return either left or rigth slice of array
   if (direction === Direction.fromLeft) return input.slice(dropCount);
-  return input.slice(0, len - dropCount);
+  return input.slice(0, length - dropCount);
 
 }
+
+
+
+
+// export function makeiteratee(): FnIteratee {
+
+// }

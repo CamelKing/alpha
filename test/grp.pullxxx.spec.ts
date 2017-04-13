@@ -1,4 +1,4 @@
-import { FnComparator, FnPredicate } from '../src/constants';
+import { FnComparator, FnIteratee } from '../src/constants';
 import { expect, should } from 'chai';
 import { isTheSame, pull, pullAll, pullAllBy, pullAllWith } from '../src/alpha';
 
@@ -49,7 +49,7 @@ const b: Array<object> = [
   { a: 8, b: 'Q' },
 ];
 
-const fnBy: FnPredicate = (o: object) => o['a'];
+const fnBy: FnIteratee = (o: object) => o['a'];
 
 const fnWith: FnComparator = (a1: any, b1: any) => {
   if (a1 > 8) return true;

@@ -2,7 +2,7 @@
  * This is a factory function, returning a comparator to be used
  * in array.sort(comparator) to sort the array in descending order.
  *
- * A predicate can be passed in so every elements can be transformed
+ * A iteratee can be passed in so every elements can be transformed
  * before performing comparison.
  *
  * Suitable for array consist of complex data types such as objects.
@@ -14,10 +14,10 @@
  * @returns {FnSorter}
  */
 
-import { FnPredicate, FnSorter } from '../constants';
+import { FnIteratee, FnSorter } from '../constants';
 
 import { _orderBy } from '../private/_orderBy';
 
-export function descOrderBy(predicate: FnPredicate): FnSorter {
-  return (a: any, b: any) => _orderBy(b, a, predicate);
+export function descOrderBy(iteratee: FnIteratee): FnSorter {
+  return (a: any, b: any) => _orderBy(b, a, iteratee);
 }

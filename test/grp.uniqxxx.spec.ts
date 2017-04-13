@@ -1,4 +1,4 @@
-import { FnComparator, FnPredicate } from '../src/constants';
+import { FnComparator, FnIteratee } from '../src/constants';
 import { ascOrderBy, isTheSame, sortedUniq, sortedUniqBy, uniq, uniqBy, uniqWith } from '../src/alpha';
 import { expect, should } from 'chai';
 
@@ -24,7 +24,7 @@ const funcs: FnAny[] = [
 const a: number[] = [1, 3, 5, 7, 9, 2, 4, 6, 8, 1, 2, 3, 6, 7, 8, 4];
 const b: string[] = ['hello', 'world', 'hello', 'quick', 'brown', 'quick'];
 const c: any[] = a.concat(b as any[]);
-const fn: FnPredicate = (o: object) => +o['age'];
+const fn: FnIteratee = (o: object) => +o['age'];
 const fnCompare: FnComparator = isTheSame;
 const d: Array<object> = [
   { age: 20, name: 'Quick' },

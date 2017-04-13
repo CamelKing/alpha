@@ -5,14 +5,14 @@
  *
  * [1,1,2,2,3,4] => [1,2,3,4]
  *
- * Implemented as wrapper for uniqBy() with the predicate.
+ * Implemented as wrapper for uniqBy() with the iteratee.
  *
  * @since 0.0.1
  * @category Array
  *
  * @export
  * @param {any[]} input
- * @param {FnPredicate} [predicate]
+ * @param {FnIteratee} [iteratee]
  * @returns {any[]}
  */
 

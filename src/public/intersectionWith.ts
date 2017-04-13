@@ -1,7 +1,7 @@
 /**
  * compute and return the intersection (common members) of
  * all arrays being passed in, in an array. Every element
- * will be transformed by a predicate before the comparison.
+ * will be transformed by a iteratee before the comparison.
  *
  * @since 0.0.1
  * @category Array

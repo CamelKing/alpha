@@ -6,6 +6,8 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @param {any[]} input
  * @param {any[]} exclude
  * @returns {any[]}

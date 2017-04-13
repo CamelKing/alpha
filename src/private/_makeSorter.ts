@@ -1,8 +1,3 @@
-import { AnyIteratee, FnIteratee, FnSorter, SortOrder } from '../constants';
-
-import { _makeIteratee } from './_makeIteratee';
-import { theTypeOf } from '../public/theTypeOf';
-
 /**
  * Private factory to generate a function which call for
  * a sorter function to compare two values, which return
@@ -27,6 +22,10 @@ import { theTypeOf } from '../public/theTypeOf';
  * @returns {FnFind}
  */
 
+import { AnyIteratee, FnIteratee, FnSorter, SortOrder } from '../constants';
+
+import { _makeIteratee } from './_makeIteratee';
+import { theTypeOf } from '../public/theTypeOf';
 
 export function _makeSorter(iteratee?: AnyIteratee, sorter?: FnSorter): FnSorter {
 

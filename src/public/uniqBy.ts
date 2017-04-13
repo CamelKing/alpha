@@ -10,15 +10,15 @@
  *
  * @export
  * @param {any[]} input
- * @param {FnPredicate} [predicate]
+ * @param {FnIteratee} [iteratee]
  * @returns {any[]}
  */
 
-import { FnPredicate } from '../constants';
+import { FnIteratee } from '../constants';
 import { _removeRedundants } from '../private/_removeRedundants';
 
-export function uniqBy(input: any[], predicate?: FnPredicate): any[] {
+export function uniqBy(input: any[], iteratee?: FnIteratee): any[] {
 
-  return _removeRedundants(input, predicate);
+  return _removeRedundants(input, iteratee);
 
 }

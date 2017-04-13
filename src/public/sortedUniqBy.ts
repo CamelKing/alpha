@@ -10,14 +10,14 @@
  *
  * @export
  * @param {any[]} input
- * @param {FnPredicate} [predicate]
+ * @param {FnIteratee} [iteratee]
  * @returns {any[]}
  */
 
-import { FnPredicate } from '../constants';
+import { FnIteratee } from '../constants';
 import { isTheSame } from './isTheSame';
 
-export function sortedUniqBy(input: any[], predicate?: FnPredicate): any[] {
+export function sortedUniqBy(input: any[], iteratee?: FnIteratee): any[] {
 
   const output: any[] = [];
 
@@ -31,7 +31,7 @@ export function sortedUniqBy(input: any[], predicate?: FnPredicate): any[] {
     // redundant items after the first one, and there is no
     // need to check if it exists in output array before
     // pushing
-    const value: any = predicate ? predicate(item) : item;
+    const value: any = iteratee ? iteratee(item) : item;
     if (value === prev) return;
     prev = value;
     output.push(item);

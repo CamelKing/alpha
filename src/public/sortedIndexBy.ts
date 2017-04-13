@@ -19,7 +19,7 @@
  * @returns {number}
  */
 
-import { AnyIteratee, FnPredicate, SearchOption } from '../constants';
+import { AnyIteratee, FnIteratee, SearchOption } from '../constants';
 
 import { _searchArray } from '../private/_searchArray';
 

@@ -9,15 +9,17 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @param {any[]} input
  * @param {any[]} exclude
- * @param {FnPredicate} predicate
+ * @param {FnIteratee} iteratee
  * @returns {any[]}
  */
 
-import { FnPredicate } from '../constants';
+import { FnIteratee } from '../constants';
 import { _diff } from '../private/_diff';
 
-export function differenceBy(input: any[], exclude: any[], predicate: FnPredicate): any[] {
-  return _diff(input, exclude, predicate);
+export function differenceBy(input: any[], exclude: any[], iteratee: FnIteratee): any[] {
+  return _diff(input, exclude, iteratee);
 }
