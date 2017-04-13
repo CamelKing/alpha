@@ -23,31 +23,31 @@
  * @returns {any[]}
  */
 
-import { FnComparator, FnPredicate } from '../constants';
+import { FnComparator, FnIteratee } from '../constants';
 
-import { _identity } from './_identity';
+import { _makeComparator } from './_makeComparator';
 import { isTheSame } from '../public/isTheSame';
 
 export function _diff(input: any[],
   exclude: any[],
-  predicate?: FnPredicate,
+  iteratee?: FnIteratee,
   compare?: FnComparator): any[] {
 
   if (!input || input.length === 0) return [];
   if (!exclude || exclude.length === 0) return input;
 
-  const output: any[] = [];
-  const length: number = exclude.length;
-  predicate = predicate || _identity;
   compare = compare || isTheSame;
+  const check: FnComparator = _makeComparator(iteratee, compare);
+  const output: any[] = [];
+  const { length } = exclude;
 
-  input.forEach((inspect: any) => {
+  input.forEach((item: any) => {
 
     let found: boolean = false;
     for (let i: number = 0; i < length && !found; i++) {
-      found = compare(predicate(inspect), predicate(exclude[i]));
+      found = check(item, exclude[i]);
     }
-    if (!found) output.push(inspect);
+    if (!found) output.push(item);
 
   });
 

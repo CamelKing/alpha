@@ -19,14 +19,16 @@ export * from './private/_hyphenateToArray';
 export * from './private/_truncateToArray';
 
 // @category array
-export * from './private/_orderBy';
-export * from './private/_searchArray';
 export * from './private/_diff';
 export * from './private/_drop';
 export * from './private/_intersection';
 export * from './private/_pullAll';
+export * from './private/_makeComparator';
 export * from './private/_makeFinder';
+export * from './private/_makeSorter';
+export * from './private/_orderBy';
 export * from './private/_removeRedundants';
+export * from './private/_searchArray';
 export * from './private/_take';
 export * from './private/_union';
 

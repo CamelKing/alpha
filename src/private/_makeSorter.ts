@@ -20,6 +20,8 @@ import { theTypeOf } from '../public/theTypeOf';
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {FnSorter} [fnSorter]
  * @returns {FnFind}
@@ -28,11 +30,11 @@ import { theTypeOf } from '../public/theTypeOf';
 
 export function _makeSorter(iteratee?: AnyIteratee, sorter?: FnSorter): FnSorter {
 
-  // acceptable iteratee, a function, or a string/number as shorthand 
+  // acceptable iteratee, a function, or a string/number as shorthand
   // to object/array.
   const anyIteratee: string[] = ['function', 'number', 'string'];
 
-  // construct combo as an indicator of what is to be included 
+  // construct combo as an indicator of what is to be included
   // in the output function.
   const combo: number = (theTypeOf(sorter) === 'function' ? 10 : 0)
     + (anyIteratee.includes(theTypeOf(iteratee)) ? 1 : 0);
