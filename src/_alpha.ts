@@ -25,6 +25,7 @@ export * from './private/_intersection';
 export * from './private/_pullAll';
 export * from './private/_makeComparator';
 export * from './private/_makeFinder';
+export * from './private/_makeIteratee';
 export * from './private/_makeSorter';
 export * from './private/_orderBy';
 export * from './private/_removeRedundants';

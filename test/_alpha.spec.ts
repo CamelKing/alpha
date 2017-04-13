@@ -29,6 +29,7 @@ testControl['arrayMods'] = [
   '_intersection',
   '_makeComparator',
   '_makeFinder',
+  '_makeIteratee',
   '_makeSorter',
   '_orderBy',
   '_pullAll',

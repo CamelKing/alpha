@@ -9,9 +9,9 @@
  * @refactor April 13, 2017
  *
  * @export
- * @param {AnyIteratee} [iteratee] 
- * @param {FnComparator} [compare] 
- * @returns {FnComparator} 
+ * @param {AnyIteratee} [iteratee]
+ * @param {FnComparator} [compare]
+ * @returns {FnComparator}
  */
 
 import { AnyIteratee, FnComparator, FnIteratee, SortOrder } from '../constants';

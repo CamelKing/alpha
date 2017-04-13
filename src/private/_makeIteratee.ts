@@ -6,6 +6,8 @@
  * @since 0.0.1
  * @category Function
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {FnIteratee} iteratee
  * @returns {FnIteratee}
