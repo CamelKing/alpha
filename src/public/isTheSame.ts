@@ -6,7 +6,6 @@
  *      (2) for function, compare return values from both
  *      (3) for object and array, perform deep compare on enumerable properties
  *
- *
  * @since 0.0.1
  * @category Object
  *

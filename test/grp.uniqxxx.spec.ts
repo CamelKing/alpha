@@ -3,7 +3,7 @@ import { ascOrderBy, isTheSame, sortedUniq, sortedUniqBy, uniq, uniqBy, uniqWith
 import { expect, should } from 'chai';
 
 import { FnAny } from '../src/constants';
-import { _testSuites } from './_testSuites';
+import { _testSuites } from './__testSuites';
 
 should();
 

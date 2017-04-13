@@ -3,7 +3,7 @@ import { take, takeRight, takeRightWhile, takeWhile } from '../src/alpha';
 
 import { FnAcidTest } from '../src/constants';
 import { FnAny } from '../src/constants';
-import { _testSuites } from './_testSuites';
+import { _testSuites } from './__testSuites';
 
 should();
 

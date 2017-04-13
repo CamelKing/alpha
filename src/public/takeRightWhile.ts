@@ -12,12 +12,12 @@
  * @returns {any[]}
  */
 
+import { Direction } from '../constants';
 import { FnAcidTest } from '../constants';
-import { _Direction } from '../_constants';
 import { _take } from '../private/_take';
 
 export function takeRightWhile(input: any[], acidTest: FnAcidTest): any[] {
 
-  return _take(input, acidTest, null, _Direction.fromRight);
+  return _take(input, acidTest, null, Direction.fromRight);
 
 }

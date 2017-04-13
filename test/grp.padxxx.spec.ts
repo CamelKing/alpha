@@ -2,7 +2,7 @@ import { Align, centerAlign, leftAlign, pad, padLeft, padRight, rightAlign, toFi
 import { expect, should } from 'chai';
 
 import { FnAny } from '../src/constants';
-import { _testSuites } from './_testSuites';
+import { _testSuites } from './__testSuites';
 
 should();
 

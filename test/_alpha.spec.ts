@@ -23,14 +23,12 @@ testControl['asyncMods'] = [
 ];
 
 testControl['arrayMods'] = [
-  '_binarySearchArray',
+  '_searchArray',
   '_binarySearchValue',
-  '_binarySearchIndex',
-  '_binarySearchIndexBy',
   '_diff',
   '_drop',
   '_intersection',
-  '_makeComparator',
+  '_makeFinder',
   '_orderBy',
   '_pullAll',
   '_removeRedundants',
@@ -59,6 +57,7 @@ testControl['stringMods'] = [
 
 testControl['functionMods'] = [
   '_getTrailingFunction',
+  '_makeIteratee',
 ];
 
 testControl['timeInstances'] = [

@@ -3,7 +3,7 @@ import { expect, should } from 'chai';
 
 import { FnAny } from '../src/constants';
 import { FnComparator } from '../src/alpha';
-import { _testSuites } from './_testSuites';
+import { _testSuites } from './__testSuites';
 
 should();
 

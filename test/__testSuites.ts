@@ -1,14 +1,3 @@
-import * as path from 'path';
-
-import { expect, should } from 'chai';
-
-import { FnAny } from '../src/constants';
-import { isNull } from 'util';
-import { isTheSame } from '../src/alpha';
-
-should();
-
-
 /**
  * Perform test on the entire suites (normally contain one
  * suites for one source file)
@@ -40,6 +29,16 @@ should();
  *                           booleans passed in, they are defaulted to
  *                           false = no control.
  */
+
+import * as path from 'path';
+
+import { expect, should } from 'chai';
+
+import { FnAny } from '../src/constants';
+import { isNull } from 'util';
+import { isTheSame } from '../src/alpha';
+
+should();
 
 export function _testSuites(funcs: FnAny[],
   tests: object,

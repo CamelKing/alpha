@@ -11,13 +11,13 @@
  * @returns {any[]}
  */
 
-import { _Direction } from '../_constants';
+import { Direction } from '../constants';
 import { _drop } from '../private/_drop';
 
 export function dropRightWhile(array: any[],
   predicate: any,
   maxDrop?: number): any[] {
 
-  return _drop(array, predicate, maxDrop, _Direction.fromRight);
+  return _drop(array, predicate, maxDrop, Direction.fromRight);
 
 }

@@ -1,7 +1,3 @@
-import { FnAny } from '../constants';
-import { _getTrailingFunction } from '../private/_getTrailingFunction';
-import { _removeNonArray } from '../private/_removeNonArray';
-
 /**
  * Zip a series of array by calling an iterator function to process
  * each rows of the combine array.
@@ -24,6 +20,10 @@ import { _removeNonArray } from '../private/_removeNonArray';
  * @param {...any[]} arrays
  * @returns {any[]}
  */
+
+import { FnAny } from '../constants';
+import { _getTrailingFunction } from '../private/_getTrailingFunction';
+import { _removeNonArray } from '../private/_removeNonArray';
 
 export function zipWith(...arrays: any[]): any[] {
 

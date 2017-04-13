@@ -10,12 +10,12 @@
  * @returns {any[]}
  */
 
-import { _Direction } from '../_constants';
+import { Direction } from '../constants';
 import { _drop } from '../private/_drop';
 
 export function dropRight(array: any[], count: number = 1): any[] {
 
   if (count === null || count === undefined) count = 1;
-  return _drop(array, null, count, _Direction.fromRight);
+  return _drop(array, null, count, Direction.fromRight);
 
 }

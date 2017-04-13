@@ -1,4 +1,3 @@
-import { randomInteger } from './randomInteger';
 /**
  * Generate a string comprises of random text up to
  * the specified length. There will be no spaces in
@@ -11,6 +10,9 @@ import { randomInteger } from './randomInteger';
  * @param {number} [len]
  * @returns {string}
  */
+
+import { randomInteger } from './randomInteger';
+
 export function randomText(len?: number): string {
 
   if (!len || len <= 0) len = randomInteger(5, 20);

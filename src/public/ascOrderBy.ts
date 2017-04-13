@@ -11,13 +11,13 @@
  * @category Array
  *
  * @export
- * @returns {FnSortComparator}
+ * @returns {FnSorter}
  */
 
-import { FnPredicate, FnSortComparator } from '../constants';
+import { FnPredicate, FnSorter } from '../constants';
 
 import { _orderBy } from '../private/_orderBy';
 
-export function ascOrderBy(predicate: FnPredicate): FnSortComparator {
+export function ascOrderBy(predicate: FnPredicate): FnSorter {
   return (a: any, b: any) => _orderBy(a, b, predicate);
 }

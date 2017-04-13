@@ -10,7 +10,7 @@
  * @returns {number}
  */
 
-import { RoundOperand } from '../_constants';
+import { RoundOperand } from '../constants';
 import { _decimalAdjust } from './_decimalAdjust';
 import { theTypeOf } from '../public/theTypeOf';
 

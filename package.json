@@ -48,7 +48,8 @@
     "source-map-support": "^0.4.14",
     "ts-node": "^2.1.2",
     "tslint": "^4.5.1",
-    "typescript": "^2.2.2"
+    "typescript": "^2.2.2",
+    "uglify-js": "github:mishoo/UglifyJS2#harmony"
   },
   "engines": {
     "node": ">=4.0.0"

@@ -25,7 +25,6 @@
  *
  * let result = await p2();   // promise executes here and call doManyThings()
  *
- *
  * @since 0.0.1
  * @category Async
  *

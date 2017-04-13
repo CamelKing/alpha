@@ -1,7 +1,6 @@
 /**
  * Format a series of arguments and produce a formated string
  *
- *
  * @since 0.0.1
  * @category String
  *

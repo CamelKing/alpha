@@ -1,6 +1,3 @@
-import { _round } from '../private/_round';
-import { theTypeOf } from './theTypeOf';
-
 /**
  * roundin up to the number in the next precision.
  *
@@ -12,6 +9,10 @@ import { theTypeOf } from './theTypeOf';
  * @param {number} [exp]
  * @returns {number}
  */
+
+import { _round } from '../private/_round';
+import { theTypeOf } from './theTypeOf';
+
 export function roundUp(value: any, exp?: number): number {
   return _round(value, exp, 'ceil');
 }

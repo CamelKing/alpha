@@ -20,7 +20,7 @@
  * @returns {string[]}
  */
 
-import { HalfWordLen, Hyphen } from '../_constants';
+import { HalfWordLen, Hyphen } from '../constants';
 
 export function _hyphenateToArray(input: string,
   len: number,

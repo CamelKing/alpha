@@ -14,7 +14,6 @@
  */
 
 import { _round } from '../private/_round';
-import { theTypeOf } from './theTypeOf';
 
 export function round(value: any, exp?: number): number {
   return _round(value, exp);

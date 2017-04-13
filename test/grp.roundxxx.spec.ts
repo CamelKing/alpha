@@ -2,7 +2,7 @@ import { expect, should } from 'chai';
 import { round, roundDown, roundUp } from '../src/alpha';
 
 import { FnAny } from '../src/constants';
-import { _testSuites } from './_testSuites';
+import { _testSuites } from './__testSuites';
 
 should();
 

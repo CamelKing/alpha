@@ -1,7 +1,7 @@
 import { expect, should } from 'chai';
 
 import { FnAny } from '../src/constants';
-import { _testSuites } from './_testSuites';
+import { _testSuites } from './__testSuites';
 import { theTypeOf } from '../src/alpha';
 
 should();

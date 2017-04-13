@@ -1,5 +1,3 @@
-export * from './_constants';
-
 // @Files
 export type FnLSFilter = { (filename: string): string };
 
@@ -7,6 +5,12 @@ export type FnLSFilter = { (filename: string): string };
 export enum Align { left, center, right };
 export const Space: string = ' ';
 export const Apostrophe: string = '\u0027';
+export const Hyphen: string = '-';
+export const HalfWordLen: number = 3;
+
+// @Number
+export type RoundOperand = 'round' | 'ceil' | 'floor';
+export type CaseOperand = 'toLowerCase' | 'toUpperCase';
 
 // @Async
 export type FnPromiseFactory = () => Promise<any>;
@@ -19,16 +23,25 @@ export type Pairs = Pair[];
 
 // @Array
 export const NotFound: number = -1;
+export enum SortOrder { lower = -1, same = 0, higher = 1 };
+export enum Direction { fromLeft = 1, fromRight = -1 }
 export type FnAcidTest = (a: any) => boolean;
 export type FnComparator = (a: any, b: any) => boolean;
-export type FnSortComparator = (a: any, b: any) => SortOrder;
+export type FnSorter = (a: any, b: any) => SortOrder;
 export type FnPredicate = (v: any) => any;
-export type FnFind = (element: any, index: number, array: any[]) => boolean;
-export enum SortOrder { lower = -1, same = 0, higher = 1 };
+export type FnIteratee = (v: any) => any;
+export type FnFinder = (item: any, index: number, array: any[]) => boolean;
+export type AnyIteratee = FnIteratee | number | string;
+export type SearchOption = {
+  highestIndex?: boolean;
+  iteratee?: AnyIteratee;
+  compare?: FnSorter;
+  insert?: boolean;
+};
+
 
 // @Functions
 export type FnAny = (...args: any[]) => any;
-
 
 
 // --- special purpose

@@ -2,6 +2,9 @@
  * Return the initial elements, bar the final element
  * of an array. return as a copy of array.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} input
  * @returns {any[]}

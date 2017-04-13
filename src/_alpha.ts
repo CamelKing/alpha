@@ -7,7 +7,7 @@
  */
 
 // @constants
-export * from './_constants';
+export * from './constants';
 
 // @category Math
 export * from './private/_decimalAdjust';
@@ -21,15 +21,13 @@ export * from './private/_truncateToArray';
 
 // @category array
 export * from './private/_orderBy';
-export * from './private/_binarySearchArray';
+export * from './private/_searchArray';
 export * from './private/_binarySearchValue';
-export * from './private/_binarySearchIndex';
-export * from './private/_binarySearchIndexBy';
 export * from './private/_diff';
 export * from './private/_drop';
 export * from './private/_intersection';
 export * from './private/_pullAll';
-export * from './private/_makeComparator';
+export * from './private/_makeFinder';
 export * from './private/_removeRedundants';
 export * from './private/_take';
 export * from './private/_union';
@@ -39,3 +37,4 @@ export * from './private/_identity';
 
 // @category Functions
 export * from './private/_getTrailingFunction';
+export * from './private/_makeIteratee';

@@ -2,7 +2,7 @@ import { FnComparator, FnPredicate, intersection, intersectionBy, intersectionWi
 import { expect, should } from 'chai';
 
 import { FnAny } from '../src/constants';
-import { _testSuites } from './_testSuites';
+import { _testSuites } from './__testSuites';
 
 should();
 

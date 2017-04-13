@@ -8,11 +8,10 @@
  *
  * Note: ASSUME array is sorted in ascending order [1,2,3]
  *
- * This function is only suitable for array of the same type of
- * primitive elements.
- *
  * @since 0.0.1
  * @category Array
+ *
+ * @refactor April 13, 2017
  *
  * @export
  * @param {any[]} array
@@ -20,12 +19,12 @@
  * @returns {number}
  */
 
-import { FnPredicate } from '../constants';
-import { _binarySearchIndex } from '../private/_binarySearchIndex';
+import { AnyIteratee } from '../constants';
+import { _searchArray } from '../private/_searchArray';
 
-export function sortedLastIndex(array: any[], target: any,
-  predicate?: FnPredicate): number {
+export function sortedLastInsertAt(array: any[], target: any,
+  iteratee?: AnyIteratee): number {
 
-  return _binarySearchIndex(array, target, { predicate, highestIndex: true });
-
+  return _searchArray(array, target,
+    { iteratee, insert: true, highestIndex: true });
 }

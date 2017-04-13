@@ -8,14 +8,10 @@
  * @category Array
  *
  * @export
- * @returns {FnSortComparator}
+ * @returns {FnSorter}
  */
 
-import { FnSortComparator } from '../constants';
+import { FnSorter } from '../constants';
 import { _orderBy } from '../private/_orderBy';
 
-// export function descOrder(): FnSortComparator {
-//   return (a: any, b: any) => _orderBy(b, a);
-// }
-
-export const descOrder: FnSortComparator = (a: any, b: any) => _orderBy(b, a);
+export const descOrder: FnSorter = (a: any, b: any) => _orderBy(b, a);

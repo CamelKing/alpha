@@ -2,7 +2,7 @@ import { camelCase, cobolCase, kebabCase, lowerFirst, pascalCase, snakeCase, upp
 import { expect, should } from 'chai';
 
 import { FnAny } from '../src/constants';
-import { _testSuites } from './_testSuites';
+import { _testSuites } from './__testSuites';
 
 should();
 

@@ -2,7 +2,7 @@
  * Private function perform a binary search on an array, returning the
  * array element found, or undefined if not found.
  *
- * This is implemented using the _binarySearchArray() function to
+ * This is implemented using the _searchArray() function to
  * locate the element.
  *
  * This is useful if the Array containing non primitives data, such
@@ -12,28 +12,30 @@
  *
  * ASSUMPTION: Array is sorted in either asc or desc order.
  *
- * Read the options section in the _binarySearchArray() to
+ * Read the options section in the _searchArray() to
  * understand what kind of options can be set.
  *
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @export
- * @param {any[]} array
+ * @param {any[]} sortedArray
  * @param {*} target
- * @param {BinarySearchOption} [option]
- * @returns {number}
+ * @param {SearchOption} [userOption]
+ * @returns {*}
  */
 
-import { BinarySearchOption } from '../constants';
-import { _binarySearchArray } from './_binarySearchArray';
+import { SearchOption } from '../constants';
+import { _searchArray } from './_searchArray';
 
-export function _binarySearchValue(array: any[], target: any,
-  option?: BinarySearchOption): any {
+export function _binarySearchValue(sortedArray: any[], target: any,
+  userOption?: SearchOption): any {
 
   const index: number
-    = _binarySearchArray(array, target, option);
+    = _searchArray(sortedArray, target, userOption);
 
-  return index >= 0 ? array[index] : undefined;
+  return index >= 0 ? sortedArray[index] : undefined;
 
 }

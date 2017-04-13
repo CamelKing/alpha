@@ -3,7 +3,10 @@
  * last parameter. If it does, remove the function from the arguments
  * and return the function.
  *
- * The arguments array will be altered.
+ * The arguments array will be altered. 
+ * 
+ * @since 0.0.1
+ * @category Function
  *
  * @param {any[]} args
  * @returns {FnAny}

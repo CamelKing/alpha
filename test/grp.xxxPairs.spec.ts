@@ -2,7 +2,7 @@ import { expect, should } from 'chai';
 import { fromPairs, toPairs } from '../src/alpha';
 
 import { FnAny } from '../src/constants';
-import { _testSuites } from './_testSuites';
+import { _testSuites } from './__testSuites';
 
 should();
 

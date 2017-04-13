@@ -6,10 +6,12 @@
  *
  * This function is only suitable for array of the same type of
  * primitive elements. Any other format, best to use
- * sortedIndexBy() where you can specify a predicate function.
+ * sortedIndexBy() where you can specify an interatee function.
  *
  * @since 0.0.1
  * @category Array
+ *
+ * @refactor April 13, 2017
  *
  * @export
  * @param {any[]} array
@@ -17,11 +19,13 @@
  * @returns {number}
  */
 
-import { _binarySearchIndexBy } from '../private/_binarySearchIndexBy';
+import { SearchOption } from '../constants';
+import { _searchArray } from '../private/_searchArray';
 
 export function sortedIndexOf(array: any[],
   target: any): number {
 
-  return _binarySearchIndexBy(array, target);
+  // insert mode is off
+  return _searchArray(array, target, { insert: false });
 
 }

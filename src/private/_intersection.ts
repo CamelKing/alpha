@@ -1,9 +1,3 @@
-import { FnComparator, FnPredicate } from '../constants';
-
-import { _makeComparator } from './_makeComparator';
-import { _removeRedundants } from './_removeRedundants';
-import { isTheSame } from '../public/isTheSame';
-
 /**
  * Private function to computer the intersection (common elements) of two arrays
  *
@@ -31,12 +25,18 @@ import { isTheSame } from '../public/isTheSame';
  * @returns {any[]}
  */
 
-export function _intersection(arrA: any[], arrB: any[], predicate: FnPredicate = null, compare: FnComparator = isTheSame): any[] {
+import { FnComparator, FnIteratee } from '../constants';
+
+import { _makeFinder } from './_makeFinder';
+import { _removeRedundants } from './_removeRedundants';
+import { isTheSame } from '../public/isTheSame';
+
+export function _intersection(arrA: any[], arrB: any[], iteratee: FnIteratee = null, compare: FnComparator = isTheSame): any[] {
 
   if (Array.isArray(arrA) && Array.isArray(arrB)) {
 
     const intersect: any[] = arrA.filter((item: any) =>
-      (arrB.findIndex(_makeComparator(item, predicate, compare)) >= 0));
+      (arrB.findIndex(_makeFinder(item, iteratee, compare)) >= 0));
 
     return _removeRedundants(intersect);
 
@@ -44,4 +44,3 @@ export function _intersection(arrA: any[], arrB: any[], predicate: FnPredicate =
   return [];
 
 }
-

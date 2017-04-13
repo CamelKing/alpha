@@ -9,6 +9,7 @@
  * @param {string} input
  * @returns {string}
  */
+
 export function trimRight(input: string): string {
   return input ? input.replace(/[\s]+$/, '') : '';
 }

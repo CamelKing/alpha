@@ -1,8 +1,8 @@
 /**
  * Perform a binary search on a sorted array and return the
- * zero based index of the found item, or -1 if not found.
+ * zero based index of the last found item, or -1 if not found.
  *
- * A predicate function can be passed in to transform the array element
+ * An iteratee function can be passed in to transform the array element
  * before performing comparision. This is useful for array of non
  * primitives element, such as objects.
  *
@@ -11,19 +11,21 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {any[]} array
  * @param {*} target
  * @returns {number}
  */
 
-import { FnPredicate } from '../constants';
-import { _binarySearchIndexBy } from '../private/_binarySearchIndexBy';
+import { AnyIteratee } from '../constants';
+import { _searchArray } from '../private/_searchArray';
 
-export function sortedLastIndexBy(array: any[],
+export function sortedLastIndexBy(sortedArray: any[],
   target: any,
-  predicate?: FnPredicate): number {
+  iteratee?: AnyIteratee): number {
 
-  return _binarySearchIndexBy(array, target, { predicate, highestIndex: true });
-
+  return _searchArray(sortedArray, target,
+    { iteratee, insert: false, highestIndex: true });
 }

@@ -18,7 +18,7 @@
  * @returns {string[]}
  */
 
-import { HalfWordLen } from '../_constants';
+import { HalfWordLen } from '../constants';
 
 export function _truncateToArray(input: string, len: number,
   pad: string = '...'): string[] {

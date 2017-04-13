@@ -6,6 +6,9 @@
  *
  * A copy of the stripped array will be returned.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @param {any[]} arrays
  * @returns {any[]}
  */

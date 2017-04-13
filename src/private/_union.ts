@@ -5,6 +5,9 @@
  *
  * option to pass in comparator to control how the comparison is done.
  *
+ * @since 0.0.1
+ * @category Array
+ *
  * @export
  * @param {any[]} arrA
  * @param {any[]} arrB
@@ -15,7 +18,7 @@
 
 import { FnComparator, FnPredicate } from '../constants';
 
-import { _makeComparator } from './_makeComparator';
+import { _makeFinder } from './_makeFinder';
 import { isTheSame } from '../public/isTheSame';
 
 export function _union(arrA: any[], arrB: any[], predicate: FnPredicate = null, compare: FnComparator = isTheSame): any[] {
@@ -26,14 +29,14 @@ export function _union(arrA: any[], arrB: any[], predicate: FnPredicate = null, 
   if (Array.isArray(arrA)) {
     // first, produce a copy of arrA without repeating elements
     a = arrA.filter((item: any, ind: number) =>
-      (arrA.findIndex(_makeComparator(item, predicate, compare)) === ind));
+      (arrA.findIndex(_makeFinder(item, predicate, compare)) === ind));
   }
 
   if (Array.isArray(arrB)) {
     // secondly, produce a copy of arrB, by filtering any items that
     // already exists in arrA
     b = arrB.filter((item: any) =>
-      (a.findIndex(_makeComparator(item, predicate, compare)) < 0));
+      (a.findIndex(_makeFinder(item, predicate, compare)) < 0));
   }
 
   // concat/merge the two array

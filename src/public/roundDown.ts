@@ -1,6 +1,3 @@
-import { _round } from '../private/_round';
-import { theTypeOf } from './theTypeOf';
-
 /**
  * rounding down a value by ignoring anything below the precision point
  *
@@ -12,6 +9,10 @@ import { theTypeOf } from './theTypeOf';
  * @param {number} [exp]
  * @returns {number}
  */
+
+import { _round } from '../private/_round';
+import { theTypeOf } from './theTypeOf';
+
 export function roundDown(value: any, exp?: number): number {
   return _round(value, exp, 'floor');
 }

@@ -1,8 +1,3 @@
-import { FnComparator, FnPredicate } from '../constants';
-
-import { _makeComparator } from './_makeComparator';
-import { isTheSame } from '../public/isTheSame';
-
 /**
  * Private functions to remove redundant elements in an array.
  *
@@ -23,12 +18,17 @@ import { isTheSame } from '../public/isTheSame';
  * @returns {any[]}
  */
 
+import { FnComparator, FnPredicate } from '../constants';
+
+import { _makeFinder } from './_makeFinder';
+import { isTheSame } from '../public/isTheSame';
+
 export function _removeRedundants(input: any[], predicate: FnPredicate = null, compare: FnComparator = isTheSame): any[] {
 
   if (!Array.isArray(input)) return input;
 
   // remove redundant elements before returning
   return input.filter((item: any, index: number, self: any[]) =>
-    index === self.findIndex(_makeComparator(item, predicate, compare)));
+    index === self.findIndex(_makeFinder(item, predicate, compare)));
 
 }
