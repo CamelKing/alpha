@@ -1,5 +1,5 @@
 /**
- * Truncate a string into a given length.
+ * private function to Truncate a string into a given length.
  * The truncation will be done by word break.
  * In the event it is not possible to truncate by word break,
  * or the omission of the last word result in a big gap in

@@ -1,7 +1,7 @@
 /**
- * Private function to make an interatee function so we can
- * call the passed in iteratee, or just return plain value if
- * it is null or undefined.
+ * Private factory function to make an interatee function so
+ * we can call the passed in iteratee, or just return plain
+ * value if it is null or undefined.
  *
  * @since 0.0.1
  * @category Function
@@ -36,6 +36,5 @@ export function _makeIteratee(iteratee: AnyIteratee): FnIteratee {
       return (value: any) => value;
 
   }
-
 
 }

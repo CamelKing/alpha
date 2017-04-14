@@ -1,6 +1,6 @@
 /**
- * Private factory to generate a function which call for
- * a comparator to compare two values. This is particular
+ * Private factory function to generate a function which call
+ * for a comparator to compare two values. This is particular
  * useful as a callback for some of the javascript array
  * methods such as find(), findIndex().
  *

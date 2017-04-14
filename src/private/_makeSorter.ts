@@ -1,6 +1,6 @@
 /**
- * Private factory to generate a function which call for
- * a sorter function to compare two values, which return
+ * Private factory function to generate a function which call
+ * for a sorter function to compare two values, which return
  * the SortOrder enum. This is typically useful
  * for Javascript function which compares for sorting.
  *

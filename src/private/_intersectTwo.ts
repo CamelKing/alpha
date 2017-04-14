@@ -8,12 +8,12 @@
  * and a comparator function - which perform the actual comparison,
  * so you can control how it is done.
  *
- * if iteratee is omitted, the _makeComparator will put in a default iteratee
+ * if iteratee is omitted, the _makeFInder will put in a default iteratee
  * which access the value as it is,
  *
  * if comparator is omitted, this function will default to using isTheSame()
  * which perform deep compare on all sort of variable types.
- * (Take note _makeComparator will use plain comparison === instead.)
+ * (Take note _makeFinder will use plain comparison === instead.)
  *
  * @since 0.0.1
  * @category Array

@@ -1,5 +1,5 @@
 /**
- * Private factory to generate a function which call for
+ * Private factory funciton to generate a function which call for
  * a comparator function to compare two values, which return
  * true if it is the same.
  *
