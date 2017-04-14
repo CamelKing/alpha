@@ -6,17 +6,19 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {any[]} input
- * @param {FnAcidTest} acidTest
+ * @param {FnMatcher} match
  * @returns {any[]}
  */
 
-import { FnAcidTest } from '../constants';
+import { FnMatcher } from '../constants';
 import { _take } from '../private/_take';
 
-export function takeWhile(input: any[], acidTest: FnAcidTest): any[] {
+export function takeWhile(input: any[], match: FnMatcher): any[] {
 
-  return _take(input, acidTest);
+  return _take(input, { match, count: input ? input.length : 0 });
 
 }

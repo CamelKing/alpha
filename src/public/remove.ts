@@ -13,15 +13,15 @@
  *
  * @export
  * @param {any[]} input
- * @param {FnAcidTest} [acidTest]
+ * @param {FnMatcher} [match]
  * @returns {any[]}
  */
 
-import { FnAcidTest } from '../constants';
+import { FnMatcher } from '../constants';
 import { isTheSame } from '../public/isTheSame';
 import { pluck } from './pluck';
 
-export function remove(input: any[], acidTest?: FnAcidTest): any[] {
+export function remove(input: any[], match?: FnMatcher): any[] {
 
   if (!Array.isArray(input)) return input;
 
@@ -34,13 +34,13 @@ export function remove(input: any[], acidTest?: FnAcidTest): any[] {
 
   while (index < len) {
 
-    const toKeep: any = acidTest ? acidTest(input[index]) : input[index];
+    const toKeep: any = match ? match(input[index]) : input[index];
 
     // if the value is not false,
     // either from acidTest, or the item is true (in nature),
     // move on to next item (index++), else
     // pluck the item out
-    if (acidTest ? acidTest(input[index]) : input[index]) {
+    if (match ? match(input[index]) : input[index]) {
       index++;
     }
     else {

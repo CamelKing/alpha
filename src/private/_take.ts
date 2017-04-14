@@ -9,21 +9,23 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {any[]} input
- * @param {FnAcidTest} [acidTest]
- * @param {number} [max=input.length]
- * @param {_Direction} [direction=_Direction.fromLeft]
+ * @param {ArrayOption} [userOption]
  * @returns {any[]}
  */
 
-import { Direction } from '../constants';
-import { FnAcidTest } from '../constants';
+import { ArrayOption, Direction } from '../constants';
 
-export function _take(input: any[],
-  acidTest?: FnAcidTest,
-  max?: number,
-  direction: Direction = Direction.fromLeft): any[] {
+import { _isFromLeft } from './_isFromLeft';
+import { assign } from '../public/assign';
+
+export function _take(input: any[], userOption?: ArrayOption): any[] {
+
+  const option: ArrayOption
+    = assign({ count: 1, direction: Direction.fromLeft }, userOption);
 
   if (!Array.isArray(input)) return input;
 
@@ -31,22 +33,24 @@ export function _take(input: any[],
 
   // keep max within range of [0,input.length]
   // use == to detect both null and undefined
-  max = max == null ? length : max > length ? length : max < 0 ? 0 : max;
+  option.count
+    = option.count == null ? length : option.count > length ? length :
+      option.count < 0 ? 0 : option.count;
 
   // if empty array, or max count is zero, just return a new empty array
-  if (!length || !max) return [];
+  if (!length || !option.count) return [];
 
-  const start: number = direction === Direction.fromLeft ? 0 : length - 1;
-  const maxEnd: number = start + (max < length ? max : length) * direction;
+  const start: number = _isFromLeft(option.direction) ? 0 : length - 1;
+  const maxEnd: number = start + (option.count < length ? option.count : length) * option.direction;
   let end: number = start;
 
   while (end !== maxEnd) {
-    if (acidTest ? acidTest(input[end]) : (!!input[end])) {
-      end += direction;
+    if (option.match ? option.match(input[end]) : (!!input[end])) {
+      end += option.direction;
     } else break;
   }
 
   // return input.slice(start, Math.abs(start - end) + 1);
-  return direction === Direction.fromLeft ? input.slice(start, end) : input.slice(end + 1);
+  return option.direction === Direction.fromLeft ? input.slice(start, end) : input.slice(end + 1);
 
 }

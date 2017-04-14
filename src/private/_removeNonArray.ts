@@ -1,6 +1,6 @@
 /**
  * Private function to remove all non array elements in a nested array.
- * 
+ *
  * Only apply this at the first level. Would not remove anything beyond
  * first evel of the array.
  *
@@ -8,6 +8,8 @@
  *
  * @since 0.0.1
  * @category Array
+ *
+ * @refactor April 13, 2017
  *
  * @param {any[]} arrays
  * @returns {any[]}

@@ -6,18 +6,21 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {any[]} input
- * @param {FnAcidTest} acidTest
+ * @param {FnMatcher} match
  * @returns {any[]}
  */
 
-import { Direction } from '../constants';
-import { FnAcidTest } from '../constants';
+import { Direction, FnMatcher } from '../constants';
+
 import { _take } from '../private/_take';
 
-export function takeRightWhile(input: any[], acidTest: FnAcidTest): any[] {
+export function takeRightWhile(input: any[], match: FnMatcher): any[] {
 
-  return _take(input, acidTest, null, Direction.fromRight);
+  return _take(input,
+    { match, direction: Direction.fromRight, count: input ? input.length : 0 });
 
 }

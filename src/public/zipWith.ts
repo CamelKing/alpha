@@ -16,6 +16,8 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ * 
  * @export
  * @param {...any[]} arrays
  * @returns {any[]}

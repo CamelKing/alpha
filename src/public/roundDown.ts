@@ -15,6 +15,6 @@
 import { _round } from '../private/_round';
 import { theTypeOf } from './theTypeOf';
 
-export function roundDown(value: any, exp?: number): number {
-  return _round(value, exp, 'floor');
+export function roundDown(value: any, precision?: number): number {
+  return _round(value, precision, 'floor');
 }

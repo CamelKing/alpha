@@ -10,7 +10,6 @@
  * @returns {any[]}
  */
 
-import { FnAcidTest } from '../constants';
 import { isTheSame } from '../public/isTheSame';
 import { pluck } from './pluck';
 

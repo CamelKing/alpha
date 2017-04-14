@@ -26,7 +26,6 @@ export type Primitives = object | string | number | boolean | any[];
 export const NotFound: number = -1;
 export enum SortOrder { lower = -1, same = 0, higher = 1 };
 export enum Direction { fromLeft = 1, fromRight = -1 }
-export type FnAcidTest = (a: any) => boolean;
 export type FnComparator = (a: any, b: any) => boolean;
 export type FnSorter = (a: any, b: any) => SortOrder;
 export type FnCheck = (predicate: any) => boolean;
@@ -40,7 +39,7 @@ export interface ArrayOption {
   predicate?: any;
   iteratee?: AnyIteratee;
   compare?: FnComparator;
-  // match?: FnMatcher;
+  match?: FnMatcher;
   find?: FnFinder;
   sort?: FnSorter;
   last?: boolean;

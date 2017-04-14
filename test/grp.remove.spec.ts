@@ -1,7 +1,7 @@
 import { expect, should } from 'chai';
 
-import { FnAcidTest } from '../src/constants';
 import { FnAny } from '../src/constants';
+import { FnMatcher } from '../src/constants';
 import { _testSuites } from './__testSuites';
 import { remove } from '../src/alpha';
 
@@ -17,7 +17,7 @@ const funcs: FnAny[] = [
   remove,
 ];
 
-const fnNeg: FnAcidTest = (value: any) => (!!value);
+const fnNeg: FnMatcher = (value: any) => (!!value);
 const sym: Symbol = Symbol();
 const test: any = ['start', true, false, 1, 0, -1, null, undefined, NaN, sym, '', 'end'];
 const answer: any = ['start', true, 1, -1, sym, 'end'];

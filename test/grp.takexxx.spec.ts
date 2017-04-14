@@ -1,8 +1,8 @@
 import { expect, should } from 'chai';
 import { take, takeRight, takeRightWhile, takeWhile } from '../src/alpha';
 
-import { FnAcidTest } from '../src/constants';
 import { FnAny } from '../src/constants';
+import { FnMatcher } from '../src/constants';
 import { _testSuites } from './__testSuites';
 
 should();
@@ -21,8 +21,8 @@ const funcs: FnAny[] = [
 ];
 
 const a1: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-const fnSmall: FnAcidTest = (value: number) => (value <= 5);
-const fnBig: FnAcidTest = (value: number) => (value === 0 || value >= 5);
+const fnSmall: FnMatcher = (value: number) => (value <= 5);
+const fnBig: FnMatcher = (value: number) => (value === 0 || value >= 5);
 
 const sym: Symbol = Symbol();
 const a2: any = ['start', true, false, 1, 0, -1, null, undefined, NaN, sym, '', 'end'];
