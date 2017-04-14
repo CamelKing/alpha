@@ -1,5 +1,4 @@
 /**
- *
  * private function to support the various xxxxCase() functions.
  * - camelCase()
  * - kebabCase()

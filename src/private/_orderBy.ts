@@ -1,7 +1,7 @@
 /**
  * private function used for sort/search comparison in ascending order.
  *
- * A iteratee can be passed in to transform the items to be compared,
+ * An iteratee can be passed in to transform the items to be compared,
  * this is useful for scenario such as sorting/searching thru array of
  * objects.
  *
@@ -10,13 +10,17 @@
  * it will order the items from b to a.
  *
  * When used in search, this will assume the list is in predetermined
- * order, either ascending or descending..
+ * order, either ascending or descending.
  *
  * IMPORTANT: if the type of the two data passed in is not the same,
  * it will both to converted to string before comparison.
  *
+ * Return value is of SortOrder, which can be lower, higher or same.
+ *
  * @since 0.0.1
  * @category Array
+ *
+ * @refactor April 13, 2017
  *
  * @export
  * @param {*} a
