@@ -21,6 +21,6 @@ export function intersectionBy(...arrays: any[]): any[] {
 
   // extract the last argument as iteratee function (if applicable)
   // this will drop that function from the arrays (if applicable)
-  return _intersectAll(arrays, _getOptionalFunction(arrays));
+  return _intersectAll(arrays, { iteratee: _getOptionalFunction(arrays) });
 
 }

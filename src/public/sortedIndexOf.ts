@@ -19,7 +19,6 @@
  * @returns {number}
  */
 
-import { SearchOption } from '../constants';
 import { _searchArray } from '../private/_searchArray';
 
 export function sortedIndexOf(array: any[],

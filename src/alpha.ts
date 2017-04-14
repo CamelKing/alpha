@@ -94,6 +94,7 @@ export * from './public/roundUp';
 export * from './public/roundDown';
 
 // @category object
+export * from './public/assign';
 export * from './public/clone';
 export * from './public/fromPairs';
 export * from './public/toPairs';

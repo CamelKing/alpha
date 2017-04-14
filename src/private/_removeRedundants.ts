@@ -20,7 +20,7 @@
 
 import { FnComparator, FnIteratee } from '../constants';
 
-import { _makeFinder } from './_makeFinder';
+import { _makeMatcher } from './_makeMatcher';
 import { isTheSame } from '../public/isTheSame';
 
 export function _removeRedundants(input: any[], iteratee: FnIteratee = null, compare: FnComparator = isTheSame): any[] {
@@ -29,6 +29,6 @@ export function _removeRedundants(input: any[], iteratee: FnIteratee = null, com
 
   // remove redundant elements before returning
   return input.filter((item: any, index: number, self: any[]) =>
-    index === self.findIndex(_makeFinder(item, iteratee, compare)));
+    index === self.findIndex(_makeMatcher(item, iteratee, compare)));
 
 }

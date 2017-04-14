@@ -1,3 +1,9 @@
+import { FnComparator, FnIteratee } from '../constants';
+
+import { _makeComparator } from './_makeComparator';
+import { isTheSame } from '../public/isTheSame';
+import { pluck } from '../public/pluck';
+
 /**
  * Private function to perform pulling of items from an array.
  *
@@ -17,40 +23,35 @@
  * @returns {any[]}
  */
 
-import { FnComparator, FnIteratee } from '../constants';
-
-import { isTheSame } from '../public/isTheSame';
-import { pluck } from '../public/pluck';
-
-export function _pullAll(input: any[], values: any[],
+export function _pullAll(array: any[], toPull: any[],
   iteratee?: FnIteratee, compare?: FnComparator): any[] {
 
-  compare = compare || isTheSame;
+  // default comparator is isTheSame()
+  const isSame: FnComparator = _makeComparator(iteratee, compare || isTheSame);
 
   // loop thru every items to be removed
-  values.forEach((item: any) => {
+  toPull.forEach((itemToPull: any) => {
 
     // count how many items in the input array
     // to be checked against
-    let len: number = input.length;
-
-    // for loop to loop thru the input array
+    let { length } = array;
     let index: number = 0;
 
-    while (index < len) {
-
-      const a: any = iteratee ? iteratee(input[index]) : input[index];
-      const b: any = iteratee ? iteratee(item) : item;
+    // note: not using for loop, as index are not to be
+    // increased afte we pluck one items (the next item
+    // falls into current index)
+    while (index < length) {
 
       // if we find an item in the input array that is same
-      // as one of the items to be removed
-      if (compare(a, b)) len = pluck(input, index).length;
+      // as one of the items to be pulled, we will pluck it
+      // else increase index to check next item
+      if (isSame(array[index], itemToPull)) length = pluck(array, index).length;
       else index++;
 
     }
 
   });
 
-  return input;
+  return array;
 
 }

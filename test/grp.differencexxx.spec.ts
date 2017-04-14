@@ -7,7 +7,7 @@ import { _testSuites } from './__testSuites';
 
 should();
 
-const suiteText: string = 'XXXX() & derivative functions';
+const suiteText: string = 'Extract differences between arrays';
 
 const tests: object = {};
 const inputs: object = {};

@@ -26,7 +26,7 @@ export * from './private/_intersectTwo';
 export * from './private/_isFromLeft';
 export * from './private/_pullAll';
 export * from './private/_makeComparator';
-export * from './private/_makeFinder';
+export * from './private/_makeMatcher';
 export * from './private/_makeIteratee';
 export * from './private/_makeChecker';
 export * from './private/_makeSorter';

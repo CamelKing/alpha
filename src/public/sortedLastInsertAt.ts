@@ -25,6 +25,5 @@ import { _searchArray } from '../private/_searchArray';
 export function sortedLastInsertAt(array: any[], target: any,
   iteratee?: AnyIteratee): number {
 
-  return _searchArray(array, target,
-    { iteratee, insert: true, highestIndex: true });
+  return _searchArray(array, target, { iteratee, insert: true, last: true });
 }

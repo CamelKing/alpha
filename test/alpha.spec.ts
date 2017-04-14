@@ -98,6 +98,7 @@ testControl['numberMods'] = [
 ];
 
 testControl['objectMods'] = [
+  'assign',
   'clone',
   'fromPairs',
   'isTheSame',

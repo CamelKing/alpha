@@ -18,7 +18,7 @@
 
 import { FnComparator, FnIteratee } from '../constants';
 
-import { _makeFinder } from './_makeFinder';
+import { _makeMatcher } from './_makeMatcher';
 import { isTheSame } from '../public/isTheSame';
 
 export function _union(arrA: any[], arrB: any[], iteratee: FnIteratee = null, compare: FnComparator = isTheSame): any[] {
@@ -29,14 +29,14 @@ export function _union(arrA: any[], arrB: any[], iteratee: FnIteratee = null, co
   if (Array.isArray(arrA)) {
     // first, produce a copy of arrA without repeating elements
     a = arrA.filter((item: any, ind: number) =>
-      (arrA.findIndex(_makeFinder(item, iteratee, compare)) === ind));
+      (arrA.findIndex(_makeMatcher(item, iteratee, compare)) === ind));
   }
 
   if (Array.isArray(arrB)) {
     // secondly, produce a copy of arrB, by filtering any items that
     // already exists in arrA
     b = arrB.filter((item: any) =>
-      (a.findIndex(_makeFinder(item, iteratee, compare)) < 0));
+      (a.findIndex(_makeMatcher(item, iteratee, compare)) < 0));
   }
 
   // concat/merge the two array

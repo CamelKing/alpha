@@ -27,5 +27,5 @@ export function sortedLastIndexBy(sortedArray: any[],
   iteratee?: AnyIteratee): number {
 
   return _searchArray(sortedArray, target,
-    { iteratee, insert: false, highestIndex: true });
+    { iteratee, insert: false, last: true });
 }

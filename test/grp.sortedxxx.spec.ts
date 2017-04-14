@@ -1,8 +1,8 @@
-import { FnIteratee, SearchOption } from '../src/constants';
 import { ascOrder, ascOrderBy, sortedIndexBy, sortedIndexOf, sortedInsertAt, sortedLastIndexBy, sortedLastIndexOf, sortedLastInsertAt } from '../src/alpha';
 import { expect, should } from 'chai';
 
 import { FnAny } from '../src/constants';
+import { FnIteratee } from '../src/constants';
 import { _testSuites } from './__testSuites';
 
 should();

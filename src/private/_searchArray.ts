@@ -38,17 +38,18 @@
  * @export
  * @param {any[]} sortedArray
  * @param {*} target
- * @param {SearchOption} [userOption]
+ * @param {ArrayOption} [userOption]
  * @returns {number}
  */
 
-import { FnSorter, NotFound, SearchOption, SortOrder } from '../constants';
+import { ArrayOption, FnSorter, NotFound, SortOrder } from '../constants';
 
 import { _makeSorter } from './_makeSorter';
 import { _orderBy } from './_orderBy';
+import { assign } from "../public/assign";
 
 export function _searchArray(sortedArray: any[], target: any,
-  userOption?: SearchOption): number {
+  userOption?: ArrayOption): number {
 
   // if not an array, return not found (-1) regardless of insert mode or not
   if (!Array.isArray(sortedArray)) return NotFound;
@@ -56,17 +57,11 @@ export function _searchArray(sortedArray: any[], target: any,
   // default is ascending order.
   // to make this descending order:
   // compare = (a,b) => _orderBy(b,a)
-  const option: SearchOption = {
-    compare: _orderBy,
-    highestIndex: false,
-    insert: false
-  };
-
-  // overwrite default option with user option
-  Object.assign(option, userOption);
+  const option: ArrayOption
+    = assign({ sort: _orderBy, last: false, insert: false }, userOption);
 
   // setup the sorter function
-  const sortCompare: FnSorter = _makeSorter(option.iteratee, option.compare);
+  const sortCompare: FnSorter = _makeSorter(option.iteratee, option.sort);
 
   const { length } = sortedArray;
 
@@ -97,7 +92,7 @@ export function _searchArray(sortedArray: any[], target: any,
         // the checking on index need to in the front, so the
         // subsequent call to array[index] would not throw.
 
-        const direction: number = option.highestIndex ? 1 : -1;
+        const direction: number = option.last ? 1 : -1;
 
         do {
           index += direction;

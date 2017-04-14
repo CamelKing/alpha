@@ -20,6 +20,7 @@ export type FnReject = (error?: any) => void;
 // @Object
 export type Pair = [string, any];
 export type Pairs = Pair[];
+export type Primitives = object | string | number | boolean | any[];
 
 // @Array
 export const NotFound: number = -1;
@@ -32,25 +33,20 @@ export type FnCheck = (predicate: any) => boolean;
 // export type FnPredicate = (v: any) => any;
 export type FnIteratee = (v: any) => any;
 export type FnFinder = (item: any, index: number, array: any[]) => boolean;
+export type FnMatcher = (item: any) => boolean;
 export type AnyIteratee = FnIteratee | number | string;
-export type SearchOption = {
-  highestIndex?: boolean;
-  iteratee?: AnyIteratee;
-  compare?: FnSorter;
-  insert?: boolean;
-};
-export type DiffOption = {
-  iteratee?: FnIteratee;
-  compare?: FnComparator
-};
-export type DropOption = {
+
+export interface ArrayOption {
   predicate?: any;
+  iteratee?: AnyIteratee;
+  compare?: FnComparator;
+  // match?: FnMatcher;
+  find?: FnFinder;
+  sort?: FnSorter;
+  last?: boolean;
+  insert?: boolean;
   count?: number;
   direction?: Direction;
-};
-export type IntersectOption = {
-  iteratee?: boolean,
-  compare?: boolean;
 };
 
 // @Functions

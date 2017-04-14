@@ -26,24 +26,17 @@
  * @returns {any[]}
  */
 
-import { Direction, DropOption, FnCheck } from '../constants';
+import { ArrayOption, Direction, FnCheck } from '../constants';
 
 import { _isFromLeft } from './_isFromLeft';
 import { _makeChecker } from './_makeChecker';
+import { assign } from '../public/assign';
 
 // tslint:disable-next-line:cyclomatic-complexity
-export function _drop(input: any[], userOption: DropOption): any[] {
-  // predicate: any,
-  // maxDrop?: number,
-  // direction?: Direction): any[] {
+export function _drop(input: any[], userOption: ArrayOption): any[] {
 
-  const option: DropOption = {
-    count: 1,
-    direction: Direction.fromLeft
-  };
-
-  // overwrite default option with user option
-  Object.assign(option, userOption);
+  const option: ArrayOption
+    = assign({ count: 1, direction: Direction.fromLeft }, userOption);
 
   // blank array, return
   if (!input) return [];

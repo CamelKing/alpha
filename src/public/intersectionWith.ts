@@ -22,6 +22,6 @@ export function intersectionWith(...arrays: any[]): any[] {
   // extract the last argument as comparator function (if applicable)
   // this will drop that function from the arrays (if applicable)
 
-  return _intersectAll(arrays, null, _getOptionalFunction(arrays));
+  return _intersectAll(arrays, { compare: _getOptionalFunction(arrays) });
 
 }

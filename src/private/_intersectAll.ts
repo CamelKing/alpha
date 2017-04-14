@@ -18,12 +18,13 @@
  * @returns {any[]}
  */
 
-import { FnComparator, FnIteratee } from '../constants';
+import { ArrayOption, FnComparator, FnIteratee } from '../constants';
 
 import { _intersectTwo } from '../private/_intersectTwo';
 
 export function _intersectAll(arrays: any[][],
-  iteratee?: FnIteratee, compare?: FnComparator): any[] {
+  userOptions: ArrayOption = {}): any[] {
+  // iteratee?: FnIteratee, compare?: FnComparator): any[] {
 
   const { length } = arrays;
 
@@ -38,7 +39,8 @@ export function _intersectAll(arrays: any[][],
   for (let i: number = 1; i < length && intersect.length !== 0; i++) {
     // find out what's the intersection between the currently
     // calculated intersection and the next array
-    intersect = _intersectTwo(intersect, arrays[i], iteratee, compare);
+    intersect = _intersectTwo(intersect, arrays[i],
+      { iteratee: userOptions.iteratee, compare: userOptions.compare });
   }
 
   return intersect;

@@ -24,6 +24,5 @@ import { _searchArray } from '../private/_searchArray';
 export function sortedLastIndexOf(sortedArray: any[],
   target: any): number {
 
-  return _searchArray(sortedArray, target,
-    { highestIndex: true, insert: false });
+  return _searchArray(sortedArray, target, { last: true, insert: false });
 }
