@@ -10,9 +10,10 @@
  * [0] - the truncated string
  * [1] = the hyphen, if applicable.
  *
- *
  * @since 0.0.1
  * @category String
+ *
+ * @refactor April 14, 2017
  *
  * @param {string} input
  * @param {number} len
@@ -24,39 +25,27 @@ import { HalfWordLen, Hyphen } from '../constants';
 
 export function _hyphenateToArray(input: string,
   len: number,
-  hyphen?: string): string[] {
+  hyphen: string = Hyphen): string[] {
 
-  hyphen = hyphen || Hyphen;
+  // short length or empty string, return empty array
+  if (!input || len <= 0) return ['', ''];
 
-  if (!input || len <= 0) {
-
-    // short length or empty string, return empty array
-    return ['', ''];
-
-  } else if (input.length <= len) {
-
-    // if input string is short, just return a copy of it
-    return [input.slice(0), ''];
-
-  }
+  // if input string is short, just return a copy of it
+  if (input.length <= len) return [input.slice(0), ''];
 
   // if truncated space is shorter than two words, disable hypehnation
   // by setting avg word length to full len of truncated string
   const avgWordLen: number
     = (len <= (HalfWordLen * 4 + 1)) ? len : HalfWordLen * 2;
 
-  let lineBreak: number = input.search(/\n/);
 
   // if no line break found, set it to the end of string
-  if (lineBreak < 0) {
-    lineBreak = input.length;
-  }
+  let lineBreak: number = input.search(/\n/);
+  if (lineBreak < 0) lineBreak = input.length;
 
   // if the line is shorter than desired length,
   // return the line as is, with no hyphenation
-  if (lineBreak <= len) {
-    return [input.substr(0, lineBreak + 1), ''];
-  }
+  if (lineBreak <= len) return [input.substr(0, lineBreak + 1), ''];
 
   // find out where the last word break is in the truncated string
   const wordBreakBefore: number = input.substr(0, len).search(/\s+(?!.*\s+)/);

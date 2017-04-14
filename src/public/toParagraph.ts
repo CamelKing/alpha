@@ -5,6 +5,8 @@
  * @since 0.0.1
  * @category String
  *
+ * @refactor April 14, 2017
+ *
  * @export
  * @param {string} input
  * @param {number} colsize

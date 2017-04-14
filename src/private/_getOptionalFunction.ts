@@ -8,6 +8,8 @@
  * @since 0.0.1
  * @category Function
  *
+ * @refactor April 14, 2017
+ *
  * @param {any[]} args
  * @returns {FnAny}
  */
