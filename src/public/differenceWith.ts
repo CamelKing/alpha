@@ -23,6 +23,6 @@
 import { FnComparator } from '../constants';
 import { _diff } from '../private/_diff';
 
-export function differenceWith(input: any[], exclude: any[], comparator: FnComparator): any[] {
-  return _diff(input, exclude, null, comparator);
+export function differenceWith(input: any[], exclude: any[], compare: FnComparator): any[] {
+  return _diff(input, exclude, { compare });
 }

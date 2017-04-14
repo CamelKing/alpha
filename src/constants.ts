@@ -28,6 +28,7 @@ export enum Direction { fromLeft = 1, fromRight = -1 }
 export type FnAcidTest = (a: any) => boolean;
 export type FnComparator = (a: any, b: any) => boolean;
 export type FnSorter = (a: any, b: any) => SortOrder;
+export type FnCheck = (predicate: any) => boolean;
 // export type FnPredicate = (v: any) => any;
 export type FnIteratee = (v: any) => any;
 export type FnFinder = (item: any, index: number, array: any[]) => boolean;
@@ -38,7 +39,10 @@ export type SearchOption = {
   compare?: FnSorter;
   insert?: boolean;
 };
-
+export type DiffOption = {
+  iteratee?: FnIteratee;
+  compare?: FnComparator
+};
 
 // @Functions
 export type FnAny = (...args: any[]) => any;

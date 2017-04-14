@@ -25,20 +25,24 @@
  * @returns {any[]}
  */
 
-import { FnComparator, FnFinder, FnIteratee } from '../constants';
+import { DiffOption, FnComparator, FnFinder, FnIteratee } from '../constants';
 
 import { _makeFinder } from './_makeFinder';
 import { isTheSame } from '../public/isTheSame';
 
-export function _diff(input: any[], exclude: any[],
-  iteratee?: FnIteratee, compare?: FnComparator): any[] {
+export function _diff(input: any[], exclude: any[], userOption?: DiffOption): any[] {
+
+  const option: DiffOption = {
+    compare: isTheSame,
+  };
+
+  // overwrite default option with user option
+  Object.assign(option, userOption);
 
   if (!input || input.length === 0) return [];
   if (!exclude || exclude.length === 0) return input;
 
-  compare = compare || isTheSame;
-
   return input.filter((item: any) =>
-    !exclude.find(_makeFinder(item, iteratee, compare)));
+    !exclude.find(_makeFinder(item, option.iteratee, option.compare)));
 
 }

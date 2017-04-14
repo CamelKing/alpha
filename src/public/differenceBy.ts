@@ -21,5 +21,5 @@ import { FnIteratee } from '../constants';
 import { _diff } from '../private/_diff';
 
 export function differenceBy(input: any[], exclude: any[], iteratee: FnIteratee): any[] {
-  return _diff(input, exclude, iteratee);
+  return _diff(input, exclude, { iteratee });
 }
