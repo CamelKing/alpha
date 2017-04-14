@@ -43,6 +43,11 @@ export type DiffOption = {
   iteratee?: FnIteratee;
   compare?: FnComparator
 };
+export type DropOption = {
+  predicate?: any;
+  count?: number;
+  direction?: Direction;
+};
 
 // @Functions
 export type FnAny = (...args: any[]) => any;

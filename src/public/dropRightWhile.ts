@@ -15,9 +15,13 @@ import { Direction } from '../constants';
 import { _drop } from '../private/_drop';
 
 export function dropRightWhile(array: any[],
-  iteratee: any,
-  maxDrop?: number): any[] {
+  predicate: any,
+  count?: number): any[] {
 
-  return _drop(array, iteratee, maxDrop, Direction.fromRight);
+  return _drop(array, {
+    predicate,
+    count: count == null ? array.length : count,
+    direction: Direction.fromRight
+  });
 
 }

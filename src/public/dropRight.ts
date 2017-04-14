@@ -13,9 +13,11 @@
 import { Direction } from '../constants';
 import { _drop } from '../private/_drop';
 
-export function dropRight(array: any[], count: number = 1): any[] {
+export function dropRight(array: any[], count?: number): any[] {
 
-  if (count === null || count === undefined) count = 1;
-  return _drop(array, null, count, Direction.fromRight);
+  return _drop(array, {
+    count: count == null ? 1 : count,
+    direction: Direction.fromRight
+  });
 
 }

@@ -13,7 +13,6 @@
 import { _drop } from '../private/_drop';
 export function drop(array: any[], count?: number): any[] {
 
-  if (count === null || count === undefined) count = 1;
-  return _drop(array, null, count);
+  return _drop(array, { count: count == null ? 1 : count });
 
 }

@@ -16,6 +16,8 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 14, 2017
+ *
  * @export
  * @param {any[]} input
  * @param {*} iteratee
@@ -24,16 +26,24 @@
  * @returns {any[]}
  */
 
-import { Direction, FnIteratee } from '../constants';
+import { Direction, DropOption, FnCheck } from '../constants';
 
-import { isTheSame } from '../public/isTheSame';
-import { theTypeOf } from '../public/theTypeOf';
+import { _isFromLeft } from './_isFromLeft';
+import { _makeChecker } from './_makeChecker';
 
 // tslint:disable-next-line:cyclomatic-complexity
-export function _drop(input: any[],
-  predicate: any,
-  maxDrop?: number,
-  direction?: Direction): any[] {
+export function _drop(input: any[], userOption: DropOption): any[] {
+  // predicate: any,
+  // maxDrop?: number,
+  // direction?: Direction): any[] {
+
+  const option: DropOption = {
+    count: 1,
+    direction: Direction.fromLeft
+  };
+
+  // overwrite default option with user option
+  Object.assign(option, userOption);
 
   // blank array, return
   if (!input) return [];
@@ -42,101 +52,49 @@ export function _drop(input: any[],
   const { length } = input;
 
   // calculate what should be max drop
-  if (maxDrop == null || maxDrop > length) maxDrop = length;
-  if (maxDrop <= 0) return input;
-
-  // setup direction, default from the left
-  direction = direction || Direction.fromLeft;
+  if (option.count > length) option.count = length;
+  if (option.count <= 0) return input;
 
   // if no iteratee, just perform normal dropping
-  // note: can't use if(!predicate) becauase predicate can be 
+  // note: can't use if(!predicate) becauase predicate can be
   // a boolean value.
   // this is as far as drop() and dropRight() goes
-  if (predicate == null) {
-    if (direction === Direction.fromLeft) return input.slice(maxDrop);
-    return input.slice(0, length - maxDrop);
+  if (option.predicate == null) {
+    if (_isFromLeft(option.direction)) return input.slice(option.count);
+    return input.slice(0, length - option.count);
   }
 
-  // get the type of iteratee
-  const type: string = theTypeOf(predicate);
+  // compare function to check a certain item against the predicate
+  const ifSame: FnCheck = _makeChecker(option.predicate);
 
-  // initialise drop count
-  let dropCount: number = 0;
+  // shorthand function to extract the current item in the input array
+  // taking into consideration current cropcount and direction
+  const atCurrent: (i: number) => any = (i: number) => input[(i * option.direction)
+    + (_isFromLeft(option.direction) ? 0 : (length - 1))];
 
   // use to stop looping once while condition expires,
   // or max drop count reached
-  let stop: boolean = false;
+  let keepGoing: boolean = true;
+
+  // initialise array index
+  let index: number = 0;
 
   // loop that perform checking on iteratee condition
-  while (!stop && dropCount < length && dropCount < maxDrop) {
+  // while (keepGoing && index < length && index < maxDrop) {
+  while (keepGoing && index < option.count) {
 
-    // base on direction, current drop count, calculate
-    // which item in the array we are working on
-    const item: any = input[(dropCount * direction)
-      + (direction === Direction.fromLeft ? 0 : (length - 1))];
+    // check if the current item is to be dropped
+    keepGoing = ifSame(atCurrent(index));
 
-    switch (type) {
-
-      // iteratee with a function, run it and stop on when it returns false
-      case 'function':
-        stop = !predicate.call(null, item);
-        break;
-
-      // for object, do a deep comparison, stop if return false
-      case 'object':
-        stop = !isTheSame(predicate, item);
-        break;
-
-      // for array, check if property exist, and also check it value is true
-      // stop when either one not true
-      case 'array':
-        stop = !(item.hasOwnProperty(predicate[0])
-          && isTheSame(item[predicate[0]], predicate[1]));
-        break;
-
-      // string could mean two thigns:
-      // 1) it is a key name and we shall check the value of the key,
-      //    stop when false
-      // 2) it is to be compare with the array elements, stop when
-      //    no the same
-      case 'string':
-        if (item.hasOwnProperty(predicate)) {
-          stop = !item[predicate];
-        } else {
-          stop = !isTheSame(item, predicate);
-        }
-        break;
-
-      // everything else compare and stop when not match
-      case 'number':
-      case 'boolean':
-      case 'date':
-      case 'error':
-      case 'nan':
-      case 'symbol':
-        stop = !isTheSame(item, predicate);
-        break;
-
-      // any other iteratee format would not perform any drop at all
-      default:
-        stop = true;
-        break;
-    }
-
-    // if not stop yet, then increase drop count by 1 and continue looping
-    if (!stop) dropCount++;
+    // increase drop count by 1 and continue looping if still the same
+    if (keepGoing) index++;
 
   }
 
   // base on direction of dropping, return either left or rigth slice of array
-  if (direction === Direction.fromLeft) return input.slice(dropCount);
-  return input.slice(0, length - dropCount);
+  if (_isFromLeft(option.direction)) return input.slice(index);
+  return input.slice(0, length - index);
 
 }
 
 
-
-
-// export function makeiteratee(): FnIteratee {
-
-// }
