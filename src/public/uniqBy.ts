@@ -19,6 +19,6 @@ import { _removeRedundants } from '../private/_removeRedundants';
 
 export function uniqBy(input: any[], iteratee?: FnIteratee): any[] {
 
-  return _removeRedundants(input, iteratee);
+  return _removeRedundants(input, { iteratee });
 
 }

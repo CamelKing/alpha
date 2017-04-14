@@ -10,6 +10,8 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 15, 2017
+ *
  * @export
  * @param {...any[]} arrays
  * @param {FnIteratee} iteratee // to be passed in as the last of args
@@ -31,14 +33,14 @@ export function unionBy(...args: any[]): any[] {
 
   // minimum must pass in two arrays
   if (length < 1) return [];
-  if (length === 1) return _removeRedundants(args[0].slice(0), iteratee);
+  if (length === 1) return _removeRedundants(args[0].slice(0), { iteratee });
 
   // use the first array as reference
   let uni: any[] = args[0];
   for (let i: number = 1; i < length; i++) {
     // find out what's the intersection between the currently
     // calculated intersection and the next array
-    uni = _union(uni, args[i], iteratee);
+    uni = _union(uni, args[i], { iteratee });
   }
 
   return uni;

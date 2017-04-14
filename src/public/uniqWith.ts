@@ -19,6 +19,6 @@ import { _removeRedundants } from '../private/_removeRedundants';
 
 export function uniqWith(input: any[], compare?: FnComparator): any[] {
 
-  return _removeRedundants(input, null, compare);
+  return _removeRedundants(input, { compare });
 
 }
