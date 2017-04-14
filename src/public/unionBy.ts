@@ -22,7 +22,6 @@ import { FnIteratee } from '../constants';
 import { _getOptionalFunction } from '../private/_getOptionalFunction';
 import { _removeRedundants } from '../private/_removeRedundants';
 import { _union } from '../private/_union';
-import { theTypeOf } from './theTypeOf';
 
 export function unionBy(...args: any[]): any[] {
 
