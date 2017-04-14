@@ -6,11 +6,13 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {any[]} input
  * @param {any[]} values
- * @param {FnIteratee} [iteratee] 
- * @param {FnComparator} [compare] 
+ * @param {FnIteratee} [iteratee]
+ * @param {FnComparator} [compare]
  * @returns {any[]}
  */
 
@@ -20,7 +22,9 @@ import { _pullAll } from '../private/_pullAll';
 
 export function pullAll(input: any[], values: any[],
   iteratee?: FnIteratee, compare?: FnComparator): any[] {
-  return _pullAll(input, values, iteratee, compare);
+
+  return _pullAll(input, values, { iteratee, compare });
+
 }
 
 

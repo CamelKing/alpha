@@ -9,6 +9,8 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {any[]} input
  * @param {any[]} values
@@ -21,6 +23,6 @@ import { _pullAll } from '../private/_pullAll';
 
 export function pullAllBy(input: any[], values: any[], iteratee?: FnIteratee): any[] {
 
-  return _pullAll(input, values, iteratee);
+  return _pullAll(input, values, { iteratee });
 
 }

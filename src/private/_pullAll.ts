@@ -1,9 +1,3 @@
-import { FnComparator, FnIteratee } from '../constants';
-
-import { _makeComparator } from './_makeComparator';
-import { isTheSame } from '../public/isTheSame';
-import { pluck } from '../public/pluck';
-
 /**
  * Private function to perform pulling of items from an array.
  *
@@ -11,6 +5,8 @@ import { pluck } from '../public/pluck';
  *
  * Option to pass in iteratee - apply at items before comparison
  * and comparator - control how comparison is done.
+ *
+ * @refactor April 13, 2017
  *
  * @since 0.0.1
  * @category Array
@@ -23,11 +19,19 @@ import { pluck } from '../public/pluck';
  * @returns {any[]}
  */
 
-export function _pullAll(array: any[], toPull: any[],
-  iteratee?: FnIteratee, compare?: FnComparator): any[] {
+import { ArrayOption, FnComparator, FnIteratee } from '../constants';
 
-  // default comparator is isTheSame()
-  const isSame: FnComparator = _makeComparator(iteratee, compare || isTheSame);
+import { _makeComparator } from './_makeComparator';
+import { assign } from '../public/assign';
+import { isTheSame } from '../public/isTheSame';
+import { pluck } from '../public/pluck';
+
+export function _pullAll(array: any[], toPull: any[],
+  userOption?: ArrayOption): any[] {
+
+  const option: ArrayOption = assign({ compare: isTheSame }, userOption);
+
+  const isSame: FnComparator = _makeComparator(option.iteratee, option.compare);
 
   // loop thru every items to be removed
   toPull.forEach((itemToPull: any) => {
