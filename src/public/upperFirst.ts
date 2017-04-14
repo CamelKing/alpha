@@ -10,6 +10,8 @@
  * @since 0.0.1
  * @category String
  *
+ * @refactor April 14, 2017
+ *
  * @export
  * @param {string} input
  * @returns {string}
@@ -18,5 +20,5 @@
 import { _firstCase } from '../private/_firstCase';
 
 export function upperFirst(input: string): string {
-  return _firstCase(input, 'toUpperCase');
+  return _firstCase(input);
 }

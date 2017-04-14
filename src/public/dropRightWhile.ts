@@ -1,13 +1,14 @@
 /**
  * drop array elements on the right and return a new copy of the array
- * while the condition / iteratee is met.
+ * while the condition / predicate is met.
  *
  * @since 0.0.1
  * @category Array
  *
  * @export
  * @param {any[]} array
- * @param {number} [count=1]
+ * @param {*} predicate
+ * @param {number} [count]
  * @returns {any[]}
  */
 

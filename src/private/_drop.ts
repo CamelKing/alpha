@@ -1,5 +1,5 @@
 /**
- * internal function to perform dropping of elements from an array, base on
+ * private function to perform dropping of elements from an array, base on
  *
  * 1) a iteratee which will be used as a checking condition to see if we
  *    shall continue dropping. Take note this iteratee is not used against

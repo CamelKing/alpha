@@ -5,12 +5,13 @@
  * @category Array
  *
  * @export
- * @param {any[]} array
- * @param {number} [count=1]
- * @returns {any[]}
+ * @param {any[]} array 
+ * @param {number} [count] 
+ * @returns {any[]} 
  */
 
 import { _drop } from '../private/_drop';
+
 export function drop(array: any[], count?: number): any[] {
 
   return _drop(array, { count: count == null ? 1 : count });

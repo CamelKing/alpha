@@ -5,9 +5,9 @@
  * @category Array
  *
  * @export
- * @param {any[]} array
- * @param {number} [count=1]
- * @returns {any[]}
+ * @param {any[]} array 
+ * @param {number} [count] 
+ * @returns {any[]} 
  */
 
 import { Direction } from '../constants';
