@@ -36,7 +36,6 @@ export * from './private/_take';
 export * from './private/_union';
 
 // @category Object
-export * from './private/_identity';
 
 // @category Functions
 export * from './private/_getOptionalFunction';

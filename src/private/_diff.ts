@@ -9,8 +9,7 @@
  * http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero
  *
  * option to pass in iteratee to perform any transformation necessary
- * before comparison takes place. bt default using _identity function
- * which does not alter the value at all.
+ * before comparison takes place.
  *
  * @since 0.0.1
  * @category Array

@@ -47,7 +47,6 @@ testControl['numberMods'] = [
 ];
 
 testControl['objectMods'] = [
-  '_identity',
 ];
 
 testControl['stringMods'] = [
