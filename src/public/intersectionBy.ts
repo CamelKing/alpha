@@ -13,14 +13,14 @@
  */
 
 import { FnIteratee } from '../constants';
-import { _getTrailingFunction } from '../private/_getTrailingFunction';
+import { _getOptionalFunction } from '../private/_getOptionalFunction';
 import { _intersection } from '../private/_intersection';
 import { theTypeOf } from './theTypeOf';
 
 export function intersectionBy(...args: any[]): any[] {
 
   // extract the last argument as iteratee function (if applicable)
-  const iteratee: FnIteratee = _getTrailingFunction(args);
+  const iteratee: FnIteratee = _getOptionalFunction(args);
 
   const { length } = args;
 

@@ -17,7 +17,7 @@
  */
 
 import { FnComparator } from '../constants';
-import { _getTrailingFunction } from '../private/_getTrailingFunction';
+import { _getOptionalFunction } from '../private/_getOptionalFunction';
 import { _removeRedundants } from '../private/_removeRedundants';
 import { _union } from '../private/_union';
 import { theTypeOf } from './theTypeOf';
@@ -26,7 +26,7 @@ export function unionWith(...args: any[]): any[] {
 
   // extract the last argument as comparator function (if applicable)
 
-  const compare: FnComparator = _getTrailingFunction(args);
+  const compare: FnComparator = _getOptionalFunction(args);
 
   const { length } = args;
 

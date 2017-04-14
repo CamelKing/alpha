@@ -22,14 +22,14 @@
  */
 
 import { FnAny } from '../constants';
-import { _getTrailingFunction } from '../private/_getTrailingFunction';
+import { _getOptionalFunction } from '../private/_getOptionalFunction';
 import { _removeNonArray } from '../private/_removeNonArray';
 
 export function zipWith(...arrays: any[]): any[] {
 
   // check and extract if an iterator function is being
   // passed in as the final argument
-  const func: FnAny = _getTrailingFunction(arrays);
+  const func: FnAny = _getOptionalFunction(arrays);
 
   arrays = _removeNonArray(arrays);
 

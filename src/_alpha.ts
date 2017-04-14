@@ -39,5 +39,5 @@ export * from './private/_union';
 export * from './private/_identity';
 
 // @category Functions
-export * from './private/_getTrailingFunction';
+export * from './private/_getOptionalFunction';
 export * from './private/_makeIteratee';

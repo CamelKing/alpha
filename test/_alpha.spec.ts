@@ -58,7 +58,7 @@ testControl['stringMods'] = [
 ];
 
 testControl['functionMods'] = [
-  '_getTrailingFunction',
+  '_getOptionalFunction',
   '_makeIteratee',
 ];
 

@@ -3,8 +3,8 @@
  * last parameter. If it does, remove the function from the arguments
  * and return the function.
  *
- * The arguments array will be altered. 
- * 
+ * NOTE: this is not a pure function, the arguments array will be altered.
+ *
  * @since 0.0.1
  * @category Function
  *
@@ -15,11 +15,13 @@
 import { FnAny } from '../constants';
 import { theTypeOf } from '../public/theTypeOf';
 
-export function _getTrailingFunction(args: any[]): FnAny {
+export function _getOptionalFunction(args: any[]): FnAny {
 
   let func: FnAny = null;
 
-  const length: number = args.length - 1;
+  let { length } = args;
+
+  length--;
 
   if (theTypeOf(args[length]) === 'function') {
     func = args[length];

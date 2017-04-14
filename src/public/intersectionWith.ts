@@ -13,14 +13,14 @@
  */
 
 import { FnComparator } from '../constants';
-import { _getTrailingFunction } from '../private/_getTrailingFunction';
+import { _getOptionalFunction } from '../private/_getOptionalFunction';
 import { _intersection } from '../private/_intersection';
 import { theTypeOf } from './theTypeOf';
 
 export function intersectionWith(...args: any[]): any[] {
 
   // extract the last argument as comparator function (if applicable)
-  const compare: FnComparator = _getTrailingFunction(args);
+  const compare: FnComparator = _getOptionalFunction(args);
 
   const { length } = args;
 
