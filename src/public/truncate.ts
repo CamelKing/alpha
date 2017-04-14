@@ -13,6 +13,8 @@
  * @since 0.0.1
  * @category String
  *
+ * @refactor April 13, 2017
+ *
  * @export
  * @param {string} input
  * @param {number} [len=0]
@@ -23,9 +25,9 @@
 import { _truncateToArray } from '../private/_truncateToArray';
 
 export function truncate(input: string,
-  len: number,
+  length: number,
   pad?: string): string {
 
-  return _truncateToArray(input, len, pad).join('');
+  return _truncateToArray(input, length, pad).join('');
 
 }
