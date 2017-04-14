@@ -18,6 +18,8 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 14, 2017
+ *
  * @export
  * @param {any[]} arrA
  * @param {any[]} arrB
@@ -32,7 +34,7 @@ import { _makeFinder } from './_makeFinder';
 import { _removeRedundants } from './_removeRedundants';
 import { isTheSame } from '../public/isTheSame';
 
-export function _intersection(arrA: any[], arrB: any[],
+export function _intersectTwo(arrA: any[], arrB: any[],
   iteratee: FnIteratee = null, compare: FnComparator = isTheSame): any[] {
 
   if (Array.isArray(arrA) && Array.isArray(arrB)) {

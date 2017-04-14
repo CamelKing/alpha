@@ -6,35 +6,22 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 14, 2017
+ *
  * @export
  * @param {...any[]} args
  * @param {FnComparator} compare // to be passed in as the last of args
  * @returns {any[]}
  */
 
-import { FnComparator } from '../constants';
 import { _getOptionalFunction } from '../private/_getOptionalFunction';
-import { _intersection } from '../private/_intersection';
-import { theTypeOf } from './theTypeOf';
+import { _intersectAll } from '../private/_intersectAll';
 
-export function intersectionWith(...args: any[]): any[] {
+export function intersectionWith(...arrays: any[]): any[] {
 
   // extract the last argument as comparator function (if applicable)
-  const compare: FnComparator = _getOptionalFunction(args);
+  // this will drop that function from the arrays (if applicable)
 
-  const { length } = args;
-
-  // minimum must pass in two arrays to computer intersection
-  if (length <= 1) return [];
-
-  // use the first array as reference
-  let intersect: any[] = args[0];
-  for (let i: number = 1; i < length && intersect !== null; i++) {
-    // find out what's the intersection between the currently
-    // calculated intersection and the next array
-    intersect = _intersection(intersect, args[i], null, compare);
-  }
-
-  return intersect;
+  return _intersectAll(arrays, null, _getOptionalFunction(arrays));
 
 }

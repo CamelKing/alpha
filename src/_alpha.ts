@@ -21,7 +21,8 @@ export * from './private/_truncateToArray';
 // @category array
 export * from './private/_diff';
 export * from './private/_drop';
-export * from './private/_intersection';
+export * from './private/_intersectAll';
+export * from './private/_intersectTwo';
 export * from './private/_isFromLeft';
 export * from './private/_pullAll';
 export * from './private/_makeComparator';

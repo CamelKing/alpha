@@ -6,35 +6,21 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 14, 2017
+ *
  * @export
  * @param {...any[]} arrays
  * @param {FnIteratee} iteratee // to be passed in as the last of args
  * @returns {any[]}
  */
 
-import { FnIteratee } from '../constants';
 import { _getOptionalFunction } from '../private/_getOptionalFunction';
-import { _intersection } from '../private/_intersection';
-import { theTypeOf } from './theTypeOf';
+import { _intersectAll } from '../private/_intersectAll';
 
-export function intersectionBy(...args: any[]): any[] {
+export function intersectionBy(...arrays: any[]): any[] {
 
   // extract the last argument as iteratee function (if applicable)
-  const iteratee: FnIteratee = _getOptionalFunction(args);
-
-  const { length } = args;
-
-  // minimum must pass in two arrays to computer intersection
-  if (length <= 1) return [];
-
-  // use the first array as reference
-  let intersect: any[] = args[0];
-  for (let i: number = 1; i < length; i++) {
-    // find out what's the intersection between the currently
-    // calculated intersection and the next array
-    intersect = _intersection(intersect, args[i], iteratee);
-  }
-
-  return intersect;
+  // this will drop that function from the arrays (if applicable)
+  return _intersectAll(arrays, _getOptionalFunction(arrays));
 
 }

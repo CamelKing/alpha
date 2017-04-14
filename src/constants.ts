@@ -48,6 +48,10 @@ export type DropOption = {
   count?: number;
   direction?: Direction;
 };
+export type IntersectOption = {
+  iteratee?: boolean,
+  compare?: boolean;
+};
 
 // @Functions
 export type FnAny = (...args: any[]) => any;

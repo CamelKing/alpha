@@ -1,32 +1,22 @@
 /**
- * compute and return the intersection (common members) of
+ * Compute and return the intersection (common members) of
  * all arrays being passed in, in an array.
+ *
+ * Implemented as a wrapper to the private function _interceptAll()
+ * without iteratee and comparator.
  *
  * @since 0.0.1
  * @category Array
+ *
+ * @refactor April 14, 2017
  *
  * @export
  * @param {...any[]} arrays
  * @returns {any[]}
  */
 
-import { _intersection } from '../private/_intersection';
+import { _intersectAll } from '../private/_intersectAll';
 
 export function intersection(...arrays: any[]): any[] {
-
-  const len: number = arrays.length;
-
-  // minimum must pass in two arrays
-  if (len <= 1) return [];
-
-  // use the first array as reference
-  let intersect: any[] = arrays[0];
-  for (let i: number = 1; i < len && intersect.length !== 0; i++) {
-    // find out what's the intersection between the currently
-    // calculated intersection and the next array
-    intersect = _intersection(intersect, arrays[i]);
-  }
-
-  return intersect;
-
+  return _intersectAll(arrays);
 }
