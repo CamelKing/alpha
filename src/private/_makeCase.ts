@@ -10,6 +10,8 @@
  * @since 0.0.1
  * @category String
  *
+ * @refactor April 14, 2017
+ *
  * @export
  * @param {string} input
  * @param {string} mode
@@ -83,11 +85,6 @@ export function _makeCase(input: string, mode: string): string {
 
   }
 
-  // const output: string = input.split(reAllWordBreaks)
-  //   .filter((word: any) => !!word)
-  //   .map((word: string) => mixCase ? capitalise(word) : word[baseCase]())
-  //   .join(connecting);
-
   const output: string = toWords(input)
     .map((word: string) => mixCase ? capitalise(word) : word[baseCase]())
     .join(connecting);
@@ -96,4 +93,4 @@ export function _makeCase(input: string, mode: string): string {
 
   return (lowerFirst ? output[0].toLowerCase() : output[0].toUpperCase()) + output.slice(1);
 
-}
+} 
