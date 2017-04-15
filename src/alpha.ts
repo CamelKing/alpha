@@ -29,6 +29,7 @@ export * from './public/ascOrder';
 export * from './public/ascOrderBy';
 export * from './public/chunk';
 export * from './public/compact';
+export * from './public/deepCompact';
 export * from './public/descOrder';
 export * from './public/descOrderBy';
 export * from './public/difference';

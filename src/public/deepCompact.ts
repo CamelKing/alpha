@@ -2,9 +2,8 @@
  * removes 'false', null, undefined, '', '0', '', NaN from an array
  * return a new copy of the array, original is not altered.
  *
- * This will only perform first level compact.
- * Use deepCompact() if all elements in nestedArray needs
- * to be compacted too.
+ * This will perform a deep compact, rather than the first level
+ * compact by the compact().
  *
  * Implemented as a wrapper for _compact()
  *
@@ -20,8 +19,8 @@
 
 import { _compact } from '../private/_compact';
 
-export function compact(input: any[]): any[] {
+export function deepCompact(input: any[]): any[] {
 
-  return _compact(input);
+  return _compact(input, true);
 
 }

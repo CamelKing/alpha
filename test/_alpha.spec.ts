@@ -23,6 +23,7 @@ testControl['asyncMods'] = [
 ];
 
 testControl['arrayMods'] = [
+  '_compact',
   '_diff',
   '_drop',
   '_intersectAll',
