@@ -10,14 +10,16 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 15, 2017
+ *
  * @export
  * @returns {FnSorter}
  */
 
-import { FnIteratee, FnSorter } from '../constants';
+import { AnyIteratee, FnSorter } from '../constants';
 
 import { _orderBy } from '../private/_orderBy';
 
-export function descOrderBy(iteratee: FnIteratee): FnSorter {
+export function descOrderBy(iteratee: AnyIteratee): FnSorter {
   return (a: any, b: any) => _orderBy(b, a, iteratee);
 }
