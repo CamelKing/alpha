@@ -132,5 +132,5 @@ export * from './public/toWords';
 export * from './public/upperFirst';
 
 // @category time
-export * from './public/timer';
 export * from './public/stopwatch';
+export * from './public/timer';

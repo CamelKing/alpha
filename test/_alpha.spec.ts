@@ -8,11 +8,11 @@ const categories: string[] = [
   'async',
   'array',
   'collection',
+  'function',
   'number',
   'object',
   'string',
   'time',
-  'function',
 ];
 
 const types: string[] = ['Mods', 'Instances'];
@@ -23,19 +23,16 @@ testControl['asyncMods'] = [
 ];
 
 testControl['arrayMods'] = [
-  '_searchArray',
   '_diff',
   '_drop',
   '_intersectAll',
   '_intersectTwo',
-  '_makeChecker',
-  '_makeComparator',
-  '_makeMatcher',
-  '_makeIteratee',
-  '_makeSorter',
+  '_isFromLeft',
   '_orderBy',
   '_pullAll',
+  '_removeNonArray',
   '_removeRedundants',
+  '_searchArray',
   '_take',
   '_union',
 ];
@@ -59,13 +56,19 @@ testControl['stringMods'] = [
 
 testControl['functionMods'] = [
   '_getOptionalFunction',
+  '_makeChecker',
+  '_makeComparator',
   '_makeIteratee',
+  '_makeMatcher',
+  '_makeSorter',
 ];
 
 testControl['timeInstances'] = [
 ];
 
-describe('_alpha.ts should act as a barrel which...\n', () => {
+let count: number = 0;
+
+describe.only('_alpha.ts should act as a barrel which...\n', () => {
 
 
   types.forEach((type: string) => {
@@ -80,9 +83,14 @@ describe('_alpha.ts should act as a barrel which...\n', () => {
 
           testControl[testSubject].forEach((sub: string) => {
 
-            const testCondition: string = (typeof (_alpha[sub]) !== 'function') ?
-              'instance of ' + sub + ' object' :
-              'function ' + sub + '()';
+            // const testCondition: string = (typeof (_alpha[sub]) !== 'function') ?
+            //   'instance of ' + sub + ' object' :
+            //   'function ' + sub + '()';
+
+            const testCondition: string = 'no. ' + (++count) + ' '
+              + ((typeof (_alpha[sub]) !== 'function') ?
+                'instance of ' + sub + ' object' :
+                'function ' + sub + '()');
 
             it(testCondition, () => {
               (_alpha[sub]).should.not.equal(undefined);

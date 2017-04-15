@@ -31,6 +31,7 @@ export * from './private/_makeIteratee';
 export * from './private/_makeChecker';
 export * from './private/_makeSorter';
 export * from './private/_orderBy';
+export * from './private/_removeNonArray';
 export * from './private/_removeRedundants';
 export * from './private/_searchArray';
 export * from './private/_take';

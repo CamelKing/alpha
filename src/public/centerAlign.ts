@@ -4,6 +4,8 @@
  * @since 0.0.1
  * @category String
  *
+ * @refactor April 15, 2017
+ *
  * @export
  * @param {string} input
  * @param {number} len

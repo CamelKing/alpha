@@ -8,12 +8,12 @@ const categories: string[] = [
   'async',
   'array',
   'files',
+  'function',
   'collection',
   'number',
   'object',
   'string',
   'time',
-  'function',
 ];
 
 const types: string[] = ['Mods', 'Instances'];
@@ -39,6 +39,7 @@ testControl['arrayMods'] = [
   'dropRight',
   'dropRightWhile',
   'dropWhile',
+  'fill',
   'flatten',
   'flattenDeep',
   'flattenDepth',
@@ -73,12 +74,12 @@ testControl['arrayMods'] = [
   'uniq',
   'uniqBy',
   'uniqWith',
+  'unzip',
+  'unzipWith',
   'without',
   'zip',
   'zipObject',
   'zipWith',
-  'unzip',
-  'unzipWith',
 ];
 
 testControl['filesMods'] = [
@@ -128,22 +129,26 @@ testControl['stringMods'] = [
   'snakeCase',
   'toFixWidth',
   'toParagraph',
+  'toWords',
   'trim',
   'trimLeft',
   'trimRight',
-  'toWords',
+  'truncate',
   'upperFirst',
+  'upperSnakeCase',
 ];
 
 testControl['timeInstances'] = [
   'stopwatch',
+  // 'timer',
 ];
 
 testControl['objectInstances'] = [
 ];
 
+let count: number = 0;
 
-describe('alpha.ts should act as a barrel which re-export...\n', () => {
+describe.only('alpha.ts should act as a barrel which re-export...\n', () => {
 
   types.forEach((type: string) => {
 
@@ -157,9 +162,10 @@ describe('alpha.ts should act as a barrel which re-export...\n', () => {
 
           testControl[testSubject].forEach((sub: string) => {
 
-            const testCondition: string = (typeof (alpha[sub]) !== 'function') ?
-              'instance of ' + sub + ' object' :
-              'function ' + sub + '()';
+            const testCondition: string = 'no. ' + (++count) + ' '
+              + ((typeof (alpha[sub]) !== 'function') ?
+                'instance of ' + sub + ' object' :
+                'function ' + sub + '()');
 
             it(testCondition, () => {
               (alpha[sub]).should.not.equal(undefined);

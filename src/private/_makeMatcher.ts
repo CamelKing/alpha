@@ -5,7 +5,7 @@
  * methods such as find(), findIndex().
  *
  * @since 0.0.1
- * @category Array
+ * @category Function
  *
  * @refactor April 13, 2017
  *
