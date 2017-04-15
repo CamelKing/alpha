@@ -11,6 +11,11 @@
  *                       easily supported in ES6 by = {...object} syntax.
  *                    2) Change from class appraach to simple function.
  *
+ * TODO: May want to explore how to either turn this into one function, or
+ *       break the sub functions into individual module/file.
+ *
+ * @refactor April 15, 2017
+ *
  * @since 0.0.1
  * @category Object
  *
