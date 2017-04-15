@@ -68,7 +68,7 @@ testControl['timeInstances'] = [
 
 let count: number = 0;
 
-describe.only('_alpha.ts should act as a barrel which...\n', () => {
+describe('_alpha.ts should act as a barrel which...\n', () => {
 
 
   types.forEach((type: string) => {

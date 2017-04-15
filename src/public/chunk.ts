@@ -7,6 +7,8 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 15, 2017
+ *
  * @export
  * @param {any[]} input
  * @param {number} [size=1]
@@ -15,17 +17,16 @@
 
 export function chunk(array: any[], size: number = 1): any[] {
 
-  const input: any[] = array ? array : [];
-  const { length } = input;
+  if (!Array.isArray(array)) return [];
+  const { length } = array;
   if (length <= 0) return [];
   if (size <= 0) return array.slice(0);
 
-  size = Math.max(size, 1);
   const output: any[] = new Array(Math.ceil(length / size));
   let outIndex: number = 0;
   let inIndex: number = 0;
   while (inIndex < length) {
-    output[outIndex++] = input.slice(inIndex, inIndex += size);
+    output[outIndex++] = array.slice(inIndex, inIndex += size);
   }
   return output;
 }

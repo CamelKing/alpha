@@ -148,7 +148,7 @@ testControl['objectInstances'] = [
 
 let count: number = 0;
 
-describe.only('alpha.ts should act as a barrel which re-export...\n', () => {
+describe('alpha.ts should act as a barrel which re-export...\n', () => {
 
   types.forEach((type: string) => {
 
