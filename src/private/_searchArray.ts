@@ -46,7 +46,7 @@ import { ArrayOption, FnSorter, NotFound, SortOrder } from '../constants';
 
 import { _makeSorter } from './_makeSorter';
 import { _orderBy } from './_orderBy';
-import { assign } from "../public/assign";
+import { assign } from '../public/assign';
 
 export function _searchArray(sortedArray: any[], target: any,
   userOption?: ArrayOption): number {

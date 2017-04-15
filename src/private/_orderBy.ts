@@ -29,15 +29,20 @@
  * @returns {SortOrder}
  */
 
-import { FnIteratee, SortOrder } from '../constants';
+import { AnyIteratee, FnIteratee, SortOrder } from '../constants';
 
+import { _makeIteratee } from './_makeIteratee';
 import { padLeft } from '../public/padLeft';
 
 export function _orderBy(a: any, b: any,
-  iteratee?: FnIteratee): SortOrder {
+  iteratee?: AnyIteratee): SortOrder {
 
-  let c: any = iteratee ? iteratee(a) : a;
-  let d: any = iteratee ? iteratee(b) : b;
+  const convert: FnIteratee = _makeIteratee(iteratee);
+
+  let c: any = convert(a);
+  let d: any = convert(b);
+  // let c: any = iteratee ? iteratee(a) : a;
+  // let d: any = iteratee ? iteratee(b) : b;
   if (typeof c !== typeof d) {
     c = '' + c;
     d = '' + d;
