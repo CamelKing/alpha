@@ -1,6 +1,6 @@
 /**
  * flatten deeply nested array into a single dimension array.
- * 
+ *
  * The level of flattening can be controlled by the depth param.
  * Default is Infinity - deep flatten.
  *
@@ -16,6 +16,8 @@
  *
  * @since 0.0.1
  * @category Array
+ *
+ * @refactor April 16, 2017
  *
  * @export
  * @param {any[]} nArr
