@@ -13,7 +13,6 @@
  */
 
 import { _round } from '../private/_round';
-import { theTypeOf } from './theTypeOf';
 
 export function roundUp(value: any, precision?: number): number {
   return _round(value, precision, 'ceil');
