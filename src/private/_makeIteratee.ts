@@ -29,7 +29,8 @@ export function _makeIteratee(iteratee: AnyIteratee): FnIteratee {
     case 'string':
     case 'number':
       // short hand for object property, or array index
-      return (value: any) => value[iteratee as number | string];
+      return (value: any) =>
+        (value == null ? null : value[iteratee as number | string]);
 
     default:
       // else just give a function that return the passed in value

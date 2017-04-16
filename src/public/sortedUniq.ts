@@ -10,9 +10,10 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {any[]} input
- * @param {FnIteratee} [iteratee]
  * @returns {any[]}
  */
 

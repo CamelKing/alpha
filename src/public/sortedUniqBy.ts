@@ -8,22 +8,31 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {any[]} input
- * @param {FnIteratee} [iteratee]
+ * @param {AnyIteratee} [iteratee]
  * @returns {any[]}
  */
 
-import { FnIteratee } from '../constants';
-import { isTheSame } from './isTheSame';
+import { AnyIteratee, FnComparator, FnIteratee } from '../constants';
 
-export function sortedUniqBy(input: any[], iteratee?: FnIteratee): any[] {
+import { _makeComparator } from '../private/_makeComparator';
+import { isTheSame } from './isTheSame';
+import { theTypeOf } from './theTypeOf';
+
+export function sortedUniqBy(input: any[], iteratee?: AnyIteratee): any[] {
+
+  if (!Array.isArray(input) || input.length === 1) return input;
 
   const output: any[] = [];
 
-  if (!Array.isArray(input)) return input;
+  const compare: FnComparator = _makeComparator(iteratee, isTheSame);
 
-  let prev: any = null;
+  // special treatment for object/array, as iteratee would fail on null
+  const type: string = theTypeOf(input[0]);
+  let prev: any = type === 'object' ? {} : type === 'array' ? [] : null;
 
   input.forEach((item: any) => {
 
@@ -31,9 +40,8 @@ export function sortedUniqBy(input: any[], iteratee?: FnIteratee): any[] {
     // redundant items after the first one, and there is no
     // need to check if it exists in output array before
     // pushing
-    const value: any = iteratee ? iteratee(item) : item;
-    if (value === prev) return;
-    prev = value;
+    if (compare(item, prev)) return;
+    prev = item;
     output.push(item);
 
   });
