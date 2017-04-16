@@ -28,6 +28,8 @@
  * @since 0.0.1
  * @category Async
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {*} fnPassedIn
  * @returns {FnPromiseFactory}

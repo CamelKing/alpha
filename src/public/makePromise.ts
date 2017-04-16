@@ -6,6 +6,8 @@
  * @since 0.0.1
  * @category async
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {*} fnSync -
  *                     If it is a promise, then it will be returned as is.
@@ -32,15 +34,11 @@ import { FnReject, FnResolve } from '../constants';
 
 import { theTypeOf } from './theTypeOf';
 
-// export type FnResolve = (value?: {} | PromiseLike<{}>) => void;
-// export type FnReject = (error?: any) => void;
-
 export function makePromise(fnSync: any): Promise<any> {
 
   switch (theTypeOf(fnSync)) {
 
     case 'function':
-
       return new Promise((resolve: FnResolve, reject: FnReject) => {
         try {
           resolve(fnSync());
@@ -48,11 +46,9 @@ export function makePromise(fnSync: any): Promise<any> {
       });
 
     case 'promise':
-
       return fnSync;
 
     default:
-
       return Promise.resolve(fnSync);
 
   }
