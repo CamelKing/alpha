@@ -5,6 +5,8 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 14, 2017
+ *
  * @export
  * @param {any[]} array
  * @param {*} predicate

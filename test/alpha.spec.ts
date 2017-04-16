@@ -30,6 +30,7 @@ testControl['arrayMods'] = [
   'ascOrderBy',
   'chunk',
   'compact',
+  'deepCompact',
   'descOrder',
   'descOrderBy',
   'difference',
