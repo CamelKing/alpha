@@ -9,6 +9,8 @@
  * @since 0.0.1
  * @category Object
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {*} a
  * @param {*} b

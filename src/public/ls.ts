@@ -14,6 +14,8 @@
  * @since 0.0.1
  * @category Files
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {string} [dir]
  * @param {FnLSFilter} [filter]
@@ -26,18 +28,14 @@ import * as path from 'path';
 
 import { FnLSFilter } from '../constants';
 
-// export type FnLSFilter = { (filename: string): string };
-
-
 export function ls(dir?: string, filter?: FnLSFilter): string[] {
 
   let fileList: string[] = [];
 
   if (!dir) return fileList;
 
-  if (dir[0] === '~') {
-    dir = path.join(os.homedir(), dir.slice(1));
-  }
+  // BASH ~ home directory short hand
+  if (dir[0] === '~') dir = path.join(os.homedir(), dir.slice(1));
 
   if (fs.existsSync(dir)) {
 
@@ -55,9 +53,7 @@ export function ls(dir?: string, filter?: FnLSFilter): string[] {
         // it is expected to return the file name to add,
         // '' indicate skip this file
         const newFile: string = filter(file);
-        if (newFile) {
-          fileList = fileList.concat(newFile);
-        }
+        if (newFile) fileList = fileList.concat(newFile);
 
       } else {
 

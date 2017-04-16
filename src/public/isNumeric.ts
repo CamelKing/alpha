@@ -9,6 +9,8 @@
  * @since 0.0.1
  * @category Number
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {*} input
  * @returns {boolean}
