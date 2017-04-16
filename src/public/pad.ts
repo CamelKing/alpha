@@ -4,9 +4,11 @@
  * @since 0.0.1
  * @category String
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {string} input
- * @param {number} len = if < input.length then return same input
+ * @param {number} length = if < input.length then return same input
  * @param {string} [padChar]  = only first char would be used
  * @param {Align} [align]
  * @returns {string}
@@ -17,17 +19,17 @@ import { Align, Space } from '../constants';
 import { round } from './round';
 
 export function pad(input: string,
-  len: number,
+  length: number,
   pad?: string,
   align?: Align): string {
 
   let output: string = input.slice(0);
   // return if len is short/-ve before proceed further
   // so we dont have a do a lot of range checking on len.
-  if (len > input.length) {
+  if (length > input.length) {
 
-    const padChar: string = pad || Space;
-    const padText: string = padChar[0].repeat(len - output.length);
+    const padChar: string = '' + (pad || Space);
+    const padText: string = padChar[0].repeat(length - output.length);
 
     // no need to assign default value to align,
     // as the default: in switch will take care of this
