@@ -6,6 +6,8 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {any[]} input
  * @param {boolean} [last=false] - default is false = head
@@ -18,11 +20,10 @@ import { theTypeOf } from '../public/theTypeOf';
 export function nth(input: any[], index: number = 0): any {
 
   if (!Array.isArray(input)) return undefined;
-  // const len:number = input.length;
-  // if (len === 0 ) return undefined;
-  // const absIndex: number = Math.abs(index);
-  // if (Number.isNaN(absIndex) || absIndex >= length) return undefined;
+
   const item: any = input[index < 0 ? input.length + index : index];
+
+  // switch block to make sure we make a copy of the value
 
   switch (theTypeOf(item)) {
 
