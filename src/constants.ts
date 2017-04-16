@@ -33,6 +33,7 @@ export type FnCheck = (predicate: any) => boolean;
 export type FnIteratee = (v: any) => any;
 export type FnFinder = (item: any, index: number, array: any[]) => boolean;
 export type FnMatcher = (item: any) => boolean;
+export type FnTester = FnMatcher;
 export type AnyIteratee = FnIteratee | number | string;
 
 export interface ArrayOption {

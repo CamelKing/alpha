@@ -4,6 +4,8 @@
  * @since 0.0.1
  * @category Number
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {number} n1
  * @param {number} [n2=0]
