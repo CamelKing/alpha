@@ -7,6 +7,8 @@
  * @since 0.0.1
  * @category Collections
  *
+ * @refactor April 16, 2017
+ *
  * @export
  * @param {*} en
  * @returns {string[]}
