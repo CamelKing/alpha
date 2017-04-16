@@ -67,6 +67,8 @@ export function _testSuites(funcs: FnAny[],
 
     funcs.forEach((func: FnAny, fIndex: number) => {
 
+      let funcName: string = '';
+
       if (!only[fIndex]) {
 
         describe(func.name + '() should',
@@ -128,3 +130,6 @@ function testFunction(func: FnAny,
   });
 
 }
+
+
+const funcName: (O: object) => string = (obj: object) => Object.keys(obj)[0];

@@ -21,7 +21,5 @@
 import { _compact } from '../private/_compact';
 
 export function compact(input: any[]): any[] {
-
   return _compact(input);
-
 }

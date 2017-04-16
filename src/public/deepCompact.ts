@@ -20,7 +20,5 @@
 import { _compact } from '../private/_compact';
 
 export function deepCompact(input: any[]): any[] {
-
   return _compact(input, true);
-
 }
