@@ -10,6 +10,8 @@
  * @since 0.0.1
  * @category Object
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {object} obj
  * @returns {Pairs}
@@ -30,8 +32,7 @@ export function toPairs(input: object): Pairs {
 
   Object.getOwnPropertyNames(input).forEach((key: string) => {
 
-    const valueType: string = theTypeOf(input[key]);
-    switch (valueType) {
+    switch (theTypeOf(input[key])) {
 
       case 'object':
       case 'error':
