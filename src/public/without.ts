@@ -11,7 +11,6 @@
  */
 
 import { isTheSame } from '../public/isTheSame';
-import { pluck } from './pluck';
 
 export function without(input: any[], ...values: any[]): any[] {
 
