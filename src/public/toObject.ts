@@ -4,6 +4,8 @@
  * @since 0.0.1
  * @category Object
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {*} anyObj
  * @returns {object}
@@ -28,8 +30,8 @@ export function toObject(anyVar: any): object {
       //  plainObj[anyVar.name || type] = anyVar;
       // due to complain from Istanbul coverage report
       // (type='' condition not testable)
-      if (anyVar.name) { plainObj[anyVar.name] = anyVar; }
-      else { plainObj[type] = anyVar; }
+      if (anyVar.name) plainObj[anyVar.name] = anyVar;
+      else plainObj[type] = anyVar;
       break;
 
     case 'error':
