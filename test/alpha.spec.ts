@@ -93,6 +93,7 @@ testControl['collectionMods'] = [
 
 testControl['numberMods'] = [
   'clamp',
+  'inRange',
   'isNumeric',
   'randomInteger',
   'round',
