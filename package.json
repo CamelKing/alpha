@@ -1,7 +1,7 @@
 {
   "name": "alpha",
-  "version": "0.0.1",
-  "description": "alpha",
+  "version": "0.1.0",
+  "description": "Common utility library for Typescript",
   "directories": {
     "test": "test"
   },
