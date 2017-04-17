@@ -7,7 +7,7 @@
  * @since 0.0.1
  * @category Object
  *
- * @refactor April 15, 2017
+ * @refactor April 17, 2017
  *
  * Not exported at the moment, private function used by stringify().
  *

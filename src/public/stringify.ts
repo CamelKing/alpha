@@ -9,7 +9,7 @@
  * @since 0.0.1
  * @category Object
  *
- * @refactor April 15, 2017
+ * @refactor April 17, 2017
  *
  * @export
  * @param {*} input
