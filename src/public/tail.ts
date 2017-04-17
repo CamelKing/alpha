@@ -6,13 +6,16 @@
  * @since 0.0.1
  * @category Array
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {any[]} input
  * @returns {any[]}
  */
 
-import { nth } from './nth';
-
 export function tail(input: any[]): any {
-  return nth(input, -1);
+
+  if (!Array.isArray(input) || (input.length === 0)) return undefined;
+  return input.slice(-1)[0];
+
 }

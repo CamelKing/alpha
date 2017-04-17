@@ -5,7 +5,7 @@
  * @since 0.0.1
  * @category Array
  *
- * @refactor April 16, 2017
+ * @refactor April 17, 2017
  *
  * @export
  * @param {any[]} input
@@ -13,7 +13,6 @@
  */
 
 export function initial(input: any[]): any[] {
-  if (!Array.isArray(input)) return undefined;
-  if (input.length === 0) return undefined;
+  if (!Array.isArray(input) || (input.length === 0)) return undefined;
   return input.slice(0, -1);
 }
