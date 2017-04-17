@@ -88,6 +88,7 @@ export * from './public/ls';
 export * from './public/enumKeys';
 
 // @category Number
+export * from './public/clamp';
 export * from './public/isNumeric';
 export * from './public/randomInteger';
 export * from './public/round';

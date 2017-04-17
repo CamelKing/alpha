@@ -92,6 +92,7 @@ testControl['collectionMods'] = [
 ];
 
 testControl['numberMods'] = [
+  'clamp',
   'isNumeric',
   'randomInteger',
   'round',
