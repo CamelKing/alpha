@@ -39,6 +39,7 @@ export * from './private/_take';
 export * from './private/_union';
 
 // @category Object
+export * from './private/_stringifyReplacer';
 
 // @category Functions
 export * from './private/_getOptionalFunction';

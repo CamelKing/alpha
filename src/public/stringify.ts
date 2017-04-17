@@ -1,18 +1,22 @@
 /**
  * Produce a string in JSON format for any standard json object
  *
+ * Implemented as a data pre-prearator and wrapper for JSON.stringify()
+ *
  * Note: (1) will handle a function by executing it and stringify the result
  *       (2) will ignore Symbol, undefined, null and promises
  *
  * @since 0.0.1
  * @category Object
  *
+ * @refactor April 15, 2017
+ *
  * @export
  * @param {*} input
- * @param {string} [space] - used for spacing between for JSON strings
  * @returns {string}
  */
 
+import { _stringifyReplacer } from '../private/_stringifyReplacer';
 import { theTypeOf } from './theTypeOf';
 
 export function stringify(input: any): string {
@@ -34,39 +38,11 @@ export function stringify(input: any): string {
       break;
 
     default:
-      str = JSON.stringify(input, errorReplacer);
+      str = JSON.stringify(input, _stringifyReplacer);
       break;
   }
 
+  // escape the output json string
   return str.replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
 
-}
-
-/**
- * Replacer function used in JSON.stringify to handle error object.
- *
- * Usage: JSON.stringify( object, fnError2JSON, ' ');
- *
- *
- * @since 0.0.1
- * @category Object
- *
- * Not exported at the moment, private function used by stringify().
- *
- * @export
- * @param {string} key
- * @param {*} value
- * @returns {*}
- */
-function errorReplacer(key: string, value: any): any {
-  if (value instanceof Error) {
-    const error: object = {};
-    Object.getOwnPropertyNames(value)
-      .forEach(function (vkey: string): void {
-        error[vkey] = value[vkey];
-      });
-    return error;
-  } else {
-    return value;
-  }
 }

@@ -2,7 +2,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/CamelKing/alpha/badge.svg?branch=master)](https://coveralls.io/github/CamelKing/alpha?branch=master)
 
-This is a compilation of common utilities currently exist within the Jaavscript community, ported/rewritten/refactored into Typescript. This project started as a form of self learning (for both Javascript and Typescript, on various techniques and patterns available on Guthub), and subsequently making these common utilities available for other Typescript users (and Javascript community as well, but they most likely already have access to them in other forms). 
+This is a compilation of common utilities currently exist within the Javascript community, ported/rewritten/refactored into Typescript. This project started as a form of self learning (for both Javascript and Typescript, on various techniques and patterns available on Guthub), and subsequently making these common utilities available for other Typescript users (and Javascript community as well, but they most likely already have access to them in other forms). 
 
 The code will be taking advanatge of the strong type checking in Typescript (hence less type checks like those in Javascript), as well as incorporating ES6/ES-Next syntax and features which is supported by NodeJS as much as I can, as that would be the targeted environemnt that I am working towards. All testing will be carried out in NodeJS environment ONLY, at least for now. There is no plan for testing in browser for the time being. 
 
