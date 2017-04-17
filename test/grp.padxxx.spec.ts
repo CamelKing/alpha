@@ -36,27 +36,33 @@ tests['pad'] = [
 tests['leftAlign'] = [
   'behave the same as pad(... Align.left).',
   'produce a right padded string with space by default.',
+  'return a copy of same string if asking a same length string.',
+  'return a copy of same string if asking a -ve length string.',
+  'return a copy of same string if asking a shorter string.',
+  'only use the first char on pad string.',
 ];
-
-tests['leftAlign'] = tests['leftAlign'].concat(tests['pad'].slice(-4));
 
 tests['padRight'] = tests['leftAlign'];
 
 tests['rightAlign'] = [
   'behave the same as pad(... Align.right).',
   'produce a left padded string with space by default.',
+  'return a copy of same string if asking a same length string.',
+  'return a copy of same string if asking a -ve length string.',
+  'return a copy of same string if asking a shorter string.',
+  'only use the first char on pad string.',
 ];
-
-tests['rightAlign'] = tests['rightAlign'].concat(tests['pad'].slice(-4));
 
 tests['padLeft'] = tests['rightAlign'];
 
 tests['centerAlign'] = [
   'pad a string with chosen char on left+right.',
-  'pad a string with space on left+right by default.'
+  'pad a string with space on left+right by default.',
+  'return a copy of same string if asking a same length string.',
+  'return a copy of same string if asking a -ve length string.',
+  'return a copy of same string if asking a shorter string.',
+  'only use the first char on pad string.',
 ];
-
-tests['centerAlign'] = tests['centerAlign'].concat(tests['pad'].slice(-4));
 
 tests['toFixWidth'] = [
   'create a truncated fixed width string.',
@@ -71,9 +77,18 @@ tests['toFixWidth'] = [
 const quick: string = 'a quick brown fox';
 
 inputs['pad'] = [
+  [quick, 30, { padText: '=', align: Align.left }],
+  [quick, 30, { padText: '=', align: Align.right }],
+  [quick, 30, { padText: '=' }],
+  [quick, 30],
+  [quick, quick.length],
+  [quick, -1],
+  [quick, quick.length - 1],
+  [quick, 30, { padText: 'ABC' }],
+];
+
+inputs['leftAlign'] = [
   [quick, 30, '=', Align.left],
-  [quick, 30, '=', Align.right],
-  [quick, 30, '='],
   [quick, 30],
   [quick, quick.length],
   [quick, -1],
@@ -81,30 +96,27 @@ inputs['pad'] = [
   [quick, 30, 'ABC'],
 ];
 
-inputs['leftAlign'] = [
-  [quick, 30, '=', Align.left],
-  [quick, 30],
-];
-
-inputs['leftAlign'] = inputs['leftAlign'].concat(inputs['pad'].slice(-4));
-
 inputs['padRight'] = inputs['leftAlign'];
 
 inputs['rightAlign'] = [
   [quick, 30, '=', Align.right],
   [quick, 30],
+  [quick, quick.length],
+  [quick, -1],
+  [quick, quick.length - 1],
+  [quick, 30, 'ABC'],
 ];
-
-inputs['rightAlign'] = inputs['rightAlign'].concat(inputs['pad'].slice(-4));
 
 inputs['padLeft'] = inputs['rightAlign'];
 
 inputs['centerAlign'] = [
   [quick, 30, '=', Align.center],
   [quick, 30],
+  [quick, quick.length],
+  [quick, -1],
+  [quick, quick.length - 1],
+  [quick, 30, 'ABC'],
 ];
-
-inputs['centerAlign'] = inputs['centerAlign'].concat(inputs['pad'].slice(-4));
 
 inputs['toFixWidth'] = [
   ['This is the new Hello World ya!', 20],
@@ -129,9 +141,11 @@ answers['pad'] = [
 answers['leftAlign'] = [
   'a quick brown fox=============',
   'a quick brown fox             ',
+  'a quick brown fox',
+  'a quick brown fox',
+  'a quick brown fox',
+  'a quick brown foxAAAAAAAAAAAAA',
 ];
-
-answers['leftAlign'] = answers['leftAlign'].concat(answers['pad'].slice(-4));
 
 answers['padRight'] = answers['leftAlign'];
 
@@ -155,8 +169,6 @@ answers['centerAlign'] = [
   'AAAAAAAa quick brown foxAAAAAA',
 ];
 
-answers['centerAlign'] = answers['centerAlign'].concat(answers['pad'].slice(-4));
-
 answers['toFixWidth'] = [
   'This is the new H...',
   'This is...',
@@ -165,6 +177,5 @@ answers['toFixWidth'] = [
   '         Hello World',
   '     Hello World    ',
 ];
-
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);

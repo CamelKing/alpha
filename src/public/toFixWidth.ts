@@ -6,6 +6,8 @@
  * @since 0.0.1
  * @category String
  *
+ * @refactor April 17, 2017
+ *
  * @export
  * @param {string} input
  * @param {number} len
@@ -20,6 +22,8 @@ import { truncate } from './truncate';
 
 export function toFixWidth(input: string, len: number, align?: Align): string {
 
-  return pad(truncate(input, len), len, Space, align || Align.left);
+  return pad(truncate(input, len),
+    len,
+    { padText: Space, align: (align || Align.left) });
 
 }

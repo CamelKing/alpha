@@ -8,6 +8,11 @@ export const Apostrophe: string = '\u0027';
 export const Hyphen: string = '-';
 export const HalfWordLen: number = 3;
 
+export interface StringOption {
+  padText?: string;
+  align?: Align;
+};
+
 // @Number
 export type RoundOperand = 'round' | 'ceil' | 'floor';
 export type CaseOperand = 'toLowerCase' | 'toUpperCase';

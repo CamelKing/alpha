@@ -14,28 +14,27 @@
  * @returns {string}
  */
 
-import { Align, Space } from '../constants';
+import { Align, Space, StringOption } from '../constants';
 
+import { assign } from './assign';
 import { round } from './round';
 
-export function pad(input: string,
-  length: number,
-  pad?: string,
-  align?: Align): string {
+export function pad(input: string, length: number,
+  userOption?: StringOption): string {
+  // pad?: string,
+  // align?: Align): string {
+
+  const option: StringOption = assign({ padText: Space, align: Align.left }, userOption);
 
   let output: string = input.slice(0);
   // return if len is short/-ve before proceed further
   // so we dont have a do a lot of range checking on len.
   if (length > input.length) {
 
-    const padChar: string = '' + (pad || Space);
+    const padChar: string = '' + option.padText;
     const padText: string = padChar[0].repeat(length - output.length);
 
-    // no need to assign default value to align,
-    // as the default: in switch will take care of this
-    // align = align || Align.left;
-
-    switch (align) {
+    switch (option.align) {
 
       case Align.right:
         output = padText + input;
@@ -48,7 +47,7 @@ export function pad(input: string,
         output = padChar[0].repeat(left) + output + padChar[0].repeat(right);
         break;
 
-      // case Align.left:
+      case Align.left:
       default:
         output += padText;
         break;

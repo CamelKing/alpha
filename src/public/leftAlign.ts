@@ -16,8 +16,9 @@
 import { Align } from '../constants';
 import { pad } from './pad';
 
-export function leftAlign(input: string, len: number, padTxt?: string): string {
+export function leftAlign(input: string, len: number,
+  padText?: string): string {
 
-  return pad(input, len, padTxt, Align.left);
+  return pad(input, len, { padText, align: Align.left });
 
 }

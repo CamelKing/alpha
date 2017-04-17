@@ -16,8 +16,9 @@
 import { Align } from '../constants';
 import { pad } from './pad';
 
-export function centerAlign(input: string, len: number, padTxt?: string): string {
+export function centerAlign(input: string, len: number,
+  padText?: string): string {
 
-  return pad(input, len, padTxt, Align.center);
+  return pad(input, len, { padText, align: Align.center });
 
 }

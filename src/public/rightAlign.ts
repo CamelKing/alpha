@@ -16,11 +16,10 @@
 import { Align } from '../constants';
 import { pad } from './pad';
 
-export function rightAlign(input: string,
-  len: number,
-  padTxt?: string): string {
+export function rightAlign(input: string, len: number,
+  padText?: string): string {
 
-  return pad(input, len, padTxt, Align.right);
+  return pad(input, len, { padText, align: Align.right });
 
 }
 
