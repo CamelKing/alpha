@@ -16,8 +16,16 @@ export interface StringOption {
 // @Number
 export type RoundOperand = 'round' | 'ceil' | 'floor';
 export type CaseOperand = 'toLowerCase' | 'toUpperCase';
+export type ArithOperand = 'max' | 'min' | 'mean' | 'sum';
 export type Numeric = number | string | object;
 export type Numerics = Numeric | Numeric[];
+
+export interface MathOption {
+  iteratee?: AnyIteratee;
+  operand?: ArithOperand;
+  precision?: number;
+  deep?: boolean;
+}
 
 
 // @Async

@@ -19,6 +19,7 @@ export * from './private/_hyphenateToArray';
 export * from './private/_truncateToArray';
 
 // @category array
+export * from './private/_calcBy';
 export * from './private/_compact';
 export * from './private/_diff';
 export * from './private/_drop';

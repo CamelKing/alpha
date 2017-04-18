@@ -42,6 +42,7 @@ testControl['collectionMods'] = [
 ];
 
 testControl['numberMods'] = [
+  '_calcBy',
   '_round',
 ];
 
