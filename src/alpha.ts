@@ -93,6 +93,8 @@ export * from './public/inRange';
 export * from './public/isNumeric';
 export * from './public/max';
 export * from './public/maxBy';
+export * from './public/maxDeep';
+export * from './public/maxDeepBy';
 export * from './public/randomInteger';
 export * from './public/round';
 export * from './public/roundUp';

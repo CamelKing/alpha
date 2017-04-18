@@ -21,8 +21,8 @@ import { AnyIteratee, Numeric, Numerics } from '../constants';
 
 import { _calcBy } from '../private/_calcBy';
 
-export function maxBy(array: Numerics[], iteratee?: AnyIteratee): Numeric {
+export function maxDeepBy(array: Numerics[], iteratee?: AnyIteratee): Numeric {
 
-  return _calcBy(array, { iteratee, operand: 'max', deep: false });
+  return _calcBy(array, { iteratee, operand: 'max', deep: true });
 
 }

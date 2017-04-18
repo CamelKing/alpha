@@ -19,6 +19,6 @@ import { Numeric, Numerics } from '../constants';
 
 import { _calcBy } from '../private/_calcBy';
 
-export function max(array: Numerics[]): Numeric {
-  return _calcBy(array, { operand: 'max', deep: false });
+export function maxDeep(array: Numerics[]): Numeric {
+  return _calcBy(array, { operand: 'max', deep: true });
 }
