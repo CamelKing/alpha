@@ -95,6 +95,8 @@ testControl['numberMods'] = [
   'clamp',
   'inRange',
   'isNumeric',
+  'max',
+  'maxBy',
   'randomInteger',
   'round',
   'roundUp',

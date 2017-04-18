@@ -89,5 +89,3 @@ export function _drop(input: any[], userOption: ArrayOption): any[] {
   return input.slice(0, length - index);
 
 }
-
-

@@ -21,7 +21,7 @@ export function pluck(input: any[], index: number = 0): any[] {
   let { length } = input;
 
   // if index is negative, then try to count from end of array
-  // note that if index is a big -ve number, this can still 
+  // note that if index is a big -ve number, this can still
   // be -ve
   if (index < 0) index += length;
 

@@ -39,8 +39,8 @@ export function unzipWith(arrays: any[], iterator?: FnAny): any[] {
   // where as passed as single argument to zipWith(), the output would be
   // [[1],[2],[3]]. The later is the desired behavior.
   let nestedArray: boolean = false;
-  const { length } = arrays;
-  for (let i: number = 0; i < length; i++) {
+  const len: number = arrays.length;
+  for (let i: number = 0; i < len; i++) {
     if (Array.isArray(arrays[i])) {
       nestedArray = true;
       break;

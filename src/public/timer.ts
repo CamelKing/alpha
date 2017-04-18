@@ -9,7 +9,7 @@
  *
  * @since 0.0.1
  * @category Time
- * 
+ *
  * @export
  * @class Timer
  */

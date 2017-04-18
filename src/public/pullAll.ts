@@ -26,6 +26,3 @@ export function pullAll(input: any[], values: any[],
   return _pullAll(input, values, { iteratee, compare });
 
 }
-
-
-

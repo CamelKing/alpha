@@ -1,5 +1,5 @@
 /**
- * Check if the input is within [from, upto] but does not include upto. 
+ * Check if the input is within [from, upto] but does not include upto.
  *
  * From and Upto can be in any order, the function will sort it out.
  *

@@ -39,7 +39,7 @@ export function remove(input: any[], test?: FnTester): any[] {
     // if the value is not false,
     // either from test(), or the item is true (in nature),
     // move on to next item (index++), else
-    // pluck the item out (no adjust to index, 
+    // pluck the item out (no adjust to index,
     // as the current index is now the next item)
     if (test ? test(input[index]) : input[index]) index++;
     else length = pluck(input, index).length;

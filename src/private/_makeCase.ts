@@ -92,4 +92,4 @@ export function _makeCase(input: string, mode: string): string {
 
   return (lowerFirst ? output[0].toLowerCase() : output[0].toUpperCase()) + output.slice(1);
 
-} 
+}
