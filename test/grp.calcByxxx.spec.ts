@@ -41,8 +41,6 @@ tests['max'] = [
   'return undefined if no valid numeric in entire array.',
 ];
 
-console.log(max([1, 2, 3, 4, 5, 6, 7, 8, '9', 0]));
-
 inputs['max'] = [
   [null],
   [undefined],
