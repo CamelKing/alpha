@@ -24,7 +24,7 @@ tests['isNumeric'] = [
   'test positive for +ve float numbers.',
   'test positive for -ve float numbers.',
   'test positive for zero.',
-  'test positive for NaN.',
+  'test negative for NaN.',
   'test positive for +ve round numbers string.',
   'test positive for -ve round numbers string.',
   'test positive for +ve float numbers string.',
@@ -98,7 +98,7 @@ inputs['isNumeric'] = [
 
 answers['isNumeric'] = [
   true, true, true, true, true,
-  true, true, true, true, true,
+  false, true, true, true, true,
   true, true, true, true,
 
   false, false, false, false, false,

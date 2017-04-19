@@ -26,11 +26,11 @@ export function isNumeric(input: any): boolean {
   switch (type) {
 
     case 'string':
-      if (trim(input) === '') return false;
-      return !isNaN(input);
+      // if (trim(input) === '') return false;
+      return trim(input) === '' ? false : !isNaN(input);
 
     case 'number':
-    case 'nan':
+      // case 'nan':
       return true;
 
     default:

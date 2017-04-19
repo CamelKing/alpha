@@ -15,7 +15,7 @@
  * @since 0.1.0
  * @category Number
  *
- * @refactor April 18, 2017
+ * @refactor April 20, 2017
  *
  * @export
  * @param {Numerics[]} array
@@ -27,94 +27,77 @@ import { AnyIteratee, FnIteratee, MathOption, Numeric, Numerics } from '../const
 
 import { _makeIteratee } from './_makeIteratee';
 import { assign } from '../public/assign';
+import { isNumeric } from '../public/isNumeric';
 
-export function _calcBy(array: Numerics[], userOption?: MathOption): Numeric {
+export function _calcBy(array: Numerics[], userOption: MathOption): Numeric {
 
   if (!Array.isArray(array)) return array == null ? array : +array;
   if (array.length === 0) return undefined;
 
-
   const option: MathOption = assign({ operand: 'sum', deep: true }, userOption);
   const convert: FnIteratee = _makeIteratee(option.iteratee);
 
-  let accResult: number = undefined;
-  let accCounter: number = 0;
+  let answer: number = undefined;
+  let count: number = 0;
   let output: Numeric = undefined;
 
-  const { length } = array;
-  let i: number;
-  let j: number;
-
-  // first loop to skip all the non numeric array elements 
-  // and capture the first numeric element
-  for (i = 0; i < length && accResult === undefined; i++) {
-    let currentItem: Numeric = array[i];
-    if (Array.isArray(currentItem)) {
-      // only loop thru nested array if deep mode else ignore as undefined
-      currentItem = option.deep ? _calcBy(currentItem, option) : undefined;
-    }
-    accResult = +convert(currentItem);
-    if (Number.isNaN(accResult)) accResult = undefined;
-    else { output = currentItem; accCounter++; }
+  switch (option.operand) {
+    case 'max': answer = -Infinity;
+      break;
+    case 'min': answer = +Infinity;
+      break;
+    case 'sum': answer = 0;
+      break;
+    case 'mean': answer = 0;
+      break;
   }
 
-  // second loop to perform calculation for the rest of the array
-  for (j = i; j < length; j++) {
+  array.forEach((item: Numerics) => {
 
-    let currentItem: Numeric = array[j];
-
-    if (Array.isArray(currentItem)) {
-      // only loop thru nested array if deep mode else ignore as undefined
-      currentItem = option.deep ? _calcBy(currentItem, option) : undefined;
+    if (Array.isArray(item)) {
+      item = option.deep ? _calcBy(item, option) : undefined;
     }
 
-    const currentResult: number = +convert(currentItem);
-    if (Number.isNaN(currentResult)) continue;
-    accCounter++;
+    let temp: Numeric = item != null ? convert(item) : undefined;
 
-    switch (option.operand) {
+    if (isNumeric(temp)) {
 
-      case 'max':
-        // max will compare and cache the bigger result
-        // but return the element in the array
-        if (currentResult > accResult) {
-          accResult = currentResult;
-          output = currentItem;
-        }
-        break;
+      temp = +temp;
 
-      case 'min':
-        // max will compare and cache the bigger result
-        // but return the element in the array
-        if (currentResult < accResult) {
-          accResult = currentResult;
-          output = currentItem;
-        }
-        break;
+      switch (option.operand) {
 
-      case 'sum':
+        case 'max':
+          if (temp > answer) {
+            answer = temp;
+            output = item;
+          }
+          break;
 
-        // sum will accumulate all the calculated result
-        // the return value is the result itself rather than
-        // the array element
-        accResult += currentResult;
-        output = accResult;
-        break;
+        case 'min':
+          if (temp < answer) {
+            answer = temp;
+            output = item;
+          }
+          break;
 
-      case 'mean':
+        case 'sum':
+          answer += temp;
+          output = answer;
+          break;
 
-        // mean will perform ongoing averaging on the array as it loops thru
-        // the return value is the result itself rather than
-        // the array element
-        accResult
-          = (((accResult * (accCounter - 1)) + currentResult) / accCounter);
-        output = accResult;
-        break;
+        case 'mean':
+          answer = (((answer * (count)) + temp) / (count + 1));
+          count++;
+          output = answer;
+          break;
+
+      }
 
     }
 
-  }
+  });
 
   return output;
 
 }
+
