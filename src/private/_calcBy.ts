@@ -122,7 +122,7 @@ export function _calcBy(array: Numerics[], userOption: MathOption): Numeric {
 
   // if it is mean, the output is actually the sum at this stage,
   // hence return the sum/count for the mean average
-  return option.operand === 'mean' ? (output as number) / count : output;
+  return option.operand === 'mean' ? output ? (output as number) / count : output : output;
 
 }
 

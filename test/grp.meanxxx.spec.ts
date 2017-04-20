@@ -1,6 +1,6 @@
 import { FnAny, FnIteratee } from '../src/constants';
 import { expect, should } from 'chai';
-import { sum, sumBy, sumDeep, sumDeepBy } from '../src/alpha';
+import { mean, meanBy, meanDeep, meanDeepBy } from '../src/alpha';
 
 import { _testSuites } from './__testSuites';
 
@@ -13,10 +13,10 @@ const inputs: object = {};
 const answers: object = {};
 
 const funcs: FnAny[] = [
-  sumDeep,
-  sumDeepBy,
-  sum,
-  sumBy,
+  meanDeep,
+  meanDeepBy,
+  mean,
+  meanBy,
 ];
 
 const fn: FnIteratee = (o: object) => o ? o['age'] : undefined;
@@ -26,22 +26,22 @@ const arr1: Array<object> = [{ name: 'quick', age: 70 }, { name: 'brown', age: 5
 const arr2: Array<object> = [{ name: 'quick', age: 70 }, { name: 'brown', age: 50 }, [{ name: 'fox', age: 90 }, { name: 'jumps', age: 30 }], { name: 'over', age: 40 }, { name: 'lazy', age: 80 }, { name: 'dog', age: 60 }];
 
 
-tests['sum'] = [
+tests['mean'] = [
   'return undefined for null array.',
   'return undefined for null array.',
   'return undefined for empty array.',
-  'return sum value for single element array.',
-  'return sum value for two elements array.',
-  'return sum value for multiple elements array.',
-  'return sum value for multiple elements nested array.',
-  'return sum value for multiple elements multilevel nested array.',
+  'return mean value for single element array.',
+  'return mean value for two elements array.',
+  'return mean value for multiple elements array.',
+  'return mean value for multiple elements nested array.',
+  'return mean value for multiple elements multilevel nested array.',
   'will compare numerical string and return the string (if answer).',
   'will ignore no numerical array elements.',
   'skip all non numeric elements from start.',
   'return undefined if no valid numeric in entire array.',
 ];
 
-inputs['sum'] = [
+inputs['mean'] = [
   [null],
   [undefined],
   [[]],
@@ -56,37 +56,37 @@ inputs['sum'] = [
   [['KL', true, '~3', false, '5KK', 'hello', null, undefined, {}, '===']],
 ];
 
-answers['sum'] = [
+answers['mean'] = [
   null,
   undefined,
   undefined,
   1,
+  2,
+  5,
+  14 / 3,
+  5.8,
+  5.5,
   4,
-  25,
-  14,
-  29,
-  55,
-  24,
-  23,
+  4.6,
   undefined,
 ];
 
-tests['sumBy'] = [
+tests['meanBy'] = [
   'return undefined for null array.',
   'return undefined for null array.',
   'return undefined for empty array.',
-  'return sum value for single element array.',
-  'return sum value for two elements array.',
-  'return sum value for multiple elements array.',
-  'return sum value for multiple elements nested array.',
-  'return sum value for multiple elements multilevel nested array.',
+  'return mean value for single element array.',
+  'return mean value for two elements array.',
+  'return mean value for multiple elements array.',
+  'return mean value for multiple elements nested array.',
+  'return mean value for multiple elements multilevel nested array.',
   'evaluate using shorthand iteratee.',
   'evaluate using function iteratee.',
   'evaluate using shorthand iteratee in nested arrays',
   'evaluate using function iteratee in nested arrays',
 ];
 
-inputs['sumBy'] = [
+inputs['meanBy'] = [
   [null],
   [undefined],
   [[]],
@@ -101,33 +101,33 @@ inputs['sumBy'] = [
   [arr2, fn],
 ];
 
-answers['sumBy'] = [
+answers['meanBy'] = [
   null,
   undefined,
   undefined,
   1,
-  4,
-  25,
-  16,
-  14,
-  300,
-  300,
-  300,
-  300,
+  2,
+  5,
+  16 / 3,
+  2.8,
+  60,
+  60,
+  60,
+  60,
 ];
 
-tests['sumDeep'] = [
+tests['meanDeep'] = [
   'return undefined for null array.',
   'return undefined for null array.',
   'return undefined for empty array.',
-  'return sum value for single element array.',
-  'return sum value for two elements array.',
-  'return sum value for multiple elements array.',
-  'return sum value for multiple elements nested array.',
-  'return sum value for multiple elements multilevel nested array.',
+  'return mean value for single element array.',
+  'return mean value for two elements array.',
+  'return mean value for multiple elements array.',
+  'return mean value for multiple elements nested array.',
+  'return mean value for multiple elements multilevel nested array.',
 ];
 
-inputs['sumDeep'] = [
+inputs['meanDeep'] = [
   [null],
   [undefined],
   [[]],
@@ -138,33 +138,33 @@ inputs['sumDeep'] = [
   [[2, 3, [5, 7, [9, 0], 4], 6, 8, 1]],
 ];
 
-answers['sumDeep'] = [
+answers['meanDeep'] = [
   null,
   undefined,
   undefined,
   1,
-  4,
-  25,
-  26,
-  45,
+  2,
+  5,
+  5.25,
+  4.1875,
 ];
 
-tests['sumDeepBy'] = [
+tests['meanDeepBy'] = [
   'return undefined for null array.',
   'return undefined for null array.',
   'return undefined for empty array.',
-  'return sum value for single element array.',
-  'return sum value for two elements array.',
-  'return sum value for multiple elements array.',
-  'return sum value for multiple elements nested array.',
-  'return sum value for multiple elements multilevel nested array.',
+  'return mean value for single element array.',
+  'return mean value for two elements array.',
+  'return mean value for multiple elements array.',
+  'return mean value for multiple elements nested array.',
+  'return mean value for multiple elements multilevel nested array.',
   'evaluate using shorthand iteratee.',
   'evaluate using function iteratee.',
   'evaluate using shorthand iteratee in nested arrays',
   'evaluate using function iteratee in nested arrays',
 ];
 
-inputs['sumDeepBy'] = [
+inputs['meanDeepBy'] = [
   [null],
   [undefined],
   [[]],
@@ -179,19 +179,19 @@ inputs['sumDeepBy'] = [
   [arr2, fn],
 ];
 
-answers['sumDeepBy'] = [
+answers['meanDeepBy'] = [
   null,
   undefined,
   undefined,
   1,
-  4,
-  25,
-  26,
-  45,
-  420,
-  420,
-  420,
-  420,
+  2,
+  5,
+  5.25,
+  4.1875,
+  60,
+  60,
+  60,
+  60,
 ];
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);
