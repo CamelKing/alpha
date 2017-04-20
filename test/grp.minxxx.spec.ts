@@ -1,6 +1,6 @@
 import { FnAny, FnIteratee } from '../src/constants';
 import { expect, should } from 'chai';
-import { min, minBy } from '../src/alpha';
+import { min, minBy, minDeep, minDeepBy } from '../src/alpha';
 
 import { _testSuites } from './__testSuites';
 
@@ -14,8 +14,8 @@ const inputs: object = {};
 const answers: object = {};
 
 const funcs: FnAny[] = [
-  // minDeep,
-  // minDeepBy,
+  minDeep,
+  minDeepBy,
   min,
   minBy,
 ];
@@ -137,7 +137,7 @@ inputs['minDeep'] = [
   [[1, 3]],
   [[1, 3, 5, 7, 9]],
   [[8, 3, 5, [1, 9]]],
-  [[1, 3, [5, 7, [9, 2], 4], 6, 8, 0]],
+  [[2, 3, [5, 7, [9, 0], 4], 6, 8, 1]],
 ];
 
 answers['minDeep'] = [
@@ -145,10 +145,10 @@ answers['minDeep'] = [
   undefined,
   undefined,
   1,
-  3,
-  9,
-  9,
-  9,
+  1,
+  1,
+  1,
+  0,
 ];
 
 tests['minDeepBy'] = [
@@ -174,7 +174,7 @@ inputs['minDeepBy'] = [
   [[1, 3]],
   [[1, 3, 5, 7, 9]],
   [[8, 3, 5, [1, 9]]],
-  [[1, 3, [5, 7, [9, 2], 4], 6, 8, 0]],
+  [[2, 3, [5, 7, [9, 0], 4], 6, 8, 1]],
   [arr1, 'age'],
   [arr1, fn],
   [arr2, 'age'],
@@ -186,14 +186,14 @@ answers['minDeepBy'] = [
   undefined,
   undefined,
   1,
-  3,
-  9,
-  9,
-  9,
-  { name: 'fox', age: 90 },
-  { name: 'fox', age: 90 },
-  { name: 'fox', age: 90 },
-  { name: 'fox', age: 90 },
+  1,
+  1,
+  1,
+  0,
+  { name: 'jumps', age: 30 },
+  { name: 'jumps', age: 30 },
+  { name: 'jumps', age: 30 },
+  { name: 'jumps', age: 30 },
 ];
 
 _testSuites(funcs, tests, inputs, answers, suiteText, __filename);
