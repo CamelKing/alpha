@@ -52,16 +52,32 @@ export function _calcBy(array: Numerics[], userOption: MathOption): Numeric {
       break;
   }
 
+  // tslint:disable-next-line:cyclomatic-complexity
   array.forEach((item: Numerics) => {
 
+    // use the temp variable to store the current item
+    // so we are not mutating the array (when nested)
+    let temp: Numeric;
+
+    // special treatment for nested array
+
     if (Array.isArray(item)) {
-      item = option.deep ? _calcBy(item, option) : undefined;
+      // only process the nested array if option.deep is set to true
+      temp = option.deep ? _calcBy(item, option) : undefined;
+      if (option.operand === 'min' || option.operand === 'max') {
+        // only perform conversion for min/max as this will
+        // return the item in its original format (such as object)
+        temp = temp != null ? convert(temp) : undefined;
+      }
+    } else {
+      // if not array, call the convert iteratee
+      temp = item != null ? convert(item) : undefined;
     }
 
-    let temp: Numeric = item != null ? convert(item) : undefined;
-
+    // if result is numeric
     if (isNumeric(temp)) {
 
+      // force a conversion to number format
       temp = +temp;
 
       switch (option.operand) {
@@ -69,6 +85,7 @@ export function _calcBy(array: Numerics[], userOption: MathOption): Numeric {
         case 'max':
           if (temp > answer) {
             answer = temp;
+            // output the original element format (could be object)
             output = item;
           }
           break;
@@ -76,20 +93,26 @@ export function _calcBy(array: Numerics[], userOption: MathOption): Numeric {
         case 'min':
           if (temp < answer) {
             answer = temp;
+            // output the original element format (could be object)
             output = item;
           }
           break;
 
+        case 'mean':
         case 'sum':
           answer += temp;
+          // output the sum regardless of the element format
           output = answer;
+          // increase counter, used by mean to perform division at the end
+          count++;
           break;
 
-        case 'mean':
-          answer = (((answer * (count)) + temp) / (count + 1));
-          count++;
-          output = answer;
-          break;
+        // case 'mean':
+        //   answer = (((answer * (count)) + temp) / (count + 1));
+        //   count++;
+        //   // output the mean regardless of the element format
+        //   output = answer;
+        //   break;
 
       }
 
@@ -97,7 +120,9 @@ export function _calcBy(array: Numerics[], userOption: MathOption): Numeric {
 
   });
 
-  return output;
+  // if it is mean, the output is actually the sum at this stage,
+  // hence return the sum/count for the mean average
+  return option.operand === 'mean' ? (output as number) / count : output;
 
 }
 

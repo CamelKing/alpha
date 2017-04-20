@@ -95,6 +95,10 @@ export * from './public/max';
 export * from './public/maxBy';
 export * from './public/maxDeep';
 export * from './public/maxDeepBy';
+export * from './public/mean';
+export * from './public/meanBy';
+export * from './public/meanDeep';
+export * from './public/meanDeepBy';
 export * from './public/min';
 export * from './public/minBy';
 export * from './public/minDeep';
@@ -103,6 +107,10 @@ export * from './public/randomInteger';
 export * from './public/round';
 export * from './public/roundUp';
 export * from './public/roundDown';
+export * from './public/sum';
+export * from './public/sumBy';
+export * from './public/sumDeep';
+export * from './public/sumDeepBy';
 
 // @category object
 export * from './public/assign';

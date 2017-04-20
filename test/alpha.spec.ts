@@ -99,6 +99,10 @@ testControl['numberMods'] = [
   'maxBy',
   'maxDeep',
   'maxDeepBy',
+  'mean',
+  'meanBy',
+  'meanDeep',
+  'meanDeepBy',
   'min',
   'minBy',
   'minDeep',
@@ -107,6 +111,10 @@ testControl['numberMods'] = [
   'round',
   'roundUp',
   'roundDown',
+  'sum',
+  'sumBy',
+  'sumDeep',
+  'sumDeepBy',
 ];
 
 testControl['objectMods'] = [
