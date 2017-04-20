@@ -63,11 +63,15 @@ export function _calcBy(array: Numerics[], userOption: MathOption): Numeric {
 
     if (Array.isArray(item)) {
       // only process the nested array if option.deep is set to true
-      temp = option.deep ? _calcBy(item, option) : undefined;
+      item = option.deep ? _calcBy(item, option) : undefined;
       if (option.operand === 'min' || option.operand === 'max') {
         // only perform conversion for min/max as this will
         // return the item in its original format (such as object)
-        temp = temp != null ? convert(temp) : undefined;
+        temp = item != null ? convert(item) : undefined;
+      } else {
+        // for sum and mean, just store the return result from 
+        // the nested array
+        temp = item;
       }
     } else {
       // if not array, call the convert iteratee
@@ -106,13 +110,6 @@ export function _calcBy(array: Numerics[], userOption: MathOption): Numeric {
           // increase counter, used by mean to perform division at the end
           count++;
           break;
-
-        // case 'mean':
-        //   answer = (((answer * (count)) + temp) / (count + 1));
-        //   count++;
-        //   // output the mean regardless of the element format
-        //   output = answer;
-        //   break;
 
       }
 
