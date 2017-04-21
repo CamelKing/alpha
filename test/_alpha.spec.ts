@@ -47,6 +47,8 @@ testControl['numberMods'] = [
 ];
 
 testControl['objectMods'] = [
+  '_assign',
+  '_stringifyReplacer',
 ];
 
 testControl['stringMods'] = [

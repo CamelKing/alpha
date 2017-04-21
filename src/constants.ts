@@ -38,6 +38,11 @@ export type Pair = [string, any];
 export type Pairs = Pair[];
 export type Primitives = object | string | number | boolean | any[];
 
+export interface ObjectOption {
+  deep?: boolean;
+  customizer?: FnAny;
+}
+
 // @Array
 export const NotFound: number = -1;
 export enum SortOrder { lower = -1, same = 0, higher = 1 };
