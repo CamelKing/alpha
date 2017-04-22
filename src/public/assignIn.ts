@@ -1,12 +1,13 @@
 /**
- * similar to Object.assign() with two key differences:
+ * similar to Object.assign() with three key differences:
  *
  * 1) functional, so it does not mutate the target
  * 2) would not overwrite the key on target with null/undefined value
+ * 3) will assign non enumerable property as well
  *
  * Implemented as wrapper for _assign()
  *
- * @since 0.0.1
+ * @since 0.2.0
  * @category Object
  *
  * @refactor April 21, 2017
@@ -20,8 +21,8 @@
 import { _assign } from '../private/_assign';
 import { theTypeOf } from '../public/theTypeOf';
 
-export function assign(target: any, ...sources: Array<object>): object {
+export function assignIn(target: any, ...sources: Array<object>): object {
 
-  return _assign(target, sources);
+  return _assign(target, sources, { deep: true });
 
 }

@@ -119,6 +119,7 @@ testControl['numberMods'] = [
 
 testControl['objectMods'] = [
   'assign',
+  'assignIn',
   'clone',
   'fromPairs',
   'isTheSame',

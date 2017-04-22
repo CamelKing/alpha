@@ -31,37 +31,32 @@ export function _assign(target: any, sources: Array<object>,
   // unlike other functions, _assign can't call assign(option, userOption)
   // to set default value for userOption
   const option: ObjectOption = {};
-  if (userOption) {
-    option.deep = userOption.deep || false;
-  }
+  if (userOption) option.deep = userOption.deep || false;
 
-  // initialis the output (to).
+  // initialis the output.
   // we make a copy of the target here so we do not mutate
   // the target passed in.
 
-  let to: object;
+  let output: object;
 
-  const type: string = theTypeOf(target);
-  switch (type) {
-
-    case 'null':
-    case 'undefined':
-    case 'nan':
-    case 'promise':
-      to = {};
-      break;
-
-    case 'function':
-      return _assign(target(), sources, userOption);
+  const targetType: string = theTypeOf(target);
+  switch (targetType) {
 
     case 'object':
     case 'error':
-      to = clone(target);
+      output = clone(target);
+      break;
+
+    case 'string':
+    case 'number':
+    case 'boolean':
+    case 'array':
+      output = {};
+      output[targetType] = target;
       break;
 
     default:
-      to = {};
-      to[type] = target;
+      output = {};
       break;
   }
 
@@ -69,20 +64,69 @@ export function _assign(target: any, sources: Array<object>,
   // to the output object (to)
 
   if (sources && sources.length > 0 && sources[0]) {
-    sources.forEach((source: object) => {
+    sources.forEach((source: any) => {
 
-      // depends on how deep we doing, either shallow (Object.keys)
-      // or deep (Object.getOwnPropertyNames)
-      const keys: string[] = option.deep ? Object.getOwnPropertyNames(source) :
-        Object.keys(source);
+      // array to store object keys to be assigned later
+      let keys: string[] = [];
 
+      // variable to store the source so that the assign operation will
+      // not mutate the source objects
+      let tempSource: any;
+
+      // check type of source and make a copy in a temp variable
+      const sourceType: string = theTypeOf(source);
+
+      switch (sourceType) {
+
+        case 'number':
+        case 'string':
+        case 'boolean':
+        case 'array':
+          tempSource = {};
+          tempSource[targetType] = source;
+          break;
+
+        case 'object':
+          tempSource = clone(source);
+          break;
+
+        case 'error':
+          // error object is rather unique, only getOwnPropertyNames() is able
+          // to retrieve its properties (stack and messages)
+          tempSource = clone(source);
+          keys = Object.getOwnPropertyNames(tempSource);
+          break;
+
+        default:
+          tempSource = {};
+          break;
+      }
+
+      // for ... in will retrieve all keys of the object (included inherited)
+      for (const key in tempSource) keys.push(key);
+
+      // loop to process all keys, and assigned to target base on
+      // 1) if deep option, assign inherited keys as well
+      // 2) if non deep option, only assign the normal keys (top level)
       keys.forEach((key: string) => {
-        if (source[key] != null) to[key] = source[key];
-        else if (!to.hasOwnProperty(key)) to[key] = source[key];
+
+        // check if the key is inherited (not on own Property)
+        // or deep copying option
+        if (option.deep || tempSource.hasOwnProperty(key)) {
+          // assign if
+          // (a) key in source is not null (overwrite target if already exist)
+          // (b) key does not exist on target yet (create new key)
+          if (!(tempSource[key] == null && output.hasOwnProperty(key))) {
+            output[key] = tempSource[key];
+          }
+
+        }
+
       });
+
     });
   }
 
-  return to;
+  return output;
 
 }
