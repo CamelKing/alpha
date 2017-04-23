@@ -215,4 +215,4 @@ answers['assignIn'] = [
 ];
 
 
-_testSuites(funcs, tests, inputs, answers, suiteText, __filename, true);
+_testSuites(funcs, tests, inputs, answers, suiteText, __filename);

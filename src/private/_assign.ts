@@ -87,13 +87,13 @@ export function _assign(target: any, sources: Array<object>,
           break;
 
         case 'object':
-          tempSource = clone(source);
+          tempSource = source;
           break;
 
         case 'error':
           // error object is rather unique, only getOwnPropertyNames() is able
           // to retrieve its properties (stack and messages)
-          tempSource = clone(source);
+          tempSource = source;
           keys = Object.getOwnPropertyNames(tempSource);
           break;
 
