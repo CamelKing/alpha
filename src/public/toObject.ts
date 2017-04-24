@@ -4,74 +4,37 @@
  * @since 0.0.1
  * @category Object
  *
- * @refactor April 17, 2017
+ * @refactor 0.2.0 April 25, 2017
  *
  * @export
  * @param {*} anyObj
  * @returns {object}
  */
 
+import { clone } from './clone';
 import { theTypeOf } from './theTypeOf';
 
-export function toObject(anyVar: any): object {
+export function toObject(input: any): object {
 
-  let plainObj: object = {};
+  let output: object = {};
 
-  const type: string = theTypeOf(anyVar);
-
-  switch (type) {
-
-    case 'undefined':
-    case 'null':
-      break;
-
-    case 'function':
-      // use this verbose version of the code instead of
-      //  plainObj[anyVar.name || type] = anyVar;
-      // due to complain from Istanbul coverage report
-      // (type='' condition not testable)
-      if (anyVar.name) plainObj[anyVar.name] = anyVar;
-      else plainObj[type] = anyVar;
-      break;
+  switch (theTypeOf(input)) {
 
     case 'error':
-      plainObj = new Error(anyVar.message);
-      // for error object, must use this method to copy out
-      // all the non-enumerable properties, rather than object.assign()
-      // which does not copy non enumerable properties
-      Object.getOwnPropertyNames(anyVar).forEach((key: string) => {
-        plainObj[key] = anyVar[key];
-      });
-      break;
-
     case 'object':
-      Object.getOwnPropertyNames(anyVar).forEach((key: string) => {
-        plainObj[key] = anyVar[key];
-      });
+      output = clone(input);
       break;
 
     case 'array':
-      plainObj[type] = Array.from(anyVar);
+      output = input.slice(0);
       break;
 
-    case 'number':
-      plainObj[type] = anyVar;
-      break;
-
-    case 'nan':
-      plainObj['number'] = anyVar;
-      break;
-
-    // case 'date':
-    // case 'string':
-    // case 'boolean':
-    // case 'symbol':
-    // case 'promise':
     default:
-      plainObj[type] = anyVar;
+      // plainObj[type] = anyVar;
+      output = Object(input);
       break;
   }
 
-  return plainObj;
+  return output;
 
 };
