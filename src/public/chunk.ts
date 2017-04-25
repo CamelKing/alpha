@@ -7,7 +7,7 @@
  * @since 0.0.1
  * @category Array
  *
- * @refactor April 15, 2017
+ * @refactor 0.2.0 April 25, 2017
  *
  * @export
  * @param {any[]} input
@@ -20,7 +20,7 @@ export function chunk(array: any[], size: number = 1): any[] {
   if (!Array.isArray(array)) return [];
   const { length } = array;
   if (length <= 0) return [];
-  if (size <= 0) return array.slice(0);
+  if (size <= 0 || size > array.length) return array.slice(0);
 
   const output: any[] = new Array(Math.ceil(length / size));
   let outIndex: number = 0;

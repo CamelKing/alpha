@@ -1,5 +1,3 @@
-import * as constants from '../src/constants';
-
 import { expect, should } from 'chai';
 
 import { toCaps } from '../src/alpha';
@@ -90,6 +88,19 @@ describe(toCaps.name + '() - @category String', () => {
     });
 
   });
+
+  describe('should operate as a pure function', () => {
+
+    it('the string being capitalised will not be altered', () => {
+      const original: string = 'hello world';
+      const test: string = original.slice(0);
+      const result: string = toCaps(test);
+      result.should.eql('Hello World');
+      test.should.eql(original);
+    });
+
+  });
+
 
   describe('should handle invalid parameters properly', () => {
 
