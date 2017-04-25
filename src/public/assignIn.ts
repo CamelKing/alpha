@@ -23,6 +23,6 @@ import { theTypeOf } from '../public/theTypeOf';
 
 export function assignIn(target: any, ...sources: Array<object>): object {
 
-  return _assign(target, sources, { deep: true });
+  return _assign({ target, sources, goDeep: true });
 
 }

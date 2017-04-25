@@ -39,7 +39,10 @@ export type Pairs = Pair[];
 export type Primitives = object | string | number | boolean | any[];
 
 export interface ObjectOption {
-  deep?: boolean;
+  source?: any;
+  sources?: any[];
+  target?: object;
+  goDeep?: boolean;
   customizer?: FnAny;
 }
 

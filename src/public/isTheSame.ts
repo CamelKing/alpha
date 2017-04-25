@@ -9,18 +9,19 @@
  * @since 0.0.1
  * @category Object
  *
- * @refactor April 17, 2017
+ * @refactor 0.2.0 April 25, 2017
  *
  * @export
  * @param {*} a
  * @param {*} b
+ * @param {boolean} [goDeep=false]
  * @returns {boolean}
  */
 
+import { _concur } from '../private/_concur';
 import { theTypeOf } from './theTypeOf';
 
-// tslint:disable-next-line:cyclomatic-complexity
-export function isTheSame(a: any, b: any): boolean {
+export function isTheSame(a: any, b: any, goDeep: boolean = false): boolean {
 
   let same: boolean = true;
 
@@ -32,46 +33,35 @@ export function isTheSame(a: any, b: any): boolean {
   switch (ta) {
 
     case 'array':
-
       const lenA: number = a.length;
-
       if (lenA !== b.length) return false;
-
       for (let i: number = 0; i < lenA; i++) {
         if (!isTheSame(a[i], b[i])) return false;
       }
-
+      same = _concur(a, b, goDeep);
       break;
 
     case 'error':
     case 'object':
-
-      const keyA: string[] = Object.getOwnPropertyNames(a);
-      const keyB: string[] = Object.getOwnPropertyNames(b);
-
-      const lenKeyA: number = keyA.length;
-      if (lenKeyA !== keyB.length) return false;
-
-      for (let i: number = 0; i < lenKeyA; i++) {
-        const key: string = keyA[i];
-        if (keyB.indexOf(key) < 0) return false;
-        if (!isTheSame(a[key], b[key])) return false;
-      }
+      same = _concur(a, b, goDeep);
       break;
 
     case 'date':
-      same = (a.getTime() === b.getTime());
+      same = a.getTime() === b.getTime() && _concur(a, b, goDeep);
       break;
 
     case 'function':
-      same = isTheSame(a(), b());
+      same = isTheSame(a(), b(), goDeep);
       break;
 
     case 'symbol':
     case 'string':
     case 'boolean':
     case 'number':
-      same = (a === b);
+      // take advantage that _concur will perform simple === comparison 
+      // if either/both a and b is not object
+      // note: a and b could be a objectify primitives by Object()
+      same = _concur(a, b, goDeep);
       break;
 
     case 'undefined':
@@ -80,7 +70,7 @@ export function isTheSame(a: any, b: any): boolean {
       same = true;
       break;
 
-    case 'promise':
+    // case 'promise':
     default:
       same = false;
       break;

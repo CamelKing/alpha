@@ -1,4 +1,4 @@
-import { assign, assignIn, clone } from '../src/alpha';
+import { assign, assignIn, clone, isTheSame } from '../src/alpha';
 import { expect, should } from 'chai';
 
 import { FnAny } from '../src/constants';
@@ -69,6 +69,7 @@ Bar.prototype['y'] = 'Brown';
 Bar.prototype['z'] = false;
 
 const fn: FnAny = () => ({ z: 'function' });
+const pr: Promise<object> = Promise.resolve({ z: 'promise' });
 
 const target1: Foo = new Foo;
 const target2: Error = new Error('Target Error');
@@ -79,31 +80,75 @@ const source3: object = { d: 2, e: 'world', f: false };
 const source4: Error = new Error('Second Error');
 
 const answer0: object = { a: 1, b: 'hello', c: true };
-const answer1: object = { a: 1, b: 'hello', c: true, z: 'function' };
-const answer2: object = { a: 1, b: 'hello', c: true, number: 123 };
-const answer3: object = { t: 'I am target' };
-const answer4: object = { t: 'I am target', a: 1, b: 'hello', c: true };
-const answer5: object = { t: 'No more target!', a: 2 };
-const answer6: object = { t: 'I am target', a: 1, b: 'hello', c: true, d: 2, e: 'world', f: false };
-const answer7: object = { t: 'No more target!', a: 2, b: 'hello', c: true };
-const answer8: Foo = clone(target1) as Foo;
-answer8['message'] = source4.message;
-answer8['stack'] = source4.stack;
-const answer9: Error = clone(target2) as Error;
-answer9['a'] = 2;
-answer9['t'] = 'No more target!';
-const answer10: object = { a: 1, b: 'hello', c: true, x: 1, y: 'Brown', z: false };
-const answer11: object = { a: 1, b: 'hello', c: true, x: 1, y: 'Brown', z: false, number: 123 };
-const answer12: object = { t: 'I am target', a: 1, b: 'hello', c: true, x: 1, y: 'Brown', z: false };
-const answer13: object = { t: 'I am target', a: 1, b: 'hello', c: true, x: 1, y: 'Brown', z: false, d: 2, e: 'world', f: false };
-const answer14: object = { t: 'No more target!', a: 2, b: 'hello', c: true, x: 1, y: 'Brown', z: false };
+
+const answer1: object = Object(NaN);
+answer1['a'] = 1;
+answer1['b'] = 'hello';
+answer1['c'] = true;
+
+const answer2: object = Object(pr);
+answer2['a'] = 1;
+answer2['b'] = 'hello';
+answer2['c'] = true;
+
+const answer3: any = fn;
+answer3['a'] = 1;
+answer3['b'] = 'hello';
+answer3['c'] = true;
+
+const answer4: object = Object(123);
+answer4['a'] = 1;
+answer4['b'] = 'hello';
+answer4['c'] = true;
+
+const answer5: object = { t: 'I am target' };
+const answer6: object = { t: 'I am target', a: 1, b: 'hello', c: true };
+const answer7: object = { t: 'No more target!', a: 2 };
+const answer8: object = { t: 'I am target', a: 1, b: 'hello', c: true, d: 2, e: 'world', f: false };
+const answer9: object = { t: 'No more target!', a: 2, b: 'hello', c: true };
+const answer10: Foo = clone(target1) as Foo;
+answer10['message'] = source4.message;
+answer10['stack'] = source4.stack;
+const answer11: Error = clone(target2) as Error;
+answer11['a'] = 2;
+answer11['t'] = 'No more target!';
+const answer21: object = { a: 1, b: 'hello', c: true, x: 1, y: 'Brown', z: false };
+
+const answer22: object = Object(NaN);
+answer22['a'] = 1;
+answer22['b'] = 'hello';
+answer22['c'] = true;
+answer22['x'] = 1;
+answer22['y'] = 'Brown';
+answer22['z'] = false;
+
+const answer23: FnAny = fn;
+answer23['x'] = 1;
+answer23['y'] = 'Brown';
+answer23['z'] = false;
+answer23['a'] = 1;
+answer23['b'] = 'hello';
+answer23['c'] = true;
+
+// const answer24: object = { a: 1, b: 'hello', c: true, x: 1, y: 'Brown', z: false, number: 123 };
+const answer24: object = Object(123);
+answer24['a'] = 1;
+answer24['b'] = 'hello';
+answer24['c'] = true;
+answer24['x'] = 1;
+answer24['y'] = 'Brown';
+answer24['z'] = false;
+
+const answer25: object = { t: 'I am target', a: 1, b: 'hello', c: true, x: 1, y: 'Brown', z: false };
+const answer26: object = { t: 'I am target', a: 1, b: 'hello', c: true, x: 1, y: 'Brown', z: false, d: 2, e: 'world', f: false };
+const answer27: object = { t: 'No more target!', a: 2, b: 'hello', c: true, x: 1, y: 'Brown', z: false };
 
 
 tests['assign'] = [
   'return source if target is null.',
   'return source if target is undefined.',
   'return source if target is NaN.',
-  'return source if target is a promise.',
+  // 'return source if target is a promise.',
   'treat non primitives and non objects as empty object.',
   'convert \'primitives\' target to object before performing assign.',
   'return target as is if source is null.',
@@ -122,7 +167,7 @@ inputs['assign'] = [
   [null, source1],
   [undefined, source1],
   [NaN, source1],
-  [Promise.resolve({ z: 'promise' }), source1],
+  // [pr, source1],
   [fn, source1],
   [123, source1],
   [target1, null],
@@ -137,31 +182,35 @@ inputs['assign'] = [
   [target2, source2],
 ];
 
+console.log(assign(123, source1));
+console.log(answer4);
+console.log(isTheSame(answer4, assign(123, source1)));
+console.log(answer4 === assign(123, source1));
+
 answers['assign'] = [
   answer0,
   answer0,
-  answer0,
-  answer0,
-  answer0,
-  answer2,
-  answer3,
-  answer3,
+  answer1,
+  // answer2,
   answer3,
   answer4,
+  answer5,
+  answer5,
   answer5,
   answer6,
   answer7,
   answer8,
-  source4,
   answer9,
+  answer10,
+  source4,
+  answer11,
 ];
-
 
 tests['assignIn'] = [
   'return source if target is null.',
   'return source if target is undefined.',
   'return source if target is NaN.',
-  'return source if target is a promise.',
+  // 'return source if target is a promise.',
   'treat non primitives and non objects as empty object.',
   'convert \'primitives\' target to object before performing assign.',
   'return target as is if source is null.',
@@ -180,7 +229,7 @@ inputs['assignIn'] = [
   [null, source1],
   [undefined, source1],
   [NaN, source1],
-  [Promise.resolve({ z: 'promise' }), source1],
+  // [Promise.resolve({ z: 'promise' }), source1],
   [fn, source1],
   [123, source1],
   [target1, null],
@@ -196,23 +245,23 @@ inputs['assignIn'] = [
 ];
 
 answers['assignIn'] = [
-  answer10,
-  answer10,
-  answer10,
-  answer10,
-  answer10,
-  answer11,
-  answer3,
-  answer3,
-  answer3,
-  answer12,
+  answer21,
+  answer21,
+  answer22,
+  // answer21,
+  answer23,
+  answer24,
   answer5,
-  answer13,
-  answer14,
-  answer8,
+  answer5,
+  answer5,
+  answer25,
+  answer7,
+  answer26,
+  answer27,
+  answer10,
   source4,
-  answer9,
+  answer11,
 ];
 
 
-_testSuites(funcs, tests, inputs, answers, suiteText, __filename);
+_testSuites(funcs, tests, inputs, answers, suiteText, __filename, true);

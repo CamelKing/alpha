@@ -67,7 +67,7 @@ export function _testSuites(funcs: FnAny[],
 
     funcs.forEach((func: FnAny, fIndex: number) => {
 
-      let funcName: string = '';
+      const funcName: string = '';
 
       if (!only[fIndex]) {
 

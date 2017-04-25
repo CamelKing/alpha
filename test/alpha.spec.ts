@@ -2,6 +2,8 @@ import * as alpha from '../src/alpha';
 
 import { expect, should } from 'chai';
 
+import { ls } from 'shelljs';
+
 should();
 
 const categories: string[] = [

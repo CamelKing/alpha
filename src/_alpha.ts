@@ -41,6 +41,7 @@ export * from './private/_union';
 
 // @category Object
 export * from './private/_assign';
+export * from './private/_concur';
 export * from './private/_stringifyReplacer';
 
 // @category Functions

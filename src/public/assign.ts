@@ -22,6 +22,6 @@ import { theTypeOf } from '../public/theTypeOf';
 
 export function assign(target: any, ...sources: Array<object>): object {
 
-  return _assign(target, sources);
+  return _assign({ target, sources });
 
 }

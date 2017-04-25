@@ -48,6 +48,7 @@ testControl['numberMods'] = [
 
 testControl['objectMods'] = [
   '_assign',
+  '_concur',
   '_stringifyReplacer',
 ];
 
