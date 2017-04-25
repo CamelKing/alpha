@@ -48,6 +48,9 @@ export function clone(source: any[] | object | Error): any[] | object | Error {
       target = new Error((source as Error).message);
       break;
 
+    case 'date':
+      return new Date((source as Date).getTime());
+
     // any other data type just return as is
     default:
       return source;
@@ -99,6 +102,10 @@ function _deepPropertyCopy(source: object, target: object,
 
     const descriptor: PropertyDescriptor
       = Object.getOwnPropertyDescriptor(source, key);
+
+    // if (theTypeOf(source[key]) === 'date') {
+    //   descriptor = new Date(source[key].getTime());
+    // }
 
     // the follow is the only difference from shallow copy
     /* istanbul ignore else */
@@ -214,3 +221,26 @@ function _deepValueCopy(descriptor: PropertyDescriptor,
   }
 
 }
+
+
+
+// const a: Date = new Date();
+// const d: object = { a: 1, b: 'hello', c: true, d: null, e: undefined, f: new Error('test'), g: [1, 'hello', false], h: () => 188, i: Promise.resolve(166), preciate: a };
+// const c: object = clone(d);
+
+// console.log('Date : ', d);
+// console.log('Clone: ', c);
+
+// console.log('D function: ', d['h']());
+// console.log('C function: ', c['h']());
+
+// const e: any = d['i'];
+// console.log('D promise: ', d['i']);
+// console.log('C promise: ', c['i']);
+// console.log('E promise: ', e);
+
+// console.log('type of D: ', theTypeOf(d['preciate']));
+// console.log('type of C: ', theTypeOf(c['preciate']));
+
+// console.log('D.date: ', (d['preciate']));
+// console.log('C.date: ', (c['preciate']));
