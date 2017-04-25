@@ -126,7 +126,6 @@ export * from './public/toObject';
 
 // @category String
 export * from './public/camelCase';
-export * from './public/capitalise';
 export * from './public/centerAlign';
 export * from './public/cobolCase';
 export * from './public/hyphenate';
@@ -142,6 +141,7 @@ export * from './public/randomText';
 export * from './public/rightAlign';
 export * from './public/snakeCase';
 export * from './public/upperSnakeCase';
+export * from './public/toCaps';
 export * from './public/toFixWidth';
 export * from './public/toParagraph';
 export * from './public/trim';

@@ -7,7 +7,7 @@ import { ls } from 'shelljs';
 
 should();
 
-describe.only('\nimport * as _alpha from \'../src/_alpha.ts\'\n', () => {
+describe('import * as _alpha from \'../src/_alpha.ts\'', () => {
 
   const imports: number = Reflect.ownKeys(_alpha).length;
   const defs: number = Reflect.ownKeys(constants).length;

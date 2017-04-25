@@ -18,8 +18,8 @@
  *
  */
 
-import { capitalise } from '../public/capitalise';
 import { reAllWordBreakers } from '../constants';
+import { toCaps } from '../public/toCaps';
 import { toWords } from '../public/toWords';
 
 export function _makeCase(input: string, mode: string): string {
@@ -85,7 +85,7 @@ export function _makeCase(input: string, mode: string): string {
   }
 
   const output: string = toWords(input)
-    .map((word: string) => mixCase ? capitalise(word) : word[baseCase]())
+    .map((word: string) => mixCase ? toCaps(word) : word[baseCase]())
     .join(connecting);
 
   if (output.length === 0) return '';

@@ -172,7 +172,7 @@ export type FnAny = (...args: any[]) => any;
 
 */
 
-const resWorkBreakersUnicode: string = `
+export const resUnicodeWorkBreakers: string = `
 \\u0021-\\u002F
 \\u003A-\\u0040
 \\u005B-\\u0060
@@ -241,13 +241,13 @@ const resWorkBreakersUnicode: string = `
 \\uFF01-\\uFF03\\uFF05-\\uFF0A\\uFF0C-\\uFF0F\\uFF1A\\uFF1B\\uFF1F\\uFF20\\uFF3B-\\uFF3D\\uFF3F\\uFF5B\\uFF5D\\uFF5F-\\uFF65
 `;
 
-const resWordBreak: string = '[\\s' + resWorkBreakersUnicode + ']+';
+export const resWordBreak: string = `[\\s${resUnicodeWorkBreakers}]+`;
 
 // regexp string to look for single quotes, used for conversion to apostrophe
 export const reLeftSingleQuote: RegExp = /\u2018{1,1}/g;
 
 // inserting the 'exclude' marker to make a regexp that looks for words instead.
-const resWord: string = resWordBreak.slice(0, 1) + '^' + resWordBreak.slice(1);
+export const resWord: string = `[^\\s${resUnicodeWorkBreakers}]+`;
 
 export const reFirstWord: RegExp = new RegExp(resWord);
 // export const reAllWords: RegExp = new RegExp(resWord, 'g');
