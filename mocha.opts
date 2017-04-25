@@ -9,7 +9,6 @@
 
 --log-timer-events
 --prof
---inline-diffs
 --check-leaks
 --ui bdd
 --colors

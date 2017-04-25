@@ -28,6 +28,7 @@
     "test": "mocha --opts mocha.opts --watch",
     "cover": "nyc mocha --opts mocha.opts",
     "mocha": "mocha --opts mocha.opts",
+    "new": "mocha test/new/**/*.spec.* --opts mocha.opts --watch",
     "make": "npm run lint && npm run build && npm run coverage",
     "tsc": "tsc --version && tsc --pretty",
     "sendlcov": "nyc report --reporter=text-lcov | coveralls",
