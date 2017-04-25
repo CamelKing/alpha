@@ -2,7 +2,16 @@
 --full-trace
 --bail
 --recursive
---reporter dot
+--reporter spec
 --slow 1
 --compilers ts-node/register
+--watch-extensions ts
+
+--log-timer-events
+--prof
+--inline-diffs
+--check-leaks
+--ui bdd
+--colors
+
 test/**/*.spec.* 

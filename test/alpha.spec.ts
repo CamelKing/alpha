@@ -11,10 +11,9 @@ should();
 describe.only('\nimport * as alpha from \'../src/alpha.ts\'\n', () => {
 
   const alphaCount: number = Reflect.ownKeys(alpha).length;
-  const _alphaCount: number = Reflect.ownKeys(_alpha).length;
   const constantsCount: number = Reflect.ownKeys(constants).length;
 
-  describe('public definitions from alpha library', () => {
+  describe('should import public definitions from alpha library', () => {
 
     const publicCount: number = ls('./src/public/*.ts').length;
     const publicModules: number = alphaCount - constantsCount;
@@ -30,7 +29,14 @@ describe.only('\nimport * as alpha from \'../src/alpha.ts\'\n', () => {
 
   });
 
-  describe('private definitions from _alpha library', () => {
+});
+
+describe.only('\nimport * as _alpha from \'../src/_alpha.ts\'\n', () => {
+
+  const _alphaCount: number = Reflect.ownKeys(_alpha).length;
+  const constantsCount: number = Reflect.ownKeys(constants).length;
+
+  describe('should import private definitions from _alpha library', () => {
 
     const privateCount: number = ls('./src/private/*.ts').length;
     const privateModules: number = _alphaCount - constantsCount;
