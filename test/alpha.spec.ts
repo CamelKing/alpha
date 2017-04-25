@@ -1,4 +1,6 @@
+import * as _alpha from '../src/_alpha';
 import * as alpha from '../src/alpha';
+import * as constants from '../src/constants';
 
 import { expect, should } from 'chai';
 
@@ -6,199 +8,40 @@ import { ls } from 'shelljs';
 
 should();
 
-const categories: string[] = [
-  'async',
-  'array',
-  'files',
-  'function',
-  'collection',
-  'number',
-  'object',
-  'string',
-  'time',
-];
+describe.only('\nimport * as alpha from \'../src/alpha.ts\'\n', () => {
 
-const types: string[] = ['Mods', 'Instances'];
+  const alphaCount: number = Reflect.ownKeys(alpha).length;
+  const _alphaCount: number = Reflect.ownKeys(_alpha).length;
+  const constantsCount: number = Reflect.ownKeys(constants).length;
 
-const testControl: object = {};
+  describe('public definitions from alpha library', () => {
 
-testControl['asyncMods'] = [
-  'makeAwait',
-  'makePromise',
-];
+    const publicCount: number = ls('./src/public/*.ts').length;
+    const publicModules: number = alphaCount - constantsCount;
 
-testControl['arrayMods'] = [
-  'ascOrder',
-  'ascOrderBy',
-  'chunk',
-  'compact',
-  'deepCompact',
-  'descOrder',
-  'descOrderBy',
-  'difference',
-  'differenceBy',
-  'differenceWith',
-  'drop',
-  'dropRight',
-  'dropRightWhile',
-  'dropWhile',
-  'fill',
-  'flatten',
-  'flattenDeep',
-  'flattenDepth',
-  'head',
-  'initial',
-  'intersection',
-  'intersectionBy',
-  'intersectionWith',
-  'nth',
-  'pluck',
-  'pull',
-  'pullAll',
-  'pullAllBy',
-  'pullAllWith',
-  'remove',
-  'sortedIndexBy',
-  'sortedIndexOf',
-  'sortedInsertAt',
-  'sortedLastIndexBy',
-  'sortedLastIndexOf',
-  'sortedLastInsertAt',
-  'sortedUniq',
-  'sortedUniqBy',
-  'tail',
-  'take',
-  'takeRight',
-  'takeRightWhile',
-  'takeWhile',
-  'union',
-  'unionBy',
-  'unionWith',
-  'uniq',
-  'uniqBy',
-  'uniqWith',
-  'unzip',
-  'unzipWith',
-  'without',
-  'zip',
-  'zipObject',
-  'zipWith',
-];
+    it(publicCount + ' modules imported from public files', () => {
+      publicModules.should.equal(publicCount);
+    });
 
-testControl['filesMods'] = [
-  'ls',
-];
+    it(constantsCount + ' constants/types/interfaces imported', () => {
+      constantsCount.should.greaterThan(0);
+      constantsCount.should.equals(constantsCount);
+    });
 
-testControl['collectionMods'] = [
-  'enumKeys',
-];
+  });
 
-testControl['numberMods'] = [
-  'clamp',
-  'inRange',
-  'isNumeric',
-  'max',
-  'maxBy',
-  'maxDeep',
-  'maxDeepBy',
-  'mean',
-  'meanBy',
-  'meanDeep',
-  'meanDeepBy',
-  'min',
-  'minBy',
-  'minDeep',
-  'minDeepBy',
-  'randomInteger',
-  'round',
-  'roundUp',
-  'roundDown',
-  'sum',
-  'sumBy',
-  'sumDeep',
-  'sumDeepBy',
-];
+  describe('private definitions from _alpha library', () => {
 
-testControl['objectMods'] = [
-  'assign',
-  'assignIn',
-  'clone',
-  'fromPairs',
-  'isTheSame',
-  'objectify',
-  'stringify',
-  'theTypeOf',
-  'toObject',
-  'toPairs',
-];
+    const privateCount: number = ls('./src/private/*.ts').length;
+    const privateModules: number = _alphaCount - constantsCount;
 
-testControl['stringMods'] = [
-  'camelCase',
-  'capitalise',
-  'centerAlign',
-  'cobolCase',
-  'hyphenate',
-  'kebabCase',
-  'leftAlign',
-  'lowerFirst',
-  'pad',
-  'padLeft',
-  'padRight',
-  'pascalCase',
-  'prints',
-  'randomText',
-  'rightAlign',
-  'snakeCase',
-  'toFixWidth',
-  'toParagraph',
-  'toWords',
-  'trim',
-  'trimLeft',
-  'trimRight',
-  'truncate',
-  'upperFirst',
-  'upperSnakeCase',
-];
+    it(privateCount + ' modules imported from private files', () => {
+      privateModules.should.equal(privateCount);
+    });
 
-testControl['timeInstances'] = [
-  'stopwatch',
-  // 'timer',
-];
-
-testControl['objectInstances'] = [
-];
-
-let count: number = 0;
-
-describe('alpha.ts should act as a barrel which re-export...\n', () => {
-
-  types.forEach((type: string) => {
-
-    categories.forEach((cat: string) => {
-
-      describe('category: ' + cat, () => {
-
-        const testSubject: string = cat + type;
-
-        if (testControl.hasOwnProperty(testSubject)) {
-
-          testControl[testSubject].forEach((sub: string) => {
-
-            const testCondition: string = 'no. ' + (++count) + ' '
-              + ((typeof (alpha[sub]) !== 'function') ?
-                'instance of ' + sub + ' object' :
-                'function ' + sub + '()');
-
-            it(testCondition, () => {
-              (alpha[sub]).should.not.equal(undefined);
-            });
-
-          });
-
-        }
-
-      });
-
+    it(constantsCount + ' constants/types/interfaces imported', () => {
+      constantsCount.should.greaterThan(0);
+      constantsCount.should.equals(constantsCount);
     });
 
   });

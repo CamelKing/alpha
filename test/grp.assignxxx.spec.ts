@@ -182,10 +182,10 @@ inputs['assign'] = [
   [target2, source2],
 ];
 
-console.log(assign(123, source1));
-console.log(answer4);
-console.log(isTheSame(answer4, assign(123, source1)));
-console.log(answer4 === assign(123, source1));
+// console.log(assign(123, source1));
+// console.log(answer4);
+// console.log(isTheSame(answer4, assign(123, source1)));
+// console.log(answer4 === assign(123, source1));
 
 answers['assign'] = [
   answer0,
@@ -264,4 +264,4 @@ answers['assignIn'] = [
 ];
 
 
-_testSuites(funcs, tests, inputs, answers, suiteText, __filename, true);
+_testSuites(funcs, tests, inputs, answers, suiteText, __filename);
