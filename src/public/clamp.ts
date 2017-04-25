@@ -8,15 +8,15 @@
  * @since 0.1.0
  * @category Number
  *
- * @refactor April 17, 2017
+ * @refactor 0.2.0 April 25, 2017
  *
  */
 
-export function clamp(input: number, upper: number, lower?: number): number {
+export function clamp(input: number, max: number, min?: number): number {
 
   if (input == null) return input;
-  lower = lower || -Infinity;
-  if (upper < lower)[upper, lower] = [lower, upper];
-  return input > upper ? upper : input < lower ? lower : input;
+  min = min || -Infinity;
+  if (max < min)[max, min] = [min, max];
+  return input > max ? max : input < min ? min : input;
 
 }

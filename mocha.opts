@@ -1,3 +1,4 @@
+test/**/*.spec.* 
 
 --full-trace
 --bail
@@ -5,12 +6,8 @@
 --reporter spec
 --slow 1
 --compilers ts-node/register
---watch-extensions ts
-
 --log-timer-events
 --prof
 --check-leaks
 --ui bdd
 --colors
-
-test/**/*.spec.* 
