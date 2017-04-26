@@ -14,31 +14,29 @@
  * @since 0.0.1
  * @category Array
  *
- * @refactor April 13, 2017
+ * @refactor 0.2.0 April 26, 2017
  *
  * @export
- * @param {any[]} input
+ * @param {any[]} base
  * @param {any[]} exclude
- * @param {FnIteratee} [iteratee]
- * @param {FnComparator} [compare]
+ * @param {ArrayOption} [userOption]
  * @returns {any[]}
  */
 
-import { ArrayOption, FnComparator, FnFinder, FnIteratee } from '../constants';
-
+import { ArrayOption } from '../constants';
 import { _makeMatcher } from './_makeMatcher';
 import { assign } from '../public/assign';
 import { isTheSame } from '../public/isTheSame';
 
-export function _diff(input: any[], exclude: any[],
+export function _diff(base: any[], exclude: any[],
   userOption?: ArrayOption): any[] {
 
   const option: ArrayOption = assign({ compare: isTheSame }, userOption);
 
-  if (!input || input.length === 0) return [];
-  if (!exclude || exclude.length === 0) return input;
+  if (!base || base.length === 0) return [];
+  if (!exclude || exclude.length === 0) return base;
 
-  return input.filter((item: any) =>
+  return base.filter((item: any) =>
     !exclude.find(_makeMatcher(item, option.iteratee, option.compare)));
 
 }

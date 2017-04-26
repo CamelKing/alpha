@@ -13,14 +13,14 @@
  *
  * @param {any[]} input
  * @param {any[]} exclude
- * @param {FnIteratee} iteratee
+ * @param {AnyIteratee} [iteratee]
  * @returns {any[]}
  */
 
-import { FnIteratee } from '../constants';
+import { AnyIteratee } from '../constants';
 import { _diff } from '../private/_diff';
 
 export function differenceBy(input: any[], exclude: any[],
-  iteratee: FnIteratee): any[] {
+  iteratee?: AnyIteratee): any[] {
   return _diff(input, exclude, { iteratee });
 }
