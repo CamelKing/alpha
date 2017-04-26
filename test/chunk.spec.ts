@@ -92,7 +92,7 @@ describe(chunk.name + '() - @category Array', () => {
 
   });
 
-  describe('should handle invalid parameters properly', () => {
+  describe('should handle null/undefined/empty parameters properly', () => {
 
     it('undefined => []', () => {
       const result: any[] = chunk(undefined);

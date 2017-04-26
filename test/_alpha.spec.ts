@@ -14,7 +14,7 @@ describe('import * as _alpha from \'../src/_alpha.ts\'', () => {
 
   describe('should import private definitions from _alpha library', () => {
 
-    const files: number = ls('./src/private/*.ts').length;
+    const files: number = ls('./src/base/*.ts').length;
     const modules: number = imports - defs;
 
     it(files + ' modules imported from private files', () => {

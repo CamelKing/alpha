@@ -113,7 +113,7 @@ describe(clamp.name + '() - @category Number', () => {
 
   });
 
-  describe('should handle invalid parameters properly', () => {
+  describe('should handle null/undefined/empty parameters properly', () => {
 
     it('return NaN when passed in NaN', () => {
       const result: number = clamp(NaN, 100, 1);

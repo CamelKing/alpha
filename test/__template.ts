@@ -19,7 +19,7 @@ describe.only(expect.name + '() - @category __Cat__', () => {
 
   });
 
-  describe('should handle invalid parameters properly', () => {
+  describe('should handle null/undefined/empty parameters properly', () => {
 
     it('return {} when passed in {}', () => {
 

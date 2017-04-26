@@ -194,7 +194,7 @@ describe(difference.name + '() - @category Array', () => {
 
   });
 
-  describe('should handle invalid parameters properly', () => {
+  describe('should handle null/undefined/empty parameters properly', () => {
 
     it('[1,2,3] [] => [1,2,3]', () => {
       const base: number[] = [1, 2, 3];

@@ -14,7 +14,7 @@ describe('import * as alpha from \'../src/alpha.ts\'', () => {
 
   describe('should import public definitions from alpha library', () => {
 
-    const publicCount: number = ls('./src/public/*.ts').length;
+    const publicCount: number = ls('./src/common/*.ts').length;
     const publicModules: number = alphaCount - constantsCount;
 
     it(publicCount + ' modules imported from public files', () => {

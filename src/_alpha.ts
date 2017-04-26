@@ -10,41 +10,41 @@
 export * from './constants';
 
 // @category Math
-export * from './private/_round';
+export * from './base/_round';
 
 // @category String
-export * from './private/_firstCase';
-export * from './private/_makeCase';
-export * from './private/_hyphenateToArray';
-export * from './private/_truncateToArray';
+export * from './base/_firstCase';
+export * from './base/_makeCase';
+export * from './base/_hyphenateToArray';
+export * from './base/_truncateToArray';
 
 // @category array
-export * from './private/_calcBy';
-export * from './private/_compact';
-export * from './private/_diff';
-export * from './private/_drop';
-export * from './private/_intersectAll';
-export * from './private/_intersectTwo';
-export * from './private/_isFromLeft';
-export * from './private/_pullAll';
-export * from './private/_makeChecker';
-export * from './private/_makeComparator';
-export * from './private/_makeFinder';
-export * from './private/_makeIteratee';
-export * from './private/_makeMatcher';
-export * from './private/_makeSorter';
-export * from './private/_orderBy';
-export * from './private/_removeNonArray';
-export * from './private/_removeRedundants';
-export * from './private/_searchArray';
-export * from './private/_take';
-export * from './private/_union';
+export * from './base/_calcBy';
+export * from './base/_compact';
+export * from './base/_diff';
+export * from './base/_drop';
+export * from './base/_intersectAll';
+export * from './base/_intersectTwo';
+export * from './base/_isFromLeft';
+export * from './base/_pullAll';
+export * from './base/_makeChecker';
+export * from './base/_makeComparator';
+export * from './base/_makeFinder';
+export * from './base/_makeIteratee';
+export * from './base/_makeMatcher';
+export * from './base/_makeSorter';
+export * from './base/_orderBy';
+export * from './base/_removeNonArray';
+export * from './base/_removeRedundants';
+export * from './base/_searchArray';
+export * from './base/_take';
+export * from './base/_union';
 
 // @category Object
-export * from './private/_assign';
-export * from './private/_concur';
-export * from './private/_stringifyReplacer';
+export * from './base/_assign';
+export * from './base/_concur';
+export * from './base/_stringifyReplacer';
 
 // @category Functions
-export * from './private/_getOptionalFunction';
-export * from './private/_makeIteratee';
+export * from './base/_getOptionalFunction';
+export * from './base/_makeIteratee';
