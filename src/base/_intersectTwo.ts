@@ -12,7 +12,7 @@
  * if iteratee is omitted, the _makeFInder will put in a default iteratee
  * which access the value as it is,
  *
- * if comparator is omitted, this function will default to using isTheSame()
+ * if comparator is omitted, this function will default to using isEqual()
  * which perform deep compare on all sort of variable types.
  * (Take note _makeMatcher will use plain comparison === instead.)
  * (Take note _makeFinder will use plain comparison === instead.)
@@ -26,7 +26,7 @@
  * @param {any[]} arrA
  * @param {any[]} arrB
  * @param {FnIteratee} [iteratee=null]
- * @param {FnComparator} [compare=isTheSame]
+ * @param {FnComparator} [compare=isEqual]
  * @returns {any[]}
  */
 
@@ -35,14 +35,14 @@ import { AnyIteratee, ArrayOption, FnComparator, Primitives } from '../constants
 import { _makeMatcher } from './_makeMatcher';
 import { _removeRedundants } from './_removeRedundants';
 import { assign } from '../common/assign';
-import { isTheSame } from '../common/isTheSame';
+import { isEqual } from '../common/isEqual';
 
 export function _intersectTwo(arrA: any[], arrB: any[],
   userOption: ArrayOption): any[] {
-  // iteratee: AnyIteratee = null, compare: FnComparator = isTheSame): any[] {
+  // iteratee: AnyIteratee = null, compare: FnComparator = isEqual): any[] {
 
   const option: ArrayOption
-    = assign({ iteratee: null, compare: isTheSame }, userOption);
+    = assign({ iteratee: null, compare: isEqual }, userOption);
 
   if (Array.isArray(arrA) && Array.isArray(arrB)) {
 

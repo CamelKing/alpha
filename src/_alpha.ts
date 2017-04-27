@@ -42,7 +42,6 @@ export * from './base/_union';
 
 // @category Object
 export * from './base/_assign';
-export * from './base/_concur';
 export * from './base/_stringifyReplacer';
 
 // @category Functions

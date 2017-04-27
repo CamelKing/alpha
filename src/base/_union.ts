@@ -21,13 +21,13 @@ import { ArrayOption, FnComparator, FnIteratee } from '../constants';
 
 import { _makeMatcher } from './_makeMatcher';
 import { assign } from '../common/assign';
-import { isTheSame } from '../common/isTheSame';
+import { isEqual } from '../common/isEqual';
 
 export function _union(arrA: any[], arrB: any[],
   userOption?: ArrayOption): any[] {
 
   const opt: ArrayOption
-    = assign({ compare: isTheSame, iteratee: null }, userOption);
+    = assign({ compare: isEqual, iteratee: null }, userOption);
 
   let a: any[] = [];
   let b: any[] = [];

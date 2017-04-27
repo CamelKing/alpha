@@ -4,7 +4,7 @@
  * what is in input array but not found in exclude array.
  *
  * option to pass in comparator to control how comparison is done.
- * by default, isTheSame would be used, which conforms to SameValueZero
+ * by default, isEqual would be used, which conforms to SameValueZero
  * guideline as per ES7 spec:
  * http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero
  *
@@ -26,12 +26,12 @@
 import { ArrayOption } from '../constants';
 import { _makeMatcher } from './_makeMatcher';
 import { assign } from '../common/assign';
-import { isTheSame } from '../common/isTheSame';
+import { isEqual } from '../common/isEqual';
 
 export function _diff(base: any[], exclude: any[],
   userOption?: ArrayOption): any[] {
 
-  const option: ArrayOption = assign({ compare: isTheSame }, userOption);
+  const option: ArrayOption = assign({ compare: isEqual }, userOption);
 
   if (!base || base.length === 0) return [];
   if (!exclude || exclude.length === 0) return base;

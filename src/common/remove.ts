@@ -20,7 +20,7 @@
  */
 
 import { FnTester } from '../constants';
-import { isTheSame } from '../common/isTheSame';
+import { isEqual } from '../common/isEqual';
 import { pluck } from './pluck';
 
 export function remove(input: any[], test?: FnTester): any[] {

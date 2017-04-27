@@ -23,13 +23,13 @@ import { ArrayOption, FnComparator, FnIteratee } from '../constants';
 
 import { _makeComparator } from './_makeComparator';
 import { assign } from '../common/assign';
-import { isTheSame } from '../common/isTheSame';
+import { isEqual } from '../common/isEqual';
 import { pluck } from '../common/pluck';
 
 export function _pullAll(array: any[], toPull: any[],
   userOption?: ArrayOption): any[] {
 
-  const option: ArrayOption = assign({ compare: isTheSame }, userOption);
+  const option: ArrayOption = assign({ compare: isEqual }, userOption);
 
   const isSame: FnComparator = _makeComparator(option.iteratee, option.compare);
 

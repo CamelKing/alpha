@@ -117,12 +117,12 @@ export * from './common/assign';
 export * from './common/assignIn';
 export * from './common/clone';
 export * from './common/fromPairs';
-export * from './common/toPairs';
-export * from './common/isTheSame';
-export * from './common/objectify';
+export * from './common/isEqual';
 export * from './common/stringify';
 export * from './common/theTypeOf';
 export * from './common/toObject';
+export * from './common/toPairs';
+export * from './common/objectify';
 
 // @category String
 export * from './common/camelCase';

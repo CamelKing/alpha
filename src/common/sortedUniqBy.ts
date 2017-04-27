@@ -19,7 +19,7 @@
 import { AnyIteratee, FnComparator, FnIteratee } from '../constants';
 
 import { _makeComparator } from '../base/_makeComparator';
-import { isTheSame } from './isTheSame';
+import { isEqual } from './isEqual';
 import { theTypeOf } from './theTypeOf';
 
 export function sortedUniqBy(input: any[], iteratee?: AnyIteratee): any[] {
@@ -28,7 +28,7 @@ export function sortedUniqBy(input: any[], iteratee?: AnyIteratee): any[] {
 
   const output: any[] = [];
 
-  const compare: FnComparator = _makeComparator(iteratee, isTheSame);
+  const compare: FnComparator = _makeComparator(iteratee, isEqual);
 
   // special treatment for object/array, as iteratee would fail on null
   const type: string = theTypeOf(input[0]);

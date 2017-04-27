@@ -10,7 +10,7 @@
  * @returns {any[]}
  */
 
-import { isTheSame } from '../common/isTheSame';
+import { isEqual } from '../common/isEqual';
 
 export function without(input: any[], ...values: any[]): any[] {
 
@@ -23,7 +23,7 @@ export function without(input: any[], ...values: any[]): any[] {
   let output: any[] = input.slice(0);
 
   for (let i: number = 0; i < length; i++) {
-    output = output.filter((item: any) => !isTheSame(item, values[i]));
+    output = output.filter((item: any) => !isEqual(item, values[i]));
   }
 
   return output;

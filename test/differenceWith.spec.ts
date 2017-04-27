@@ -1,4 +1,4 @@
-import { FnComparator, differenceWith, isTheSame } from '../src/alpha';
+import { FnComparator, differenceWith, isEqual } from '../src/alpha';
 import { expect, should } from 'chai';
 
 should();
@@ -7,19 +7,19 @@ describe(differenceWith.name + '() - @category Array', () => {
 
   describe('should compute differences using any compare', () => {
 
-    it('([{x:1,y:2}], [{y:2,x:1}], isTheSame) => [] <-- function', () => {
+    it('([{x:1,y:2}], [{y:2,x:1}], isEqual) => [] <-- function', () => {
       const base: any[] = [{ x: 1, y: 2 }];
       const exclude: any[] = [{ y: 2, x: 1 }];
-      const compare: FnComparator = isTheSame;
+      const compare: FnComparator = isEqual;
       const result: number[] = differenceWith(base, exclude, compare);
       result.should.have.lengthOf(0);
       result.should.deep.equal([]);
     });
 
-    it('([{x:1,y:2}], [{y:1,x:2}], isTheSame) => [{x:1,y:2}] <-- function', () => {
+    it('([{x:1,y:2}], [{y:1,x:2}], isEqual) => [{x:1,y:2}] <-- function', () => {
       const base: any[] = [{ x: 1, y: 2 }];
       const exclude: any[] = [{ y: 1, x: 2 }];
-      const compare: FnComparator = isTheSame;
+      const compare: FnComparator = isEqual;
       const result: number[] = differenceWith(base, exclude, compare);
       result.should.have.lengthOf(1);
       result.should.deep.equal([{ x: 1, y: 2 }]);
@@ -30,12 +30,12 @@ describe(differenceWith.name + '() - @category Array', () => {
   describe('should operate as a pure function', () => {
 
     it('the "base" and "exclude" will not be altered', () => {
-      const fn: FnComparator = (a: any, b: any) => isTheSame(Math.floor(a), Math.floor(b));
+      const fn: FnComparator = (a: any, b: any) => isEqual(Math.floor(a), Math.floor(b));
       const originalBase: number[] = [2.1, 1.2];
       const originalExclude: number[] = [2.3, 3.4];
       const base: number[] = originalBase.slice(0);
       const exclude: number[] = originalExclude.slice(0);
-      const compare: FnComparator = (a: any, b: any) => isTheSame(Math.floor(a), Math.floor(b));
+      const compare: FnComparator = (a: any, b: any) => isEqual(Math.floor(a), Math.floor(b));
       const result: number[] = differenceWith(base, exclude, compare);
       result.should.have.lengthOf(1);
       result.should.deep.equal([1.2]);

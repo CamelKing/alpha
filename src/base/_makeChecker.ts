@@ -24,12 +24,12 @@
 
 import { FnCheck, FnComparator } from '../constants';
 
-import { isTheSame } from '../common/isTheSame';
+import { isEqual } from '../common/isEqual';
 import { theTypeOf } from '../common/theTypeOf';
 
 export function _makeChecker(predicate: any, compare?: FnComparator): FnCheck {
 
-  compare = compare || isTheSame;
+  compare = compare || isEqual;
 
   switch (theTypeOf(predicate)) {
 
