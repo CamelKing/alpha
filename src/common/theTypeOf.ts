@@ -4,7 +4,7 @@
  * @since 0.0.1
  * @category Object
  *
- * @refactor April 17, 2017
+ * @refactor 0.2.0 April 27, 2017
  *
  * @export
  * @param {*} obj - object/primitives/any to indentify the type of
@@ -12,8 +12,6 @@
  */
 
 export function theTypeOf(obj: any): string {
-  const type: string
-    = ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
-  if (type === 'number' && isNaN(obj)) return 'nan';
-  return type;
+  if (Number.isNaN(obj)) return 'nan';
+  return ({}).toString.call(obj).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
 };
