@@ -14,7 +14,6 @@
  * @export
  * @param {*} a
  * @param {*} b
- * @param {boolean} [goDeep=false]
  * @returns {boolean}
  */
 
@@ -51,14 +50,6 @@ export function isEqual(a: any, b: any): boolean {
   // but this won't retrieve inheritted properties
   const keyA: PropertyKey[] = Reflect.ownKeys(a);
   const keyB: PropertyKey[] = Reflect.ownKeys(b);
-
-  // retrieve check the inherited properties as well (those up in __proto__)
-  for (const key in a as any) {
-    if (keyA.indexOf(key) < 0) keyA.push(key);
-  }
-  for (const key in b as any) {
-    if (keyB.indexOf(key) < 0) keyB.push(key);
-  }
 
   // first check - if not same number of keys = not concur
   const lenKeyA: number = keyA.length;

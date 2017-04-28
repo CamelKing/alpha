@@ -6,7 +6,7 @@ should();
 
 describe(isEqual.name + '() - @category Object', () => {
 
-  describe('should be able to compare Objectified Primitives correctly', () => {
+  describe('should compare Objectified Primitives correctly', () => {
 
     it('{[Number: 123] a:1} {{Promise: p1} => false', () => {
       const o1: object = Object(123);
@@ -221,7 +221,7 @@ describe(isEqual.name + '() - @category Object', () => {
 
   });
 
-  describe('should be able to compare arrays correctly', () => {
+  describe('should compare arrays correctly', () => {
 
     it('[1,[2,[3],4],5] [1,[2,[3.5],4],5] => false', () => {
       isEqual([1, [2, [3], 4], 5], [1, [2, [3.5], 4], 5]).should.be.false;
@@ -265,7 +265,7 @@ describe(isEqual.name + '() - @category Object', () => {
 
   });
 
-  describe('should be able to compare error object correctly', () => {
+  describe('should compare error object correctly', () => {
 
     it('compare error vs object (copy property) => false', () => {
       const e1: Error = new Error('testing 1');
@@ -292,7 +292,7 @@ describe(isEqual.name + '() - @category Object', () => {
 
   });
 
-  describe('should be able to compare object correctly', () => {
+  describe('should compare object correctly', () => {
 
     it('{a:1, b:{c:2, d:3}} {a:1, b:{c:2, d:4}} => false', () => {
       isEqual({ a: 1, b: { c: 2, d: 3 } }, { a: 1, b: { c: 2, d: 4 } }).should.be.false;
@@ -332,7 +332,7 @@ describe(isEqual.name + '() - @category Object', () => {
 
   });
 
-  describe('should be able to compare Symbol correctly', () => {
+  describe('should compare Symbol correctly', () => {
 
     const originalSym: Symbol = Symbol();
     const s1: Symbol = originalSym;
@@ -349,7 +349,7 @@ describe(isEqual.name + '() - @category Object', () => {
 
   });
 
-  describe('should be able to compare date object correctly', () => {
+  describe('should compare date object correctly', () => {
 
     const originalDate: Date = new Date();
     const d1: Date = new Date(originalDate.getTime());
@@ -366,7 +366,7 @@ describe(isEqual.name + '() - @category Object', () => {
 
   });
 
-  describe('should be able to compare booleans correctly', () => {
+  describe('should compare booleans correctly', () => {
 
     it('true vs "true" => false', () => {
       isEqual(true, 'true').should.be.false;
@@ -410,7 +410,7 @@ describe(isEqual.name + '() - @category Object', () => {
 
   });
 
-  describe('should be able to compare numbers correctly', () => {
+  describe('should compare numbers correctly', () => {
 
     it('Infinity vs NaN => false', () => {
       isEqual(Infinity, NaN).should.be.false;
@@ -510,7 +510,7 @@ describe(isEqual.name + '() - @category Object', () => {
 
   });
 
-  describe('should be able to compare strings correctly', () => {
+  describe('should compare strings correctly', () => {
 
     const s1: string = randomText(20);
 
