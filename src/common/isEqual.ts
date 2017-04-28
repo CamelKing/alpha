@@ -41,10 +41,15 @@ export function isEqual(a: any, b: any): boolean {
   // as such we need to check it's primitives value using valueOf()
   // before comparing the properties
   // in this case, we only check the 4 types: string, number, boolean, symbol
-  const valA: any = a.valueOf();
-  const valB: any = b.valueOf();
-  if (typeof valA !== typeof valB) return false;
-  if (['string', 'number', 'boolean', 'symbol'].includes(typeof valA) && valA !== valB) return false;
+  // however, in the case of a user defined class, there may not be
+  // .valueOf() method, so we will check if it is a valid method while
+  // retrieving the value
+  const valA: any = a.valueOf ? a.valueOf() : undefined;
+  const valB: any = b.valueOf ? b.valueOf() : undefined;
+  // if (typeof valA !== typeof valB) return false;
+
+  if (['string', 'number', 'boolean', 'symbol'].includes(typeof valA)
+    && valA !== valB) return false;
 
   // retrieve all keys (string, and symbol, both enumerable and not)
   // but this won't retrieve inheritted properties

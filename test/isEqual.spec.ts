@@ -8,6 +8,28 @@ describe(isEqual.name + '() - @category Object', () => {
 
   describe('should compare Objectified Primitives correctly', () => {
 
+    class Coord {
+      private x: number = NaN;
+      private y: number = NaN;
+      constructor([x, y]: [number, number]) {
+        this.x = x;
+        this.y = y;
+      }
+    }
+
+    it('user defined class objects with same data  => true', () => {
+      isEqual(new Coord([1, 2]), new Coord([1, 2])).should.be.true;
+    });
+
+    it('user defined class objects with different data  => false', () => {
+      isEqual(new Coord([1, 2]), new Coord([2, 3])).should.be.false;
+    });
+
+  });
+
+
+  describe('should compare Objectified Primitives correctly', () => {
+
     it('{[Number: 123] a:1} {{Promise: p1} => false', () => {
       const o1: object = Object(123);
       o1['a'] = 1;
